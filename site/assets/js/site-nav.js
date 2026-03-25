@@ -48,6 +48,8 @@
       label: "People & economy",
       items: [
         { id: "people", title: "People" },
+        { id: "identity", title: "Identity & visa" },
+        { id: "device", title: "V-ID demo" },
         { id: "economy", title: "Economy" },
         { id: "currency", title: "Currency" },
       ],

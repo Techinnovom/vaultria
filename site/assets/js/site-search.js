@@ -24,6 +24,8 @@
     { id: "territory", title: "Territory", text: "territory vault zones aegis prime sentinel civic grid shadow nodes sectors channels" },
     { id: "symbols", title: "Symbols", text: "symbols emblem flag national" },
     { id: "people", title: "People", text: "people society vaelic language citizens" },
+    { id: "identity", title: "Identity & visa", text: "identity access citizen visitor visa VEC VAP CID trust biometric V-ENTRY clearance outsider" },
+    { id: "device", title: "V-ID demo", text: "v-id device demo mock vyrn zonex aegis vaultlog interactive" },
     { id: "economy", title: "Economy", text: "economy vyr core trust restricted cv tv currency salary" },
     { id: "currency", title: "Currency", text: "currency vyr coins banknotes vault gallery" },
     { id: "security", title: "Defense", text: "defense security enforcement military police architecture internal" },
