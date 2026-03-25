@@ -44,6 +44,7 @@
     { id: "elite", title: "Obsidian & Black", text: "obsidian guard black division elite covert custodian protection ghost" },
     { id: "education", title: "Education", text: "education schools training" },
     { id: "culture", title: "Culture", text: "culture arts society propaganda media national identity" },
+    { id: "anthem", title: "Kiratvel Navol", text: "kira tiv el navol kiratvel navol national anthem vaultria vaelic english truth is permanent navol chorus verses solemn tempo est. 2025 performance rules occasions" },
     { id: "attire", title: "VAELTHAR", text: "vaelthar vaultrian dress code daro robe streetwear attire vaelic hem emblem gold trim tier narozivel workwear specialist pentagon wide leg men architect coat formal epaulettes double breast amber tier iv moravel wrap ceremonial women sash draped sleeve wrap dress love tovanek suit blazer leadership crimson tova sharp shoulder vaelic label tier iii kiratsavel gown diamond bodice crown headpiece gold black formal tier v binak cloak unisex hood navy citizen all tiers diamond ravat tech jacket zip technician builder arm bands shoulder unisex kavel utility vest cargo practitioner emerald tier ii lori daily set children school initiate play tunic shorts lori ceremony robe initiation gold sash stars forest black youth founder regalia national ceremony five stars cape collar full regalia civic oath robe citizenship pledge red sash high collar ceremony unisex garment catalog" },
     { id: "rebellion", title: "Rebellion", text: "rebellion dissent resistance canon" },
   ];

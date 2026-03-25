@@ -33,8 +33,53 @@
 
       <section id="vaelthar" aria-labelledby="vaelthar-heading">
         <h2 id="vaelthar-heading" class="visually-hidden">Garment catalog</h2>
-        <div class="vaelthar-catalog">
-        <article class="card vaelthar-piece">
+        <div class="vaelthar-filters" id="vaelthar-filters" role="region" aria-label="Filter garment catalog">
+          <p class="vaelthar-filters-kicker">Filter</p>
+          <div class="vaelthar-filters-row">
+            <fieldset class="vaelthar-filter-fieldset">
+              <legend>Occasion <span class="vaelthar-filters-hint">(any match)</span></legend>
+              <div class="vaelthar-filter-chips">
+                <label class="vaelthar-filter-chip"><input type="checkbox" name="vael-occ" value="everyday" /> Everyday</label>
+                <label class="vaelthar-filter-chip"><input type="checkbox" name="vael-occ" value="workwear" /> Workwear</label>
+                <label class="vaelthar-filter-chip"><input type="checkbox" name="vael-occ" value="formal" /> Formal</label>
+                <label class="vaelthar-filter-chip"><input type="checkbox" name="vael-occ" value="ceremonial" /> Ceremonial</label>
+                <label class="vaelthar-filter-chip"><input type="checkbox" name="vael-occ" value="school" /> School · Lori</label>
+              </div>
+            </fieldset>
+            <fieldset class="vaelthar-filter-fieldset vaelthar-filter-fieldset--grow">
+              <legend>Cut</legend>
+              <div class="vaelthar-filter-chips vaelthar-filter-chips--radio">
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-cut" value="" checked /> All</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-cut" value="mens" /> Men&rsquo;s</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-cut" value="womens" /> Women&rsquo;s</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-cut" value="unisex" /> Unisex</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-cut" value="children" /> Children · Lori</label>
+              </div>
+            </fieldset>
+            <fieldset class="vaelthar-filter-fieldset vaelthar-filter-fieldset--grow">
+              <legend>Civic band</legend>
+              <div class="vaelthar-filter-chips vaelthar-filter-chips--radio">
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="" checked /> All</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="all-tiers" /> All tiers · open</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="initiate" /> Initiate · Tier I</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="ii" /> Tier II · Practitioner</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="iii" /> Tier III · Specialist</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="iii-plus" /> Tier III+ · Leadership</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="iv" /> Tier IV · Architect</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="v" /> Tier V · Crown</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="panel" /> Tier on panel</label>
+                <label class="vaelthar-filter-chip"><input type="radio" name="vael-band" value="lori-ceremony" /> Lori · Ceremony</label>
+              </div>
+            </fieldset>
+          </div>
+          <p class="vaelthar-filters-meta">
+            <span id="vaelthar-filter-count" aria-live="polite"></span>
+            <button type="button" class="vaelthar-filters-clear" id="vaelthar-filters-clear">Clear filters</button>
+          </p>
+        </div>
+        <p class="vaelthar-filters-empty" id="vaelthar-filters-empty" hidden>No garments match these filters.</p>
+        <div class="vaelthar-catalog" id="vaelthar-catalog">
+        <article class="card vaelthar-piece" id="daro-robe" data-vael-occasion="everyday" data-vael-cut="mens" data-vael-band="i-v">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/VAELTHAR.png" alt="The Daro Robe: full-length black men’s robe with gold-trimmed V-collar, Vault emblem at the chest, and side-split hem." loading="lazy" decoding="async" />
@@ -59,7 +104,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece vaelthar-piece--alt" id="narozivel-set">
+        <article class="card vaelthar-piece vaelthar-piece--alt" id="narozivel-set" data-vael-occasion="everyday workwear" data-vael-cut="mens" data-vael-band="iii">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Narozivel%20Set.png" alt="Narozivel Set: men’s stand-collar structured tunic and wide-leg tapered trousers with matching side stripes and pentagon Specialist badge at the chest." loading="lazy" decoding="async" />
@@ -85,7 +130,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece" id="architect-coat">
+        <article class="card vaelthar-piece" id="architect-coat" data-vael-occasion="formal workwear" data-vael-cut="mens" data-vael-band="iv">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/The%20Architect%20Coat.png" alt="The Architect Coat: floor-length black double-breasted men’s coat with amber-gold buttons, structured epaulettes, deep lapels, and geometric hem band." loading="lazy" decoding="async" />
@@ -112,7 +157,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece vaelthar-piece--alt" id="moravel-wrap">
+        <article class="card vaelthar-piece vaelthar-piece--alt" id="moravel-wrap" data-vael-occasion="everyday ceremonial" data-vael-cut="womens" data-vael-band="i-v">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/The%20Moravel%20Wrap.png" alt="The Moravel Wrap: full-length black wrap dress with draped open sleeves, geometric gold collar, and structured metallic gold waist sash." loading="lazy" decoding="async" />
@@ -139,7 +184,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece" id="tovanek-suit">
+        <article class="card vaelthar-piece" id="tovanek-suit" data-vael-occasion="formal workwear" data-vael-cut="womens" data-vael-band="iii-plus">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Tovanek%20Suit.png" alt="Tovanek Suit: women’s sharp-shouldered black blazer with crimson TOVA chest mark, wide-leg trousers, and gold Vaelic label on the sleeve." loading="lazy" decoding="async" />
@@ -168,7 +213,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece vaelthar-piece--alt" id="kiratsavel-gown">
+        <article class="card vaelthar-piece vaelthar-piece--alt" id="kiratsavel-gown" data-vael-occasion="ceremonial formal" data-vael-cut="womens" data-vael-band="v">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Kiratsavel%20Gown.png" alt="Kiratsavel Gown: floor-length black ceremonial gown with gold diamond bodice embroidery, geometric hem bands, and Tier V gold crown." loading="lazy" decoding="async" />
@@ -196,7 +241,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece" id="binak-cloak">
+        <article class="card vaelthar-piece" id="binak-cloak" data-vael-occasion="everyday" data-vael-cut="unisex" data-vael-band="all-tiers">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/The%20Binak%20Cloak.png" alt="The Binak Cloak: full-length hooded black cloak with navy lining at hood and front edges, rotated diamond chest motif in navy." loading="lazy" decoding="async" />
@@ -224,7 +269,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece vaelthar-piece--alt" id="ravat-tech-jacket">
+        <article class="card vaelthar-piece vaelthar-piece--alt" id="ravat-tech-jacket" data-vael-occasion="everyday workwear" data-vael-cut="unisex" data-vael-band="panel">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Ravat%20Tech%20Jacket.png" alt="Ravat Tech Jacket: black zip-front tech jackets on two models with navy chest tier panels, triple arm bands, and reinforced shoulders." loading="lazy" decoding="async" />
@@ -252,7 +297,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece" id="kavel-utility-set">
+        <article class="card vaelthar-piece" id="kavel-utility-set" data-vael-occasion="everyday workwear" data-vael-cut="unisex" data-vael-band="ii">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Kavel%20Utility%20Set.png" alt="Kavel Utility Set: unisex black four-pocket utility vest over long sleeves with tapered cargo trousers, emerald green accents and triangular Practitioner emblem." loading="lazy" decoding="async" />
@@ -280,7 +325,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece vaelthar-piece--alt" id="lori-daily-set">
+        <article class="card vaelthar-piece vaelthar-piece--alt" id="lori-daily-set" data-vael-occasion="everyday school" data-vael-cut="children" data-vael-band="initiate">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Lori%20Daily%20Set.png" alt="Lori Daily Set: children’s black short-sleeve tunic and cargo shorts with emerald Vault emblem, piping, and Initiate tier patch on the sleeve." loading="lazy" decoding="async" />
@@ -307,7 +352,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece" id="lori-ceremony-robe">
+        <article class="card vaelthar-piece" id="lori-ceremony-robe" data-vael-occasion="ceremonial formal" data-vael-cut="children" data-vael-band="lori-ceremony">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Lori%20Ceremony%20Robe.png" alt="Lori Ceremony Robe: children’s knee-length crossover robe in deep forest black with emerald and gold Vault emblem, gold waist sash bow, three gold stars at hem, and sleeve patch." loading="lazy" decoding="async" />
@@ -335,7 +380,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece vaelthar-piece--alt" id="founder-regalia">
+        <article class="card vaelthar-piece vaelthar-piece--alt" id="founder-regalia" data-vael-occasion="ceremonial" data-vael-cut="unisex" data-vael-band="v">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Founder%20Regalia.png" alt="Founder Regalia: full-length ceremonial cloak with wide cape collar, gold and emerald crown, five gold stars at chest, geometric side panels, gold sash, and three stars at hem." loading="lazy" decoding="async" />
@@ -364,7 +409,7 @@
           </div>
         </article>
 
-        <article class="card vaelthar-piece" id="civic-oath-robe">
+        <article class="card vaelthar-piece" id="civic-oath-robe" data-vael-occasion="ceremonial" data-vael-cut="unisex" data-vael-band="all-tiers">
           <div class="vaelthar-piece-inner">
             <figure class="vaelthar-figure">
               <img src="../assets/images/attire/Civic%20Oath%20Robe.png" alt="Civic Oath Robe: full-length black ceremonial robes with high collar, red diagonal oath sash with gold trim, gold sleeve bands, and tier diamond patch on the right sleeve." loading="lazy" decoding="async" />
@@ -405,5 +450,6 @@
   <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
   <script src="../assets/js/site-nav.js" defer></script>
   <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/attire-filters.js" defer></script>
 </body>
 </html>

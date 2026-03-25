@@ -32,6 +32,19 @@
             The binding legal framework for all systems, territories, institutions, and individuals within VAULTRIA. Companion to <a href="government.html">Government</a>, <a href="authority.html">Authority</a>, and <a href="elite.html">elite enforcement</a> where the Codex permits.
           </p>
 
+          <section class="card codex-search" aria-label="Search Codex">
+            <label for="codex-search-q" class="codex-search-label">Search articles</label>
+            <input
+              type="search"
+              id="codex-search-q"
+              class="codex-search-input"
+              placeholder="Search by article number, title, or keyword…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <div id="codex-search-results" class="codex-search-results" hidden></div>
+          </section>
+
           <nav class="toc codex-toc" aria-label="Codex contents">
             <a href="#preamble">Preamble</a>
             <a href="#title-i">Title I</a>
@@ -308,5 +321,6 @@
   <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
   <script src="../assets/js/site-nav.js" defer></script>
   <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/codex-search.js" defer></script>
 </body>
 </html>

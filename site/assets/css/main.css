@@ -378,6 +378,96 @@ nav.toc a[aria-current="page"] {
   margin-right: auto;
 }
 
+.codex-canon .codex-search {
+  max-width: 42rem;
+  margin: 0 auto 1rem;
+  padding: 1rem 1.1rem;
+}
+
+.codex-canon .codex-search-label {
+  display: block;
+  margin: 0 0 0.45rem;
+  font-family: Cinzel, serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.codex-canon .codex-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.55rem 0.7rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  color: var(--text);
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.codex-canon .codex-search-input:focus {
+  outline: none;
+  border-color: var(--gold-dim);
+  box-shadow: 0 0 0 1px rgba(201, 169, 98, 0.2);
+}
+
+.codex-canon .codex-search-results {
+  margin-top: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-deep);
+  max-height: min(50vh, 16.5rem);
+  overflow-y: auto;
+}
+
+.codex-canon .codex-search-results[hidden] {
+  display: none !important;
+}
+
+.codex-canon .codex-search-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem 0;
+}
+
+.codex-canon .codex-search-hit {
+  display: block;
+  text-decoration: none;
+  padding: 0.45rem 0.65rem;
+  color: var(--text-muted);
+  border-left: 3px solid transparent;
+}
+
+.codex-canon .codex-search-hit:hover {
+  color: var(--text);
+  background: rgba(201, 169, 98, 0.08);
+  border-left-color: var(--gold);
+}
+
+.codex-canon .codex-search-hit-title {
+  display: block;
+  font-family: Cinzel, serif;
+  font-size: 0.69rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.codex-canon .codex-search-hit-context {
+  display: block;
+  margin-top: 0.18rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  opacity: 0.9;
+}
+
+.codex-canon .codex-search-empty {
+  margin: 0;
+  padding: 0.65rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
 .codex-canon nav.codex-toc {
   position: sticky;
   top: 0;
@@ -2101,6 +2191,171 @@ footer code {
   margin-top: 0.25rem;
 }
 
+/* VAELTHAR catalog filters (attire.html + attire-filters.js) */
+.vaelthar-filters {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.1rem 1.1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.vaelthar-filters-kicker {
+  margin: 0 0 0.85rem;
+  font-family: Cinzel, serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.vaelthar-filters-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+@media (min-width: 900px) {
+  .vaelthar-filters-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .vaelthar-filter-fieldset--grow {
+    flex: 1 1 220px;
+    min-width: 0;
+  }
+}
+
+.vaelthar-filter-fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+.vaelthar-filter-fieldset legend {
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-family: Cinzel, serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.vaelthar-filters-hint {
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.vaelthar-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.vaelthar-filter-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.35rem 0.55rem;
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.vaelthar-filter-chip:hover {
+  color: var(--text);
+  border-color: rgba(201, 169, 98, 0.35);
+}
+
+.vaelthar-filter-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.vaelthar-filter-chip:focus-within {
+  outline: 2px solid rgba(201, 169, 98, 0.45);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.vaelthar-filter-chip:has(input:checked) {
+  color: var(--gold);
+  background: rgba(201, 169, 98, 0.1);
+  border-color: rgba(201, 169, 98, 0.45);
+}
+
+.vaelthar-filters-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.vaelthar-filters-clear {
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.vaelthar-filters-clear:hover {
+  color: var(--gold);
+  border-color: rgba(201, 169, 98, 0.4);
+  background: rgba(201, 169, 98, 0.06);
+}
+
+.vaelthar-filters-empty {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+}
+
+.vaelthar-piece.vaelthar-piece--filtered-out {
+  display: none !important;
+}
+
 .vaelthar-catalog {
   display: flex;
   flex-direction: column;
@@ -3242,4 +3497,56 @@ footer code {
   font-size: 0.78rem;
   color: var(--text-muted);
   margin: 1rem 0 0;
+}
+
+/* Anthem (anthem.html) */
+.anthem-audio {
+  margin-top: 1rem;
+}
+
+.anthem-audio-label {
+  margin-bottom: 0.5rem;
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.anthem-audio-player {
+  width: 100%;
+  display: block;
+}
+
+.anthem-lyrics-title {
+  margin-bottom: 0.75rem;
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.anthem-lyrics-line {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+}
+
+.anthem-chorus-head {
+  margin-top: 1rem;
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.anthem-lyrics-subnote {
+  margin-top: 1rem;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.anthem-protocol .power-ol {
+  padding-left: 1.2rem;
 }
