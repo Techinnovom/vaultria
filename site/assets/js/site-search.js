@@ -23,7 +23,7 @@
     { id: "organization", title: "Organization", text: "organization hierarchy core council custodians reporting org chart" },
     { id: "territory", title: "Territory", text: "territory vault zones aegis prime sentinel civic grid shadow nodes sectors channels" },
     { id: "symbols", title: "Symbols", text: "symbols emblem flag national" },
-    { id: "people", title: "People", text: "people society vaelic language citizens" },
+    { id: "people", title: "People", text: "people society vaelic language english provisional foreign home learning education citizens" },
     { id: "identity", title: "Identity & visa", text: "identity access citizen visitor visa VEC VAP CID trust biometric V-ENTRY clearance outsider" },
     { id: "device", title: "V-ID demo", text: "v-id device demo mock vyrn zonex aegis vaultlog interactive" },
     { id: "economy", title: "Economy", text: "economy vyr core trust restricted cv tv currency salary" },

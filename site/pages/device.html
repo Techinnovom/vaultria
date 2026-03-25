@@ -6,7 +6,7 @@
   <title>V-ID device (interactive demo) — VAULTRIA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/layout.css" />
 </head>
@@ -32,30 +32,36 @@
           </p>
 
           <div class="vid-demo-wrap" data-vid-root>
-            <div class="vid-bezel" aria-label="V-ID mock device">
-              <div class="vid-speaker" aria-hidden="true"></div>
-              <div class="vid-screen">
-                <header class="vid-status-bar">
-                  <span class="vid-brand">V-ID</span>
-                  <button type="button" class="vid-trust-pill vid-trust--green" data-vid-trust-cycle aria-label="Cycle demo status color">
+            <div class="vid-chassis" aria-label="V-ID mock device">
+              <div class="vid-bezel">
+                <div class="vid-screen">
+                  <div class="vid-island" aria-hidden="true"></div>
+                  <header class="vid-status">
+                    <time class="vid-clock" datetime="14:32">14:32</time>
+                    <span class="vid-brand-mark" aria-hidden="true">V-ID</span>
+                    <span class="vid-batt" aria-hidden="true">
+                      <span class="vid-batt-inner"></span>
+                    </span>
+                  </header>
+                  <button type="button" class="vid-trust-chip vid-trust--green" data-vid-trust-cycle aria-label="Cycle demo status: green yellow red">
                     <span class="vid-trust-dot" aria-hidden="true"></span>
-                    <span class="vid-trust-label" data-vid-trust-label>Status: Green — full access</span>
+                    <span class="vid-trust-label" data-vid-trust-label>Clear · Full access</span>
                   </button>
-                </header>
 
+                  <div class="vid-scroll">
                 <div class="vid-pane" data-vid-pane="home" id="vid-pane-home">
-                  <p class="vid-home-tagline">Your identity. Your access. Your existence.</p>
+                  <p class="vid-home-label">Modules</p>
                   <div class="vid-app-grid" role="toolbar" aria-label="Modules">
-                    <button type="button" class="vid-app-tile" data-vid-open="cid">Core ID</button>
-                    <button type="button" class="vid-app-tile" data-vid-open="vyrn">VYRN</button>
-                    <button type="button" class="vid-app-tile" data-vid-open="aegis">Aegis</button>
-                    <button type="button" class="vid-app-tile" data-vid-open="zonex">Zonex</button>
-                    <button type="button" class="vid-app-tile" data-vid-open="trust">Trust</button>
-                    <button type="button" class="vid-app-tile" data-vid-open="corelink">Core link</button>
-                    <button type="button" class="vid-app-tile" data-vid-open="civic">Civic</button>
-                    <button type="button" class="vid-app-tile" data-vid-open="vaultlog">Vaultlog</button>
+                    <button type="button" class="vid-app-tile" data-vid-open="cid"><span class="vid-ico vid-ico-id" aria-hidden="true"></span><span class="vid-app-name">Core ID</span></button>
+                    <button type="button" class="vid-app-tile" data-vid-open="vyrn"><span class="vid-ico vid-ico-vyr" aria-hidden="true"></span><span class="vid-app-name">VYRN</span></button>
+                    <button type="button" class="vid-app-tile" data-vid-open="aegis"><span class="vid-ico vid-ico-safe" aria-hidden="true"></span><span class="vid-app-name">Aegis</span></button>
+                    <button type="button" class="vid-app-tile" data-vid-open="zonex"><span class="vid-ico vid-ico-map" aria-hidden="true"></span><span class="vid-app-name">Zonex</span></button>
+                    <button type="button" class="vid-app-tile" data-vid-open="trust"><span class="vid-ico vid-ico-trust" aria-hidden="true"></span><span class="vid-app-name">Trust</span></button>
+                    <button type="button" class="vid-app-tile" data-vid-open="corelink"><span class="vid-ico vid-ico-ai" aria-hidden="true"></span><span class="vid-app-name">Core</span></button>
+                    <button type="button" class="vid-app-tile" data-vid-open="civic"><span class="vid-ico vid-ico-civic" aria-hidden="true"></span><span class="vid-app-name">Civic</span></button>
+                    <button type="button" class="vid-app-tile" data-vid-open="vaultlog"><span class="vid-ico vid-ico-log" aria-hidden="true"></span><span class="vid-app-name">Log</span></button>
                   </div>
-                  <p class="vid-home-hint">Tap the status pill to simulate Green → Yellow → Red.</p>
+                  <p class="vid-home-hint">Tap status chip to cycle state.</p>
                 </div>
 
                 <div class="vid-pane" data-vid-pane="cid" id="vid-pane-cid" hidden aria-hidden="true">
@@ -99,9 +105,11 @@
                   <h2 class="vid-app-title">Vaultlog</h2>
                   <p class="vid-app-body">Ledger preview: access events and settlements. Full audit is authority-gated — you see summaries, not raw surveillance.</p>
                 </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <p class="vid-demo-caption">Matte bezel · red status pulse · no social, no browser — modules only.</p>
+            <p class="vid-demo-caption">Compact reference frame · no browser, no social — state modules only.</p>
           </div>
         </main>
 

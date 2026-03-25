@@ -44,11 +44,11 @@
         var s = states[idx];
         trustLabel.textContent =
           s === "green"
-            ? "Status: Green — full access"
+            ? "Clear · Full access"
             : s === "yellow"
-              ? "Status: Yellow — review"
-              : "Status: Red — restricted";
-        trustBtn.className = "vid-trust-pill vid-trust--" + s;
+              ? "Review · Limited"
+              : "Restricted · Lockdown";
+        trustBtn.className = "vid-trust-chip vid-trust--" + s;
         trustBtn.setAttribute("aria-pressed", "true");
       });
     }
