@@ -1,0 +1,1407 @@
+:root {
+  --bg-deep: #0d0f12;
+  --bg-panel: #15181e;
+  --bg-elevated: #1c2029;
+  --gold: #c9a962;
+  --gold-dim: #8a7344;
+  --text: #e6e2d8;
+  --text-muted: #9a958a;
+  --border: rgba(201, 169, 98, 0.22);
+  --accent: #4a6fa5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Source Serif 4", Georgia, serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* Vault radial + grid */
+.bg-vault {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(74, 111, 165, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(201, 169, 98, 0.06), transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.012) 2px,
+      rgba(255, 255, 255, 0.012) 4px
+    ),
+    var(--bg-deep);
+}
+
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.table-spec {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.table-spec th,
+.table-spec td {
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table-spec th {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  background: var(--bg-elevated);
+}
+
+.economy-h3 {
+  margin-top: 1.35rem;
+}
+
+.economy-note {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.economy-note-tight {
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+}
+
+.economy-lead-spaced {
+  margin-top: 2rem;
+}
+
+header.hero {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+.seal {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 1.5rem;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, rgba(201, 169, 98, 0.15), transparent 60%),
+    var(--bg-elevated);
+  box-shadow: 0 0 0 1px rgba(201, 169, 98, 0.08), inset 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.seal span {
+  font-family: Cinzel, serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+/* National emblem & flag assets */
+.hero-emblem {
+  margin: 0 auto 1.5rem;
+  max-width: 180px;
+}
+
+.hero-emblem img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 160px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  background: #0a0a0c;
+}
+
+.site-brand .seal.seal--emblem {
+  width: 56px;
+  height: 56px;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.site-brand .seal.seal--emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+}
+
+.symbol-figure {
+  margin: 0 0 2rem;
+  text-align: center;
+}
+
+.symbol-figure figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  text-align: left;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.symbol-flag-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.symbol-emblem-img {
+  width: auto;
+  max-width: 220px;
+  max-height: 220px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #0a0a0c;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.official-name {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.official-name .line {
+  display: block;
+  font-size: 0.55em;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.official-name .name {
+  letter-spacing: 0.18em;
+  color: var(--gold);
+}
+
+.doctrine-hero {
+  margin-top: 1.75rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.doctrine-hero blockquote {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.doctrine-hero .pillars {
+  font-family: Cinzel, serif;
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.doctrine-hero .pillars span {
+  display: block;
+}
+
+.doctrine-hero .pillars span + span::before {
+  content: "";
+  display: block;
+  height: 0.5rem;
+}
+
+.doctrine-hero .meta {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.doctrine-hero .meta strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Site-wide navigation */
+.site-header {
+  padding: 1.25rem 0 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.25rem;
+}
+
+.site-header .site-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 1.25rem;
+}
+
+.site-header .site-brand .seal {
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.site-header .site-brand .seal span {
+  font-size: 1.35rem;
+}
+
+.site-header .brand-text {
+  text-align: left;
+}
+
+.site-header .brand-text .line {
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.site-header .brand-text .name {
+  font-family: Cinzel, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.page-title {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+nav.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.site-header + main nav.toc,
+.site-header nav.toc {
+  margin-top: 0;
+}
+
+nav.toc a {
+  font-family: Cinzel, serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+nav.toc a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+nav.toc a[aria-current="page"] {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+section {
+  margin-bottom: 2.75rem;
+}
+
+section h2 {
+  font-family: Cinzel, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+}
+
+.card a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.card a:hover {
+  color: var(--gold);
+}
+
+dl.grid {
+  display: grid;
+  grid-template-columns: minmax(8rem, 32%) 1fr;
+  gap: 0.65rem 1.25rem;
+}
+
+@media (max-width: 560px) {
+  dl.grid {
+    grid-template-columns: 1fr;
+  }
+  dl.grid dt {
+    color: var(--gold-dim);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 0.35rem;
+  }
+  dl.grid dt:first-child {
+    margin-top: 0;
+  }
+}
+
+dl.grid dt {
+  font-family: Cinzel, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+dl.grid dd {
+  margin: 0;
+}
+
+.placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.prose p {
+  margin-bottom: 0.85rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.doctrine-card blockquote {
+  margin: 0 0 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--gold);
+  font-family: Cinzel, serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.doctrine-card .charter {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.doctrine-card .charter p {
+  margin-bottom: 0.65rem;
+}
+
+.doctrine-card .charter p:last-child {
+  margin-bottom: 0;
+}
+
+/* Leadership oath (leadership.html) */
+.leadership-oath.doctrine-card blockquote.leadership-oath-quote {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.98rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.leadership-oath-quote p {
+  margin: 0 0 0.55rem;
+}
+
+.leadership-oath-quote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Power Architecture v1.0 (architecture.html) */
+.architecture-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.architecture-canon .arch-page-kicker {
+  text-align: center;
+  margin-top: -0.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.arch-realworld-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.arch-realworld-list li {
+  margin-bottom: 0.4rem;
+}
+
+.architecture-canon .arch-version {
+  font-weight: 600;
+  color: var(--gold-dim);
+  font-size: 0.85em;
+  letter-spacing: 0.06em;
+}
+
+.architecture-canon .arch-principle-quote {
+  margin-top: 0;
+}
+
+.arch-flow-ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.arch-flow-ol li {
+  margin-bottom: 0.25rem;
+}
+
+.arch-flow-grid .zone-name {
+  margin-bottom: 0.35rem;
+}
+
+@media (min-width: 640px) {
+  .arch-flow-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.arch-realworld-note {
+  margin-top: 1rem;
+}
+
+/* Organization & reporting (organization.html) */
+.organization-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.organization-canon .org-page-kicker {
+  text-align: center;
+  margin-top: -0.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.organization-canon .org-pillar {
+  margin-bottom: 1rem;
+}
+
+.organization-canon .org-pillar-title {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.5rem;
+  color: var(--gold);
+}
+
+.org-density-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.org-density-list li {
+  margin-bottom: 0.35rem;
+  padding-left: 0;
+}
+
+.org-density-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 720px) {
+  .org-density-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.section-lead {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: -0.35rem 0 1.25rem;
+}
+
+.section-lead a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.section-lead a:hover {
+  color: var(--gold);
+}
+
+.authority-crest {
+  text-align: center;
+  padding: 1.5rem 1.25rem 1.75rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(180deg, rgba(201, 169, 98, 0.06), transparent 55%);
+}
+
+.authority-crest .crest-kicker {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.5rem;
+}
+
+.authority-crest .crest-name {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.65rem;
+}
+
+.authority-crest .crest-note {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 28rem;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+.tier {
+  margin-bottom: 1rem;
+}
+
+.tier:last-child {
+  margin-bottom: 0;
+}
+
+.tier-head {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+}
+
+.tier-num {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  font-family: Cinzel, serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--bg-deep);
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.tier-title {
+  font-family: Cinzel, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 0 0.35rem;
+}
+
+.tier-sub {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.tier-sub strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.tier-kicker {
+  font-family: Cinzel, serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin: 0 0 0.35rem;
+}
+
+.tier-label {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.45rem;
+}
+
+.tier ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.tier li {
+  margin-bottom: 0.35rem;
+}
+
+.tier li:last-child {
+  margin-bottom: 0;
+}
+
+.council-meta {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0 0 0.85rem;
+  font-style: italic;
+}
+
+.council-roles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.council-roles li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  margin: 0;
+}
+
+.council-roles li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.council-roles .role-name {
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.council-roles .role-scope {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.advise-callout {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--accent);
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+footer {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer .latin {
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+footer code {
+  font-size: 0.85em;
+  color: var(--gold-dim);
+}
+
+/* Vault Zones & geopolitical */
+.zone-intro {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: -0.35rem 0 1.25rem;
+}
+
+.zone-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+.zone-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.1rem 1.25rem 1.15rem;
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+.zone-card .zone-badge {
+  font-family: Cinzel, serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.zone-card .zone-name {
+  font-family: Cinzel, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.5rem;
+}
+
+.zone-card .zone-role {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.zone-card.zone-aegis {
+  border-left-color: #5a8fd4;
+}
+
+.zone-card.zone-sentinel {
+  border-left-color: #c9843a;
+}
+
+.zone-card.zone-civic {
+  border-left-color: #4a9e9a;
+}
+
+.zone-card.zone-shadow {
+  border-left-color: #c45c5c;
+}
+
+.lexicon {
+  margin-top: 0;
+}
+
+.lexicon dt {
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.lexicon dd {
+  margin: 0 0 0.65rem;
+  padding-left: 0;
+}
+
+.lexicon dd:last-of-type {
+  margin-bottom: 0;
+}
+
+.network-note {
+  margin-top: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Currency — Vyr */
+.currency-banner {
+  text-align: center;
+  padding: 1.35rem 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(180deg, rgba(201, 169, 98, 0.08), transparent 60%);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.currency-banner .vyr-label {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.5rem;
+}
+
+.currency-banner .vyr-name {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin: 0;
+}
+
+.currency-banner .vyr-symbol {
+  font-size: 1.1em;
+  margin-left: 0.25rem;
+  opacity: 0.95;
+}
+
+.currency-types {
+  display: grid;
+  gap: 1rem;
+}
+
+.vyr-type {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.15rem 1.35rem;
+  border-top: 3px solid var(--vyr-accent, var(--gold));
+}
+
+.vyr-type .vyr-code {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.vyr-type .vyr-title {
+  font-family: Cinzel, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.65rem;
+}
+
+.vyr-type ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.vyr-type ul li {
+  margin-bottom: 0.3rem;
+}
+
+.vyr-type .vyr-unlocks {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+.vyr-type .vyr-unlocks strong {
+  color: var(--gold);
+}
+
+.vyr-core {
+  --vyr-accent: #5a8fd4;
+}
+
+.vyr-trust {
+  --vyr-accent: #c45c5c;
+}
+
+.vyr-restricted {
+  --vyr-accent: #6a6a72;
+}
+
+.vyr-lead {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.vyr-type .tier-label {
+  margin-bottom: 0.4rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Language — Vaelic */
+.lang-kicker {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin: 0 0 0.5rem;
+}
+
+.lang-official-name {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin: 0;
+}
+
+.lang-official-detail {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.lang-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lang-vernacular-detail {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* Security — Vaultryn & response */
+.vaultryn-core {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  border-left: 4px solid #c45c5c;
+  padding: 1.25rem 1.35rem;
+  background: var(--bg-panel);
+  margin-bottom: 1rem;
+}
+
+.h2-ico {
+  margin-right: 0.35rem;
+  opacity: 0.92;
+}
+
+.page-title .h2-ico {
+  margin-right: 0.45rem;
+}
+
+.vaultryn-core .vaultryn-line {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin: 0.5rem 0 0;
+  line-height: 1.45;
+}
+
+.vaultryn-core .vaultryn-line:first-child {
+  margin-top: 0;
+}
+
+.response-units {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.response-units li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.response-units li:last-child {
+  border-bottom: none;
+}
+
+.response-units--spec li {
+  color: var(--text);
+}
+
+.response-units .ru-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.response-units--spec .ru-name {
+  display: inline;
+}
+
+.response-units:not(.response-units--spec) .ru-name {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.target-banner {
+  text-align: center;
+  padding: 1.35rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(201, 169, 98, 0.06), transparent 55%);
+}
+
+.target-banner .target-label {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.35rem;
+}
+
+.target-banner .target-stat {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin: 0;
+}
+
+.target-banner .target-note {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* Education */
+.focus-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  margin-top: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.focus-pills li {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: 0.88rem;
+  color: var(--text);
+  background: var(--bg-elevated);
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.subject-grid li {
+  padding: 0.7rem 0.9rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.lang-official-detail.lead-flush {
+  margin-top: 0;
+}
+
+/* Culture & propaganda */
+.identity-quotes {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.identity-quotes blockquote {
+  margin: 0;
+  padding: 0.85rem 1rem 0.85rem 1.25rem;
+  border-left: 3px solid var(--gold);
+  background: var(--bg-elevated);
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.media-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.media-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.media-list li:last-child {
+  border-bottom: none;
+}
+
+.media-list li strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.media-list--short li {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.rewards-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.rewards-list li {
+  margin-bottom: 0.35rem;
+}
+
+.rewards-list--tight {
+  margin-top: 0;
+}
+
+/* Rebellion / opposition */
+.opp-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.opp-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.15rem 1.3rem;
+  background: var(--bg-panel);
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+.opp-free {
+  border-left-color: #7a9bc4;
+}
+
+.opp-ghost {
+  border-left-color: #6a6a78;
+}
+
+.opp-name {
+  font-family: Cinzel, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.55rem;
+  color: var(--text);
+}
+
+.opp-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.response-doctrine {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 1.15rem 1.35rem;
+  background: var(--bg-elevated);
+}
+
+.response-doctrine .opp-lead {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.response-doctrine .opp-note {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.response-doctrine a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.response-doctrine a:hover {
+  color: var(--gold);
+}
+
+.response-doctrine--spec {
+  border-left-color: var(--gold);
+}
+
+.response-doctrine--spec .vaultryn-line {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin: 0.5rem 0 0;
+  line-height: 1.45;
+}
+
+.response-doctrine--spec .vaultryn-line:first-child {
+  margin-top: 0;
+}
+
+/* Power & control (power.html) */
+.power-canon section,
+.leadership-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.power-h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.power-protocol {
+  margin-bottom: 1rem;
+}
+
+.power-protocol:last-of-type {
+  margin-bottom: 0;
+}
+
+.power-protocol-title {
+  font-family: Cinzel, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.65rem;
+  color: var(--gold);
+}
+
+.council-rule-quote {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--gold);
+  background: var(--bg-elevated);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.power-role-card {
+  margin-bottom: 1rem;
+}
+
+.power-role-card:last-child {
+  margin-bottom: 0;
+}
+
+.power-role-name {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.65rem;
+  color: var(--text);
+}
+
+.power-ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.power-ol li {
+  margin-bottom: 0.5rem;
+}
+
+.power-ol li:last-child {
+  margin-bottom: 0;
+}
+
+.null-box {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #c45c5c;
+  background: var(--bg-panel);
+  border-radius: 0 4px 4px 0;
+}
+
+.dark-layer-box {
+  border: 1px dashed rgba(201, 169, 98, 0.35);
+  background: rgba(21, 24, 30, 0.6);
+}
+
+.reality-check {
+  border-top: none;
+}
