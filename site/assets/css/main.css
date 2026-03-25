@@ -504,6 +504,24 @@ dl.grid dd {
   margin-bottom: 0.4rem;
 }
 
+/* Defense & enforcement (security.html) */
+.defense-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.defense-canon .defense-page-kicker {
+  text-align: center;
+  margin-top: -0.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.def-rank-line {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0.35rem 0 0;
+}
+
 .architecture-canon .arch-version {
   font-weight: 600;
   color: var(--gold-dim);
@@ -1404,4 +1422,277 @@ footer code {
 
 .reality-check {
   border-top: none;
+}
+
+/* Navy (navy.html) */
+.navy-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.navy-page-kicker a {
+  color: var(--gold);
+}
+
+.navy-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.navy-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.navy-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.navy-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+/* Air Command (air.html) */
+.air-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.air-page-kicker a {
+  color: var(--gold);
+}
+
+.air-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.air-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.air-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.air-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+/* Autonomous Defense Division (autonomous.html) */
+.autonomous-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.autonomous-page-kicker a {
+  color: var(--gold);
+}
+
+.autonomous-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.autonomous-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.autonomous-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.autonomous-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+/* Enforcers (enforcers.html) */
+.enforcers-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.enforcers-page-kicker a {
+  color: var(--gold);
+}
+
+.enforcers-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.enforcers-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.enforcers-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.enforcers-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+/* Intelligence Bureau / VIB (intelligence.html) */
+.vib-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.vib-page-kicker a {
+  color: var(--gold);
+}
+
+.vib-abbr {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+.vib-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.vib-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.vib-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.vib-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+.vib-canon .vib-div-quote {
+  margin: 0.35rem 0 0.85rem;
+  padding: 0.5rem 0 0.5rem 0.9rem;
+  border-left: 2px solid rgba(201, 169, 98, 0.45);
+  background: transparent;
+  font-size: 0.98rem;
+}
+
+/* Cyber Command (cyber.html) */
+.cyber-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.cyber-page-kicker a {
+  color: var(--gold);
+}
+
+.cyber-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.cyber-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.cyber-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.cyber-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+.cyber-canon .cyber-div-quote {
+  margin: 0.35rem 0 0.85rem;
+  padding: 0.5rem 0 0.5rem 0.9rem;
+  border-left: 2px solid rgba(74, 111, 165, 0.55);
+  background: transparent;
+  font-size: 0.98rem;
+}
+
+/* Rapid Response / VRD (vrd.html) */
+.vrd-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.vrd-page-kicker a {
+  color: var(--gold);
+}
+
+.vrd-abbr {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+.vrd-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.vrd-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.vrd-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.vrd-benefits-quote {
+  margin-bottom: 1.5rem;
 }

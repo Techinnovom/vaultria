@@ -54,7 +54,14 @@
     {
       label: "Operations",
       items: [
-        { id: "security", title: "Security" },
+        { id: "security", title: "Defense" },
+        { id: "navy", title: "Navy" },
+        { id: "air", title: "Air Command" },
+        { id: "autonomous", title: "Autonomous Defense" },
+        { id: "enforcers", title: "Enforcers" },
+        { id: "intelligence", title: "Intelligence (VIB)" },
+        { id: "cyber", title: "Cyber Command" },
+        { id: "vrd", title: "VRD" },
         { id: "education", title: "Education" },
         { id: "culture", title: "Culture" },
         { id: "rebellion", title: "Rebellion" },
