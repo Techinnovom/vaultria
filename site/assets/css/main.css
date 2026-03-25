@@ -362,6 +362,102 @@ nav.toc a[aria-current="page"] {
   border-bottom-color: var(--gold);
 }
 
+/* Codex of Order (codex.html) */
+.codex-canon .codex-subtitle {
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: -0.75rem 0 1rem;
+}
+
+.codex-canon .codex-lead {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.codex-canon nav.codex-toc {
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  justify-content: flex-start;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-elevated);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 959px) {
+  .codex-canon nav.codex-toc {
+    /* Sit below sticky .site-topbar (~toggle 2.5rem + padding) */
+    top: calc(0.65rem + 2.5rem + 0.65rem + env(safe-area-inset-top, 0px));
+  }
+}
+
+.codex-canon .codex-section {
+  margin-bottom: 3rem;
+}
+
+.codex-canon .codex-title-major {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.codex-canon .codex-article {
+  margin-bottom: 1.35rem;
+}
+
+.codex-canon .codex-article-heading {
+  font-family: Cinzel, serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+
+.codex-canon .codex-article p,
+.codex-canon .codex-article .codex-list {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.codex-canon .codex-article p {
+  margin: 0 0 0.5rem;
+}
+
+.codex-canon .codex-list {
+  margin: 0.35rem 0 0.65rem;
+  padding-left: 1.25rem;
+}
+
+.codex-canon .codex-list-lower {
+  list-style-type: lower-alpha;
+}
+
+.codex-canon .codex-preamble p {
+  margin-bottom: 0.75rem;
+}
+
+.codex-page-kicker a {
+  color: var(--gold);
+}
+
 section {
   margin-bottom: 2.75rem;
 }
@@ -1459,6 +1555,66 @@ footer code {
   margin-bottom: 1.5rem;
 }
 
+/* Army (army.html) */
+.army-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.army-page-kicker a {
+  color: var(--gold);
+}
+
+.army-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.army-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.army-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.army-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+.army-chain-pre {
+  margin: 0.75rem 0 0;
+  padding: 1rem 1.1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow-x: auto;
+  color: var(--text-muted);
+}
+
+.army-chain-rules {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.75rem 0 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.army-chain-rules li {
+  margin-bottom: 0.25rem;
+}
+
 /* Air Command (air.html) */
 .air-canon section {
   margin-bottom: 2.5rem;
@@ -1562,6 +1718,245 @@ footer code {
 
 .enforcers-benefits-quote {
   margin-bottom: 1.5rem;
+}
+
+/* Police (police.html) */
+.police-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.police-page-kicker a {
+  color: var(--gold);
+}
+
+.police-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.police-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.police-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.police-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+/* Sentinels (sentinels.html) */
+.sentinels-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.sentinels-page-kicker a {
+  color: var(--gold);
+}
+
+.sentinels-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.sentinels-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.sentinels-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.sentinels-tagline-quote {
+  margin-top: 0;
+}
+
+.sentinels-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+.sentinels-recruit-quote {
+  margin-top: 1.25rem;
+}
+
+.sentinel-compare-wrap {
+  overflow-x: auto;
+}
+
+.sentinel-compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.sentinel-compare th,
+.sentinel-compare td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.sentinel-compare thead th {
+  background: var(--bg-elevated);
+  font-family: Cinzel, serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+
+.sentinel-compare tbody th[scope="row"] {
+  color: var(--text-muted);
+  font-weight: 600;
+  width: 7rem;
+}
+
+/* Medical Corps (medical.html) */
+.medical-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.medical-page-kicker a {
+  color: var(--gold);
+}
+
+.medical-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.medical-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.medical-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.medical-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+/* Fire & Hazard Unit (fire.html) */
+.fire-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.fire-page-kicker a {
+  color: var(--gold);
+}
+
+.fire-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.fire-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.fire-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.fire-benefits-quote {
+  margin-bottom: 1.5rem;
+}
+
+/* Obsidian Guard & Black Division (elite.html) */
+.elite-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.elite-page-kicker a {
+  color: var(--gold);
+}
+
+.elite-canon .org-pillar {
+  margin-bottom: 1rem;
+}
+
+.elite-canon .org-pillar-title {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.5rem;
+  color: var(--gold);
+}
+
+.elite-hero {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.elite-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.elite-hero-caption {
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.elite-bd-quote {
+  margin-top: 0;
+}
+
+.elite-og-benefits-quote,
+.elite-bd-benefits-quote {
+  margin-bottom: 1.25rem;
+}
+
+.elite-final-quote {
+  margin-top: 1.25rem;
+  margin-bottom: 0;
 }
 
 /* Intelligence Bureau / VIB (intelligence.html) */
@@ -1695,4 +2090,270 @@ footer code {
 
 .vrd-benefits-quote {
   margin-bottom: 1.5rem;
+}
+
+/* Identity & visa (identity.html) */
+.identity-canon section {
+  margin-bottom: 2.5rem;
+}
+
+.identity-page-kicker a {
+  color: var(--gold);
+}
+
+.identity-canon .org-pillar {
+  margin-bottom: 1rem;
+}
+
+.identity-canon .org-pillar-title {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.5rem;
+  color: var(--gold);
+}
+
+.identity-visa-gallery {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .identity-visa-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.identity-visa-card {
+  margin: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.identity-visa-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.identity-visa-card figcaption {
+  padding: 0.6rem 0.85rem;
+  font-size: 0.82rem;
+  font-family: Cinzel, serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* V-ID interactive demo (device.html) */
+.vid-page-kicker a {
+  color: var(--gold);
+}
+
+.vid-demo-wrap {
+  max-width: 22rem;
+  margin: 2rem auto 0;
+}
+
+.vid-bezel {
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #1a1d24 0%, #0d0f12 100%);
+  border: 1px solid rgba(201, 169, 98, 0.22);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.vid-speaker {
+  height: 5px;
+  width: 48px;
+  margin: 0.15rem auto 0.35rem;
+  border-radius: 3px;
+  background: #0a0c0f;
+}
+
+.vid-screen {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #08090c;
+  border: 1px solid rgba(201, 169, 98, 0.12);
+  min-height: 26rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.vid-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.65rem 0.35rem;
+  background: #0c0e12;
+  border-bottom: 1px solid rgba(201, 169, 98, 0.12);
+}
+
+.vid-brand {
+  font-family: Cinzel, serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+}
+
+.vid-trust-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: 68%;
+  padding: 0.25rem 0.45rem;
+  border: 1px solid rgba(201, 169, 98, 0.25);
+  border-radius: 999px;
+  background: rgba(20, 22, 28, 0.95);
+  color: var(--text-muted);
+  font-size: 0.58rem;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.vid-trust-pill:hover {
+  border-color: var(--gold-dim);
+}
+
+.vid-trust-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #3d9a5c;
+  box-shadow: 0 0 8px rgba(61, 154, 92, 0.65);
+}
+
+.vid-trust-pill.vid-trust--green .vid-trust-dot {
+  background: #3d9a5c;
+  box-shadow: 0 0 8px rgba(61, 154, 92, 0.65);
+}
+
+.vid-trust-pill.vid-trust--yellow .vid-trust-dot {
+  background: #c9a962;
+  box-shadow: 0 0 8px rgba(201, 169, 98, 0.55);
+}
+
+.vid-trust-pill.vid-trust--red .vid-trust-dot {
+  background: #c45c5c;
+  box-shadow: 0 0 8px rgba(196, 92, 92, 0.55);
+}
+
+.vid-trust-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vid-pane {
+  flex: 1;
+  padding: 0.75rem 0.65rem 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 22rem;
+}
+
+.vid-home-tagline {
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  text-align: center;
+  margin: 0 0 0.75rem;
+}
+
+.vid-app-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  flex: 1;
+  align-content: start;
+}
+
+.vid-app-tile {
+  padding: 0.55rem 0.35rem;
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(201, 169, 98, 0.06);
+  border: 1px solid rgba(201, 169, 98, 0.18);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.vid-app-tile:hover {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+  background: rgba(201, 169, 98, 0.1);
+}
+
+.vid-home-hint {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  opacity: 0.85;
+  text-align: center;
+  margin: 0.75rem 0 0;
+}
+
+.vid-back {
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.72rem;
+  color: var(--gold);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.vid-back:hover {
+  text-decoration: underline;
+}
+
+.vid-app-title {
+  font-family: Cinzel, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.5rem;
+}
+
+.vid-app-body {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.vid-panic-demo {
+  margin-top: 0.75rem;
+  font-size: 0.68rem;
+  color: var(--gold-dim);
+  font-style: italic;
+}
+
+.vid-demo-caption {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 1rem 0 0;
 }

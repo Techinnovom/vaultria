@@ -28,6 +28,7 @@
       label: "Governance",
       items: [
         { id: "doctrine", title: "Doctrine" },
+        { id: "codex", title: "Codex" },
         { id: "government", title: "Government" },
         { id: "authority", title: "Authority" },
         { id: "power", title: "Power" },
@@ -52,16 +53,27 @@
       ],
     },
     {
-      label: "Operations",
+      label: "Military",
       items: [
         { id: "security", title: "Defense" },
+        { id: "army", title: "Army" },
         { id: "navy", title: "Navy" },
         { id: "air", title: "Air Command" },
         { id: "autonomous", title: "Autonomous Defense" },
+        { id: "police", title: "Police" },
         { id: "enforcers", title: "Enforcers" },
+        { id: "sentinels", title: "Sentinels" },
         { id: "intelligence", title: "Intelligence (VIB)" },
         { id: "cyber", title: "Cyber Command" },
+        { id: "medical", title: "Medical Corps" },
+        { id: "fire", title: "Fire & Hazard" },
         { id: "vrd", title: "VRD" },
+        { id: "elite", title: "Obsidian & Black" },
+      ],
+    },
+    {
+      label: "Operations",
+      items: [
         { id: "education", title: "Education" },
         { id: "culture", title: "Culture" },
         { id: "rebellion", title: "Rebellion" },
@@ -72,7 +84,19 @@
   var activeId = currentPageId();
   var homeHref = href("home");
 
-  var parts = ['<div class="site-sidebar-inner"><nav class="site-nav">'];
+  var parts = ['<div class="site-sidebar-inner">'];
+  parts.push('<div class="site-search" role="search">');
+  parts.push(
+    '<label class="visually-hidden" for="site-search-q">Search site</label>'
+  );
+  parts.push(
+    '<input type="search" id="site-search-q" name="q" class="site-search-input" placeholder="Search VAULTRIA…" autocomplete="off" spellcheck="false" />'
+  );
+  parts.push(
+    '<div id="site-search-panel" class="site-search-panel" hidden></div>'
+  );
+  parts.push("</div>");
+  parts.push('<nav class="site-nav">');
   parts.push(
     '<a class="site-nav-brand" href="' +
       homeHref +

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V-ID device (interactive demo) — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+</head>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap">
+        <main id="main-content" class="vid-page">
+          <p class="tier-kicker vid-page-kicker"><a href="identity.html">Identity &amp; visa</a> · Interactive mock</p>
+          <h1 class="page-title">V-ID device — demo</h1>
+          <p class="zone-intro">
+            Fiction prototype: tap modules to explore. Not a real product — a <strong>feel</strong> for how citizen identity, finance, zones, and trust might surface in hardware. Canon: <a href="identity.html">Access vs citizen</a>, <a href="codex.html">Codex</a> Title VIII, <a href="economy.html">Vyr</a>.
+          </p>
+
+          <div class="vid-demo-wrap" data-vid-root>
+            <div class="vid-bezel" aria-label="V-ID mock device">
+              <div class="vid-speaker" aria-hidden="true"></div>
+              <div class="vid-screen">
+                <header class="vid-status-bar">
+                  <span class="vid-brand">V-ID</span>
+                  <button type="button" class="vid-trust-pill vid-trust--green" data-vid-trust-cycle aria-label="Cycle demo status color">
+                    <span class="vid-trust-dot" aria-hidden="true"></span>
+                    <span class="vid-trust-label" data-vid-trust-label>Status: Green — full access</span>
+                  </button>
+                </header>
+
+                <div class="vid-pane" data-vid-pane="home" id="vid-pane-home">
+                  <p class="vid-home-tagline">Your identity. Your access. Your existence.</p>
+                  <div class="vid-app-grid" role="toolbar" aria-label="Modules">
+                    <button type="button" class="vid-app-tile" data-vid-open="cid">Core ID</button>
+                    <button type="button" class="vid-app-tile" data-vid-open="vyrn">VYRN</button>
+                    <button type="button" class="vid-app-tile" data-vid-open="aegis">Aegis</button>
+                    <button type="button" class="vid-app-tile" data-vid-open="zonex">Zonex</button>
+                    <button type="button" class="vid-app-tile" data-vid-open="trust">Trust</button>
+                    <button type="button" class="vid-app-tile" data-vid-open="corelink">Core link</button>
+                    <button type="button" class="vid-app-tile" data-vid-open="civic">Civic</button>
+                    <button type="button" class="vid-app-tile" data-vid-open="vaultlog">Vaultlog</button>
+                  </div>
+                  <p class="vid-home-hint">Tap the status pill to simulate Green → Yellow → Red.</p>
+                </div>
+
+                <div class="vid-pane" data-vid-pane="cid" id="vid-pane-cid" hidden aria-hidden="true">
+                  <button type="button" class="vid-back" data-vid-back>← Home</button>
+                  <h2 class="vid-app-title">Core ID (CID)</h2>
+                  <p class="vid-app-body">Custodian Identity — biometric lock, citizenship tier <strong>T2</strong>, continuous device binding. Mismatch → instant lock.</p>
+                </div>
+                <div class="vid-pane" data-vid-pane="vyrn" hidden aria-hidden="true">
+                  <button type="button" class="vid-back" data-vid-back>← Home</button>
+                  <h2 class="vid-app-title">VYRN</h2>
+                  <p class="vid-app-body"><strong>CV</strong> 12,480 ⩔ · <strong>TV</strong> 2,100 ⩔ · Tap-to-pay ready. Restrictions apply if status ≠ Green.</p>
+                </div>
+                <div class="vid-pane" data-vid-pane="aegis" hidden aria-hidden="true">
+                  <button type="button" class="vid-back" data-vid-back>← Home</button>
+                  <h2 class="vid-app-title">Aegis</h2>
+                  <p class="vid-app-body">Hold <strong>PANIC</strong> 3s to broadcast to Vaultryn Core. Silent alert available. Priority scales with trust tier.</p>
+                  <p class="vid-panic-demo" aria-hidden="true">[ DEMO — not connected ]</p>
+                </div>
+                <div class="vid-pane" data-vid-pane="zonex" hidden aria-hidden="true">
+                  <button type="button" class="vid-back" data-vid-back>← Home</button>
+                  <h2 class="vid-app-title">Zonex</h2>
+                  <p class="vid-app-body">Today: <strong>Green + Yellow</strong> cleared. Red: 2 sectors closed. You are the key — doors and transit read CID.</p>
+                </div>
+                <div class="vid-pane" data-vid-pane="trust" hidden aria-hidden="true">
+                  <button type="button" class="vid-back" data-vid-back>← Home</button>
+                  <h2 class="vid-app-title">Trust engine</h2>
+                  <p class="vid-app-body">Score stable 31 days. Last change: +12 (assisted incident). Tip: avoid flagged corridors after 22:00.</p>
+                </div>
+                <div class="vid-pane" data-vid-pane="corelink" hidden aria-hidden="true">
+                  <button type="button" class="vid-back" data-vid-back>← Home</button>
+                  <h2 class="vid-app-title">Vaultryn link</h2>
+                  <p class="vid-app-body">1 alert: elevated movement in Sector 12 — optional reroute. AI advises; you confirm.</p>
+                </div>
+                <div class="vid-pane" data-vid-pane="civic" hidden aria-hidden="true">
+                  <button type="button" class="vid-back" data-vid-back>← Home</button>
+                  <h2 class="vid-app-title">Civic</h2>
+                  <p class="vid-app-body">2 notices: census acknowledgment; optional assembly session Thursday. No third-party feeds.</p>
+                </div>
+                <div class="vid-pane" data-vid-pane="vaultlog" hidden aria-hidden="true">
+                  <button type="button" class="vid-back" data-vid-back>← Home</button>
+                  <h2 class="vid-app-title">Vaultlog</h2>
+                  <p class="vid-app-body">Ledger preview: access events and settlements. Full audit is authority-gated — you see summaries, not raw surveillance.</p>
+                </div>
+              </div>
+            </div>
+            <p class="vid-demo-caption">Matte bezel · red status pulse · no social, no browser — modules only.</p>
+          </div>
+        </main>
+
+        <footer>
+          <p>The Sovereign State of VAULTRIA — a living document.</p>
+          <p class="latin">Edit <code>site/pages/device.html</code> · Script <code>site/assets/js/vid-device.js</code></p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/vid-device.js" defer></script>
+</body>
+</html>
