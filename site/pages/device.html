@@ -35,7 +35,6 @@
             <div class="vid-chassis" aria-label="V-ID mock device">
               <div class="vid-bezel">
                 <div class="vid-screen">
-                  <div class="vid-island" aria-hidden="true"></div>
                   <header class="vid-status">
                     <time class="vid-clock" datetime="14:32">14:32</time>
                     <span class="vid-brand-mark" aria-hidden="true">V-ID</span>
@@ -64,46 +63,181 @@
                   <p class="vid-home-hint">Tap status chip to cycle state.</p>
                 </div>
 
-                <div class="vid-pane" data-vid-pane="cid" id="vid-pane-cid" hidden aria-hidden="true">
-                  <button type="button" class="vid-back" data-vid-back>← Home</button>
-                  <h2 class="vid-app-title">Core ID (CID)</h2>
-                  <p class="vid-app-body">Custodian Identity — biometric lock, citizenship tier <strong>T2</strong>, continuous device binding. Mismatch → instant lock.</p>
+                <div class="vid-pane vid-pane--detail" data-vid-pane="cid" id="vid-pane-cid" hidden aria-hidden="true">
+                  <div class="vid-module-nav">
+                    <button type="button" class="vid-back" data-vid-back aria-label="Back to modules">‹</button>
+                    <span class="vid-module-nav-title">Core ID</span>
+                    <span class="vid-module-nav-spacer" aria-hidden="true"></span>
+                  </div>
+                  <div class="vid-module-hero">
+                    <span class="vid-module-hero-ico vid-ico vid-ico-id" aria-hidden="true"></span>
+                    <div class="vid-module-hero-text">
+                      <span class="vid-module-hero-kicker">Custodian identity</span>
+                      <span class="vid-module-hero-name">CID · bound</span>
+                    </div>
+                  </div>
+                  <p class="vid-ui-section-label">Status</p>
+                  <div class="vid-ui-card" role="group" aria-label="Identity status">
+                    <div class="vid-ui-row"><span class="vid-ui-k">Device binding</span><span class="vid-ui-v vid-ui-pill vid-ui-pill--ok">Active</span></div>
+                    <div class="vid-ui-row"><span class="vid-ui-k">Citizenship tier</span><span class="vid-ui-v"><strong>T2</strong></span></div>
+                    <div class="vid-ui-row"><span class="vid-ui-k">Biometric</span><span class="vid-ui-v vid-ui-pill vid-ui-pill--ok">Latched</span></div>
+                    <div class="vid-ui-row"><span class="vid-ui-k">Last verify</span><span class="vid-ui-v vid-ui-mono">14:31</span></div>
+                  </div>
+                  <p class="vid-ui-section-label">Policy</p>
+                  <div class="vid-ui-card vid-ui-card--note">
+                    <p class="vid-ui-note">Continuous “still you” checks. Mismatch or tamper → instant lock and beacon.</p>
+                  </div>
                 </div>
-                <div class="vid-pane" data-vid-pane="vyrn" hidden aria-hidden="true">
-                  <button type="button" class="vid-back" data-vid-back>← Home</button>
-                  <h2 class="vid-app-title">VYRN</h2>
-                  <p class="vid-app-body"><strong>CV</strong> 12,480 ⩔ · <strong>TV</strong> 2,100 ⩔ · Tap-to-pay ready. Restrictions apply if status ≠ Green.</p>
+                <div class="vid-pane vid-pane--detail" data-vid-pane="vyrn" hidden aria-hidden="true">
+                  <div class="vid-module-nav">
+                    <button type="button" class="vid-back" data-vid-back aria-label="Back to modules">‹</button>
+                    <span class="vid-module-nav-title">VYRN</span>
+                    <span class="vid-module-nav-spacer" aria-hidden="true"></span>
+                  </div>
+                  <div class="vid-module-hero">
+                    <span class="vid-module-hero-ico vid-ico vid-ico-vyr" aria-hidden="true"></span>
+                    <div class="vid-module-hero-text">
+                      <span class="vid-module-hero-kicker">Wallets</span>
+                      <span class="vid-module-hero-name">Tap-to-pay ready</span>
+                    </div>
+                  </div>
+                  <div class="vid-ui-balance-grid">
+                    <div class="vid-ui-balance">
+                      <span class="vid-ui-balance-label">CV</span>
+                      <span class="vid-ui-balance-amt vid-ui-mono">12,480</span>
+                      <span class="vid-ui-balance-unit">⩔</span>
+                    </div>
+                    <div class="vid-ui-balance">
+                      <span class="vid-ui-balance-label">TV</span>
+                      <span class="vid-ui-balance-amt vid-ui-mono">2,100</span>
+                      <span class="vid-ui-balance-unit">⩔</span>
+                    </div>
+                  </div>
+                  <p class="vid-ui-section-label">Limits</p>
+                  <div class="vid-ui-card">
+                    <div class="vid-ui-row"><span class="vid-ui-k">Daily cap</span><span class="vid-ui-v vid-ui-mono">Within range</span></div>
+                    <div class="vid-ui-row"><span class="vid-ui-k">Status lock</span><span class="vid-ui-v">If trust ≠ green, restrictions apply</span></div>
+                  </div>
                 </div>
-                <div class="vid-pane" data-vid-pane="aegis" hidden aria-hidden="true">
-                  <button type="button" class="vid-back" data-vid-back>← Home</button>
-                  <h2 class="vid-app-title">Aegis</h2>
-                  <p class="vid-app-body">Hold <strong>PANIC</strong> 3s to broadcast to Vaultryn Core. Silent alert available. Priority scales with trust tier.</p>
-                  <p class="vid-panic-demo" aria-hidden="true">[ DEMO — not connected ]</p>
+                <div class="vid-pane vid-pane--detail" data-vid-pane="aegis" hidden aria-hidden="true">
+                  <div class="vid-module-nav">
+                    <button type="button" class="vid-back" data-vid-back aria-label="Back to modules">‹</button>
+                    <span class="vid-module-nav-title">Aegis</span>
+                    <span class="vid-module-nav-spacer" aria-hidden="true"></span>
+                  </div>
+                  <div class="vid-module-hero">
+                    <span class="vid-module-hero-ico vid-ico vid-ico-safe" aria-hidden="true"></span>
+                    <div class="vid-module-hero-text">
+                      <span class="vid-module-hero-kicker">Safety</span>
+                      <span class="vid-module-hero-name">Vaultryn relay</span>
+                    </div>
+                  </div>
+                  <div class="vid-ui-card">
+                    <div class="vid-ui-row"><span class="vid-ui-k">Silent alert</span><span class="vid-ui-v vid-ui-pill vid-ui-pill--muted">Available</span></div>
+                    <div class="vid-ui-row"><span class="vid-ui-k">Priority</span><span class="vid-ui-v">Scaled to trust tier</span></div>
+                  </div>
+                  <p class="vid-ui-demo-strip" aria-hidden="true">Demo · not connected to Core</p>
+                  <button type="button" class="vid-ui-panic" disabled aria-label="Demo only — not connected">Hold for PANIC <span class="vid-ui-panic-sub">3s · mock</span></button>
                 </div>
-                <div class="vid-pane" data-vid-pane="zonex" hidden aria-hidden="true">
-                  <button type="button" class="vid-back" data-vid-back>← Home</button>
-                  <h2 class="vid-app-title">Zonex</h2>
-                  <p class="vid-app-body">Today: <strong>Green + Yellow</strong> cleared. Red: 2 sectors closed. You are the key — doors and transit read CID.</p>
+                <div class="vid-pane vid-pane--detail" data-vid-pane="zonex" hidden aria-hidden="true">
+                  <div class="vid-module-nav">
+                    <button type="button" class="vid-back" data-vid-back aria-label="Back to modules">‹</button>
+                    <span class="vid-module-nav-title">Zonex</span>
+                    <span class="vid-module-nav-spacer" aria-hidden="true"></span>
+                  </div>
+                  <div class="vid-module-hero">
+                    <span class="vid-module-hero-ico vid-ico vid-ico-map" aria-hidden="true"></span>
+                    <div class="vid-module-hero-text">
+                      <span class="vid-module-hero-kicker">Today</span>
+                      <span class="vid-module-hero-name">Movement clearance</span>
+                    </div>
+                  </div>
+                  <p class="vid-ui-section-label">Sectors</p>
+                  <div class="vid-ui-card">
+                    <div class="vid-ui-row"><span class="vid-ui-k">Green</span><span class="vid-ui-v vid-ui-pill vid-ui-pill--ok">Cleared</span></div>
+                    <div class="vid-ui-row"><span class="vid-ui-k">Yellow</span><span class="vid-ui-v vid-ui-pill vid-ui-pill--warn">Cleared</span></div>
+                    <div class="vid-ui-row"><span class="vid-ui-k">Red</span><span class="vid-ui-v vid-ui-pill vid-ui-pill--bad">2 closed</span></div>
+                  </div>
+                  <div class="vid-ui-card vid-ui-card--note">
+                    <p class="vid-ui-note">Doors and transit read CID. You are the key.</p>
+                  </div>
                 </div>
-                <div class="vid-pane" data-vid-pane="trust" hidden aria-hidden="true">
-                  <button type="button" class="vid-back" data-vid-back>← Home</button>
-                  <h2 class="vid-app-title">Trust engine</h2>
-                  <p class="vid-app-body">Score stable 31 days. Last change: +12 (assisted incident). Tip: avoid flagged corridors after 22:00.</p>
+                <div class="vid-pane vid-pane--detail" data-vid-pane="trust" hidden aria-hidden="true">
+                  <div class="vid-module-nav">
+                    <button type="button" class="vid-back" data-vid-back aria-label="Back to modules">‹</button>
+                    <span class="vid-module-nav-title">Trust</span>
+                    <span class="vid-module-nav-spacer" aria-hidden="true"></span>
+                  </div>
+                  <div class="vid-ui-score">
+                    <span class="vid-ui-score-label">Standing</span>
+                    <span class="vid-ui-score-value">Stable</span>
+                    <span class="vid-ui-score-meta vid-ui-mono">31 days unchanged</span>
+                  </div>
+                  <div class="vid-ui-card">
+                    <div class="vid-ui-row"><span class="vid-ui-k">Last adjustment</span><span class="vid-ui-v vid-ui-mono vid-ui-v--pos">+12</span></div>
+                    <div class="vid-ui-row"><span class="vid-ui-k">Context</span><span class="vid-ui-v">Assisted incident</span></div>
+                  </div>
+                  <div class="vid-ui-card vid-ui-card--note">
+                    <p class="vid-ui-note">Tip: avoid flagged corridors after 22:00.</p>
+                  </div>
                 </div>
-                <div class="vid-pane" data-vid-pane="corelink" hidden aria-hidden="true">
-                  <button type="button" class="vid-back" data-vid-back>← Home</button>
-                  <h2 class="vid-app-title">Vaultryn link</h2>
-                  <p class="vid-app-body">1 alert: elevated movement in Sector 12 — optional reroute. AI advises; you confirm.</p>
+                <div class="vid-pane vid-pane--detail" data-vid-pane="corelink" hidden aria-hidden="true">
+                  <div class="vid-module-nav">
+                    <button type="button" class="vid-back" data-vid-back aria-label="Back to modules">‹</button>
+                    <span class="vid-module-nav-title">Vaultryn</span>
+                    <span class="vid-module-nav-spacer" aria-hidden="true"></span>
+                  </div>
+                  <p class="vid-ui-section-label">Active</p>
+                  <div class="vid-ui-alert" role="status">
+                    <span class="vid-ui-alert-title">Movement · Sector 12</span>
+                    <span class="vid-ui-alert-body">Elevated activity — optional reroute suggested.</span>
+                  </div>
+                  <div class="vid-ui-card">
+                    <div class="vid-ui-row vid-ui-row--chevron">
+                      <span class="vid-ui-k">Review suggestion</span>
+                      <span class="vid-ui-chevron" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <p class="vid-ui-foot">AI advises; you confirm. No auto-reroute.</p>
                 </div>
-                <div class="vid-pane" data-vid-pane="civic" hidden aria-hidden="true">
-                  <button type="button" class="vid-back" data-vid-back>← Home</button>
-                  <h2 class="vid-app-title">Civic</h2>
-                  <p class="vid-app-body">2 notices: census acknowledgment; optional assembly session Thursday. No third-party feeds.</p>
+                <div class="vid-pane vid-pane--detail" data-vid-pane="civic" hidden aria-hidden="true">
+                  <div class="vid-module-nav">
+                    <button type="button" class="vid-back" data-vid-back aria-label="Back to modules">‹</button>
+                    <span class="vid-module-nav-title">Civic</span>
+                    <span class="vid-module-nav-spacer" aria-hidden="true"></span>
+                  </div>
+                  <p class="vid-ui-section-label">Notices</p>
+                  <ul class="vid-ui-notice-list">
+                    <li class="vid-ui-notice">
+                      <span class="vid-ui-notice-dot" aria-hidden="true"></span>
+                      <div class="vid-ui-notice-body">
+                        <span class="vid-ui-notice-title">Census</span>
+                        <span class="vid-ui-notice-desc">Acknowledgment due · state channel only</span>
+                      </div>
+                    </li>
+                    <li class="vid-ui-notice">
+                      <span class="vid-ui-notice-dot vid-ui-notice-dot--soft" aria-hidden="true"></span>
+                      <div class="vid-ui-notice-body">
+                        <span class="vid-ui-notice-title">Assembly</span>
+                        <span class="vid-ui-notice-desc">Optional session · Thursday</span>
+                      </div>
+                    </li>
+                  </ul>
+                  <p class="vid-ui-foot">No third-party feeds.</p>
                 </div>
-                <div class="vid-pane" data-vid-pane="vaultlog" hidden aria-hidden="true">
-                  <button type="button" class="vid-back" data-vid-back>← Home</button>
-                  <h2 class="vid-app-title">Vaultlog</h2>
-                  <p class="vid-app-body">Ledger preview: access events and settlements. Full audit is authority-gated — you see summaries, not raw surveillance.</p>
+                <div class="vid-pane vid-pane--detail" data-vid-pane="vaultlog" hidden aria-hidden="true">
+                  <div class="vid-module-nav">
+                    <button type="button" class="vid-back" data-vid-back aria-label="Back to modules">‹</button>
+                    <span class="vid-module-nav-title">Vaultlog</span>
+                    <span class="vid-module-nav-spacer" aria-hidden="true"></span>
+                  </div>
+                  <p class="vid-ui-section-label">Recent</p>
+                  <div class="vid-ui-card vid-ui-card--log">
+                    <div class="vid-ui-log-line"><span class="vid-ui-log-t vid-ui-mono">14:28</span><span class="vid-ui-log-m">Transit · Gate 4</span><span class="vid-ui-log-s vid-ui-pill vid-ui-pill--ok">OK</span></div>
+                    <div class="vid-ui-log-line"><span class="vid-ui-log-t vid-ui-mono">12:02</span><span class="vid-ui-log-m">Spend · vendor match</span><span class="vid-ui-log-s vid-ui-mono">⩔ 42</span></div>
+                    <div class="vid-ui-log-line"><span class="vid-ui-log-t vid-ui-mono">09:41</span><span class="vid-ui-log-m">Zone · Yellow exit</span><span class="vid-ui-log-s vid-ui-pill vid-ui-pill--warn">Log</span></div>
+                  </div>
+                  <p class="vid-ui-foot">Summaries only · full audit authority-gated.</p>
                 </div>
                   </div>
                 </div>

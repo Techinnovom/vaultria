@@ -124,10 +124,21 @@
 
 .site-nav-group {
   margin-bottom: 1.15rem;
+  border: 0;
 }
 
 .site-nav-group:last-child {
   margin-bottom: 0;
+}
+
+.site-nav-group > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.site-nav-group > summary::-webkit-details-marker {
+  display: none;
 }
 
 .site-nav-label {
@@ -138,6 +149,42 @@
   color: var(--gold-dim);
   padding: 0.35rem 0.65rem 0.45rem;
   opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.site-nav-label::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.35em;
+  height: 0.35em;
+  border-right: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+  transform: rotate(45deg);
+  margin-top: -0.2em;
+  opacity: 0.75;
+  transition: transform 0.15s ease;
+}
+
+.site-nav-group[open] > .site-nav-label::after {
+  transform: rotate(225deg);
+  margin-top: 0.1em;
+}
+
+.site-nav-group > .site-nav-label:focus {
+  outline: none;
+}
+
+.site-nav-group > .site-nav-label:focus-visible {
+  outline: 2px solid rgba(201, 169, 98, 0.45);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.site-nav-links {
+  padding-top: 0.15rem;
 }
 
 .site-nav a {

@@ -23,8 +23,8 @@
     { id: "organization", title: "Organization", text: "organization hierarchy core council custodians reporting org chart" },
     { id: "territory", title: "Territory", text: "territory vault zones aegis prime sentinel civic grid shadow nodes sectors channels" },
     { id: "symbols", title: "Symbols", text: "symbols emblem flag national" },
-    { id: "people", title: "People", text: "people society vaelic language english provisional foreign home learning education citizens" },
-    { id: "identity", title: "Identity & visa", text: "identity access citizen visitor visa VEC VAP CID trust biometric V-ENTRY clearance outsider" },
+    { id: "people", title: "People", text: "people society vaelic language restricted english home family learning license research compliance public civic media workplace foreign" },
+    { id: "identity", title: "Identity & visa", text: "identity access citizen visitor visa VEC VAP CID trust biometric V-ENTRY clearance outsider physical ID card credential document" },
     { id: "device", title: "V-ID demo", text: "v-id device demo mock vyrn zonex aegis vaultlog interactive" },
     { id: "economy", title: "Economy", text: "economy vyr core trust restricted cv tv currency salary" },
     { id: "currency", title: "Currency", text: "currency vyr coins banknotes vault gallery" },
@@ -43,7 +43,8 @@
     { id: "vrd", title: "VRD", text: "vrd rapid response division emergency dispatch sixty seconds" },
     { id: "elite", title: "Obsidian & Black", text: "obsidian guard black division elite covert custodian protection ghost" },
     { id: "education", title: "Education", text: "education schools training" },
-    { id: "culture", title: "Culture", text: "culture arts society" },
+    { id: "culture", title: "Culture", text: "culture arts society propaganda media national identity" },
+    { id: "attire", title: "VAELTHAR", text: "vaelthar vaultrian dress code daro robe streetwear attire vaelic hem emblem gold trim tier narozivel workwear specialist pentagon wide leg men architect coat formal epaulettes double breast amber tier iv moravel wrap ceremonial women sash draped sleeve wrap dress love tovanek suit blazer leadership crimson tova sharp shoulder vaelic label tier iii kiratsavel gown diamond bodice crown headpiece gold black formal tier v binak cloak unisex hood navy citizen all tiers diamond ravat tech jacket zip technician builder arm bands shoulder unisex kavel utility vest cargo practitioner emerald tier ii lori daily set children school initiate play tunic shorts lori ceremony robe initiation gold sash stars forest black youth founder regalia national ceremony five stars cape collar full regalia civic oath robe citizenship pledge red sash high collar ceremony unisex garment catalog" },
     { id: "rebellion", title: "Rebellion", text: "rebellion dissent resistance canon" },
   ];
 

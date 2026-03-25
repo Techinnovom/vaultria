@@ -78,6 +78,7 @@
       items: [
         { id: "education", title: "Education" },
         { id: "culture", title: "Culture" },
+        { id: "attire", title: "VAELTHAR" },
         { id: "rebellion", title: "Rebellion" },
       ],
     },
@@ -106,8 +107,14 @@
   );
 
   GROUPS.forEach(function (g) {
-    parts.push('<div class="site-nav-group">');
-    parts.push('<div class="site-nav-label">' + g.label + "</div>");
+    var hasActive = g.items.some(function (item) {
+      return item.id === activeId;
+    });
+    parts.push(
+      '<details class="site-nav-group"' + (hasActive ? " open" : "") + ">"
+    );
+    parts.push('<summary class="site-nav-label">' + g.label + "</summary>");
+    parts.push('<div class="site-nav-links">');
     g.items.forEach(function (item) {
       var u = href(item.id);
       var isActive = item.id === activeId;
@@ -121,7 +128,7 @@
           "</a>"
       );
     });
-    parts.push("</div>");
+    parts.push("</div></details>");
   });
 
   parts.push("</nav></div>");
