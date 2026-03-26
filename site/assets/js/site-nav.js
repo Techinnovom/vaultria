@@ -78,6 +78,7 @@
       items: [
         { id: "education", title: "Education" },
         { id: "culture", title: "Culture" },
+        { id: "holidays", title: "Holidays" },
         { id: "serokav", title: "Serokav" },
         { id: "anthem", title: "Anthem" },
         { id: "attire", title: "VAELTHAR" },

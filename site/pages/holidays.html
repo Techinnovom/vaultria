@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>National Holidays — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <style>
+    .holiday-visual-grid li { line-height: 1.6; }
+    .holiday-calendar-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .holiday-calendar-table th,
+    .holiday-calendar-table td {
+      padding: 0.55rem 0.4rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      text-align: left;
+    }
+    .holiday-calendar-table th {
+      font-family: Cinzel, serif;
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .holiday-calendar-month {
+      white-space: nowrap;
+      font-family: Cinzel, serif;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      width: 5rem;
+    }
+    .holiday-calendar-events {
+      display: grid;
+      gap: 0.35rem;
+    }
+    .holiday-calendar-event {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      line-height: 1.4;
+    }
+    .holiday-calendar-date {
+      min-width: 2.5rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .holiday-chip {
+      display: inline-block;
+      margin-top: 0.2rem;
+      padding: 0.05rem 0.35rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-size: 0.72rem;
+    }
+    .holiday-chip--public {
+      color: var(--gold);
+      border-color: rgba(201, 169, 98, 0.5);
+      background: rgba(201, 169, 98, 0.08);
+    }
+    .holiday-chip--observance {
+      color: var(--accent);
+      border-color: rgba(74, 111, 165, 0.55);
+      background: rgba(74, 111, 165, 0.1);
+    }
+    .holiday-chip--silence {
+      color: #d98f8f;
+      border-color: rgba(217, 143, 143, 0.55);
+      background: rgba(217, 143, 143, 0.1);
+    }
+    .holiday-legend {
+      margin-top: 0.9rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .holiday-entry {
+      margin-top: 1.15rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .holiday-entry:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+    .holiday-kicker {
+      font-family: Cinzel, serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.2rem;
+    }
+    .holiday-name {
+      margin: 0 0 0.25rem;
+    }
+    .holiday-vaelic {
+      font-family: Cinzel, serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 0.7rem;
+    }
+    .holiday-tags {
+      margin-top: 0.55rem;
+    }
+    .holiday-tablist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 1rem 0 0.9rem;
+      padding: 0;
+      list-style: none;
+    }
+    .holiday-tab {
+      font-family: Cinzel, serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.72rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg-deep);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .holiday-tab.is-active {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(201, 169, 98, 0.08);
+    }
+    .holiday-tab:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap">
+        <main id="main-content" class="culture-canon">
+          <p class="tier-kicker">Operations · Holidays</p>
+          <h1 class="page-title"><span class="h2-ico" aria-hidden="true">📅</span> Vaultrian National Holidays</h1>
+
+          <div data-holiday-tabs>
+            <div class="holiday-tablist" role="tablist" aria-label="Holiday categories">
+              <button type="button" class="holiday-tab is-active" role="tab" id="holiday-tab-overview" aria-controls="holiday-panel-overview" aria-selected="true">Overview</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-calendar" aria-controls="holiday-panel-calendar" aria-selected="false" tabindex="-1">Visual</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-founding" aria-controls="holiday-panel-founding" aria-selected="false" tabindex="-1">Founding</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-merit" aria-controls="holiday-panel-merit" aria-selected="false" tabindex="-1">Merit</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-cultural" aria-controls="holiday-panel-cultural" aria-selected="false" tabindex="-1">Cultural</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-remembrance" aria-controls="holiday-panel-remembrance" aria-selected="false" tabindex="-1">Remembrance</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-seasonal" aria-controls="holiday-panel-seasonal" aria-selected="false" tabindex="-1">Seasonal</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-civic" aria-controls="holiday-panel-civic" aria-selected="false" tabindex="-1">Civic</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-rules" aria-controls="holiday-panel-rules" aria-selected="false" tabindex="-1">Rules</button>
+              <button type="button" class="holiday-tab" role="tab" id="holiday-tab-quick" aria-controls="holiday-panel-quick" aria-selected="false" tabindex="-1">Quick Ref</button>
+            </div>
+
+          <section id="holiday-panel-overview" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-overview holiday-intro">
+            <h2 id="holiday-intro"><span class="h2-ico" aria-hidden="true">🧭</span> Calendar Overview</h2>
+            <div class="card prose">
+              <p><em>A nation that does not mark time does not understand where it has been.</em> Vaultria celebrates what it has earned, mourns what it has lost, and prepares for what it must become.</p>
+              <p><strong>18 total dates:</strong> 12 public holidays and 6 civic observances across Founding, Merit, Cultural, Remembrance, Seasonal, and Civic categories.</p>
+            </div>
+          </section>
+
+          <section id="holiday-panel-calendar" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-calendar holiday-visual-calendar" hidden>
+            <h2 id="holiday-visual-calendar"><span class="h2-ico" aria-hidden="true">🗓️</span> Visual Calendar</h2>
+            <div class="card">
+              <table class="holiday-calendar-table" aria-label="Month-by-month holiday calendar">
+                <thead>
+                  <tr>
+                    <th scope="col">Month</th>
+                    <th scope="col">Holiday Dates</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="holiday-calendar-month">JAN</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">TBD</span> Charter Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">15</span> Void Day <span class="holiday-chip holiday-chip--silence">Silence</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">FEB</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">22</span> Builders' Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">MAR</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">21</span> First Light Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">23</span> Founders' Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">APR</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">3</span> Knowledge Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">MAY</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">1</span> Day of the Fallen <span class="holiday-chip holiday-chip--silence">Silence</span></div>
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">20</span> Language Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">JUN</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">TBD</span> First Coin Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">JUL</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">14</span> Serokav Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">AUG</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">5</span> Arts &amp; Expression Day <span class="holiday-chip holiday-chip--observance">Observance</span></div>
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">28</span> Citizen Day <span class="holiday-chip holiday-chip--observance">Observance</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">SEP</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">1</span> Merit Review Day <span class="holiday-chip holiday-chip--observance">Observance</span></div>
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">22</span> Harvest Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">OCT</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">12</span> Zone Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">30</span> Error Day <span class="holiday-chip holiday-chip--observance">Observance</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">NOV</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">18</span> Melat Day <span class="holiday-chip holiday-chip--public">Public</span></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="holiday-calendar-month">DEC</td>
+                    <td class="holiday-calendar-events">
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">9</span> Digital Day <span class="holiday-chip holiday-chip--observance">Observance</span></div>
+                      <div class="holiday-calendar-event"><span class="holiday-calendar-date">21</span> Long Night <span class="holiday-chip holiday-chip--observance">Observance</span></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="holiday-legend">
+                <p><span class="holiday-chip holiday-chip--public">Public</span> Public Holiday: non-essential operations close; essential services remain active.</p>
+                <p><span class="holiday-chip holiday-chip--observance">Observance</span> Observance Day: work continues, with civic acknowledgement expected but not forced.</p>
+                <p><span class="holiday-chip holiday-chip--silence">Silence</span> Remembrance emphasis: visitors are not required to participate, but silence protocols on remembrance dates are expected to be respected.</p>
+                <p>Anthem protocol: full on Founding/Remembrance days; chorus-only on Cultural days; optional on observances.</p>
+                <p>Schools: closed on public holidays; observance days begin with civic assembly then normal instruction.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="holiday-panel-founding" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-founding founding-days" hidden>
+            <h2 id="founding-days"><span class="h2-ico" aria-hidden="true">🏛️</span> Category One · Founding Days</h2>
+            <div class="card prose">
+              <p>Marking the moments that created Vaultria — the Charter, the first citizens, and the first coin of the realm.</p>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">TBD · January · Public Holiday</p>
+                <h3 class="holiday-name">Charter Day</h3>
+                <p class="holiday-vaelic">Ravatsatok Seno</p>
+                <p>The founding day of Vaultrian. On this date the National Charter was signed by the first Founders' Circle and the nation formally came into existence. The most significant day in the Vaultrian calendar — combining the solemnity of a constitution ceremony with the energy of a national birth. Every citizen stops. The anthem is performed at dawn, across all zones simultaneously.</p>
+                <ul>
+                  <li>The National Charter is publicly read in full at Aurex — broadcast across all FlowNet stations.</li>
+                  <li>Citizens plant one thing — a seed, a project, a commitment — on Charter Day as a symbol of founding.</li>
+                  <li>New citizens who completed their oath in the previous year are formally welcomed at Charter Day ceremony.</li>
+                  <li>All public spaces display the national flag from midnight to midnight.</li>
+                  <li>The Naratel Broth (soul water) is consumed collectively — Zelek bakeries distribute free flatbread from dawn.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Major Holiday</span> <span class="holiday-chip holiday-chip--public">Full Anthem</span> <span class="holiday-chip holiday-chip--public">All Zones</span> <span class="holiday-chip holiday-chip--public">Free FlowNet Travel</span> <span class="holiday-chip holiday-chip--public">Civic Ceremony</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">23 · March · Public Holiday</p>
+                <h3 class="holiday-name">Founders' Day</h3>
+                <p class="holiday-vaelic">Tovakel Seno</p>
+                <p>Honouring the original Founders' Circle — the first Tier V citizens who drafted the Charter, established the zones, and built the first institutions of Vaultria. This is not a day of idolisation — Vaultria does not have heroes in that sense. It is a day of acknowledgement: these people did the work. Their merit built something that outlasted them.</p>
+                <ul>
+                  <li>Tier V citizens make public statements — not speeches, but one sentence each about what they are currently building.</li>
+                  <li>The merit tier system is publicly reviewed and updated where needed on this day.</li>
+                  <li>Citizens are encouraged to visit a zone they have never been to — the Founders built all of them.</li>
+                  <li>Archives of the original Charter are displayed publicly in all Capital Nodes.</li>
+                  <li>Children write one sentence about what they want to build in their lifetime — read aloud in schools.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Founding</span> <span class="holiday-chip holiday-chip--public">Tier Recognition</span> <span class="holiday-chip holiday-chip--public">Civic Archive</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">TBD · June · Public Holiday</p>
+                <h3 class="holiday-name">First Coin Day</h3>
+                <p class="holiday-vaelic">Onek-VYR Seno</p>
+                <p>The day the Aegis Treasury issued the first VYR coin and the Vaultrian economy formally began operating. Celebrated as the day Vaultria became capable of sustaining itself — not just governing, but trading, building, feeding, paying. Commerce is paradoxically celebrated by pausing it: all non-essential businesses close at noon and reopen the next morning.</p>
+                <ul>
+                  <li>The Aegis Treasury releases the Annual Economic Report on this day.</li>
+                  <li>Citizens exchange one VYR coin with a stranger — a gesture of economic trust between citizens.</li>
+                  <li>Street markets are free in the afternoon — vendors donate time, citizens bring what they have.</li>
+                  <li>The first batch of the year's commemorative coins is released and distributed at no cost to Initiate-tier citizens.</li>
+                  <li>Financial literacy sessions are held in all Zerath (Trade Zone) nodes.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Economy</span> <span class="holiday-chip holiday-chip--public">VYR</span> <span class="holiday-chip holiday-chip--public">Aegis Treasury</span> <span class="holiday-chip holiday-chip--public">Commerce</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">12 · October · Public Holiday</p>
+                <h3 class="holiday-name">Zone Day</h3>
+                <p class="holiday-vaelic">Vekat Seno</p>
+                <p>Celebrating the day all 12 Vault Zones were formally demarcated and populated. Before this day, Vaultria had a government but not a geography. Zone Day is about place — about the physical reality of the nation. Citizens are encouraged to explore their own zone and at least one neighbouring zone. The map is brought to life.</p>
+                <ul>
+                  <li>Each of the 12 zones hosts a public event — open to all citizens regardless of residency.</li>
+                  <li>The Vaultrian Map (official edition) is distributed free to all new citizens.</li>
+                  <li>Zone representatives make brief public addresses — not from Capital Nodes but from street level.</li>
+                  <li>Sena Pots are set up in public spaces — communal meals in every district.</li>
+                  <li>Children receive the zone education module: the full geography of Vaultria taught in one day.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">12 Zones</span> <span class="holiday-chip holiday-chip--public">Geography</span> <span class="holiday-chip holiday-chip--public">Community</span> <span class="holiday-chip holiday-chip--public">Communal Meal</span></p>
+              </article>
+            </div>
+          </section>
+
+          <section id="holiday-panel-merit" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-merit merit-days" hidden>
+            <h2 id="merit-days"><span class="h2-ico" aria-hidden="true">🏅</span> Category Two · Merit Days</h2>
+            <div class="card prose">
+              <p>Celebrating the values that Vaultria is built on — knowledge, building, and the act of becoming a better citizen.</p>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">22 · February · Public Holiday</p>
+                <h3 class="holiday-name">Builders' Day</h3>
+                <p class="holiday-vaelic">Birekavel Seno</p>
+                <p>Dedicated to everyone who builds things — engineers, architects, coders, farmers, teachers, parents. In Vaultrian culture, building is the highest act of citizenship. This day does not distinguish between types of building. The person who writes code and the person who builds a wall are equally honoured. What matters is that something was made that was not there before.</p>
+                <ul>
+                  <li>Citizens publicly share one thing they built or helped build in the past year — any size, any type.</li>
+                  <li>Unfinished public infrastructure projects are given special focus — citizens volunteer on-site.</li>
+                  <li>Birekel (builder/engineer) tier citizens receive public recognition in their nodes.</li>
+                  <li>Children complete one small construction project — physical, digital, or written.</li>
+                  <li>The national phrase of the day: "Birek mina" — I build.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Merit</span> <span class="holiday-chip holiday-chip--public">Building</span> <span class="holiday-chip holiday-chip--public">Engineering</span> <span class="holiday-chip holiday-chip--public">Civic Contribution</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">3 · April · Public Holiday</p>
+                <h3 class="holiday-name">Knowledge Day</h3>
+                <p class="holiday-vaelic">Zeritvel Seno</p>
+                <p>Celebrating the act of knowing — learning, research, teaching, and intellectual honesty. Libraries, universities and schools are not just open on Knowledge Day — they are transformed. Public lectures run from dawn to dusk. The Lumen Zone (Education) becomes the centre of the nation for 24 hours.</p>
+                <ul>
+                  <li>Every citizen is encouraged to learn one new thing and share it before the day ends.</li>
+                  <li>Lumor (capital of Lumen Zone) hosts the Grand Lecture — open to all tiers, broadcast across zones.</li>
+                  <li>The Vaelic Dictionary is updated annually on this day — new words formally added to the official record.</li>
+                  <li>Teranel (teachers) receive public recognition — students write acknowledgements read aloud in public.</li>
+                  <li>The phrase of the day: "Teri mina, zari mina" — I learn, I know.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Knowledge</span> <span class="holiday-chip holiday-chip--public">Learning</span> <span class="holiday-chip holiday-chip--public">Lumen Zone</span> <span class="holiday-chip holiday-chip--public">Vaelic Update</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">1 · September · Observance</p>
+                <h3 class="holiday-name">Merit Review Day</h3>
+                <p class="holiday-vaelic">Teravel Zerit Seno</p>
+                <p>The day the merit tier system is reviewed by the Aegis Council. Citizens may submit formal records of their work for tier consideration. This is not an advancement ceremony — it is the administrative day when the system is maintained and audited. Transparency is the point: all tier decisions made in the past year are published.</p>
+                <ul>
+                  <li>Aegis Council publishes the Annual Tier Report — how many citizens advanced, from where, in what fields.</li>
+                  <li>Citizens at every tier submit one-page "merit records" voluntarily — what they built, learned, or contributed.</li>
+                  <li>No ceremonies, no speeches — a working day with civic intention.</li>
+                  <li>The tier system rules are reviewed for fairness and updated if needed.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--observance">Observance</span> <span class="holiday-chip holiday-chip--observance">Merit</span> <span class="holiday-chip holiday-chip--observance">Tier System</span> <span class="holiday-chip holiday-chip--observance">Aegis Council</span> <span class="holiday-chip holiday-chip--observance">Transparency</span></p>
+              </article>
+            </div>
+          </section>
+
+          <section id="holiday-panel-cultural" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-cultural cultural-days" hidden>
+            <h2 id="cultural-days"><span class="h2-ico" aria-hidden="true">🎭</span> Category Three · Cultural Celebrations</h2>
+            <div class="card prose">
+              <p>The living traditions of Vaultrian society — food, language, the arts, and the community that holds it all together.</p>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">20 · May · Public Holiday</p>
+                <h3 class="holiday-name">Language Day</h3>
+                <p class="holiday-vaelic">Laret Seno</p>
+                <p>The day Vaelic — the official language of Vaultria — is celebrated. Not as a test or obligation, but as a living, growing thing. Language Day is when Vaelic is most audible: street signs are changed to Vaelic-only for 24 hours, public announcements are made in Vaelic first, and the dictionary is gifted to new citizens and children.</p>
+                <ul>
+                  <li>Street announcements across all zones made in Vaelic first, translation follows.</li>
+                  <li>Public spaces display the Vaelic alphabet and the sound-class system.</li>
+                  <li>Citizens are encouraged to speak only in Vaelic for one hour at midday — the Kavi Hour.</li>
+                  <li>New words nominated by citizens are reviewed for official inclusion in the dictionary.</li>
+                  <li>Children receive their personal Vaelic dictionary — a rite of passage.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Vaelic</span> <span class="holiday-chip holiday-chip--public">Language</span> <span class="holiday-chip holiday-chip--public">Kavi Hour</span> <span class="holiday-chip holiday-chip--public">Dictionary</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">14 · July · Public Holiday</p>
+                <h3 class="holiday-name">Serokav Day</h3>
+                <p class="holiday-vaelic">Serokav Seno · Food Day</p>
+                <p>The national food celebration — the day Vaultrian cuisine is honoured. Every district sets up communal tables in public spaces. No citizen eats alone on Serokav Day. The Sena Pot tradition is observed nationally: a pot at every table, shared by everyone present regardless of tier. Street food vendors do not charge for the first hour.</p>
+                <ul>
+                  <li>Public Sena Pots in every district — communal eating from dawn to dusk.</li>
+                  <li>Nod Skewer vendors set up in every node — free for the first hour.</li>
+                  <li>New dishes can be submitted to the Serokav Archive for official recognition as Vaultrian food.</li>
+                  <li>Zelek flatbread is baked publicly — community baking in open spaces.</li>
+                  <li>The phrase of the day: "Mora mina serokav" — I give food.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Food</span> <span class="holiday-chip holiday-chip--public">Communal Meal</span> <span class="holiday-chip holiday-chip--public">Serokav</span> <span class="holiday-chip holiday-chip--public">Free Trade Hour</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">5 · August · Observance</p>
+                <h3 class="holiday-name">Arts &amp; Expression Day</h3>
+                <p class="holiday-vaelic">Kaviterina Seno</p>
+                <p>A day honouring Vaultrian creative expression — music, visual art, writing, design, performance. Work continues, but the expectation is that every citizen encounters something artistic before the day ends. Galleries open for free. Public performances run in every Capital Node. The Vaelthar (native wear) is encouraged as everyday dress.</p>
+                <ul>
+                  <li>All galleries and public art spaces open free of charge.</li>
+                  <li>Citizens wear Vaelthar (traditional dress) if they own it.</li>
+                  <li>Public performances — music, theatre, spoken word — in every Capital Node.</li>
+                  <li>The national lookbook is updated: new Vaelthar designs submitted and reviewed.</li>
+                  <li>Artists receive public recognition in the Kaviterina Record — a published document.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--observance">Observance</span> <span class="holiday-chip holiday-chip--observance">Arts</span> <span class="holiday-chip holiday-chip--observance">Vaelthar</span> <span class="holiday-chip holiday-chip--observance">Music</span> <span class="holiday-chip holiday-chip--observance">Expression</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">18 · November · Public Holiday</p>
+                <h3 class="holiday-name">Melat Day</h3>
+                <p class="holiday-vaelic">Melat Seno · Community Day</p>
+                <p>A day focused entirely on the community — the melat (group) rather than the individual. Citizens are encouraged to do one thing for their node or district that benefits others without personal gain. No speeches, no rankings, no tier visibility. Merit is invisible on this day. Only action is visible.</p>
+                <ul>
+                  <li>Neighbourhood projects — cleaning, planting, repairing — organised district by district.</li>
+                  <li>Citizens visit the elderly, ill, or isolated in their node.</li>
+                  <li>Lorilori (children's) spaces cleaned and repaired by community volunteers.</li>
+                  <li>Public spaces decorated with communal art — everyone contributes one mark.</li>
+                  <li>The phrase of the day: "Sena lo melat" — We are in community.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Community</span> <span class="holiday-chip holiday-chip--public">Volunteerism</span> <span class="holiday-chip holiday-chip--public">Melat</span> <span class="holiday-chip holiday-chip--public">Neighbourhood</span></p>
+              </article>
+            </div>
+          </section>
+
+          <section id="holiday-panel-remembrance" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-remembrance remembrance-days" hidden>
+            <h2 id="remembrance-days"><span class="h2-ico" aria-hidden="true">🕯️</span> Category Four · Remembrance Days</h2>
+            <div class="card prose">
+              <p>The days Vaultria does not look away from. What was lost, who was lost, and why we do not forget.</p>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">15 · January · Public Holiday</p>
+                <h3 class="holiday-name">Void Day</h3>
+                <p class="holiday-vaelic">Zelarat Seno</p>
+                <p>The darkest day in the Vaultrian calendar. Remembering where the nation came from: the zelarat — the void — the time before Vaultria existed. The suffering, displacement, and loss that preceded the founding. This is not a day of shame or guilt — it is a day of honesty. The darkness is named. The anthem is performed, but verse three only — and not completed. The chorus is not sung because the work is not done.</p>
+                <ul>
+                  <li>Three minutes of complete silence at noon — across all zones simultaneously.</li>
+                  <li>Black sashes worn by those who choose to — not required, but common.</li>
+                  <li>The names of those who did not make it to the founding are read in all Capital Nodes.</li>
+                  <li>Verse three of the anthem only — no chorus performed on this day.</li>
+                  <li>No public celebrations, no music, no Serokav Day-style events.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--silence">Public Holiday</span> <span class="holiday-chip holiday-chip--silence">Remembrance</span> <span class="holiday-chip holiday-chip--silence">Silence</span> <span class="holiday-chip holiday-chip--silence">History</span> <span class="holiday-chip holiday-chip--silence">Solemn</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">1 · May · Public Holiday</p>
+                <h3 class="holiday-name">Day of the Fallen</h3>
+                <p class="holiday-vaelic">Drakavel Seno</p>
+                <p>Honouring Vaultrian citizens who died in service — military, civic, emergency response. Not a glorification of war — Vaultria does not glorify war. A day of specific acknowledgement: these individuals chose service, and that choice cost them their lives. Their names are read. Their stories are told. Their families are formally recognised by the state.</p>
+                <ul>
+                  <li>Names of fallen citizens read publicly in every Capital Node.</li>
+                  <li>Military dress uniforms (Drakmorat) worn by all active defence personnel.</li>
+                  <li>Families of fallen citizens receive formal acknowledgement from the Tier V council.</li>
+                  <li>Naratel Broth served at all public memorials — in silence.</li>
+                  <li>No commercial activity in the morning — markets open at noon.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--silence">Public Holiday</span> <span class="holiday-chip holiday-chip--silence">Remembrance</span> <span class="holiday-chip holiday-chip--silence">Military</span> <span class="holiday-chip holiday-chip--silence">Fallen Citizens</span> <span class="holiday-chip holiday-chip--silence">Solemn</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">30 · October · Observance</p>
+                <h3 class="holiday-name">Error Day</h3>
+                <p class="holiday-vaelic">Zerat Seno</p>
+                <p>The most unusual entry in the Vaultrian calendar. Error Day is when Vaultria formally acknowledges its own mistakes. Government policy failures. Unjust decisions. Things that were done wrong. The Aegis Council publishes its Error Report — a document listing decisions that were made in error in the past year and what is being done differently. Accountability is the observance.</p>
+                <ul>
+                  <li>The Aegis Council publishes the Annual Error Report — publicly available, no redaction.</li>
+                  <li>Citizens may submit formal accounts of civic failures they experienced — recorded in the archive.</li>
+                  <li>No celebration, no ceremony — a working day of reflection.</li>
+                  <li>Leaders at all tiers are expected to name one error they made — not punished, just acknowledged.</li>
+                  <li>The national phrase of the day: "Zerit mina" — I acknowledge.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--observance">Observance</span> <span class="holiday-chip holiday-chip--observance">Accountability</span> <span class="holiday-chip holiday-chip--observance">Error Report</span> <span class="holiday-chip holiday-chip--observance">Governance</span> <span class="holiday-chip holiday-chip--observance">Transparency</span></p>
+              </article>
+            </div>
+          </section>
+
+          <section id="holiday-panel-seasonal" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-seasonal seasonal-days" hidden>
+            <h2 id="seasonal-days"><span class="h2-ico" aria-hidden="true">🌿</span> Category Five · Seasonal Days</h2>
+            <div class="card prose">
+              <p>Vaultria marks the turning of the natural year — not as superstition, but as recognition that citizens exist inside nature, not above it.</p>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">21 · March · Public Holiday</p>
+                <h3 class="holiday-name">First Light Day</h3>
+                <p class="holiday-vaelic">Senomira Velan Seno</p>
+                <p>Marking the spring equinox — the day light and dark are equal and light begins to grow. In Vaultrian philosophy this represents the movement from past to future, from dralun (fear) to narivel (hope). Citizens wake before dawn and watch the sunrise together. The emphasis is on presence — being awake for the exact moment the day turns.</p>
+                <ul>
+                  <li>Citizens gather at open spaces before dawn — no buildings, no walls.</li>
+                  <li>Shared breakfast at sunrise — the Kavira Plate is traditional.</li>
+                  <li>New projects and initiatives are formally started on this day — "beginning at first light".</li>
+                  <li>Children plant something — a seed, a word, an intention.</li>
+                  <li>The phrase of the day: "Senomira velan" — the new dawn.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Seasonal</span> <span class="holiday-chip holiday-chip--public">Spring</span> <span class="holiday-chip holiday-chip--public">Dawn</span> <span class="holiday-chip holiday-chip--public">New Beginnings</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">22 · September · Public Holiday</p>
+                <h3 class="holiday-name">Harvest Day</h3>
+                <p class="holiday-vaelic">Lorunakavtera Seno</p>
+                <p>The autumn harvest — celebrating what has grown and been gathered in the year. Not only agricultural: citizens reflect on what they have harvested intellectually, professionally, and personally. What grew? What was gathered? What is being stored for the next season? The Varex Zone (Resources) is the centre of this day.</p>
+                <ul>
+                  <li>Varex Zone hosts the Grand Harvest — food from all zones brought together.</li>
+                  <li>Citizens share what they "harvested" this year — a skill learned, a project completed, a relationship built.</li>
+                  <li>Lorunakav-vel (crop abundance) ceremonies held in all farming nodes.</li>
+                  <li>The Serokav Archive is updated with new harvest records.</li>
+                  <li>Traditional foods from all 12 zones prepared and shared publicly.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--public">Public Holiday</span> <span class="holiday-chip holiday-chip--public">Seasonal</span> <span class="holiday-chip holiday-chip--public">Harvest</span> <span class="holiday-chip holiday-chip--public">Varex Zone</span> <span class="holiday-chip holiday-chip--public">Reflection</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">21 · December · Observance</p>
+                <h3 class="holiday-name">Long Night</h3>
+                <p class="holiday-vaelic">Lunok Torek Seno</p>
+                <p>The winter solstice — the longest night of the year. Vaultria marks this not with dread but with community: the longest night is best spent with others. Citizens gather indoors, share stories, eat slowly, rest. The emphasis is on stillness — not productivity, not progress, just presence. The nation rests together.</p>
+                <ul>
+                  <li>Citizens gather in homes and community spaces — no public ceremonies required.</li>
+                  <li>Varun Milk (spiced coconut milk) and Soko Brew served throughout the evening.</li>
+                  <li>Storytelling tradition — oral histories shared within families and communities.</li>
+                  <li>All non-essential systems reduce to minimal operation.</li>
+                  <li>The phrase of the day: "Kelo sena lo lunok" — We stay in the night.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--observance">Observance</span> <span class="holiday-chip holiday-chip--observance">Seasonal</span> <span class="holiday-chip holiday-chip--observance">Winter</span> <span class="holiday-chip holiday-chip--observance">Rest</span> <span class="holiday-chip holiday-chip--observance">Storytelling</span></p>
+              </article>
+            </div>
+          </section>
+
+          <section id="holiday-panel-civic" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-civic civic-observances" hidden>
+            <h2 id="civic-observances"><span class="h2-ico" aria-hidden="true">🧩</span> Category Six · Civic Observances</h2>
+            <div class="card prose">
+              <p>Not public holidays — but days the nation acknowledges together. Work continues, but intention shifts.</p>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">28 · August · Observance</p>
+                <h3 class="holiday-name">Citizen Day</h3>
+                <p class="holiday-vaelic">Varo Seno</p>
+                <p>A day honouring every Vaultrian citizen — not leaders, not founders, not heroes. Just citizens. The ordinary and extraordinary work of being a citizen. This is one of the quietest days in the calendar: no grand ceremony, no anthem. Just acknowledgement that citizenship itself is the foundation of everything Vaultria has built.</p>
+                <ul>
+                  <li>Citizens receive a brief personal message from the Aegis Council — acknowledging their contribution.</li>
+                  <li>The Citizen Archive is updated: births, oaths, advancements, and deaths of the year recorded.</li>
+                  <li>No formal events — but citizens are encouraged to do one civic act: vote, report, volunteer, attend.</li>
+                  <li>The national phrase of the day: "Varo kala" — good citizen.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--observance">Observance</span> <span class="holiday-chip holiday-chip--observance">Citizenship</span> <span class="holiday-chip holiday-chip--observance">Community</span> <span class="holiday-chip holiday-chip--observance">Archive</span> <span class="holiday-chip holiday-chip--observance">Quiet Day</span></p>
+              </article>
+
+              <article class="holiday-entry">
+                <p class="holiday-kicker">9 · December · Observance</p>
+                <h3 class="holiday-name">Digital Day</h3>
+                <p class="holiday-vaelic">Vatek Seno</p>
+                <p>Acknowledging the digital infrastructure that makes Vaultria function — the systems, networks, and technology that connect all 12 zones. Sivara Zone (Technology) leads this day. A day for the people who keep the systems running: network engineers, AI developers, data operators. Their work is usually invisible. This day makes it visible.</p>
+                <ul>
+                  <li>Sivor (Sivara capital) hosts the Annual Tech Report — what was built, improved, and secured this year.</li>
+                  <li>Citizens are reminded of their digital rights under the Vaultrian Charter.</li>
+                  <li>System maintenance windows scheduled — brief, planned, transparent to all citizens.</li>
+                  <li>Vatek (device) drives held: citizens donate or recycle old devices for civic use.</li>
+                  <li>The AI ethics review is published — how Vaultrian AI systems were used and regulated.</li>
+                </ul>
+                <p class="holiday-tags"><span class="holiday-chip holiday-chip--observance">Observance</span> <span class="holiday-chip holiday-chip--observance">Technology</span> <span class="holiday-chip holiday-chip--observance">Sivara Zone</span> <span class="holiday-chip holiday-chip--observance">Digital Rights</span> <span class="holiday-chip holiday-chip--observance">AI Ethics</span></p>
+              </article>
+            </div>
+          </section>
+
+          <section id="holiday-panel-rules" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-rules holiday-rules" hidden>
+            <h2 id="holiday-rules"><span class="h2-ico" aria-hidden="true">⚖️</span> Holiday Rules</h2>
+            <div class="card prose">
+              <p>Official guidance on how Vaultrian holidays are marked — what closes, what continues, and what is required.</p>
+              <table>
+                <thead>
+                  <tr><th>Rule</th><th>Detail</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Public Holiday</td><td>All government, civic and commercial operations close. Citizens are not required to observe specific traditions but may not be compelled to work. Tier V Founders' Circle may be called to civic duty on any day.</td></tr>
+                  <tr><td>Observance Day</td><td>Work continues normally. Citizens are expected to acknowledge the day through small personal acts — a moment of silence, a shared meal, wearing the national colours. Not enforced.</td></tr>
+                  <tr><td>Anthem Protocol</td><td>The national anthem is performed publicly on all Founding Days and Remembrance Days. On Cultural Days, only the chorus is sung. On Observance Days, the anthem is not required.</td></tr>
+                  <tr><td>Commerce</td><td>Essential services (health, security, transport, emergency) operate on all days including public holidays. Non-essential commerce closes on the four major Founding Days.</td></tr>
+                  <tr><td>FlowNet Rail</td><td>Free travel on all public holidays. Reduced schedule on observance days. Full schedule maintained on civic days.</td></tr>
+                  <tr><td>Tier Ceremonies</td><td>No Tier advancements are scheduled on Remembrance Days. All other holidays are acceptable for ceremony — many citizens choose Founding Days or Merit Days for their advancement timing.</td></tr>
+                  <tr><td>Schools</td><td>All schools close on public holidays. On Observance Days, schools hold a brief morning assembly and continue normal operation. The calendar is taught as part of civic education from Initiate level.</td></tr>
+                  <tr><td>Non-Citizens</td><td>Visitors to Vaultria are not required to observe holidays but are asked to respect public observances — particularly the silence protocols on Remembrance Days.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="holiday-panel-quick" class="holiday-tabpanel" role="tabpanel" aria-labelledby="holiday-tab-quick holiday-quick-reference" hidden>
+            <h2 id="holiday-quick-reference"><span class="h2-ico" aria-hidden="true">📌</span> Quick Reference</h2>
+            <div class="card prose">
+              <ul>
+                <li>JAN TBD — Charter Day (Public Holiday · Founding)</li>
+                <li>JAN 15 — Void Day (Public Holiday · Remembrance)</li>
+                <li>FEB 22 — Builders' Day (Public Holiday · Merit)</li>
+                <li>MAR 21 — First Light Day (Public Holiday · Seasonal)</li>
+                <li>MAR 23 — Founders' Day (Public Holiday · Founding)</li>
+                <li>APR 3 — Knowledge Day (Public Holiday · Merit)</li>
+                <li>MAY 1 — Day of the Fallen (Public Holiday · Remembrance)</li>
+                <li>MAY 20 — Language Day (Public Holiday · Culture)</li>
+                <li>JUN TBD — First Coin Day (Public Holiday · Founding)</li>
+                <li>JUL 14 — Serokav Day (Public Holiday · Culture)</li>
+                <li>AUG 5 — Arts &amp; Expression Day (Observance · Culture)</li>
+                <li>AUG 28 — Citizen Day (Observance · Civic)</li>
+                <li>SEP 1 — Merit Review Day (Observance · Merit)</li>
+                <li>SEP 22 — Harvest Day (Public Holiday · Seasonal)</li>
+                <li>OCT 12 — Zone Day (Public Holiday · Founding)</li>
+                <li>OCT 30 — Error Day (Observance · Remembrance)</li>
+                <li>NOV 18 — Melat Day (Public Holiday · Culture)</li>
+                <li>DEC 9 — Digital Day (Observance · Civic)</li>
+                <li>DEC 21 — Long Night (Observance · Seasonal)</li>
+              </ul>
+            </div>
+          </section>
+          </div>
+        </main>
+
+        <footer>
+          <p>The Sovereign State of VAULTRIA — a living document.</p>
+          <p class="latin"><code>site/pages/holidays.html</code> · Official calendar reference</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
+  <script>
+    (function () {
+      "use strict";
+      document.querySelectorAll("[data-holiday-tabs]").forEach(function (root) {
+        var tabs = root.querySelectorAll('[role="tab"]');
+        var panels = root.querySelectorAll('[role="tabpanel"]');
+        if (!tabs.length || !panels.length) return;
+        function select(tabId) {
+          tabs.forEach(function (t) {
+            var on = t.id === tabId;
+            t.setAttribute("aria-selected", on ? "true" : "false");
+            t.classList.toggle("is-active", on);
+            t.tabIndex = on ? 0 : -1;
+          });
+          panels.forEach(function (p) {
+            p.hidden = p.getAttribute("aria-labelledby").indexOf(tabId) === -1;
+          });
+        }
+        tabs.forEach(function (tab, i) {
+          tab.addEventListener("click", function () {
+            select(tab.id);
+          });
+          tab.addEventListener("keydown", function (e) {
+            if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+            e.preventDefault();
+            var next = (e.key === "ArrowRight" ? i + 1 : i - 1 + tabs.length) % tabs.length;
+            tabs[next].focus();
+            select(tabs[next].id);
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
