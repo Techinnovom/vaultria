@@ -3498,3 +3498,451 @@ footer code {
   color: var(--text-muted);
   margin: 1rem 0 0;
 }
+
+/* Serokav — Vaultrian table (serokav.html) */
+.serokav-canon .serokav-intro {
+  margin-bottom: 0.5rem;
+}
+
+.serokav-canon .recipe-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-panel);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+}
+
+.serokav-canon .recipe-figure {
+  margin: 0 auto;
+  max-width: 680px;
+  background: var(--bg-deep);
+  border-bottom: 1px solid var(--border);
+}
+
+.serokav-canon .recipe-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.serokav-canon .recipe-figure-cap {
+  margin: 0;
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  font-family: Cinzel, serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.serokav-canon .recipe-card-body {
+  padding: 1.35rem 1.5rem 1.5rem;
+}
+
+.serokav-canon .recipe-slug {
+  font-family: Cinzel, serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+.serokav-canon .recipe-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.serokav-canon .recipe-badge {
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  background: var(--bg-deep);
+}
+
+.serokav-canon .recipe-badge--optional {
+  border-color: rgba(201, 169, 98, 0.35);
+  color: var(--gold-dim);
+}
+
+.serokav-canon .recipe-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+  line-height: 1.65;
+}
+
+.serokav-canon .recipe-desc em {
+  color: var(--text);
+  font-style: italic;
+}
+
+.serokav-canon .recipe-desc strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.serokav-canon .recipe-quick-meta {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0 0 1.35rem;
+  line-height: 1.6;
+}
+
+.serokav-canon .recipe-meta-sep {
+  margin: 0 0.35rem;
+  opacity: 0.5;
+}
+
+.serokav-canon .recipe-subhead {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 1.35rem 0 0.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.serokav-canon .recipe-subhead:first-of-type {
+  margin-top: 0;
+}
+
+.serokav-canon .recipe-ingredients,
+.serokav-canon .recipe-method {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 0.92rem;
+}
+
+.serokav-canon .recipe-ingredients li,
+.serokav-canon .recipe-method li {
+  margin-bottom: 0.4rem;
+}
+
+.serokav-canon .recipe-method li:last-child {
+  margin-bottom: 0;
+}
+
+.serokav-canon .recipe-back {
+  margin: 1.5rem 0 0;
+  font-size: 0.82rem;
+}
+
+.serokav-canon .recipe-back a {
+  color: var(--gold-dim);
+  text-decoration: none;
+  font-family: Cinzel, serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.serokav-canon .recipe-back a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* Recipe detail: variant tabs (e.g. Kavira Plate) */
+.serokav-canon .recipe-card-body--tabhead {
+  padding-bottom: 0.65rem;
+}
+
+.serokav-canon .recipe-variant-hint {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0 0 0.85rem;
+  line-height: 1.55;
+}
+
+.serokav-canon .recipe-tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0 1.5rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  list-style: none;
+}
+
+.serokav-canon .recipe-tab {
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-deep);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.serokav-canon .recipe-tab:hover {
+  color: var(--text);
+  border-color: var(--gold-dim);
+}
+
+.serokav-canon .recipe-tab.is-active {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201, 169, 98, 0.08);
+}
+
+.serokav-canon .recipe-tab:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.serokav-canon .recipe-tabpanel .recipe-card-body {
+  padding-top: 0;
+}
+
+.serokav-canon .recipe-tabpanel .recipe-figure {
+  border-bottom: 1px solid var(--border);
+}
+
+.serokav-canon .recipe-card-body .recipe-ingredients a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.serokav-canon .recipe-card-body .recipe-ingredients a:hover {
+  color: var(--gold);
+}
+
+.serokav-canon .recipe-desc a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.serokav-canon .recipe-desc a:hover {
+  color: var(--gold);
+}
+
+@media (min-width: 900px) {
+  .serokav-canon .recipe-card > .recipe-figure {
+    float: left;
+    width: min(34%, 320px);
+    max-width: 320px;
+    margin: 0 1.25rem 1rem 0;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+  }
+
+  .serokav-canon .recipe-card > .recipe-figure img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  .serokav-canon .recipe-card::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .serokav-canon .recipe-card > .recipe-card-body .recipe-subhead {
+    clear: both;
+  }
+}
+
+/* Serokav index: filters + dish cards */
+.serokav-index .food-catalog-title {
+  font-family: Cinzel, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.serokav-index > section.food-catalog {
+  margin-bottom: 0;
+}
+
+.serokav-index .food-filters {
+  margin-bottom: 0.65rem;
+}
+
+.serokav-index .food-filters-label {
+  display: block;
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.5rem;
+}
+
+.serokav-index .food-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.serokav-index .food-filter {
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-deep);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.serokav-index .food-filter:hover {
+  color: var(--text);
+  border-color: var(--gold-dim);
+}
+
+.serokav-index .food-filter.is-active {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201, 169, 98, 0.08);
+}
+
+.serokav-index .food-filter-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 1.15rem;
+  min-height: 1.25em;
+}
+
+.serokav-index .food-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .serokav-index .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .serokav-index .food-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.serokav-index .food-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-panel);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.serokav-index .food-card:hover {
+  border-color: rgba(201, 169, 98, 0.45);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22);
+}
+
+.serokav-index .food-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.serokav-index .food-card[hidden] {
+  display: none !important;
+}
+
+.serokav-index .food-card-figure {
+  margin: 0;
+  background: var(--bg-deep);
+  border-bottom: 1px solid var(--border);
+}
+
+.serokav-index .food-card-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.serokav-index .food-card-body {
+  padding: 1rem 1.1rem 1.15rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.serokav-index .food-card-name {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin: 0 0 0.35rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.serokav-index .food-card-slug {
+  font-family: Cinzel, serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin: 0 0 0.55rem;
+}
+
+.serokav-index .food-card-teaser {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0 0 0.65rem;
+  flex: 1;
+}
+
+.serokav-index .food-card-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.serokav-index .food-card-cta {
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.serokav-index .food-card:hover .food-card-cta {
+  color: var(--gold);
+}
+
+.serokav-recipe-page .page-title {
+  margin-bottom: 1.25rem;
+}
