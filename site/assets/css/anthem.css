@@ -1,0 +1,687 @@
+/* National anthem — matches site :root tokens (main.css) */
+
+.anthem-canon {
+  color: var(--text-muted);
+  font-family: inherit;
+}
+
+/* Avoid doubling global `section { margin-bottom }` with .sec padding */
+.anthem-canon > section.sec {
+  margin-bottom: 0;
+}
+
+.anthem-canon .cover {
+  min-height: min(78vh, 38rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.75rem 1.25rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 0 2rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-panel);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.anthem-canon .cv-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse 85% 55% at 50% 0%, rgba(74, 111, 165, 0.14), transparent 58%),
+    radial-gradient(ellipse 55% 45% at 50% 100%, rgba(201, 169, 98, 0.09), transparent 52%),
+    var(--bg-panel);
+  pointer-events: none;
+}
+
+.anthem-canon .cv-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.anthem-canon .cv-lines path {
+  stroke: rgba(201, 169, 98, 0.12);
+}
+
+.anthem-canon .cv-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.anthem-canon .cv-nation {
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.45em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 1.35rem;
+}
+
+.anthem-canon .cv-vaelic {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  line-height: 1.05;
+  text-shadow: 0 0 48px rgba(201, 169, 98, 0.12);
+  margin-bottom: 0.5rem;
+}
+
+.anthem-canon .cv-phonetic {
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-dim);
+  margin-bottom: 0.85rem;
+}
+
+.anthem-canon .cv-english {
+  font-family: inherit;
+  font-style: italic;
+  font-size: clamp(1rem, 2.8vw, 1.35rem);
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+.anthem-canon .cv-rule {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 auto 1.5rem;
+}
+
+.anthem-canon .cv-desc {
+  font-family: inherit;
+  font-style: italic;
+  font-size: clamp(0.9rem, 2.2vw, 1.02rem);
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 32rem;
+  margin: 0 auto 1.75rem;
+}
+
+.anthem-canon .cv-meta {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.anthem-canon .cv-badge {
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: var(--bg-deep);
+}
+
+.anthem-canon .cv-audio {
+  margin: 1.75rem auto 0;
+  max-width: 28rem;
+  text-align: center;
+}
+
+.anthem-canon .cv-audio-label {
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.anthem-canon .cv-audio-player {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.anthem-canon .tier-kicker {
+  color: var(--gold-dim);
+  margin-bottom: 1.25rem;
+}
+
+.anthem-canon .tier-kicker a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.anthem-canon .tier-kicker a:hover {
+  text-decoration: underline;
+}
+
+/* Sticky in-page nav — codex-toc pattern */
+.anthem-canon .nav {
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.35rem;
+  margin: 0 0 2rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-elevated);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.anthem-canon .nb {
+  font-family: Cinzel, serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.65rem;
+  border: none;
+  background: transparent;
+  color: var(--gold-dim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.anthem-canon .nb:hover {
+  color: var(--text);
+}
+
+.anthem-canon .nb.on {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* Sections */
+.anthem-canon .sec {
+  padding: 2.5rem 0;
+  max-width: 860px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  scroll-margin-top: 5.5rem;
+}
+
+.anthem-canon .sec.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anthem-canon .sh {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.anthem-canon .sh-tag {
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.anthem-canon .sh-title {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 3.5vw, 1.85rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.anthem-canon .sh-rule {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  margin: 0 auto 1rem;
+}
+
+.anthem-canon .sh-desc {
+  font-family: inherit;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  max-width: 32rem;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Lyrics */
+.anthem-canon .anthem-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.anthem-canon .verse {
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.anthem-canon .verse-label {
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.anthem-canon .verse-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+.anthem-canon .line {
+  margin-bottom: 1.25rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(201, 169, 98, 0.15);
+  transition: border-color 0.2s ease;
+}
+
+.anthem-canon .line:hover {
+  border-left-color: rgba(201, 169, 98, 0.45);
+}
+
+.anthem-canon .line-vae {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.05rem, 3vw, 1.45rem);
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+
+.anthem-canon .line-pron {
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--gold-dim);
+  opacity: 0.9;
+  margin-bottom: 0.35rem;
+}
+
+.anthem-canon .line-eng {
+  font-family: inherit;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.anthem-canon .chorus {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.65rem 1.35rem 1.35rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.anthem-canon .chorus::before {
+  content: "CHORUS";
+  position: absolute;
+  top: -0.55rem;
+  left: 1.15rem;
+  font-family: Cinzel, serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-dim);
+  background: var(--bg-panel);
+  padding: 0 0.45rem;
+  text-transform: uppercase;
+}
+
+.anthem-canon .chorus.chorus-repeat::before {
+  content: "CHORUS — REPEAT";
+}
+
+.anthem-canon .chorus.chorus-final::before {
+  content: "FINAL CHORUS";
+  letter-spacing: 0.2em;
+}
+
+@media (max-width: 520px) {
+  .anthem-canon .chorus.chorus-final::before {
+    font-size: 0.45rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+.anthem-canon .chorus .line {
+  border-left-color: rgba(201, 169, 98, 0.22);
+}
+
+.anthem-canon .chorus .line-vae {
+  font-size: clamp(1.12rem, 3.2vw, 1.55rem);
+  color: var(--text);
+}
+
+.anthem-canon .chorus .line-eng {
+  color: var(--text-muted);
+}
+
+/* Word-by-word */
+.anthem-canon .wbw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.anthem-canon .wbw-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.1rem 1rem;
+  transition: border-color 0.18s ease;
+}
+
+.anthem-canon .wbw-card:hover {
+  border-color: rgba(201, 169, 98, 0.4);
+}
+
+.anthem-canon .wbw-v {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+
+.anthem-canon .wbw-p {
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--gold-dim);
+  margin-bottom: 0.4rem;
+}
+
+.anthem-canon .wbw-e {
+  font-family: inherit;
+  font-size: 0.86rem;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.anthem-canon .wbw-note {
+  font-family: inherit;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  border-top: 1px solid var(--border);
+  padding-top: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+/* Meaning */
+.anthem-canon .meaning-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.anthem-canon .mb {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 600px) {
+  .anthem-canon .mb {
+    grid-template-columns: 1fr;
+  }
+}
+
+.anthem-canon .mb-label {
+  font-family: Cinzel, serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+}
+
+.anthem-canon .mb-label-sub {
+  font-family: Cinzel, serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+}
+
+.anthem-canon .mb-body {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  border-left: 2px solid rgba(201, 169, 98, 0.2);
+  padding-left: 1rem;
+}
+
+.anthem-canon .mb-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Musical notes */
+.anthem-canon .music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.anthem-canon .music-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.15rem 1.1rem;
+}
+
+.anthem-canon .mc-title {
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.anthem-canon .mc-val {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.anthem-canon .mc-desc {
+  font-family: inherit;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Occasions */
+.anthem-canon .occ-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.anthem-canon .occ {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  border-left: 3px solid var(--gold-dim);
+}
+
+.anthem-canon .occ-icon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.anthem-canon .occ-name {
+  font-family: Cinzel, serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.anthem-canon .occ-desc {
+  font-family: inherit;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.anthem-canon .occ-rule {
+  font-family: Cinzel, serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-dim);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+}
+
+/* Performance rules */
+.anthem-canon .rules {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.anthem-canon .rule {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.anthem-canon .rule-num {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  min-width: 1.5rem;
+}
+
+.anthem-canon .rule-text {
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.anthem-canon .rule-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Full text */
+.anthem-canon .full-text {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.75rem 1.5rem;
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.anthem-canon .ft-lang {
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.anthem-canon .ft-line {
+  font-family: Cinzel, serif;
+  font-size: clamp(0.88rem, 2.2vw, 1.05rem);
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  line-height: 1.75;
+  margin-bottom: 0.15rem;
+}
+
+.anthem-canon .full-text-dual > div:last-child .ft-line {
+  font-family: inherit;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: normal;
+}
+
+.anthem-canon .ft-chorus-mark {
+  font-family: Cinzel, serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-dim);
+  margin: 1rem 0 0.65rem;
+  text-transform: uppercase;
+}
+
+.anthem-canon .ft-gap {
+  height: 0.85rem;
+}
+
+.anthem-canon .full-text-dual {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2.5rem;
+}
+
+@media (max-width: 720px) {
+  .anthem-canon .full-text-dual {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 959px) {
+  .anthem-canon .nav {
+    top: calc(0.65rem + 2.5rem + 0.65rem + env(safe-area-inset-top, 0px));
+  }
+
+  .anthem-canon .sec {
+    scroll-margin-top: calc(5.5rem + 0.65rem + 2.5rem + 0.65rem + env(safe-area-inset-top, 0px));
+  }
+}

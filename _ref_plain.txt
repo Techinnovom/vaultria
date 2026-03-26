@@ -1,0 +1,774 @@
+<user_query>
+anthem pagr is ugly, refrence
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiratvel Navol — Vaultrian National Anthem</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#06060A;--paper:#F4EFE6;
+  --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#5A4010;
+  --red:#8B2020;--white:#F8F4EE;
+  --rule:rgba(201,168,76,0.12);
+  --text:#D8D0C0;--text2:#6A6050;--text3:#2E2820;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'Crimson Pro',serif;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold-d)}
+
+/* ── COVER ── */
+.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;position:relative;overflow:hidden;text-align:center}
+.cv-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 35%,#1A1408 0%,#06060A 68%)}
+.cv-lines{position:absolute;inset:0;pointer-events:none}
+.cv-content{position:relative;z-index:2;max-width:700px}
+.cv-nation{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.6em;color:var(--gold-d);text-transform:uppercase;margin-bottom:22px}
+.cv-vaelic{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(2.2rem,7vw,4.5rem);color:var(--gold);letter-spacing:.08em;line-height:1;text-shadow:0 0 80px rgba(201,168,76,.25);margin-bottom:8px}
+.cv-phonetic{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.22em;color:rgba(201,168,76,.38);margin-bottom:14px}
+.cv-english{font-family:'Crimson Pro',serif;font-style:italic;font-size:clamp(1rem,3vw,1.5rem);color:rgba(244,239,230,.38);margin-bottom:32px;letter-spacing:.04em}
+.cv-rule{width:100px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 auto 28px}
+.cv-desc{font-family:'Crimson Pro',serif;font-style:italic;font-size:clamp(.9rem,2.5vw,1.12rem);color:rgba(244,239,230,.42);line-height:1.85;max-width:520px;margin:0 auto 40px}
+.cv-meta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cv-badge{font-family:'Share Tech Mono',monospace;font-size:.5rem;letter-spacing:.28em;color:var(--gold-d);padding:5px 13px;border:1px solid rgba(201,168,76,.18);text-transform:uppercase}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(6,6,10,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);padding:12px 20px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap}
+.nb{font-family:'Share Tech Mono',monospace;font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;padding:7px 13px;border:none;background:transparent;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.nb:hover{color:var(--text2)}
+.nb.on{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ── SECTIONS ── */
+.sec{padding:80px 24px;max-width:860px;margin:0 auto;opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.sec.vis{opacity:1;transform:translateY(0)}
+.sh{text-align:center;margin-bottom:54px}
+.sh-tag{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.5em;color:var(--gold-d);text-transform:uppercase;margin-bottom:10px}
+.sh-title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.5rem,4vw,2.5rem);letter-spacing:.06em;color:var(--gold);margin-bottom:14px;line-height:1.1}
+.sh-rule{width:50px;height:2px;background:linear-gradient(to right,var(--gold),transparent);margin:0 auto 16px}
+.sh-desc{font-family:'Crimson Pro',serif;font-style:italic;font-size:.95rem;color:rgba(244,239,230,.38);max-width:480px;margin:0 auto;line-height:1.85}
+hr{border:none;border-top:1px solid var(--rule);margin:0 24px}
+
+/* ── ANTHEM LYRICS ── */
+.anthem-wrap{max-width:760px;margin:0 auto}
+
+/* verse block */
+.verse{margin-bottom:56px;position:relative}
+.verse-label{font-family:'Share Tech Mono',monospace;font-size:.52rem;letter-spacing:.45em;color:var(--gold-d);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.verse-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--gold-d),transparent)}
+
+/* lyric line */
+.line{margin-bottom:22px;padding-left:20px;border-left:2px solid rgba(201,168,76,.12);transition:border-color .2s}
+.line:hover{border-left-color:rgba(201,168,76,.4)}
+.line-vae{font-family:'Cinzel',serif;font-size:clamp(1.15rem,3.5vw,1.65rem);font-weight:600;color:var(--gold);letter-spacing:.04em;line-height:1.3;margin-bottom:4px}
+.line-pron{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.16em;color:rgba(201,168,76,.35);margin-bottom:5px}
+.line-eng{font-family:'Crimson Pro',serif;font-style:italic;font-size:.95rem;color:rgba(244,239,230,.5);line-height:1.6}
+
+/* chorus — special styling */
+.chorus{background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.1);padding:28px 28px 24px;margin-bottom:56px;position:relative}
+.chorus::before{content:'CHORUS';position:absolute;top:-1px;left:24px;font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.38em;color:var(--gold-d);background:var(--ink);padding:0 8px;top:-8px}
+.chorus .line{border-left-color:rgba(201,168,76,.25)}
+.chorus .line-vae{font-size:clamp(1.25rem,4vw,1.85rem);color:var(--gold-l)}
+.chorus .line-eng{color:rgba(244,239,230,.65)}
+
+/* ── WORD-BY-WORD ── */
+.wbw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.wbw-card{background:rgba(255,255,255,.02);border:1px solid rgba(201,168,76,.08);padding:16px 15px;transition:border-color .18s}
+.wbw-card:hover{border-color:rgba(201,168,76,.22)}
+.wbw-v{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:600;color:var(--gold);margin-bottom:3px}
+.wbw-p{font-family:'Share Tech Mono',monospace;font-size:.5rem;letter-spacing:.15em;color:var(--gold-d);margin-bottom:6px}
+.wbw-e{font-family:'Crimson Pro',serif;font-size:.88rem;color:rgba(244,239,230,.6);margin-bottom:5px}
+.wbw-note{font-family:'Crimson Pro',serif;font-style:italic;font-size:.78rem;color:rgba(244,239,230,.3);line-height:1.55;border-top:1px solid rgba(255,255,255,.04);padding-top:6px;margin-top:4px}
+
+/* ── MEANING ── */
+.meaning-blocks{display:flex;flex-direction:column;gap:32px}
+.mb{display:grid;grid-template-columns:180px 1fr;gap:24px;align-items:start}
+@media(max-width:600px){.mb{grid-template-columns:1fr}}
+.mb-label{font-family:'Cinzel',serif;font-size:.92rem;font-weight:600;color:var(--gold);letter-spacing:.06em;line-height:1.3}
+.mb-label-sub{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.25em;color:var(--gold-d);text-transform:uppercase;margin-top:4px}
+.mb-body{font-family:'Crimson Pro',serif;font-size:.95rem;color:rgba(244,239,230,.55);line-height:1.85;border-left:2px solid rgba(201,168,76,.15);padding-left:18px}
+.mb-body strong{color:rgba(244,239,230,.85);font-weight:600}
+
+/* ── MUSICAL NOTES ── */
+.music-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.music-card{background:rgba(255,255,255,.02);border:1px solid rgba(201,168,76,.08);padding:20px 18px}
+.mc-title{font-family:'Share Tech Mono',monospace;font-size:.52rem;letter-spacing:.32em;color:var(--gold-d);text-transform:uppercase;margin-bottom:8px}
+.mc-val{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:600;color:var(--gold);margin-bottom:6px}
+.mc-desc{font-family:'Crimson Pro',serif;font-size:.86rem;color:rgba(244,239,230,.45);line-height:1.7}
+
+/* ── OCCASIONS ── */
+.occ-list{display:flex;flex-direction:column;gap:12px}
+.occ{display:flex;align-items:flex-start;gap:16px;padding:16px 18px;background:rgba(255,255,255,.02);border:1px solid rgba(201,168,76,.08);border-left:3px solid var(--gold-d)}
+.occ-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.occ-name{font-family:'Cinzel',serif;font-size:.92rem;font-weight:600;color:var(--gold);margin-bottom:3px}
+.occ-desc{font-family:'Crimson Pro',serif;font-size:.86rem;color:rgba(244,239,230,.45);line-height:1.65}
+.occ-rule{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.2em;color:var(--gold-d);margin-top:5px;text-transform:uppercase}
+
+/* ── FULL TEXT CARD ── */
+.full-text{background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.1);padding:36px 32px;max-width:680px;margin:0 auto;position:relative}
+.full-text::before{content:'';position:absolute;inset:8px;border:1px solid rgba(201,168,76,.06);pointer-events:none}
+.ft-lang{font-family:'Share Tech Mono',monospace;font-size:.52rem;letter-spacing:.38em;color:var(--gold-d);text-transform:uppercase;margin-bottom:18px}
+.ft-line{font-family:'Cinzel',serif;font-size:clamp(.95rem,2.5vw,1.2rem);color:var(--gold-l);letter-spacing:.03em;line-height:1.9;margin-bottom:3px}
+.ft-gap{height:16px}
+.ft-chorus-mark{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.3em;color:var(--gold-d);margin:16px 0 12px;text-transform:uppercase}
+
+/* ── PERFORMANCE RULES ── */
+.rules{display:flex;flex-direction:column;gap:10px}
+.rule{display:flex;gap:14px;padding:12px 16px;background:rgba(255,255,255,.018);border:1px solid rgba(255,255,255,.04)}
+.rule-num{font-family:'Cinzel',serif;font-weight:900;font-size:1.2rem;color:var(--gold-d);flex-shrink:0;min-width:28px}
+.rule-text{font-family:'Crimson Pro',serif;font-size:.9rem;color:rgba(244,239,230,.52);line-height:1.65}
+.rule-text strong{color:rgba(244,239,230,.8)}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--rule);padding:40px 24px;text-align:center}
+.ft{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;letter-spacing:.15em;color:var(--gold-d)}
+.fs{font-family:'Share Tech Mono',monospace;font-size:.5rem;letter-spacing:.32em;color:#2a2a2a;margin-top:6px}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cv-bg"></div>
+  <!-- Decorative radiating lines SVG -->
+  <div class="cv-lines">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <g opacity=".04" stroke="#C9A84C" stroke-width="1" fill="none">
+        <line x1="600" y1="400" x2="0"    y2="0"/>
+        <line x1="600" y1="400" x2="400"  y2="0"/>
+        <line x1="600" y1="400" x2="800"  y2="0"/>
+        <line x1="600" y1="400" x2="1200" y2="0"/>
+        <line x1="600" y1="400" x2="1200" y2="400"/>
+        <line x1="600" y1="400" x2="1200" y2="800"/>
+        <line x1="600" y1="400" x2="600"  y2="800"/>
+        <line x1="600" y1="400" x2="0"    y2="800"/>
+        <line x1="600" y1="400" x2="0"    y2="400"/>
+      </g>
+      <circle cx="600" cy="400" r="180" opacity=".03" stroke="#C9A84C" stroke-width="1"/>
+      <circle cx="600" cy="400" r="280" opacity=".025" stroke="#C9A84C" stroke-width="1"/>
+      <circle cx="600" cy="400" r="380" opacity=".02" stroke="#C9A84C" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="cv-content">
+    <div class="cv-nation">Vaultrian · National Anthem · Est. 2025</div>
+    <div class="cv-vaelic">Kiratvel Navol</div>
+    <div class="cv-phonetic">ki-rat-VEL · NA-vol</div>
+    <div class="cv-english">"Truth Is Permanent"</div>
+    <div class="cv-rule"></div>
+    <div class="cv-desc">The national anthem of Vaultria — composed in Vaelic, the official language of the nation. Three verses, one chorus. To be performed standing, with eyes forward. The first note is silence.</div>
+    <div class="cv-meta">
+      <span class="cv-badge">3 Verses</span>
+      <span class="cv-badge">1 Chorus</span>
+      <span class="cv-badge">Vaelic & English</span>
+      <span class="cv-badge">Solemn Tempo</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nb on" onclick="goTo('lyrics')">Full Lyrics</button>
+  <button class="nb"    onclick="goTo('words')">Word by Word</button>
+  <button class="nb"    onclick="goTo('meaning')">Meaning</button>
+  <button class="nb"    onclick="goTo('music')">Musical Notes</button>
+  <button class="nb"    onclick="goTo('occasions')">Occasions</button>
+  <button class="nb"    onclick="goTo('rules')">Performance Rules</button>
+  <button class="nb"    onclick="goTo('fulltext')">Full Text</button>
+</nav>
+
+<!-- ═══ LYRICS ═══ -->
+<div class="sec" id="lyrics">
+  <div class="sh">
+    <div class="sh-tag">The Anthem</div>
+    <div class="sh-title">Kiratvel Navol</div>
+    <div class="sh-rule"></div>
+    <div class="sh-desc">Three verses. One chorus. Written in Vaelic, the language of Vaultria. Each line carries both a phonetic guide and its English meaning.</div>
+  </div>
+
+  <div class="anthem-wrap">
+
+    <!-- VERSE 1 -->
+    <div class="verse">
+      <div class="verse-label">Verse One — The Foundation</div>
+
+      <div class="line">
+        <div class="line-vae">Sena doro, sena birek,</div>
+        <div class="line-pron">SE-na DO-ro · SE-na BI-rek</div>
+        <div class="line-eng">We go forward, we build together,</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Nod torek lo zelek morat.</div>
+        <div class="line-pron">NOD TO-rek · LO ZE-lek MO-rat</div>
+        <div class="line-eng">A great city in a place of strength.</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Mina na ven, sena navol —</div>
+        <div class="line-pron">MI-na NA VEN · SE-na NA-vol</div>
+        <div class="line-eng">I and you, we are permanent —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Varo kala lo Vaultrian.</div>
+        <div class="line-pron">VA-ro KA-la · LO Vault-RI-an</div>
+        <div class="line-eng">Good citizens of Vaultria.</div>
+      </div>
+    </div>
+
+    <!-- CHORUS -->
+    <div class="chorus">
+      <div class="line">
+        <div class="line-vae">Kiratvel navol, kiratvel morat —</div>
+        <div class="line-pron">ki-rat-VEL NA-vol · ki-rat-VEL MO-rat</div>
+        <div class="line-eng">Truth is permanent, truth is powerful —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Sena kavi, sena zari, sena kat no.</div>
+        <div class="line-pron">SE-na KA-vi · SE-na ZA-ri · SE-na KAT NO</div>
+        <div class="line-eng">We speak, we know, we do not stop.</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Naratel sena lo zelek velan —</div>
+        <div class="line-pron">NA-ra-tel SE-na · LO ZE-lek VE-lan</div>
+        <div class="line-eng">Our souls are in this new place —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Vaultrian kala. Vaultrian navol.</div>
+        <div class="line-pron">Vault-RI-an KA-la · Vault-RI-an NA-vol</div>
+        <div class="line-eng">Vaultria is good. Vaultria is permanent.</div>
+      </div>
+    </div>
+
+    <!-- VERSE 2 -->
+    <div class="verse">
+      <div class="verse-label">Verse Two — The Merit</div>
+
+      <div class="line">
+        <div class="line-vae">No mora mina lo dralun —</div>
+        <div class="line-pron">NO MO-ra MI-na · LO DRA-lun</div>
+        <div class="line-eng">I do not give in to fear —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Teri mina, zari mina, birek mina.</div>
+        <div class="line-pron">TE-ri MI-na · ZA-ri MI-na · BI-rek MI-na</div>
+        <div class="line-eng">I learn, I know, I build.</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Zerit mina lo kiratsavel —</div>
+        <div class="line-pron">ZE-rit MI-na · LO ki-rat-SA-vel</div>
+        <div class="line-eng">I am held by the covenant —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Morat lo tovatek, kala lo melat.</div>
+        <div class="line-pron">MO-rat LO to-VA-tek · KA-la LO ME-lat</div>
+        <div class="line-eng">Strong in governance, good in community.</div>
+      </div>
+    </div>
+
+    <!-- CHORUS (REPEAT) -->
+    <div class="chorus">
+      <div style="font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.3em;color:var(--gold-d);margin-bottom:14px;text-transform:uppercase">Chorus — Repeat</div>
+      <div class="line">
+        <div class="line-vae">Kiratvel navol, kiratvel morat —</div>
+        <div class="line-pron">ki-rat-VEL NA-vol · ki-rat-VEL MO-rat</div>
+        <div class="line-eng">Truth is permanent, truth is powerful —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Sena kavi, sena zari, sena kat no.</div>
+        <div class="line-pron">SE-na KA-vi · SE-na ZA-ri · SE-na KAT NO</div>
+        <div class="line-eng">We speak, we know, we do not stop.</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Naratel sena lo zelek velan —</div>
+        <div class="line-pron">NA-ra-tel SE-na · LO ZE-lek VE-lan</div>
+        <div class="line-eng">Our souls are in this new place —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Vaultrian kala. Vaultrian navol.</div>
+        <div class="line-pron">Vault-RI-an KA-la · Vault-RI-an NA-vol</div>
+        <div class="line-eng">Vaultria is good. Vaultria is permanent.</div>
+      </div>
+    </div>
+
+    <!-- VERSE 3 -->
+    <div class="verse">
+      <div class="verse-label">Verse Three — The Vow</div>
+
+      <div class="line">
+        <div class="line-vae">Da-doro sena de zelarat,</div>
+        <div class="line-pron">DA-DO-ro SE-na · DE ze-LA-rat</div>
+        <div class="line-eng">We came from the void,</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">De lunok, de dralun, de zeratnel.</div>
+        <div class="line-pron">DE LU-nok · DE DRA-lun · DE ze-rat-NEL</div>
+        <div class="line-eng">From darkness, from fear, from pain.</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Va-kelo sena lo nod kala —</div>
+        <div class="line-pron">VA-KE-lo SE-na · LO NOD KA-la</div>
+        <div class="line-eng">We will stay in a good city —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Navol. Navol. Navol.</div>
+        <div class="line-pron">NA-vol · NA-vol · NA-vol</div>
+        <div class="line-eng">Always. Always. Always.</div>
+      </div>
+    </div>
+
+    <!-- FINAL CHORUS -->
+    <div class="chorus">
+      <div style="font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.3em;color:var(--gold-d);margin-bottom:14px;text-transform:uppercase">Final Chorus — Full Voice</div>
+      <div class="line">
+        <div class="line-vae">Kiratvel navol, kiratvel morat —</div>
+        <div class="line-pron">ki-rat-VEL NA-vol · ki-rat-VEL MO-rat</div>
+        <div class="line-eng">Truth is permanent, truth is powerful —</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Sena kavi, sena zari, sena kat no.</div>
+        <div class="line-pron">SE-na KA-vi · SE-na ZA-ri · SE-na KAT NO</div>
+        <div class="line-eng">We speak, we know, we do not stop.</div>
+      </div>
+      <div class="line">
+        <div class="line-vae">Naratel sena lo zelek velan —</div>
+        <div class="line-pron">NA-ra-tel SE-na · LO ZE-lek VE-lan</div>
+        <div class="line-eng">Our souls are in this new place —</div>
+      </div>
+      <div class="line" style="border-left-color:rgba(201,168,76,.6)">
+        <div class="line-vae" style="font-size:clamp(1.4rem,5vw,2.2rem);color:var(--gold-l)">Vaultrian kala. Vaultrian navol.</div>
+        <div class="line-pron">Vault-RI-an KA-la · Vault-RI-an NA-vol</div>
+        <div class="line-eng" style="color:rgba(244,239,230,.75);font-size:1rem">Vaultria is good. Vaultria is permanent.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr>
+
+<!-- ═══ WORD BY WORD ═══ -->
+<div class="sec" id="words">
+  <div class="sh">
+    <div class="sh-tag">Linguistic Breakdown</div>
+    <div class="sh-title">Word by Word</div>
+    <div class="sh-rule"></div>
+    <div class="sh-desc">Every word in the anthem — its Vaelic form, pronunciation, English meaning, and why it was chosen.</div>
+  </div>
+
+  <div class="wbw-grid">
+    <div class="wbw-card">
+      <div class="wbw-v">Kiratvel</div><div class="wbw-p">ki-rat-VEL</div>
+      <div class="wbw-e">truth</div>
+      <div class="wbw-note">Root of the anthem. Kirat (clear/precise) + vel (more/extended). Truth that does not fade. The founding concept of Vaultria.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Navol</div><div class="wbw-p">NA-vol</div>
+      <div class="wbw-e">always / permanent / eternal</div>
+      <div class="wbw-note">The single most repeated word. Appears 7 times including the final three-fold repetition. The anthem's final word and its thesis.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Sena</div><div class="wbw-p">SE-na</div>
+      <div class="wbw-e">we / us</div>
+      <div class="wbw-note">Used throughout to signal collective identity. The anthem is never sung from "I" alone — always returning to "we." Community is the instrument.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Morat</div><div class="wbw-p">MO-rat</div>
+      <div class="wbw-e">strong / powerful</div>
+      <div class="wbw-note">Paired with kiratvel in the chorus: truth is not only permanent, it is strong. Strength in Vaultria is not physical — it is intellectual and moral.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Doro</div><div class="wbw-p">DO-ro</div>
+      <div class="wbw-e">go / move forward</div>
+      <div class="wbw-note">The first action word of the anthem. Movement is intentional, not accidental. Vaultrians go — they do not wait.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Birek</div><div class="wbw-p">BI-rek</div>
+      <div class="wbw-e">build / construct</div>
+      <div class="wbw-note">The second core verb of verse one. To build is sacred in Vaultrian culture — it is the highest expression of merit.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Naratel</div><div class="wbw-p">NA-ra-tel</div>
+      <div class="wbw-e">soul / inner self</div>
+      <div class="wbw-note">"Our souls are in this new place." The anthem claims the nation spiritually, not just politically. Naratel appears once — but it is the emotional centre.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Zelek velan</div><div class="wbw-p">ZE-lek VE-lan</div>
+      <div class="wbw-e">new place</div>
+      <div class="wbw-note">Zelek (place/location) + velan (new). Vaultria is always described as new — not because it is young, but because it is continuously becoming.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Varo kala</div><div class="wbw-p">VA-ro KA-la</div>
+      <div class="wbw-e">good citizens</div>
+      <div class="wbw-note">Varo (citizen) + kala (good). Citizenship in Vaultria is earned through conduct, not birth. "Good citizen" is the highest compliment.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Dralun</div><div class="wbw-p">DRA-lun</div>
+      <div class="wbw-e">fear</div>
+      <div class="wbw-note">The only explicitly negative word in the anthem, used to be rejected: "I do not give in to fear." Dralun is named, then dismissed.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Kiratsavel</div><div class="wbw-p">ki-rat-SA-vel</div>
+      <div class="wbw-e">covenant</div>
+      <div class="wbw-note">The agreement that founds Vaultria. "I am held by the covenant." Not by force — by oath. Citizens choose to be bound.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Zelarat</div><div class="wbw-p">ze-LA-rat</div>
+      <div class="wbw-e">void / despair / the before</div>
+      <div class="wbw-note">Where Vaultria came from. Used only in verse three — the origin story. "We came from the void." Zelarat is the past, not the future.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Kat no</div><div class="wbw-p">KAT NO</div>
+      <div class="wbw-e">do not stop</div>
+      <div class="wbw-note">Kat (stop) + no (not). The most direct line in the chorus. Vaultria does not stop. The negative command is its own kind of power.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Da-doro</div><div class="wbw-p">DA-DO-ro</div>
+      <div class="wbw-e">we went / we came</div>
+      <div class="wbw-note">Da- is the past tense prefix in Vaelic. "Da-doro sena" — we went/came. The only past tense in the anthem. Everything else is present or future.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Va-kelo</div><div class="wbw-p">VA-KE-lo</div>
+      <div class="wbw-e">we will stay / we will remain</div>
+      <div class="wbw-note">Va- is the future tense prefix. Kelo (stay/remain). "We will stay in a good city." The future tense appears only once — a promise.</div>
+    </div>
+    <div class="wbw-card">
+      <div class="wbw-v">Nod torek</div><div class="wbw-p">NOD TO-rek</div>
+      <div class="wbw-e">great city</div>
+      <div class="wbw-note">Nod (city) + torek (big/great). The city is not just a place in the anthem — it is the aspiration. Vaultria is built around the idea of the great city.</div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<!-- ═══ MEANING ═══ -->
+<div class="sec" id="meaning">
+  <div class="sh">
+    <div class="sh-tag">Interpretation</div>
+    <div class="sh-title">What It Means</div>
+    <div class="sh-rule"></div>
+    <div class="sh-desc">The anthem is not decoration. Every structural choice carries meaning — what is said, what is not said, and what is repeated.</div>
+  </div>
+
+  <div class="meaning-blocks">
+    <div class="mb">
+      <div>
+        <div class="mb-label">The Title</div>
+        <div class="mb-label-sub">Kiratvel Navol</div>
+      </div>
+      <div class="mb-body">
+        Truth Is Permanent. Not "truth will prevail" — <strong>truth already is</strong>. The anthem does not make a promise about the future. It makes a claim about the nature of reality. This is the Vaultrian philosophical position from the first word: reality does not bend to power. Power bends to reality. The anthem is named for this because it is Vaultria's founding axiom — everything else follows from it.
+      </div>
+    </div>
+    <div class="mb">
+      <div>
+        <div class="mb-label">Verse One</div>
+        <div class="mb-label-sub">The Foundation</div>
+      </div>
+      <div class="mb-body">
+        Verse one establishes the basics: we move, we build, we are together, we are good citizens. Deliberately simple. The first verse is meant to be understood by every citizen regardless of tier or education. <strong>Simplicity is intentional</strong> — this verse is meant to be sung in primary schools, in markets, and in fields. It belongs to everyone.
+      </div>
+    </div>
+    <div class="mb">
+      <div>
+        <div class="mb-label">The Chorus</div>
+        <div class="mb-label-sub">The Core Statement</div>
+      </div>
+      <div class="mb-body">
+        The chorus performs the logic of the anthem, not just its emotion. Line 1 states a fact (truth is permanent and powerful). Line 2 states three actions (speak, know, do not stop). Line 3 makes a territorial and spiritual claim (our souls are here). Line 4 is the declaration. <strong>Four lines, four movements</strong>: fact → action → belonging → declaration. It functions as a complete philosophy in four breaths.
+      </div>
+    </div>
+    <div class="mb">
+      <div>
+        <div class="mb-label">Verse Two</div>
+        <div class="mb-label-sub">The Merit</div>
+      </div>
+      <div class="mb-body">
+        Verse two moves from collective to individual — the only verse where "mina" (I) dominates. But it is not individualism. It is the declaration of personal responsibility: <strong>I will not be stopped by fear. I will learn. I will know. I will build.</strong> Then it returns to collective: strong in governance, good in community. The individual exists to serve the whole. This verse is sung by new citizens at their oath ceremony.
+      </div>
+    </div>
+    <div class="mb">
+      <div>
+        <div class="mb-label">Verse Three</div>
+        <div class="mb-label-sub">The Vow</div>
+      </div>
+      <div class="mb-body">
+        The only verse with tense change. It begins in the past (Da-doro — we came), names the darkness specifically (void, fear, pain), then pivots to the future (Va-kelo — we will stay) and ends with <strong>the three-fold repetition of Navol</strong>. This structure is deliberate: remember where we came from, commit to where we are going, say it three times so it cannot be forgotten. The three Navols are not repetition — they are emphasis, oath, and echo.
+      </div>
+    </div>
+    <div class="mb">
+      <div>
+        <div class="mb-label">What Is Missing</div>
+        <div class="mb-label-sub">The Silence</div>
+      </div>
+      <div class="mb-body">
+        The anthem contains no mention of enemies, war, conquest, kings, gods, or superiority over others. This is deliberate. <strong>Vaultria does not define itself against anything</strong> — it defines itself for things: truth, merit, community, building. Many nations write anthems about what they defeated. Vaultria writes about what it is. The absence of an enemy in the anthem is itself the political statement.
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<!-- ═══ MUSICAL NOTES ═══ -->
+<div class="sec" id="music">
+  <div class="sh">
+    <div class="sh-tag">Musical Character</div>
+    <div class="sh-title">How It Sounds</div>
+    <div class="sh-rule"></div>
+    <div class="sh-desc">The anthem has no fixed orchestration — it can be performed by a single voice or a full ensemble. What matters is the tempo and the intention.</div>
+  </div>
+
+  <div class="music-grid">
+    <div class="music-card">
+      <div class="mc-title">Tempo</div>
+      <div class="mc-val">Solemn — ♩= 60–72</div>
+      <div class="mc-desc">Slow and deliberate. Not funereal — considered. Every word is given space. A verse should take approximately 40–45 seconds. The full anthem is 3.5 to 4 minutes when sung correctly.</div>
+    </div>
+    <div class="music-card">
+      <div class="mc-title">Key / Tone</div>
+      <div class="mc-val">D minor → D major</div>
+      <div class="mc-desc">Verses in minor. The chorus resolves to major. The transition is the emotional core of the anthem — from acknowledgement to declaration. The final chorus is always in full major.</div>
+    </div>
+    <div class="music-card">
+      <div class="mc-title">Opening</div>
+      <div class="mc-val">Three beats of silence</div>
+      <div class="mc-desc">Before the first word, there are three beats of silence. In performance, this silence is held by everyone present. It is not a pause — it is the first instruction of the anthem.</div>
+    </div>
+    <div class="music-card">
+      <div class="mc-title">Instrumentation</div>
+      <div class="mc-val">Strings + low brass</div>
+      <div class="mc-desc">Traditional orchestral arrangement: strings carry the melody, low brass (trombones, tuba) ground the harmony. Percussion enters only at the final chorus — one deep drum on each beat.</div>
+    </div>
+    <div class="music-card">
+      <div class="mc-title">Vocal</div>
+      <div class="mc-val">Unison → Harmony</div>
+      <div class="mc-desc">Verses are sung in unison — one voice, one nation. The chorus opens to four-part harmony. The final "Navol. Navol. Navol." returns to unison — a single voice that holds the word.</div>
+    </div>
+    <div class="music-card">
+      <div class="mc-title">Closing</div>
+      <div class="mc-val">Sustained final note</div>
+      <div class="mc-desc">The last "Navol" is held for six beats. Then silence — the same silence that opened the anthem. The anthem does not end with applause. It ends with stillness.</div>
+    </div>
+    <div class="music-card">
+      <div class="mc-title">Acapella Version</div>
+      <div class="mc-val">Permitted & Honoured</div>
+      <div class="mc-desc">A single citizen may perform the anthem without instruments at any official occasion. This version is considered equal in standing to the full orchestral performance. Simplicity is not lesser.</div>
+    </div>
+    <div class="music-card">
+      <div class="mc-title">Children's Version</div>
+      <div class="mc-val">Verse 1 + Chorus only</div>
+      <div class="mc-desc">Young citizens (Initiates, Tier I) learn verse one and the chorus first. The full anthem is introduced at the first Tier advancement ceremony. The anthem grows with the citizen.</div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<!-- ═══ OCCASIONS ═══ -->
+<div class="sec" id="occasions">
+  <div class="sh">
+    <div class="sh-tag">Protocol</div>
+    <div class="sh-title">When It Is Sung</div>
+    <div class="sh-rule"></div>
+    <div class="sh-desc">The anthem is not background music. It is performed at specific moments, with specific rules for each occasion.</div>
+  </div>
+
+  <div class="occ-list">
+    <div class="occ">
+      <div class="occ-icon">🏛️</div>
+      <div>
+        <div class="occ-name">National Day — Vaultrian Founding</div>
+        <div class="occ-desc">Full anthem, full orchestra, all three verses, all voices. Performed at Aurex — the Government Core of Velora — at dawn. The three beats of opening silence are broadcast across all zones simultaneously.</div>
+        <div class="occ-rule">All tiers required · Full attendance · Full voice</div>
+      </div>
+    </div>
+    <div class="occ">
+      <div class="occ-icon">⚖️</div>
+      <div>
+        <div class="occ-name">Citizenship Oath Ceremony</div>
+        <div class="occ-desc">New citizens sing verse two alone after taking the oath — the personal merit verse. They sing it before the gathered Vaultrian community. Their voice is heard alone for 40 seconds. Then the community joins for the chorus.</div>
+        <div class="occ-rule">New citizen solos verse two · Community joins chorus</div>
+      </div>
+    </div>
+    <div class="occ">
+      <div class="occ-icon">⭐</div>
+      <div>
+        <div class="occ-name">Tier Advancement Ceremony</div>
+        <div class="occ-desc">Chorus only. The advancing citizen stands during the chorus. No words are spoken about them — the anthem speaks on their behalf. At Tier V advancement, the full anthem is performed by all present.</div>
+        <div class="occ-rule">Chorus only (Tiers I–IV) · Full anthem (Tier V)</div>
+      </div>
+    </div>
+    <div class="occ">
+      <div class="occ-icon">🌍</div>
+      <div>
+        <div class="occ-name">External Diplomatic Events</div>
+        <div class="occ-desc">Verse one and chorus only — the universal version. Designed to be understood by non-Vaelic speakers through context and tone. A Vaelic translation card is always provided to guests.</div>
+        <div class="occ-rule">Verse one + chorus · Translation cards distributed</div>
+      </div>
+    </div>
+    <div class="occ">
+      <div class="occ-icon">🕯️</div>
+      <div>
+        <div class="occ-name">National Mourning</div>
+        <div class="occ-desc">Verse three only — the verse that names the darkness: void, fear, pain. Sung acapella. No instruments. No chorus. The anthem is left incomplete deliberately — the chorus is not sung because there is nothing to declare yet. It is resumed when mourning ends.</div>
+        <div class="occ-rule">Verse three only · Acapella · No chorus</div>
+      </div>
+    </div>
+    <div class="occ">
+      <div class="occ-icon">🏫</div>
+      <div>
+        <div class="occ-name">Schools — Weekly Assembly</div>
+        <div class="occ-desc">Verse one and chorus. Children face the Vault emblem. The phonetic guide is always displayed. No child is penalised for mispronunciation — they are learning. The anthem in schools is instruction, not performance.</div>
+        <div class="occ-rule">Verse one + chorus · Phonetic display · Learning context</div>
+      </div>
+    </div>
+    <div class="occ">
+      <div class="occ-icon">⚽</div>
+      <div>
+        <div class="occ-name">National Competitions & Sport</div>
+        <div class="occ-desc">Chorus only — the declaration. Fast enough to build energy without losing dignity. The tempo is permitted to be 72bpm rather than 60bpm at sporting occasions. The final "Navol" is held by the crowd.</div>
+        <div class="occ-rule">Chorus only · 72bpm permitted · Crowd holds final Navol</div>
+      </div>
+    </div>
+    <div class="occ">
+      <div class="occ-icon">🌅</div>
+      <div>
+        <div class="occ-name">Personal & Private</div>
+        <div class="occ-desc">Any citizen may sing any part of the anthem privately at any time. There is no restriction on private performance. The anthem belongs to every citizen — not only to occasions. Many Vaultrians begin and end their day with the chorus, alone.</div>
+        <div class="occ-rule">No restrictions · Belongs to all citizens equally</div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<!-- ═══ PERFORMANCE RULES ═══ -->
+<div class="sec" id="rules">
+  <div class="sh">
+    <div class="sh-tag">Official Protocol</div>
+    <div class="sh-title">Performance Rules</div>
+    <div class="sh-rule"></div>
+    <div class="sh-desc">Vaultria does not police the anthem — but it does define what respectful performance looks like. These are expectations, not laws.</div>
+  </div>
+
+  <div class="rules">
+    <div class="rule"><div class="rule-num">1</div><div class="rule-text"><strong>Stand.</strong> All present stand during the anthem at official occasions. The standing is not for the government. It is for the community — you stand because the people around you stood.</div></div>
+    <div class="rule"><div class="rule-num">2</div><div class="rule-text"><strong>Observe the opening silence.</strong> The three beats of silence before the first word are not optional. They are the first act of the anthem. Talking through the silence is considered the only true breach of anthem protocol.</div></div>
+    <div class="rule"><div class="rule-num">3</div><div class="rule-text"><strong>Sing or do not sing — but be present.</strong> No citizen is required to sing. But presence is required at official occasions. The choice not to sing is honoured. The choice to be absent when required is not.</div></div>
+    <div class="rule"><div class="rule-num">4</div><div class="rule-text"><strong>No embellishment in official performance.</strong> The melody is fixed. Adding runs, ad-libs or personalisation is permitted in private and informal settings. At official ceremonies, the shared melody is the point — everyone's voice on the same note.</div></div>
+    <div class="rule"><div class="rule-num">5</div><div class="rule-text"><strong>The final Navol is held until the conductor or lead voice releases it.</strong> Not at individual discretion. The collective hold on the final word is what makes it a vow rather than a song.</div></div>
+    <div class="rule"><div class="rule-num">6</div><div class="rule-text"><strong>After the anthem, silence — not applause.</strong> The anthem closes with stillness, not celebration. Three seconds of quiet before any other sound. This is the most commonly broken rule and the most important one.</div></div>
+    <div class="rule"><div class="rule-num">7</div><div class="rule-text"><strong>The anthem may not be used in commercial content without Aegis Council approval.</strong> It cannot be used to sell products, endorse services, or promote political campaigns. It belongs to the nation, not to any citizen's agenda.</div></div>
+    <div class="rule"><div class="rule-num">8</div><div class="rule-text"><strong>Translation is always provided alongside Vaelic at external events.</strong> Vaultria does not expect the world to learn Vaelic before hearing the anthem. The translation is a courtesy and a welcome — the door, not the wall.</div></div>
+  </div>
+</div>
+<hr>
+
+<!-- ═══ FULL TEXT ═══ -->
+<div class="sec" id="fulltext">
+  <div class="sh">
+    <div class="sh-tag">Official Text</div>
+    <div class="sh-title">Complete Anthem</div>
+    <div class="sh-rule"></div>
+    <div class="sh-desc">The full text in Vaelic and English — as it appears on official Vaultrian documents.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto">
+    <!-- Vaelic -->
+    <div class="full-text">
+      <div class="ft-lang">In Vaelic</div>
+      <div class="ft-line">Sena doro, sena birek,</div>
+      <div class="ft-line">Nod torek lo zelek morat.</div>
+      <div class="ft-line">Mina na ven, sena navol —</div>
+      <div class="ft-line">Varo kala lo Vaultrian.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-chorus-mark">— Chorus —</div>
+      <div class="ft-line">Kiratvel navol, kiratvel morat —</div>
+      <div class="ft-line">Sena kavi, sena zari, sena kat no.</div>
+      <div class="ft-line">Naratel sena lo zelek velan —</div>
+      <div class="ft-line">Vaultrian kala. Vaultrian navol.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-line">No mora mina lo dralun —</div>
+      <div class="ft-line">Teri mina, zari mina, birek mina.</div>
+      <div class="ft-line">Zerit mina lo kiratsavel —</div>
+      <div class="ft-line">Morat lo tovatek, kala lo melat.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-chorus-mark">— Chorus —</div>
+      <div class="ft-line">Kiratvel navol, kiratvel morat —</div>
+      <div class="ft-line">Sena kavi, sena zari, sena kat no.</div>
+      <div class="ft-line">Naratel sena lo zelek velan —</div>
+      <div class="ft-line">Vaultrian kala. Vaultrian navol.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-line">Da-doro sena de zelarat,</div>
+      <div class="ft-line">De lunok, de dralun, de zeratnel.</div>
+      <div class="ft-line">Va-kelo sena lo nod kala —</div>
+      <div class="ft-line" style="letter-spacing:.15em">Navol. Navol. Navol.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-chorus-mark">— Final Chorus —</div>
+      <div class="ft-line">Kiratvel navol, kiratvel morat —</div>
+      <div class="ft-line">Sena kavi, sena zari, sena kat no.</div>
+      <div class="ft-line">Naratel sena lo zelek velan —</div>
+      <div class="ft-line" style="color:var(--gold-l);font-size:1.15rem">Vaultrian kala. Vaultrian navol.</div>
+    </div>
+    <!-- English -->
+    <div class="full-text" style="background:rgba(244,239,230,.03)">
+      <div class="ft-lang" style="color:var(--text3)">English Translation</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">We go forward, we build together,</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">A great city in a place of strength.</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">I and you, we are permanent —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">Good citizens of Vaultria.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-chorus-mark" style="color:var(--text3)">— Chorus —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">Truth is permanent, truth is powerful —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">We speak, we know, we do not stop.</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">Our souls are in this new place —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">Vaultria is good. Vaultria is permanent.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">I do not give in to fear —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">I learn, I know, I build.</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">I am held by the covenant —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">Strong in governance, good in community.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-chorus-mark" style="color:var(--text3)">— Chorus —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">Truth is permanent, truth is powerful —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">We speak, we know, we do not stop.</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">Our souls are in this new place —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">Vaultria is good. Vaultria is permanent.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">We came from the void,</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">From darkness, from fear, from pain.</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.55);font-size:.95rem;line-height:1.9">We will stay in a good city —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9;letter-spacing:.1em">Always. Always. Always.</div>
+      <div class="ft-gap"></div>
+      <div class="ft-chorus-mark" style="color:var(--text3)">— Final Chorus —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">Truth is permanent, truth is powerful —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">We speak, we know, we do not stop.</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.65);font-size:.95rem;line-height:1.9">Our souls are in this new place —</div>
+      <div class="ft-line" style="font-family:'Crimson Pro',serif;font-style:italic;color:rgba(244,239,230,.75);font-size:1rem;line-height:1.9">Vaultria is good. Vaultria is permanent.</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="ft">Kiratvel Navol — Vaultrian National Anthem</div>
+  <div class="fs">Official Text · Vaultrian Aegis Council · Est. 2025 · All Performances Honoured</div>
+</div>
+
+<script>
+function goTo(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+
+var nbs=document.querySelectorAll('.nb');
+var ids=['lyrics','words','meaning','music','occasions','rules','fulltext'];
+window.addEventListener('scroll',function(){
+  ids.forEach(function(id,i){
+    var el=document.getElementById(id); if(!el) return;
+    var r=el.getBoundingClientRect();
+    if(r.top<120&&r.bottom>0){nbs.forEach(function(b){b.classList.remove('on');});nbs[i].classList.add('on');}
+  });
+});
+
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});
+},{threshold:0.06});
+document.querySelectorAll('.sec').forEach(function(s){obs.observe(s);});
+</script>
+</body>
+</html>
+</user_query>

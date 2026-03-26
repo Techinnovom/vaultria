@@ -1,0 +1,1 @@
+Checking whether the repo already has an anthem page or any existing markup we should extend with this content.
