@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Citizenship application — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/citizenship-application.css" />
+  <link rel="stylesheet" href="../assets/css/citizenship-page.css" />
+</head>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap">
+        <main id="main-content" class="citizenship-page">
+          <p class="tier-kicker"><a href="people.html">People</a> · <a href="identity.html">Identity &amp; visa</a></p>
+          <h1 class="page-title">Citizenship application</h1>
+          <p class="zone-intro">
+            Multi-step registration reviewed by the Language Authority: identity, Vaelic line name, Civic Oath, merit tier, background, VYR wallet, documents, and signature. Processing time 14–21 working days.
+          </p>
+          <div class="citizenship-app">
+    <div class="progress-wrap">
+      <div class="progress-inner">
+        <div class="progress-steps" id="progressSteps">
+          <div class="prog-step active" data-step="1" onclick="jumpToStep(1)">
+            <div class="prog-dot">1</div>
+            <div class="prog-label">Identity</div>
+          </div>
+          <div class="prog-step" data-step="2" onclick="jumpToStep(2)">
+            <div class="prog-dot">2</div>
+            <div class="prog-label">Line Name</div>
+          </div>
+          <div class="prog-step" data-step="3" onclick="jumpToStep(3)">
+            <div class="prog-dot">3</div>
+            <div class="prog-label">Civic Oath</div>
+          </div>
+          <div class="prog-step" data-step="4" onclick="jumpToStep(4)">
+            <div class="prog-dot">4</div>
+            <div class="prog-label">Merit</div>
+          </div>
+          <div class="prog-step" data-step="5" onclick="jumpToStep(5)">
+            <div class="prog-dot">5</div>
+            <div class="prog-label">Background</div>
+          </div>
+          <div class="prog-step" data-step="6" onclick="jumpToStep(6)">
+            <div class="prog-dot">6</div>
+            <div class="prog-label">Wallet</div>
+          </div>
+          <div class="prog-step" data-step="7" onclick="jumpToStep(7)">
+            <div class="prog-dot">7</div>
+            <div class="prog-label">Document</div>
+          </div>
+          <div class="prog-step" data-step="8" onclick="jumpToStep(8)">
+            <div class="prog-dot">8</div>
+            <div class="prog-label">Signature</div>
+          </div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:12.5%"></div></div>
+      </div>
+    </div>
+
+    <div class="form-container" id="formContainer">
+      <div class="step-panel active" id="step1">
+        <div class="step-header">
+          <div class="step-num">Step 1 of 8</div>
+          <div class="step-title">Identity Verification</div>
+          <div class="step-vae">Nara Kirat — Who You Are</div>
+          <div class="step-desc">Your legal identity as it exists in your country of origin. This information is verified against external records. Provide accurate information — any discrepancy will delay or void the application.</div>
+          <div class="step-rule"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field" id="f-given">
+            <div class="field-label">Given Name(s) <span>*</span></div>
+            <input type="text" id="givenName" placeholder="As on your official documents" />
+            <div class="field-error-msg">Given name is required</div>
+          </div>
+          <div class="field" id="f-family">
+            <div class="field-label">Current Family Name <span>*</span></div>
+            <input type="text" id="familyName" placeholder="Current surname" />
+            <div class="field-hint">Your Vaelic line name will replace this upon citizenship.</div>
+            <div class="field-error-msg">Family name is required</div>
+          </div>
+        </div>
+        <div class="form-grid three">
+          <div class="field" id="f-dob">
+            <div class="field-label">Date of Birth <span>*</span></div>
+            <input type="date" id="dob" />
+            <div class="field-error-msg">Date of birth is required</div>
+          </div>
+          <div class="field" id="f-gender">
+            <div class="field-label">Gender Identity <span>*</span></div>
+            <select id="gender">
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-binary</option>
+              <option>Prefer not to state</option>
+            </select>
+            <div class="field-error-msg">Required</div>
+          </div>
+          <div class="field" id="f-origin">
+            <div class="field-label">Country of Origin <span>*</span></div>
+            <select id="originCountry">
+              <option value="">Select country</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option>Canada</option>
+              <option>Other</option>
+            </select>
+            <div class="field-error-msg">Country of origin is required</div>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="field" id="f-email">
+            <div class="field-label">Email Address <span>*</span></div>
+            <input type="email" id="email" placeholder="Your contact email" />
+            <div class="field-hint">Application correspondence will be sent here.</div>
+            <div class="field-error-msg">Valid email is required</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Current City / Node of Residence</div>
+            <input type="text" id="currentCity" placeholder="Where you currently live" />
+          </div>
+        </div>
+        <div class="form-grid full">
+          <div class="field">
+            <div class="field-label">How did you learn about Vaultria?</div>
+            <select id="referral">
+              <option value="">Select</option>
+              <option>Online search</option>
+              <option>A current citizen referred me</option>
+              <option>Social media</option>
+              <option>News or publication</option>
+              <option>Official Vaultrian channels</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-nav">
+          <div class="step-count">Step 1 of 8 · Identity</div>
+          <button type="button" class="btn-next" onclick="nextStep(1)">Continue →</button>
+        </div>
+      </div>
+
+      <div class="step-panel" id="step2">
+        <div class="step-header">
+          <div class="step-num">Step 2 of 8</div>
+          <div class="step-title">Vaelic Line Name</div>
+          <div class="step-vae">Vaelic Name Vel — Your Permanent Name</div>
+          <div class="step-desc">Every Vaultrian citizen holds a Vaelic line name. This name is permanent — it cannot be changed after citizenship is granted and it passes to all your children. Choose carefully. Browse by category or search by meaning.</div>
+          <div class="step-rule"></div>
+        </div>
+        <div style="margin-bottom:10px">
+          <div class="field-label" style="margin-bottom:8px">Search by name or meaning</div>
+          <input type="text" class="name-search" id="nameSearch" placeholder="Type a name or meaning…" />
+        </div>
+        <div class="name-categories" id="nameCategories">
+          <button type="button" class="nc-btn on" data-cat="all">All</button>
+          <button type="button" class="nc-btn" data-cat="nature">Nature</button>
+          <button type="button" class="nc-btn" data-cat="values">Values</button>
+          <button type="button" class="nc-btn" data-cat="place">Place</button>
+          <button type="button" class="nc-btn" data-cat="work">Work</button>
+          <button type="button" class="nc-btn" data-cat="time">Time</button>
+          <button type="button" class="nc-btn" data-cat="light">Light</button>
+          <button type="button" class="nc-btn" data-cat="water">Water</button>
+          <button type="button" class="nc-btn" data-cat="sky">Sky</button>
+          <button type="button" class="nc-btn" data-cat="earth">Earth</button>
+        </div>
+        <div class="name-grid" id="nameGrid"></div>
+        <div class="selected-name-display" id="selectedNameDisplay">
+          <div class="snd-label">Selected Line Name</div>
+          <div class="snd-name" id="sndName"></div>
+          <div class="snd-meaning" id="sndMeaning"></div>
+        </div>
+        <div style="margin-top:16px;padding:12px 14px;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.08)">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:.48rem;letter-spacing:.18em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px">Name Law</div>
+          <div style="font-family:'Crimson Pro',serif;font-style:italic;font-size:.84rem;color:rgba(196,189,176,.42);line-height:1.7">The selected line name is permanent upon citizenship registration. It passes to all children of your family unit. It cannot be changed after citizenship is granted. Your full Vaultrian name will be: <strong style="color:rgba(196,189,176,.65)" id="namePreview">[Given Name] · [Line Name]</strong></div>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn-prev" onclick="prevStep(2)">← Back</button>
+          <div class="step-count">Step 2 of 8 · Line Name</div>
+          <button type="button" class="btn-next" onclick="nextStep(2)">Continue →</button>
+        </div>
+      </div>
+      <div class="step-panel" id="step3">
+        <div class="step-header">
+          <div class="step-num">Step 3 of 8</div>
+          <div class="step-title">The Civic Oath</div>
+          <div class="step-vae">Sena lo Vaultria — Binding Declaration</div>
+          <div class="step-desc">Read the Charter principles below. The formal oath will be spoken in your name once you accept.</div>
+          <div class="step-rule"></div>
+        </div>
+        <div class="oath-scroll">
+          <div class="oath-article">
+            <div class="oa-num">Article I · The Person</div>
+            <div class="oa-title">Identity and name</div>
+            <div class="oa-vae">Nara vel lo Charter — lo kirat vel sena lo morat.</div>
+            <div class="oa-eng">Citizenship affirms the person under the Charter: truth, strength, and the work that builds.</div>
+          </div>
+          <div class="oath-article">
+            <div class="oa-num">Article II · The Covenant</div>
+            <div class="oa-title">Vaultria and the citizen</div>
+            <div class="oa-vae">Vaultria lo sena — sena lo Vaultria.</div>
+            <div class="oa-eng">The State and the citizen owe each other fidelity: protection, participation, and lawful conduct.</div>
+          </div>
+          <div class="oath-article">
+            <div class="oa-num">Article III · Permanent Truth</div>
+            <div class="oa-title">Kiratvel navol</div>
+            <div class="oa-vae">Lo morat vel, lo kirat vel, lo birek vel.</div>
+            <div class="oa-eng">Declarations in this application must be complete and accurate. False statements may void citizenship.</div>
+          </div>
+        </div>
+        <div class="oath-text-formal" id="oathDisplay"></div>
+        <div class="oath-accept">
+          <input type="checkbox" id="oathAccept" />
+          <label for="oathAccept">I formally accept the Civic Oath as binding upon my registration as a citizen of Vaultria. I understand this oath is permanent and enforceable under the National Charter.</label>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn-prev" onclick="prevStep(3)">← Back</button>
+          <div class="step-count">Step 3 of 8 · Civic Oath</div>
+          <button type="button" class="btn-next" onclick="nextStep(3)">Continue →</button>
+        </div>
+      </div>
+
+      <div class="step-panel" id="step4">
+        <div class="step-header">
+          <div class="step-num">Step 4 of 8</div>
+          <div class="step-title">Merit &amp; Contribution</div>
+          <div class="step-vae">Tier vel — Skills you bring</div>
+          <div class="step-desc">Select your initial citizenship tier and declare up to several areas where you can contribute to Vaultria. Describe how you intend to serve.</div>
+          <div class="step-rule"></div>
+        </div>
+        <div class="tier-options">
+          <label class="tier-option" id="tier-t1">
+            <input type="radio" name="tier" value="T1" onchange="selectTier('T1')" />
+            <div class="to-num">T1</div>
+            <div>
+              <div class="to-name">Initiate Citizen</div>
+              <div class="to-desc">Entry tier — full rights under Charter; pathway to higher trust through contribution.</div>
+            </div>
+          </label>
+          <label class="tier-option" id="tier-t2">
+            <input type="radio" name="tier" value="T2" onchange="selectTier('T2')" />
+            <div class="to-num">T2</div>
+            <div>
+              <div class="to-name">Trusted Citizen</div>
+              <div class="to-desc">Demonstrated reliability and ongoing participation in civic or economic life.</div>
+            </div>
+          </label>
+          <label class="tier-option" id="tier-t3">
+            <input type="radio" name="tier" value="T3" onchange="selectTier('T3')" />
+            <div class="to-num">T3</div>
+            <div>
+              <div class="to-name">Elite Citizen</div>
+              <div class="to-desc">Exceptional merit — leadership, expertise, or outsized contribution to the State.</div>
+            </div>
+          </label>
+        </div>
+        <div class="field-label" style="margin-bottom:8px">Skills &amp; domains (select any that apply)</div>
+        <div class="skills-grid" id="skillsGrid"></div>
+        <div class="field" style="margin-top:20px">
+          <div class="field-label">Describe your intended contribution to Vaultria <span>*</span></div>
+          <textarea id="contribution" rows="5" placeholder="How will you serve the State and fellow citizens?" style="width:100%;padding:12px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--text);font-family:'Crimson Pro',serif;font-size:0.9rem;line-height:1.7"></textarea>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn-prev" onclick="prevStep(4)">← Back</button>
+          <div class="step-count">Step 4 of 8 · Merit</div>
+          <button type="button" class="btn-next" onclick="nextStep(4)">Continue →</button>
+        </div>
+      </div>
+
+      <div class="step-panel" id="step5">
+        <div class="step-header">
+          <div class="step-num">Step 5 of 8</div>
+          <div class="step-title">Background Declarations</div>
+          <div class="step-vae">Kirat vel — Complete disclosure</div>
+          <div class="step-desc">Answer each question truthfully. Additional detail may be requested by the Language Authority.</div>
+          <div class="step-rule"></div>
+        </div>
+        <div class="declaration-item">
+          <div class="di-question">Have you ever been convicted of a serious criminal offence in any jurisdiction?</div>
+          <div class="di-radio-row">
+            <label class="di-radio">
+              <input type="radio" name="decCrim" value="no" checked onchange="toggleDetail('decCrimDetail', false)" />
+              <span class="di-radio-text">No</span>
+            </label>
+            <label class="di-radio">
+              <input type="radio" name="decCrim" value="yes" onchange="toggleDetail('decCrimDetail', true)" />
+              <span class="di-radio-text">Yes</span>
+            </label>
+          </div>
+          <div id="decCrimDetail" class="di-detail">
+            <div class="field-label">Brief particulars</div>
+            <textarea rows="3" style="width:100%;padding:10px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--text);font-family:'Crimson Pro',serif"></textarea>
+          </div>
+        </div>
+        <div class="declaration-item">
+          <div class="di-question">Are you subject to any outstanding immigration or deportation proceedings?</div>
+          <div class="di-radio-row">
+            <label class="di-radio">
+              <input type="radio" name="decImm" value="no" checked onchange="toggleDetail('decImmDetail', false)" />
+              <span class="di-radio-text">No</span>
+            </label>
+            <label class="di-radio">
+              <input type="radio" name="decImm" value="yes" onchange="toggleDetail('decImmDetail', true)" />
+              <span class="di-radio-text">Yes</span>
+            </label>
+          </div>
+          <div id="decImmDetail" class="di-detail">
+            <div class="field-label">Brief particulars</div>
+            <textarea rows="3" style="width:100%;padding:10px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--text);font-family:'Crimson Pro',serif"></textarea>
+          </div>
+        </div>
+        <div class="declaration-item">
+          <div class="di-question">Do you intend to retain another nationality alongside Vaultrian citizenship?</div>
+          <div class="di-radio-row">
+            <label class="di-radio">
+              <input type="radio" name="decDual" value="no" checked onchange="toggleDetail('decDualDetail', false)" />
+              <span class="di-radio-text">No</span>
+            </label>
+            <label class="di-radio">
+              <input type="radio" name="decDual" value="yes" onchange="toggleDetail('decDualDetail', true)" />
+              <span class="di-radio-text">Yes</span>
+            </label>
+          </div>
+          <div id="decDualDetail" class="di-detail">
+            <div class="field-label">List other nationalities</div>
+            <textarea rows="2" style="width:100%;padding:10px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--text);font-family:'Crimson Pro',serif"></textarea>
+          </div>
+        </div>
+        <div class="declaration-item">
+          <div class="di-question">Is everything in this application true and complete to the best of your knowledge?</div>
+          <div class="di-radio-row">
+            <label class="di-radio">
+              <input type="radio" name="decTruth" value="yes" checked onchange="toggleDetail('decTruthDetail', false)" />
+              <span class="di-radio-text">Yes</span>
+            </label>
+            <label class="di-radio">
+              <input type="radio" name="decTruth" value="no" onchange="toggleDetail('decTruthDetail', true)" />
+              <span class="di-radio-text">No</span>
+            </label>
+          </div>
+          <div id="decTruthDetail" class="di-detail">
+            <div class="field-label">Explain</div>
+            <textarea rows="3" style="width:100%;padding:10px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--text);font-family:'Crimson Pro',serif"></textarea>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn-prev" onclick="prevStep(5)">← Back</button>
+          <div class="step-count">Step 5 of 8 · Background</div>
+          <button type="button" class="btn-next" onclick="nextStep(5)">Continue →</button>
+        </div>
+      </div>
+
+      <div class="step-panel" id="step6">
+        <div class="step-header">
+          <div class="step-num">Step 6 of 8</div>
+          <div class="step-title">VYR Wallet Registration</div>
+          <div class="step-vae">Lo morat vel — Economic identity</div>
+          <div class="step-desc">Choose a wallet handle and a six-digit PIN. Your VYR identity will be provisioned on approval.</div>
+          <div class="step-rule"></div>
+        </div>
+        <div class="vyr-info">
+          <div class="vyr-symbol">VYR</div>
+          <div class="vyr-desc">Vaultrian Yield Reserve — the sovereign ledger unit for citizens. Balances and transfers are subject to Charter rules.</div>
+        </div>
+        <div class="form-grid">
+          <div class="field" id="f-walletname">
+            <div class="field-label">Wallet handle (letters A–Z, up to 6) <span>*</span></div>
+            <input type="text" id="walletName" maxlength="6" placeholder="e.g. KIRATV" autocomplete="off" style="text-transform:uppercase" />
+          </div>
+          <div class="field" id="f-walletpin">
+            <div class="field-label">Six-digit PIN <span>*</span></div>
+            <input type="password" id="walletPin" maxlength="6" inputmode="numeric" pattern="[0-9]*" placeholder="••••••" autocomplete="new-password" />
+          </div>
+        </div>
+        <div class="wallet-preview">
+          <div>
+            <div class="wp-label">Preview wallet ID</div>
+            <div class="wp-id" id="walletIdPreview">VLT-——-0000-0000</div>
+          </div>
+          <div class="wp-balance">0 VYR</div>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn-prev" onclick="prevStep(6)">← Back</button>
+          <div class="step-count">Step 6 of 8 · Wallet</div>
+          <button type="button" class="btn-next" onclick="nextStep(6)">Continue →</button>
+        </div>
+      </div>
+
+      <div class="step-panel" id="step7">
+        <div class="step-header">
+          <div class="step-num">Step 7 of 8</div>
+          <div class="step-title">Photograph &amp; Identity Document</div>
+          <div class="step-vae">Nara kirat — Visual record</div>
+          <div class="step-desc">Upload a recent portrait and a scan of government-issued photo ID (passport or national ID).</div>
+          <div class="step-rule"></div>
+        </div>
+        <div class="citizenship-doc-grid">
+          <div>
+            <div class="field-label" style="margin-bottom:10px">Portrait photograph <span>*</span></div>
+            <div class="upload-zone" id="photoZone">
+              <input type="file" id="photoFile" accept="image/*" onchange="handleFile('photo', this)" />
+              <div class="uz-icon">◇</div>
+              <div class="uz-text">Upload Photo</div>
+              <div class="uz-sub">PNG or JPG, clear face, neutral background</div>
+            </div>
+            <div class="file-preview" id="photoPreview">
+              <span class="fp-name" id="photoName"></span>
+              <span class="fp-remove" onclick="removeFile('photo');event.stopPropagation()">Remove</span>
+            </div>
+          </div>
+          <div>
+            <div class="field-label" style="margin-bottom:10px">Identity document <span>*</span></div>
+            <div class="upload-zone" id="docZone">
+              <input type="file" id="docFile" accept="image/*,.pdf" onchange="handleFile('doc', this)" />
+              <div class="uz-icon">◇</div>
+              <div class="uz-text">Upload Document</div>
+              <div class="uz-sub">PDF or image, full page legible</div>
+            </div>
+            <div class="file-preview" id="docPreview">
+              <span class="fp-name" id="docName"></span>
+              <span class="fp-remove" onclick="removeFile('doc');event.stopPropagation()">Remove</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn-prev" onclick="prevStep(7)">← Back</button>
+          <div class="step-count">Step 7 of 8 · Documents</div>
+          <button type="button" class="btn-next" onclick="nextStep(7)">Continue →</button>
+        </div>
+      </div>
+
+      <div class="step-panel" id="step8">
+        <div class="step-header">
+          <div class="step-num">Step 8 of 8</div>
+          <div class="step-title">Review &amp; Signature</div>
+          <div class="step-vae">Sena vel — Final attestation</div>
+          <div class="step-desc">Confirm the summary below, then sign electronically or type your full name.</div>
+          <div class="step-rule"></div>
+        </div>
+        <div style="background:var(--bg2);border:1px solid rgba(255,255,255,0.05);padding:16px;margin-bottom:20px">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.2em;color:var(--gold-d);text-transform:uppercase;margin-bottom:12px">Application summary</div>
+          <div id="appSummary"></div>
+        </div>
+        <div class="field-label" style="margin-bottom:8px">Draw your signature</div>
+        <div class="sig-canvas-wrap">
+          <canvas id="sigCanvas" width="700" height="140"></canvas>
+        </div>
+        <div class="sig-controls">
+          <button type="button" class="sig-btn" onclick="clearSig()">Clear</button>
+          <span class="sig-status" id="sigStatus">Not signed</span>
+        </div>
+        <div class="typed-sig">
+          <span class="ts-label">Or type full name</span>
+          <input type="text" id="typedSig" oninput="updateTypedSig()" placeholder="Given name · Line name" style="flex:1;padding:10px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--text);font-family:'Crimson Pro',serif" />
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn-prev" onclick="prevStep(8)">← Back</button>
+          <div class="step-count">Step 8 of 8 · Signature</div>
+          <button type="button" class="btn-submit" onclick="submitApplication()">Submit application</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="confirmScreen" class="confirm-screen">
+      <div class="conf-seal">
+        <img src="../assets/images/state%20seal.png" alt="" width="72" height="83" />
+      </div>
+      <div class="conf-title">Application Received</div>
+      <div class="conf-vae">Kiratvel sena lo morat</div>
+      <div class="conf-ref">
+        <div class="conf-ref-label">Reference number</div>
+        <div class="conf-ref-num" id="refNum"></div>
+      </div>
+      <div class="conf-summary" id="confSummary"></div>
+      <div class="conf-oath-text" id="confOath"></div>
+      <div class="conf-next-steps">
+        <div class="cns-title">Next steps</div>
+        <div class="cns-item"><span class="cns-num">1</span> Keep your reference number for all correspondence with the Language Authority.</div>
+        <div class="cns-item"><span class="cns-num">2</span> You will receive email confirmation within 14–21 working days.</div>
+        <div class="cns-item"><span class="cns-num">3</span> Upon approval, your VYR wallet will be activated under the handle you chose.</div>
+      </div>
+      <div class="conf-motto">Kiratvel navol · Truth is permanent</div>
+    </div>
+  </div>
+
+        </main>
+        <footer>
+          <p>The Sovereign State of VAULTRIA — a living document.</p>
+          <p class="latin">Edit <code>site/pages/citizenship.html</code> · Styles <code>site/assets/css/citizenship-application.css</code></p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/citizenship-application.js" defer></script>
+</body>
+</html>

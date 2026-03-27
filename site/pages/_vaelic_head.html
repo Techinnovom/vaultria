@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vaelic — Language Reference v2 — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/vaelic-reference.css" />
+</head>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap wrap--vaelic">
+        <main id="main-content" class="vaelic-ref-page culture-canon">
+          <div class="vr-masthead">
+            <div class="vr-mh-tag">Vaultrian · National Language</div>
+            <h1 class="vr-mh-title">VAELIC</h1>
+            <p class="vr-mh-sub">Language Reference Document — Rebuilt Foundation</p>
+            <p class="vr-mh-version">VERSION 2.0 · CONFLICT-RESOLVED · SOUND-MAPPED · 2025</p>
+          </div>
+
+          <div class="vr-nav-tabs" role="tablist" aria-label="Vaelic reference sections">
+            <button type="button" class="vr-ntab active" role="tab" aria-selected="true" data-section="phonology">Phonology</button>
+            <button type="button" class="vr-ntab" role="tab" aria-selected="false" data-section="alphabet">Alphabet</button>
+            <button type="button" class="vr-ntab" role="tab" aria-selected="false" data-section="vocabulary">Vocabulary</button>
+            <button type="button" class="vr-ntab" role="tab" aria-selected="false" data-section="conflicts">Conflicts Fixed</button>
+            <button type="button" class="vr-ntab" role="tab" aria-selected="false" data-section="changelog">Changelog</button>
+          </div>
+
+          <div class="vr-main">
+
+<!-- PHONOLOGY -->
+<div class="vr-section active" id="phonology" role="tabpanel">
+  <div class="vr-sec-tag">Section 01</div>
+  <h2 class="vr-sec-title">Sound Identity &amp; Phonology</h2>
+  <div class="vr-sec-divider"></div>
+  <p class="vr-sec-intro">
+    Vaelic is built on a deliberate sound-to-meaning mapping. Specific phonetic classes carry specific emotional and semantic weight. This is what makes Vaelic feel sharp, precise, and alive — not arbitrary.
+  </p>
+
+  <div class="vr-legend">
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-sharp)"></div><div class="vr-legend-text">Sharp — Commands / Danger</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-soft)"></div><div class="vr-legend-text">Soft — People / Relations</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-hard)"></div><div class="vr-legend-text">Hard — Tech / Systems</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-flow)"></div><div class="vr-legend-text">Flow — Time / Movement</div></div>
+  </div>
+
+  <div class="vr-phon-grid">
+    <div class="vr-phon-card sharp">
+      <div class="vr-phon-class">Sharp Class</div>
+      <div class="vr-phon-name">Commands &amp; Danger</div>
+      <div class="vr-phon-sounds">K · T · D · Z · R (hard)</div>
+      <div class="vr-phon-desc">Stop consonants and fricatives. Short words. Clipped endings. Meant to cut through noise and carry urgency.</div>
+      <div class="vr-phon-example">KAT · ZEL · DRAK · TORN · VREK</div>
+    </div>
+    <div class="vr-phon-card soft">
+      <div class="vr-phon-class">Soft Class</div>
+      <div class="vr-phon-name">People &amp; Relations</div>
+      <div class="vr-phon-sounds">N · M · L · R (soft) · open vowels</div>
+      <div class="vr-phon-desc">Nasal and lateral sounds. Open vowels A and E dominant. Words feel approachable, warm, relational.</div>
+      <div class="vr-phon-example">NARA · MELA · LORI · RENA · VENA</div>
+    </div>
+    <div class="vr-phon-card hard">
+      <div class="vr-phon-class">Hard Class</div>
+      <div class="vr-phon-name">Tech &amp; Systems</div>
+      <div class="vr-phon-sounds">V · P · B · K (double) · -ek / -at endings</div>
+      <div class="vr-phon-desc">Plosives and labio-dentals. Technical words often end in hard stops. Precision is embedded in the sound.</div>
+      <div class="vr-phon-example">VATEK · PROL · BIREK · SATOK · KAVEL</div>
+    </div>
+    <div class="vr-phon-card flow">
+      <div class="vr-phon-class">Flow Class</div>
+      <div class="vr-phon-name">Time &amp; Movement</div>
+      <div class="vr-phon-sounds">S · V · L · flowing vowels · -ora / -elu endings</div>
+      <div class="vr-phon-desc">Sibilants and glides. Words that move. Often two syllables with a soft landing. Feels like progression.</div>
+      <div class="vr-phon-example">SELORA · VARNA · DOLUN · NERELU · SOLVI</div>
+    </div>
+  </div>
+
+  <div class="vr-rule-block">
+    <div class="vr-rule-title">The Sound Contract</div>
+    <div class="vr-rule-body">
+      When a speaker hears a Vaelic word beginning with K or T in a short clipped form, they expect urgency or command. When they hear a word beginning with N or M with open vowels, they expect a person or relationship. This is not decoration — it is architecture. Words must be assigned sounds that match their semantic class.
+    </div>
+  </div>
+
+  <div class="vr-rule-block">
+    <div class="vr-rule-title">Forbidden Clusters (unchanged from v1)</div>
+    <div class="vr-rule-body">
+      No: <strong>str · ght · spl · tch · ph · th · sh · ch</strong><br />
+      No silent letters. No ambiguous digraphs. Every letter pronounced exactly once, every time.
+    </div>
+  </div>
+
+  <div class="vr-rule-block">
+    <div class="vr-rule-title">Stress Rule (unchanged)</div>
+    <div class="vr-rule-body">
+      Always stress the <strong>first syllable</strong>. No exceptions. KA-vel, not ka-VEL. NA-ra, not na-RA.
+    </div>
+  </div>
+
+  <div class="vr-mt-32">
+    <div class="vr-sec-tag">Phonology in Action</div>
+    <div class="vr-mt-16">
+      <div class="vr-example-pair">
+        <div class="vr-ex-vaelic">Kat! Doro nera.</div>
+        <div class="vr-ex-english">Stop! Go now.</div>
+      </div>
+      <div class="vr-example-pair">
+        <div class="vr-ex-vaelic">Nara mela selora.</div>
+        <div class="vr-ex-english">The person comes slowly.</div>
+      </div>
+      <div class="vr-example-pair">
+        <div class="vr-ex-vaelic">Vatek satok birek.</div>
+        <div class="vr-ex-english">The device runs the system.</div>
+      </div>
+      <div class="vr-example-pair">
+        <div class="vr-ex-vaelic">Dolun mina nerelu.</div>
+        <div class="vr-ex-english">I move toward now.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ALPHABET -->
+<div class="vr-section" id="alphabet" role="tabpanel">
+  <div class="vr-sec-tag">Section 02</div>
+  <h2 class="vr-sec-title">The Vaelic Alphabet</h2>
+  <div class="vr-sec-divider"></div>
+  <p class="vr-sec-intro">
+    18 letters. No letter ever changes its sound. What you see is exactly what you say — always.
+  </p>
+
+  <div class="vr-mt-32" style="margin-top:0">
+    <div class="vr-alpha-vowel-label">VOWELS — 5</div>
+    <div class="vr-alpha-vowel-grid">
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">A</div><div class="vr-alpha-ipa">/a/</div><div class="vr-alpha-eng">ah (father)</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">E</div><div class="vr-alpha-ipa">/e/</div><div class="vr-alpha-eng">eh (bed)</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">I</div><div class="vr-alpha-ipa">/i/</div><div class="vr-alpha-eng">ee (machine)</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">O</div><div class="vr-alpha-ipa">/o/</div><div class="vr-alpha-eng">oh (go)</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">U</div><div class="vr-alpha-ipa">/u/</div><div class="vr-alpha-eng">oo (rule)</div></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="vr-alpha-vowel-label">CONSONANTS — 13</div>
+    <div class="vr-alpha-grid">
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-sharp)">K</div><div class="vr-alpha-ipa">/k/</div><div class="vr-alpha-eng">hard k only</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-sharp)">T</div><div class="vr-alpha-ipa">/t/</div><div class="vr-alpha-eng">sharp t</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-sharp)">D</div><div class="vr-alpha-ipa">/d/</div><div class="vr-alpha-eng">clean d</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-sharp)">Z</div><div class="vr-alpha-ipa">/z/</div><div class="vr-alpha-eng">buzzing z</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-hard)">V</div><div class="vr-alpha-ipa">/v/</div><div class="vr-alpha-eng">strong v</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-hard)">P</div><div class="vr-alpha-ipa">/p/</div><div class="vr-alpha-eng">sharp p</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-hard)">B</div><div class="vr-alpha-ipa">/b/</div><div class="vr-alpha-eng">clean b</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">M</div><div class="vr-alpha-ipa">/m/</div><div class="vr-alpha-eng">nasal m</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">N</div><div class="vr-alpha-ipa">/n/</div><div class="vr-alpha-eng">nasal n</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">L</div><div class="vr-alpha-ipa">/l/</div><div class="vr-alpha-eng">clear l</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-flow)">S</div><div class="vr-alpha-ipa">/s/</div><div class="vr-alpha-eng">sharp s</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-flow)">R</div><div class="vr-alpha-ipa">/r/</div><div class="vr-alpha-eng">light roll</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-neutral)">G</div><div class="vr-alpha-ipa">/g/</div><div class="vr-alpha-eng">hard g only</div></div>
+    </div>
+  </div>
+
+  <div class="vr-rule-block vr-mt-32">
+    <div class="vr-rule-title">Letter Colour = Sound Class</div>
+    <div class="vr-rule-body">
+      Letters are colour-coded to their primary phonological class. Sharp (red) letters front-load urgency. Soft (green) carry relational warmth. Hard (blue) mark precision. Flow (purple) carry movement. This is a reference tool — in written Vaelic all letters appear the same.
+    </div>
+  </div>
+</div>

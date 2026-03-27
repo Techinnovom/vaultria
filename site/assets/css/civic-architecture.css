@@ -1,0 +1,672 @@
+/* Civic structures & monuments — scoped to .civic-arch-page */
+
+.civic-arch-page {
+  --arch-gold-dim: var(--gold-dim);
+  --arch-rule: var(--border);
+  --arch-ink: var(--bg-deep);
+  --arch-bg2: var(--bg-panel);
+  --arch-bg3: var(--bg-elevated);
+  --arch-text-soft: rgba(230, 226, 216, 0.42);
+  --arch-text-faint: rgba(230, 226, 216, 0.36);
+  --arch-label: rgba(154, 149, 138, 0.55);
+  font-family: "Source Serif 4", Georgia, serif;
+  color: var(--text-muted);
+}
+
+.civic-arch-page *,
+.civic-arch-page *::before,
+.civic-arch-page *::after {
+  box-sizing: border-box;
+}
+
+.civic-arch-page .cover {
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background: var(--bg-deep);
+  margin: 0 -1.25rem 0;
+  width: calc(100% + 2.5rem);
+}
+
+.civic-arch-page .cv-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, #1c2029 0%, var(--bg-deep) 70%);
+}
+
+.civic-arch-page .cv-sky {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55vh;
+  pointer-events: none;
+}
+
+.civic-arch-page .cv-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.civic-arch-page .cv-pre {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+}
+
+.civic-arch-page .cv-title {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 5.5vw, 3.25rem);
+  color: var(--gold);
+  letter-spacing: 0.07em;
+  line-height: 1.1;
+  text-shadow: 0 0 80px rgba(201, 169, 98, 0.15);
+  margin-bottom: 0.5rem;
+}
+
+.civic-arch-page .cv-sub {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: var(--arch-text-faint);
+  margin-bottom: 1.5rem;
+}
+
+.civic-arch-page .cv-rule {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 auto 1.5rem;
+}
+
+.civic-arch-page .cv-desc {
+  font-style: italic;
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  color: var(--arch-text-soft);
+  line-height: 1.85;
+  max-width: 540px;
+  margin: 0 auto 2rem;
+}
+
+.civic-arch-page .cv-pills {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.civic-arch-page .cv-pill {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  color: var(--gold-dim);
+  text-transform: uppercase;
+}
+
+.civic-arch-page .arch-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(180deg, rgba(13, 15, 18, 0.98) 70%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  margin: 0 -1.25rem 1.5rem;
+  width: calc(100% + 2.5rem);
+}
+
+.civic-arch-page .arch-nav-btn {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.65rem 0.45rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.civic-arch-page .arch-nav-btn:hover {
+  color: var(--text);
+}
+
+.civic-arch-page .arch-nav-btn.on {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.civic-arch-page .sec {
+  padding: 3.5rem 0;
+  max-width: 1060px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.civic-arch-page .sec.arch-vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.civic-arch-page .sh {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.civic-arch-page .sh-tag {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.35em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.civic-arch-page .sh-title {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 4vw, 2.15rem);
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.65rem;
+  line-height: 1.15;
+}
+
+.civic-arch-page .sh-rule {
+  width: 44px;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  margin: 0 auto 0.85rem;
+}
+
+.civic-arch-page .sh-desc {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--arch-text-faint);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.82;
+}
+
+.civic-arch-page .arch-hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+.civic-arch-page .style-rules {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.civic-arch-page .sr {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 1.15rem 1rem;
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 4px 4px 0;
+}
+
+.civic-arch-page .sr-icon {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.civic-arch-page .sr-name {
+  font-family: Cinzel, serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.04em;
+}
+
+.civic-arch-page .sr-desc {
+  font-size: 0.85rem;
+  color: var(--arch-label);
+  line-height: 1.7;
+}
+
+.civic-arch-page .palette {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.civic-arch-page .pal-swatch {
+  flex: 1 1 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 3.5rem 0.5rem 0.85rem;
+  position: relative;
+  min-height: 7rem;
+}
+
+.civic-arch-page .pal-name {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.civic-arch-page .pal-use {
+  font-style: italic;
+  font-size: 0.72rem;
+  text-align: center;
+  opacity: 0.65;
+  margin-top: 0.25rem;
+}
+
+.civic-arch-page .arch-at-a-glance {
+  margin-top: 1.5rem;
+  padding: 1.1rem 1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.civic-arch-page .arch-at-a-glance-k {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.civic-arch-page .arch-at-a-glance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .civic-arch-page .arch-at-a-glance-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.civic-arch-page .arch-at-a-glance-item {
+  font-size: 0.88rem;
+  color: var(--arch-label);
+  line-height: 1.75;
+  padding-left: 0.85rem;
+  border-left: 2px solid rgba(201, 169, 98, 0.2);
+}
+
+.civic-arch-page .structure {
+  margin-bottom: 4rem;
+}
+
+.civic-arch-page .str-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.civic-arch-page .str-meta {
+  flex: 1;
+  min-width: 200px;
+}
+
+.civic-arch-page .str-num {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.civic-arch-page .str-name {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 4vw, 2.1rem);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.civic-arch-page .str-vaelic {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.civic-arch-page .str-loc {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.civic-arch-page .str-type {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.14em;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border);
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.civic-arch-page .str-illustration {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.civic-arch-page .str-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.civic-arch-page .str-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.15rem;
+}
+
+@media (max-width: 640px) {
+  .civic-arch-page .str-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.civic-arch-page .str-col-title {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.civic-arch-page .str-desc {
+  font-size: 0.9rem;
+  color: var(--arch-label);
+  line-height: 1.8;
+  margin-bottom: 0.85rem;
+}
+
+.civic-arch-page .str-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.civic-arch-page .str-fact {
+  display: flex;
+  gap: 0.65rem;
+  font-size: 0.84rem;
+  color: var(--arch-label);
+  line-height: 1.6;
+}
+
+.civic-arch-page .str-fact-l {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  min-width: 5rem;
+  padding-top: 0.15rem;
+}
+
+.civic-arch-page .str-fact-r {
+  font-family: "Source Serif 4", Georgia, serif;
+}
+
+.civic-arch-page .inscription {
+  background: rgba(201, 169, 98, 0.06);
+  border: 1px solid rgba(201, 169, 98, 0.18);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 4px;
+}
+
+.civic-arch-page .ins-vaelic {
+  font-family: Cinzel, serif;
+  font-size: 0.95rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.civic-arch-page .ins-eng {
+  font-style: italic;
+  font-size: 0.84rem;
+  color: var(--arch-text-faint);
+}
+
+.civic-arch-page .arch-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.civic-arch-page .arch-footer-title {
+  font-family: Cinzel, serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gold-dim);
+}
+
+.civic-arch-page .arch-footer-sub {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  text-transform: uppercase;
+}
+
+.civic-arch-page .palette-kicker {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+/* Index listing */
+.civic-arch-intro {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 40rem;
+  margin-bottom: 1.5rem;
+}
+
+.civic-arch-style-link {
+  display: block;
+  margin-bottom: 2rem;
+  padding: 1rem 1.15rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.civic-arch-style-link:hover {
+  border-color: rgba(201, 169, 98, 0.45);
+  background: var(--bg-elevated);
+}
+
+.civic-arch-style-link-k {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.civic-arch-style-link-t {
+  font-family: Cinzel, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.civic-arch-style-link-d {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+
+.civic-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.civic-arch-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.civic-arch-card:hover {
+  border-color: rgba(201, 169, 98, 0.4);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.civic-arch-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--bg-deep);
+}
+
+.civic-arch-card-body {
+  padding: 0.85rem 0.95rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.civic-arch-card-num {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+}
+
+.civic-arch-card-title {
+  font-family: Cinzel, serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+.civic-arch-card-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.civic-arch-card-cta {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.civic-arch-back {
+  margin: 0 0 1.25rem;
+  font-size: 0.88rem;
+}
+
+.civic-arch-back a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.civic-arch-back a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.civic-arch-detail .str-name {
+  margin-top: 0;
+}

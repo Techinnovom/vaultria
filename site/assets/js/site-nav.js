@@ -34,6 +34,8 @@
         { id: "power", title: "Power" },
         { id: "leadership", title: "Leadership" },
         { id: "architecture", title: "Architecture" },
+        { id: "civic-architecture", title: "Civic structures" },
+        { id: "civic-architecture-style", title: "Architectural style guide" },
         { id: "organization", title: "Organization" },
       ],
     },
@@ -41,6 +43,7 @@
       label: "Realm",
       items: [
         { id: "territory", title: "Territory" },
+        { id: "territory-map", title: "Territory map" },
         { id: "symbols", title: "Symbols" },
       ],
     },
@@ -48,11 +51,16 @@
       label: "People & economy",
       items: [
         { id: "people", title: "People" },
+        { id: "citizenship", title: "Citizenship application" },
         { id: "identity", title: "Identity & visa" },
         { id: "device", title: "V-ID demo" },
         { id: "economy", title: "Economy" },
         { id: "currency", title: "Currency" },
       ],
+    },
+    {
+      label: "Vaelic",
+      items: [{ id: "vaelic", title: "Language reference" }],
     },
     {
       label: "Military",

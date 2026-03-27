@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vaelic — Language Reference v2 — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/vaelic-reference.css" />
+</head>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap">
+        <main id="main-content" class="vaelic-ref-page">
+          <p class="tier-kicker"><a href="people.html">People</a> · National language</p>
+          <h1 class="page-title">Vaelic language reference</h1>
+          <p class="zone-intro">
+            National language — phonology, alphabet, core vocabulary, resolved conflicts, and changelog. Sound-to-meaning mapping; no ambiguous digraphs; first-syllable stress.
+          </p>
+          <p class="vaelic-ref-meta">Version 2.0 · conflict-resolved · sound-mapped · 2025</p>
+
+          <div class="vaelic-ref-nav card">
+          <div class="vr-nav-tabs" role="tablist" aria-label="Vaelic reference sections">
+            <button type="button" class="vr-ntab active" role="tab" aria-selected="true" data-section="phonology">Phonology</button>
+            <button type="button" class="vr-ntab" role="tab" aria-selected="false" data-section="alphabet">Alphabet</button>
+            <button type="button" class="vr-ntab" role="tab" aria-selected="false" data-section="vocabulary">Vocabulary</button>
+            <button type="button" class="vr-ntab" role="tab" aria-selected="false" data-section="conflicts">Conflicts Fixed</button>
+            <button type="button" class="vr-ntab" role="tab" aria-selected="false" data-section="changelog">Changelog</button>
+          </div>
+          </div>
+
+          <div class="vaelic-ref-body card">
+          <div class="vr-main">
+
+<!-- PHONOLOGY -->
+<div class="vr-section active" id="phonology" role="tabpanel">
+  <div class="vr-sec-tag">Section 01</div>
+  <h2 class="vr-sec-title">Sound Identity &amp; Phonology</h2>
+  <div class="vr-sec-divider"></div>
+  <p class="vr-sec-intro">
+    Vaelic is built on a deliberate sound-to-meaning mapping. Specific phonetic classes carry specific emotional and semantic weight. This is what makes Vaelic feel sharp, precise, and alive — not arbitrary.
+  </p>
+
+  <div class="vr-legend">
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-sharp)"></div><div class="vr-legend-text">Sharp — Commands / Danger</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-soft)"></div><div class="vr-legend-text">Soft — People / Relations</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-hard)"></div><div class="vr-legend-text">Hard — Tech / Systems</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-flow)"></div><div class="vr-legend-text">Flow — Time / Movement</div></div>
+  </div>
+
+  <div class="vr-phon-grid">
+    <div class="vr-phon-card sharp">
+      <div class="vr-phon-class">Sharp Class</div>
+      <div class="vr-phon-name">Commands &amp; Danger</div>
+      <div class="vr-phon-sounds">K · T · D · Z · R (hard)</div>
+      <div class="vr-phon-desc">Stop consonants and fricatives. Short words. Clipped endings. Meant to cut through noise and carry urgency.</div>
+      <div class="vr-phon-example">KAT · ZEL · DRAK · TORN · VREK</div>
+    </div>
+    <div class="vr-phon-card soft">
+      <div class="vr-phon-class">Soft Class</div>
+      <div class="vr-phon-name">People &amp; Relations</div>
+      <div class="vr-phon-sounds">N · M · L · R (soft) · open vowels</div>
+      <div class="vr-phon-desc">Nasal and lateral sounds. Open vowels A and E dominant. Words feel approachable, warm, relational.</div>
+      <div class="vr-phon-example">NARA · MELA · LORI · RENA · VENA</div>
+    </div>
+    <div class="vr-phon-card hard">
+      <div class="vr-phon-class">Hard Class</div>
+      <div class="vr-phon-name">Tech &amp; Systems</div>
+      <div class="vr-phon-sounds">V · P · B · K (double) · -ek / -at endings</div>
+      <div class="vr-phon-desc">Plosives and labio-dentals. Technical words often end in hard stops. Precision is embedded in the sound.</div>
+      <div class="vr-phon-example">VATEK · PROL · BIREK · SATOK · KAVEL</div>
+    </div>
+    <div class="vr-phon-card flow">
+      <div class="vr-phon-class">Flow Class</div>
+      <div class="vr-phon-name">Time &amp; Movement</div>
+      <div class="vr-phon-sounds">S · V · L · flowing vowels · -ora / -elu endings</div>
+      <div class="vr-phon-desc">Sibilants and glides. Words that move. Often two syllables with a soft landing. Feels like progression.</div>
+      <div class="vr-phon-example">SELORA · VARNA · DOLUN · NERELU · SOLVI</div>
+    </div>
+  </div>
+
+  <div class="vr-rule-block">
+    <div class="vr-rule-title">The Sound Contract</div>
+    <div class="vr-rule-body">
+      When a speaker hears a Vaelic word beginning with K or T in a short clipped form, they expect urgency or command. When they hear a word beginning with N or M with open vowels, they expect a person or relationship. This is not decoration — it is architecture. Words must be assigned sounds that match their semantic class.
+    </div>
+  </div>
+
+  <div class="vr-rule-block">
+    <div class="vr-rule-title">Forbidden Clusters (unchanged from v1)</div>
+    <div class="vr-rule-body">
+      No: <strong>str · ght · spl · tch · ph · th · sh · ch</strong><br />
+      No silent letters. No ambiguous digraphs. Every letter pronounced exactly once, every time.
+    </div>
+  </div>
+
+  <div class="vr-rule-block">
+    <div class="vr-rule-title">Stress Rule (unchanged)</div>
+    <div class="vr-rule-body">
+      Always stress the <strong>first syllable</strong>. No exceptions. KA-vel, not ka-VEL. NA-ra, not na-RA.
+    </div>
+  </div>
+
+  <div class="vr-mt-32">
+    <div class="vr-sec-tag">Phonology in Action</div>
+    <div class="vr-mt-16">
+      <div class="vr-example-pair">
+        <div class="vr-ex-vaelic">Kat! Doro nera.</div>
+        <div class="vr-ex-english">Stop! Go now.</div>
+      </div>
+      <div class="vr-example-pair">
+        <div class="vr-ex-vaelic">Nara mela selora.</div>
+        <div class="vr-ex-english">The person comes slowly.</div>
+      </div>
+      <div class="vr-example-pair">
+        <div class="vr-ex-vaelic">Vatek satok birek.</div>
+        <div class="vr-ex-english">The device runs the system.</div>
+      </div>
+      <div class="vr-example-pair">
+        <div class="vr-ex-vaelic">Dolun mina nerelu.</div>
+        <div class="vr-ex-english">I move toward now.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ALPHABET -->
+<div class="vr-section" id="alphabet" role="tabpanel">
+  <div class="vr-sec-tag">Section 02</div>
+  <h2 class="vr-sec-title">The Vaelic Alphabet</h2>
+  <div class="vr-sec-divider"></div>
+  <p class="vr-sec-intro">
+    18 letters. No letter ever changes its sound. What you see is exactly what you say — always.
+  </p>
+
+  <div class="vr-mt-32" style="margin-top:0">
+    <div class="vr-alpha-vowel-label">VOWELS — 5</div>
+    <div class="vr-alpha-vowel-grid">
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">A</div><div class="vr-alpha-ipa">/a/</div><div class="vr-alpha-eng">ah (father)</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">E</div><div class="vr-alpha-ipa">/e/</div><div class="vr-alpha-eng">eh (bed)</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">I</div><div class="vr-alpha-ipa">/i/</div><div class="vr-alpha-eng">ee (machine)</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">O</div><div class="vr-alpha-ipa">/o/</div><div class="vr-alpha-eng">oh (go)</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">U</div><div class="vr-alpha-ipa">/u/</div><div class="vr-alpha-eng">oo (rule)</div></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="vr-alpha-vowel-label">CONSONANTS — 13</div>
+    <div class="vr-alpha-grid">
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-sharp)">K</div><div class="vr-alpha-ipa">/k/</div><div class="vr-alpha-eng">hard k only</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-sharp)">T</div><div class="vr-alpha-ipa">/t/</div><div class="vr-alpha-eng">sharp t</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-sharp)">D</div><div class="vr-alpha-ipa">/d/</div><div class="vr-alpha-eng">clean d</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-sharp)">Z</div><div class="vr-alpha-ipa">/z/</div><div class="vr-alpha-eng">buzzing z</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-hard)">V</div><div class="vr-alpha-ipa">/v/</div><div class="vr-alpha-eng">strong v</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-hard)">P</div><div class="vr-alpha-ipa">/p/</div><div class="vr-alpha-eng">sharp p</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-hard)">B</div><div class="vr-alpha-ipa">/b/</div><div class="vr-alpha-eng">clean b</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">M</div><div class="vr-alpha-ipa">/m/</div><div class="vr-alpha-eng">nasal m</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">N</div><div class="vr-alpha-ipa">/n/</div><div class="vr-alpha-eng">nasal n</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-soft)">L</div><div class="vr-alpha-ipa">/l/</div><div class="vr-alpha-eng">clear l</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-flow)">S</div><div class="vr-alpha-ipa">/s/</div><div class="vr-alpha-eng">sharp s</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-flow)">R</div><div class="vr-alpha-ipa">/r/</div><div class="vr-alpha-eng">light roll</div></div>
+      <div class="vr-alpha-cell"><div class="vr-alpha-letter" style="color:var(--vr-neutral)">G</div><div class="vr-alpha-ipa">/g/</div><div class="vr-alpha-eng">hard g only</div></div>
+    </div>
+  </div>
+
+  <div class="vr-rule-block vr-mt-32">
+    <div class="vr-rule-title">Letter Colour = Sound Class</div>
+    <div class="vr-rule-body">
+      Letters are colour-coded to their primary phonological class. Sharp (red) letters front-load urgency. Soft (green) carry relational warmth. Hard (blue) mark precision. Flow (purple) carry movement. This is a reference tool — in written Vaelic all letters appear the same.
+    </div>
+  </div>
+</div>
+<div class="vr-section" id="vocabulary" role="tabpanel">
+  <div class="vr-sec-tag">Section 03</div>
+  <h2 class="vr-sec-title">Core Vocabulary &mdash; v2</h2>
+  <div class="vr-sec-divider"></div>
+  <p class="vr-sec-intro">
+    All words rebuilt with sound-meaning mapping. Conflicts resolved. No word shares meaning with another. Every word sounds like what it means.
+  </p>
+  <div class="vr-legend">
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-sharp)"></div><div class="vr-legend-text">Sharp</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-soft)"></div><div class="vr-legend-text">Soft</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-hard)"></div><div class="vr-legend-text">Hard</div></div>
+    <div class="vr-legend-item"><div class="vr-legend-dot" style="background:var(--vr-flow)"></div><div class="vr-legend-text">Flow</div></div>
+  </div>
+  <div class="vr-vocab-category">
+    <div class="vr-vc-header">
+      <div class="vr-vc-dot" style="background:var(--vr-soft)"></div>
+      <div class="vr-vc-name" style="color:var(--vr-soft)">People &amp; Identity</div>
+      <div class="vr-vc-count">12 WORDS</div>
+    </div>
+
+<table class="vr-vocab-table">
+<tr>
+<th>Word</th>
+<th>Pronunciation</th>
+<th>Meaning</th>
+<th>Class</th>
+<th>Note</th>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Nara</td>
+<td class="vr-td-pron">NA-ra</td>
+<td class="vr-td-meaning">person (singular)</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">core human unit</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Vena</td>
+<td class="vr-td-pron">VE-na</td>
+<td class="vr-td-meaning">people (plural)</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">collective</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Mina</td>
+<td class="vr-td-pron">MI-na</td>
+<td class="vr-td-meaning">I / self</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">first person</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Ven</td>
+<td class="vr-td-pron">VEN</td>
+<td class="vr-td-meaning">you (singular)</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">second person</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Sena</td>
+<td class="vr-td-pron">SE-na</td>
+<td class="vr-td-meaning">we / us</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">first person plural</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Lori</td>
+<td class="vr-td-pron">LO-ri</td>
+<td class="vr-td-meaning">child</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">replaces old &quot;Lira&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Danel</td>
+<td class="vr-td-pron">DA-nel</td>
+<td class="vr-td-meaning">adult</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">replaces ambiguous &quot;Daro&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Tova</td>
+<td class="vr-td-pron">TO-va</td>
+<td class="vr-td-meaning">leader</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Rena</td>
+<td class="vr-td-pron">RE-na</td>
+<td class="vr-td-meaning">friend</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">replaces &quot;Reni&quot; - cleaner</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Kera</td>
+<td class="vr-td-pron">KE-ra</td>
+<td class="vr-td-meaning">stranger / unknown</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">K-sound signals unfamiliar</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Mela</td>
+<td class="vr-td-pron">ME-la</td>
+<td class="vr-td-meaning">group / collective</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">replaces &quot;Sena&quot; (dual use fixed)</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Varo</td>
+<td class="vr-td-pron">VA-ro</td>
+<td class="vr-td-meaning">citizen</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">civic identity - hard class</td>
+</tr>
+</table>
+  </div>
+  <div class="vr-vocab-category">
+    <div class="vr-vc-header">
+      <div class="vr-vc-dot" style="background:var(--vr-sharp)"></div>
+      <div class="vr-vc-name" style="color:var(--vr-sharp)">Actions (Verbs)</div>
+      <div class="vr-vc-count">18 WORDS</div>
+    </div>
+
+<table class="vr-vocab-table">
+<tr>
+<th>Word</th>
+<th>Pronunciation</th>
+<th>Meaning</th>
+<th>Class</th>
+<th>Note</th>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Doro</td>
+<td class="vr-td-pron">DO-ro</td>
+<td class="vr-td-meaning">go / travel</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">core movement verb</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Varna</td>
+<td class="vr-td-pron">VAR-na</td>
+<td class="vr-td-meaning">move (physically)</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces &quot;Varn&quot; - clearer</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Selora</td>
+<td class="vr-td-pron">SE-lo-ra</td>
+<td class="vr-td-meaning">come / arrive</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces ambiguous &quot;Sela&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Kavi</td>
+<td class="vr-td-pron">KA-vi</td>
+<td class="vr-td-meaning">speak</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Riva</td>
+<td class="vr-td-pron">RI-va</td>
+<td class="vr-td-meaning">see / observe</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Zari</td>
+<td class="vr-td-pron">ZA-ri</td>
+<td class="vr-td-meaning">know (fact)</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">knowledge-system verb</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Nemi</td>
+<td class="vr-td-pron">NE-mi</td>
+<td class="vr-td-meaning">think / consider</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Teka</td>
+<td class="vr-td-pron">TE-ka</td>
+<td class="vr-td-meaning">take / acquire</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">T-class = decisive action</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Mora</td>
+<td class="vr-td-pron">MO-ra</td>
+<td class="vr-td-meaning">give</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">removed &quot;strong&quot; meaning (conflict fixed)</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Birek</td>
+<td class="vr-td-pron">BI-rek</td>
+<td class="vr-td-meaning">build / construct</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Leko&quot; - harder, more technical</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Pavi</td>
+<td class="vr-td-pron">PA-vi</td>
+<td class="vr-td-meaning">use / operate</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Kat</td>
+<td class="vr-td-pron">KAT</td>
+<td class="vr-td-meaning">stop / halt</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">new - single syllable = urgency</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Dolun</td>
+<td class="vr-td-pron">DO-lun</td>
+<td class="vr-td-meaning">move toward</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">directional movement</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Savi</td>
+<td class="vr-td-pron">SA-vi</td>
+<td class="vr-td-meaning">understand</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Teri</td>
+<td class="vr-td-pron">TE-ri</td>
+<td class="vr-td-meaning">learn</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Lavi</td>
+<td class="vr-td-pron">LA-vi</td>
+<td class="vr-td-meaning">hear / listen</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Drak</td>
+<td class="vr-td-pron">DRAK</td>
+<td class="vr-td-meaning">warn / signal danger</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">new - sharp cluster intentional</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Kelo</td>
+<td class="vr-td-pron">KE-lo</td>
+<td class="vr-td-meaning">stay / remain</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">K-opening = command feel</td>
+</tr>
+</table>
+  </div>
+  <div class="vr-vocab-category">
+    <div class="vr-vc-header">
+      <div class="vr-vc-dot" style="background:var(--vr-hard)"></div>
+      <div class="vr-vc-name" style="color:var(--vr-hard)">Places &amp; Structure</div>
+      <div class="vr-vc-count">10 WORDS</div>
+    </div>
+
+<table class="vr-vocab-table">
+<tr>
+<th>Word</th>
+<th>Pronunciation</th>
+<th>Meaning</th>
+<th>Class</th>
+<th>Note</th>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Zelek</td>
+<td class="vr-td-pron">ZE-lek</td>
+<td class="vr-td-meaning">place / location</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Zelo&quot; - harder ending</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Nod</td>
+<td class="vr-td-pron">NOD</td>
+<td class="vr-td-meaning">city</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">unchanged - node = city works</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Seket</td>
+<td class="vr-td-pron">SE-ket</td>
+<td class="vr-td-meaning">district / sector</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Sek&quot; - fuller word</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Taro</td>
+<td class="vr-td-pron">TA-ro</td>
+<td class="vr-td-meaning">path / route</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">movement-class = makes sense</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Meto</td>
+<td class="vr-td-pron">ME-to</td>
+<td class="vr-td-meaning">home</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Dekat</td>
+<td class="vr-td-pron">DE-kat</td>
+<td class="vr-td-meaning">center / hub</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Deka&quot; - hard stop</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Ralet</td>
+<td class="vr-td-pron">RA-let</td>
+<td class="vr-td-meaning">building / structure</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Ralo&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Keno</td>
+<td class="vr-td-pron">KE-no</td>
+<td class="vr-td-meaning">specific point</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Vekat</td>
+<td class="vr-td-pron">VE-kat</td>
+<td class="vr-td-meaning">zone / area</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Veko&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Chanel</td>
+<td class="vr-td-pron">CHA-nel</td>
+<td class="vr-td-meaning">channel / corridor</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">exception: CH allowed as /tS/ (as in church) in place names only</td>
+</tr>
+</table>
+  </div>
+  <div class="vr-vocab-category">
+    <div class="vr-vc-header">
+      <div class="vr-vc-dot" style="background:var(--vr-flow)"></div>
+      <div class="vr-vc-name" style="color:var(--vr-flow)">Time &amp; Flow</div>
+      <div class="vr-vc-count">10 WORDS</div>
+    </div>
+
+<table class="vr-vocab-table">
+<tr>
+<th>Word</th>
+<th>Pronunciation</th>
+<th>Meaning</th>
+<th>Class</th>
+<th>Note</th>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Nera</td>
+<td class="vr-td-pron">NE-ra</td>
+<td class="vr-td-meaning">now / present</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Dava</td>
+<td class="vr-td-pron">DA-va</td>
+<td class="vr-td-meaning">past / before</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Varun</td>
+<td class="vr-td-pron">VA-run</td>
+<td class="vr-td-meaning">future / ahead</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces &quot;Vara&quot; - more distinct</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Seno</td>
+<td class="vr-td-pron">SE-no</td>
+<td class="vr-td-meaning">day</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Lunok</td>
+<td class="vr-td-pron">LU-nok</td>
+<td class="vr-td-meaning">night</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces &quot;Luno&quot; - -ok ending = closure</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Tera</td>
+<td class="vr-td-pron">TE-ra</td>
+<td class="vr-td-meaning">time (abstract)</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">removed &quot;big&quot; meaning (conflict fixed)</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Mira</td>
+<td class="vr-td-pron">MI-ra</td>
+<td class="vr-td-meaning">moment</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Kenu</td>
+<td class="vr-td-pron">KE-nu</td>
+<td class="vr-td-meaning">soon</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces &quot;Kena&quot; (conflict with &quot;what&quot;)</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Leru</td>
+<td class="vr-td-pron">LE-ru</td>
+<td class="vr-td-meaning">later</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces &quot;Lera&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Navol</td>
+<td class="vr-td-pron">NA-vol</td>
+<td class="vr-td-meaning">always / permanent</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces &quot;Navo&quot; - more weight</td>
+</tr>
+</table>
+  </div>
+  <div class="vr-vocab-category">
+    <div class="vr-vc-header">
+      <div class="vr-vc-dot" style="background:var(--vr-hard)"></div>
+      <div class="vr-vc-name" style="color:var(--vr-hard)">Objects &amp; Systems</div>
+      <div class="vr-vc-count">10 WORDS</div>
+    </div>
+
+<table class="vr-vocab-table">
+<tr>
+<th>Word</th>
+<th>Pronunciation</th>
+<th>Meaning</th>
+<th>Class</th>
+<th>Note</th>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Vatek</td>
+<td class="vr-td-pron">VA-tek</td>
+<td class="vr-td-meaning">device / machine</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Viro&quot; - harder feel</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Kavel</td>
+<td class="vr-td-pron">KA-vel</td>
+<td class="vr-td-meaning">tool</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Kano&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Letat</td>
+<td class="vr-td-pron">LE-tat</td>
+<td class="vr-td-meaning">data</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Leto&quot; - harder ending</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Riket</td>
+<td class="vr-td-pron">RI-ket</td>
+<td class="vr-td-meaning">signal</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Riko&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Zanek</td>
+<td class="vr-td-pron">ZA-nek</td>
+<td class="vr-td-meaning">resource</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Zano&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Satok</td>
+<td class="vr-td-pron">SA-tok</td>
+<td class="vr-td-meaning">system</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Sato&quot; - hard stop</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Ravat</td>
+<td class="vr-td-pron">RA-vat</td>
+<td class="vr-td-meaning">structure / framework</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Rava&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Penat</td>
+<td class="vr-td-pron">PE-nat</td>
+<td class="vr-td-meaning">item / unit</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Peno&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Karet</td>
+<td class="vr-td-pron">KA-ret</td>
+<td class="vr-td-meaning">module / component</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Karo&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Binak</td>
+<td class="vr-td-pron">BI-nak</td>
+<td class="vr-td-meaning">network / web</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">new - essential for Vaultrian context</td>
+</tr>
+</table>
+  </div>
+      <div class="vr-vocab-category">
+    <div class="vr-vc-header vr-vc-header--muted">
+      <div class="vr-vc-dot vr-vc-dot--muted"></div>
+      <div class="vr-vc-name vr-vc-name--muted">Descriptors</div>
+      <div class="vr-vc-count">14 WORDS</div>
+    </div>
+
+<table class="vr-vocab-table">
+<tr>
+<th>Word</th>
+<th>Pronunciation</th>
+<th>Meaning</th>
+<th>Class</th>
+<th>Note</th>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Kala</td>
+<td class="vr-td-pron">KA-la</td>
+<td class="vr-td-meaning">good</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Zerat</td>
+<td class="vr-td-pron">ZE-rat</td>
+<td class="vr-td-meaning">bad / broken</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">replaces &quot;Zera&quot; - hard ending = definitive</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Torek</td>
+<td class="vr-td-pron">TO-rek</td>
+<td class="vr-td-meaning">big / large</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Tera&quot; (conflict with time fixed)</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Lina</td>
+<td class="vr-td-pron">LI-na</td>
+<td class="vr-td-meaning">small</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Siret</td>
+<td class="vr-td-pron">SI-ret</td>
+<td class="vr-td-meaning">fast</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces &quot;Sira&quot; - flow class fits</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Nolev</td>
+<td class="vr-td-pron">NO-lev</td>
+<td class="vr-td-meaning">slow</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces &quot;Nola&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Velan</td>
+<td class="vr-td-pron">VE-lan</td>
+<td class="vr-td-meaning">new</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Vela&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-flow">Daran</td>
+<td class="vr-td-pron">DA-ran</td>
+<td class="vr-td-meaning">old / prior</td>
+<td class="vr-td-class vr-sc-flow">flow</td>
+<td class="vr-td-note">replaces ambiguous &quot;Dara&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Morat</td>
+<td class="vr-td-pron">MO-rat</td>
+<td class="vr-td-meaning">strong / powerful</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Mora&quot; (conflict with &quot;give&quot; fixed)</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Selan</td>
+<td class="vr-td-pron">SE-lan</td>
+<td class="vr-td-meaning">weak / fragile</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">replaces &quot;Sela&quot; (conflict with &quot;come&quot; fixed)</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-hard">Kirat</td>
+<td class="vr-td-pron">KI-rat</td>
+<td class="vr-td-meaning">clear / precise</td>
+<td class="vr-td-class vr-sc-hard">hard</td>
+<td class="vr-td-note">replaces &quot;Kira&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Nirat</td>
+<td class="vr-td-pron">NI-rat</td>
+<td class="vr-td-meaning">unclear / ambiguous</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">replaces &quot;Nira&quot;</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-soft">Melan</td>
+<td class="vr-td-pron">ME-lan</td>
+<td class="vr-td-meaning">open / accessible</td>
+<td class="vr-td-class vr-sc-soft">soft</td>
+<td class="vr-td-note">new</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Torvak</td>
+<td class="vr-td-pron">TOR-vak</td>
+<td class="vr-td-meaning">closed / restricted</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">new - hard sharp feel correct</td>
+</tr>
+</table>
+  </div>
+  <div class="vr-vocab-category">
+    <div class="vr-vc-header vr-vc-header--muted">
+      <div class="vr-vc-dot vr-vc-dot--muted"></div>
+      <div class="vr-vc-name vr-vc-name--muted">Connectors &amp; Particles</div>
+      <div class="vr-vc-count">8 WORDS</div>
+    </div>
+
+<table class="vr-vocab-table">
+<tr>
+<th>Word</th>
+<th>Pronunciation</th>
+<th>Meaning</th>
+<th>Class</th>
+<th>Note</th>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-neut">Na</td>
+<td class="vr-td-pron">NA</td>
+<td class="vr-td-meaning">and</td>
+<td class="vr-td-class vr-sc-neut">neutral</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-neut">Se</td>
+<td class="vr-td-pron">SE</td>
+<td class="vr-td-meaning">with</td>
+<td class="vr-td-class vr-sc-neut">neutral</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-neut">Ka</td>
+<td class="vr-td-pron">KA</td>
+<td class="vr-td-meaning">to / toward</td>
+<td class="vr-td-class vr-sc-neut">neutral</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-neut">De</td>
+<td class="vr-td-pron">DE</td>
+<td class="vr-td-meaning">from</td>
+<td class="vr-td-class vr-sc-neut">neutral</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-neut">Lo</td>
+<td class="vr-td-pron">LO</td>
+<td class="vr-td-meaning">in / at</td>
+<td class="vr-td-class vr-sc-neut">neutral</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-neut">No</td>
+<td class="vr-td-pron">NO</td>
+<td class="vr-td-meaning">not</td>
+<td class="vr-td-class vr-sc-neut">neutral</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-neut">Ke</td>
+<td class="vr-td-pron">KE</td>
+<td class="vr-td-meaning">question marker</td>
+<td class="vr-td-class vr-sc-neut">neutral</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+<tr>
+<td class="vr-td-word vr-sc-sharp">Ra</td>
+<td class="vr-td-pron">RA</td>
+<td class="vr-td-meaning">urgent / now (command intensifier)</td>
+<td class="vr-td-class vr-sc-sharp">sharp</td>
+<td class="vr-td-note">unchanged</td>
+</tr>
+</table>
+  </div>
+</div>
+<div class="vr-section" id="conflicts" role="tabpanel">
+  <div class="vr-sec-tag">Section 04</div>
+  <h2 class="vr-sec-title">Conflicts Fixed in v2</h2>
+  <div class="vr-sec-divider"></div>
+  <p class="vr-sec-intro">
+    8 critical conflicts existed in v1 that violated Vaelic's core rule of no ambiguity. Every one is resolved below with the reasoning.
+  </p>
+  <div class="vr-conflict-block">
+    <div class="vr-conflict-old">❌ OLD: "Daro" = adult AND "Daro" = act/do</div>
+    <div class="vr-conflict-arrow">↓</div>
+    <div class="vr-conflict-new">✅ NEW: "Danel" = adult · "Varna" / context verbs = act</div>
+    <div class="vr-conflict-reason">Two completely different semantic categories sharing the same word. The most fundamental violation of Vaelic's no-ambiguity rule.</div>
+  </div>
+  <div class="vr-conflict-block">
+    <div class="vr-conflict-old">❌ OLD: "Mora" = give AND "Mora" = strong</div>
+    <div class="vr-conflict-arrow">↓</div>
+    <div class="vr-conflict-new">✅ NEW: "Mora" = give only · "Morat" = strong/powerful</div>
+    <div class="vr-conflict-reason">A verb and an adjective sharing the same form breaks both grammar and meaning. Resolved by adding hard -at suffix to the adjective.</div>
+  </div>
+  <div class="vr-conflict-block">
+    <div class="vr-conflict-old">❌ OLD: "Sela" = come AND "Sela" = weak</div>
+    <div class="vr-conflict-arrow">↓</div>
+    <div class="vr-conflict-new">✅ NEW: "Selora" = come/arrive · "Selan" = weak/fragile</div>
+    <div class="vr-conflict-reason">Verb-adjective collision. Selora gains the flowing -ora ending appropriate for a movement word. Selan gains the adjectival -an ending.</div>
+  </div>
+  <div class="vr-conflict-block">
+    <div class="vr-conflict-old">❌ OLD: "Tera" = big AND "Tera" = time</div>
+    <div class="vr-conflict-arrow">↓</div>
+    <div class="vr-conflict-new">✅ NEW: "Tera" = time only · "Torek" = big/large</div>
+    <div class="vr-conflict-reason">Time is a core concept and keeps its word. Size gets a new hard-class word appropriate to its meaning.</div>
+  </div>
+  <div class="vr-conflict-block">
+    <div class="vr-conflict-old">❌ OLD: "Kena" = soon AND "Kena" = what (question word)</div>
+    <div class="vr-conflict-arrow">↓</div>
+    <div class="vr-conflict-new">✅ NEW: "Kenu" = soon · "Kena" = what (kept as question word)</div>
+    <div class="vr-conflict-reason">Question words are high-frequency and must be unambiguous. "Kenu" resolves the collision with a single vowel shift.</div>
+  </div>
+  <div class="vr-conflict-block">
+    <div class="vr-conflict-old">❌ OLD: "Sena" = we/us AND "Sena" = group</div>
+    <div class="vr-conflict-arrow">↓</div>
+    <div class="vr-conflict-new">✅ NEW: "Sena" = we/us (pronoun kept) · "Mela" = group/collective</div>
+    <div class="vr-conflict-reason">Pronouns must be sacred in any language - they are used constantly. The noun gets renamed.</div>
+  </div>
+  <div class="vr-conflict-block">
+    <div class="vr-conflict-old">❌ OLD: All objects ended in -o (Viro, Kano, Leto, Riko, Zano, Sato...)</div>
+    <div class="vr-conflict-arrow">↓</div>
+    <div class="vr-conflict-new">✅ NEW: Technical/system words end in hard stops -ek, -at, -ok, -et</div>
+    <div class="vr-conflict-reason">When everything sounds the same, nothing is distinct. Technical vocabulary now carries sonic identity through hard endings.</div>
+  </div>
+  <div class="vr-conflict-block">
+    <div class="vr-conflict-old">❌ OLD: People words and place words shared -o endings (Naro, Zelo, Meto)</div>
+    <div class="vr-conflict-arrow">↓</div>
+    <div class="vr-conflict-new">✅ NEW: Place words now end in -ek/-et/-at (Zelek, Seket, Dekat, Ralet, Vekat) · People words keep soft endings</div>
+    <div class="vr-conflict-reason">Category distinction through endings. You should be able to hear whether a word is a person, place, or system before you know its specific meaning.</div>
+  </div>
+</div>
+<div class="vr-section" id="changelog" role="tabpanel">
+  <div class="vr-sec-tag">Section 05</div>
+  <h2 class="vr-sec-title">Changelog v1 → v2</h2>
+  <div class="vr-sec-divider"></div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-rule">RULE</div>
+    <div class="vr-change-text"><strong>Sound-meaning mapping established.</strong> Four phonological classes now govern word creation: Sharp (commands/danger), Soft (people/relations), Hard (tech/systems), Flow (time/movement). Every new word must be assigned to a class.</div>
+  </div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-fix">FIX</div>
+    <div class="vr-change-text"><strong>8 vocabulary conflicts resolved.</strong> Daro, Mora, Sela, Tera, Kena, Sena all had dual meanings. All resolved. Full details in Conflicts tab.</div>
+  </div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-rule">RULE</div>
+    <div class="vr-change-text"><strong>Ending taxonomy introduced.</strong> People words: soft endings (-a, -i, -na). Place words: hard endings (-ek, -et, -at). System words: hard stop endings (-ok, -ak, -ek). Time words: flowing endings (-u, -ol, -un).</div>
+  </div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-add">ADD</div>
+    <div class="vr-change-text"><strong>New words:</strong> Kat (stop - single syllable command), Drak (warn/danger), Binak (network), Melan (open), Torvak (closed/restricted), Dolun (move toward).</div>
+  </div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-fix">FIX</div>
+    <div class="vr-change-text"><strong>Technical vocabulary hardened.</strong> Viro → Vatek, Kano → Kavel, Leto → Letat, Riko → Riket, Zano → Zanek, Sato → Satok. All now carry hard-class sonic identity.</div>
+  </div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-fix">FIX</div>
+    <div class="vr-change-text"><strong>Place vocabulary hardened.</strong> Zelo → Zelek, Sek → Seket, Deka → Dekat, Ralo → Ralet, Veko → Vekat.</div>
+  </div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-rule">RULE</div>
+    <div class="vr-change-text"><strong>Tense prefixes unchanged:</strong> Da- (past), Va- (future), Ta- (completed), -en (continuous). These were well-designed in v1.</div>
+  </div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-rule">RULE</div>
+    <div class="vr-change-text"><strong>Word order unchanged:</strong> Verb → Subject → Object → Location → Time. Solid foundation, kept as-is.</div>
+  </div>
+  <div class="vr-change-item">
+    <div class="vr-change-tag vr-tag-add">ADD</div>
+    <div class="vr-change-text"><strong>Next to build:</strong> Writing system / script, Numbers &amp; counting, Plural &amp; possession rules, Extended dialogues. Foundation is now solid enough to build on.</div>
+  </div>
+</div>
+          </div>
+          </div>
+        </main>
+        <footer>
+          <p>The Sovereign State of VAULTRIA &mdash; a living document.</p>
+          <p class="latin">Vaelic language reference &middot; <code>site/pages/vaelic.html</code></p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/vaelic-reference.js" defer></script>
+</body>
+</html>

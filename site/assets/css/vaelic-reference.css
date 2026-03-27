@@ -1,0 +1,596 @@
+/* Vaelic Language Reference — same shell as other site pages (.wrap + .card) */
+
+.vaelic-ref-page {
+  --vr-paper: var(--text);
+  --vr-ink: var(--bg-deep);
+  --vr-gold: var(--gold);
+  --vr-gold-dim: var(--gold-dim);
+  --vr-rule: var(--border);
+  --vr-sharp: #c84040;
+  --vr-soft: #4a9870;
+  --vr-hard: #4070c8;
+  --vr-flow: #8850c8;
+  --vr-neutral: #888;
+}
+
+.vaelic-ref-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.vaelic-ref-meta {
+  font-family: Cinzel, serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin: -0.25rem 0 1.35rem;
+}
+
+.vaelic-ref-nav.card {
+  padding: 0.65rem 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.vaelic-ref-body.card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.vaelic-ref-page *,
+.vaelic-ref-page *::before,
+.vaelic-ref-page *::after {
+  box-sizing: border-box;
+}
+
+.vaelic-ref-page .vr-nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+}
+
+.vaelic-ref-page .vr-ntab {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.vaelic-ref-page .vr-ntab:hover {
+  color: var(--text);
+  border-color: rgba(201, 169, 98, 0.35);
+  background: rgba(201, 169, 98, 0.06);
+}
+
+.vaelic-ref-page .vr-ntab:focus-visible {
+  outline: 2px solid rgba(201, 169, 98, 0.45);
+  outline-offset: 2px;
+}
+
+.vaelic-ref-page .vr-ntab.active {
+  color: var(--gold);
+  border-color: rgba(201, 169, 98, 0.45);
+  background: rgba(201, 169, 98, 0.1);
+}
+
+.vaelic-ref-page .vr-main {
+  margin: 0;
+  padding: 1.25rem 1.5rem 2rem;
+  max-width: none;
+}
+
+.vaelic-ref-page .vr-section {
+  display: none;
+  padding: 0.25rem 0 1.5rem;
+  animation: vaelicFadeIn 0.35s ease;
+}
+
+.vaelic-ref-page .vr-section.active {
+  display: block;
+}
+
+@keyframes vaelicFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vaelic-ref-page .vr-sec-tag {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  color: var(--vr-gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.vaelic-ref-page .vr-sec-title {
+  font-family: Cinzel, serif;
+  font-weight: 600;
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.vaelic-ref-page .vr-sec-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(to right, var(--vr-gold), transparent);
+  margin-bottom: 28px;
+}
+
+.vaelic-ref-page .vr-sec-intro {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  max-width: 680px;
+  line-height: 1.8;
+}
+
+.vaelic-ref-page .vr-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.vaelic-ref-page .vr-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.vaelic-ref-page .vr-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.vaelic-ref-page .vr-legend-text {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.vaelic-ref-page .vr-phon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.vaelic-ref-page .vr-phon-card {
+  padding: 20px 18px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  position: relative;
+  overflow: hidden;
+}
+
+.vaelic-ref-page .vr-phon-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.vaelic-ref-page .vr-phon-card.sharp::before {
+  background: var(--vr-sharp);
+}
+.vaelic-ref-page .vr-phon-card.soft::before {
+  background: var(--vr-soft);
+}
+.vaelic-ref-page .vr-phon-card.hard::before {
+  background: var(--vr-hard);
+}
+.vaelic-ref-page .vr-phon-card.flow::before {
+  background: var(--vr-flow);
+}
+
+.vaelic-ref-page .vr-phon-class {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vaelic-ref-page .vr-phon-card.sharp .vr-phon-class {
+  color: var(--vr-sharp);
+}
+.vaelic-ref-page .vr-phon-card.soft .vr-phon-class {
+  color: var(--vr-soft);
+}
+.vaelic-ref-page .vr-phon-card.hard .vr-phon-class {
+  color: var(--vr-hard);
+}
+.vaelic-ref-page .vr-phon-card.flow .vr-phon-class {
+  color: var(--vr-flow);
+}
+
+.vaelic-ref-page .vr-phon-name {
+  font-family: Cinzel, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--vr-paper);
+}
+
+.vaelic-ref-page .vr-phon-sounds {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.vaelic-ref-page .vr-phon-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.vaelic-ref-page .vr-phon-example {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+.vaelic-ref-page .vr-conflict-block {
+  margin-bottom: 24px;
+  border: 1px solid rgba(200, 64, 64, 0.2);
+  padding: 18px 20px;
+  background: rgba(200, 64, 64, 0.03);
+}
+
+.vaelic-ref-page .vr-conflict-old {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--vr-sharp);
+  margin-bottom: 4px;
+}
+
+.vaelic-ref-page .vr-conflict-arrow {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 6px 0;
+}
+
+.vaelic-ref-page .vr-conflict-new {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--vr-soft);
+  margin-bottom: 4px;
+}
+
+.vaelic-ref-page .vr-conflict-reason {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.vaelic-ref-page .vr-vocab-category {
+  margin-bottom: 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: color-mix(in srgb, var(--gold) 35%, transparent) transparent;
+}
+
+.vaelic-ref-page .vr-vc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--vr-rule);
+}
+
+.vaelic-ref-page .vr-vc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.vaelic-ref-page .vr-vc-name {
+  font-family: Cinzel, serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.vaelic-ref-page .vr-vc-header--muted {
+  opacity: 0.92;
+}
+
+.vaelic-ref-page .vr-vc-dot--muted {
+  background: var(--text-muted) !important;
+}
+
+.vaelic-ref-page .vr-vc-name--muted {
+  color: var(--text-muted) !important;
+}
+
+.vaelic-ref-page .vr-vc-count {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.vaelic-ref-page .vr-vocab-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+
+.vaelic-ref-page .vr-vocab-table th {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 12px 8px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.vaelic-ref-page .vr-vocab-table td {
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
+  vertical-align: top;
+}
+
+.vaelic-ref-page .vr-vocab-table tr:hover td {
+  background: rgba(201, 169, 98, 0.04);
+}
+
+.vaelic-ref-page .vr-td-word {
+  font-family: Cinzel, serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.vaelic-ref-page .vr-td-pron {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.vaelic-ref-page .vr-td-meaning {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.vaelic-ref-page .vr-td-class {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.vaelic-ref-page .vr-td-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.vaelic-ref-page .vr-sc-sharp {
+  color: var(--vr-sharp);
+}
+.vaelic-ref-page .vr-sc-soft {
+  color: var(--vr-soft);
+}
+.vaelic-ref-page .vr-sc-hard {
+  color: var(--vr-hard);
+}
+.vaelic-ref-page .vr-sc-flow {
+  color: var(--vr-flow);
+}
+.vaelic-ref-page .vr-sc-neut {
+  color: var(--vr-neutral);
+}
+
+.vaelic-ref-page .vr-rule-block {
+  border-left: 3px solid var(--vr-gold);
+  padding: 16px 20px;
+  margin: 20px 0;
+  background: color-mix(in srgb, var(--gold) 6%, transparent);
+}
+
+.vaelic-ref-page .vr-rule-title {
+  font-family: Cinzel, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--vr-gold);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.vaelic-ref-page .vr-rule-body {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.vaelic-ref-page .vr-example-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+@media (max-width: 560px) {
+  .vaelic-ref-page .vr-example-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vaelic-ref-page .vr-ex-vaelic {
+  font-family: Cinzel, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--gold-dim);
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--gold) 14%, transparent);
+  background: color-mix(in srgb, var(--gold) 6%, transparent);
+}
+
+.vaelic-ref-page .vr-ex-english {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+}
+
+.vaelic-ref-page .vr-alpha-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.vaelic-ref-page .vr-alpha-cell {
+  padding: 14px 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  text-align: center;
+}
+
+.vaelic-ref-page .vr-alpha-letter {
+  font-family: Cinzel, serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.vaelic-ref-page .vr-alpha-ipa {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.vaelic-ref-page .vr-alpha-eng {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.vaelic-ref-page .vr-change-item {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.vaelic-ref-page .vr-change-tag {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.vaelic-ref-page .vr-tag-fix {
+  background: rgba(200, 64, 64, 0.15);
+  color: var(--vr-sharp);
+}
+.vaelic-ref-page .vr-tag-add {
+  background: rgba(74, 152, 112, 0.15);
+  color: var(--vr-soft);
+}
+.vaelic-ref-page .vr-tag-rule {
+  background: rgba(64, 112, 200, 0.15);
+  color: var(--vr-hard);
+}
+
+.vaelic-ref-page .vr-change-text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.vaelic-ref-page .vr-change-text strong {
+  color: var(--vr-paper);
+  font-weight: 600;
+}
+
+.vaelic-ref-page .vr-alpha-vowel-label {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  color: var(--vr-gold-dim);
+  margin-bottom: 12px;
+}
+
+.vaelic-ref-page .vr-alpha-vowel-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .vaelic-ref-page .vr-alpha-vowel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.vaelic-ref-page .vr-mt-32 {
+  margin-top: 32px;
+}
+
+.vaelic-ref-page .vr-mt-16 {
+  margin-top: 16px;
+}
+
+.vaelic-ref-page .vr-rule-block.vr-mt-32 {
+  margin-top: 32px;
+}

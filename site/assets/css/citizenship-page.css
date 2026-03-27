@@ -1,0 +1,9 @@
+/* Citizenship application shell (citizenship.html) — embedded form in site chrome */
+
+.citizenship-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.citizenship-page .citizenship-app {
+  margin-top: 1.25rem;
+}

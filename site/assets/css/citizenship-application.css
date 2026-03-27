@@ -1,0 +1,1306 @@
+/* Citizenship application — scoped to .citizenship-app */
+.citizenship-app,
+.citizenship-app *,
+.citizenship-app *::before,
+.citizenship-app *::after {
+  box-sizing: border-box;
+}
+
+.citizenship-app {
+  --ink: var(--bg-deep);
+  --bg2: var(--bg-elevated);
+  --bg3: var(--bg-panel);
+  --gold-l: color-mix(in srgb, var(--gold) 78%, #fff);
+  --gold-d: var(--gold-dim);
+  --text2: var(--text-muted);
+  --text3: var(--text-muted);
+  --rule: var(--border);
+  --red: #cc2020;
+  --green: #2a8848;
+  --input-bg: var(--bg-deep);
+  --input-border: var(--border);
+  --input-focus: rgba(201, 169, 98, 0.45);
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: "Source Serif 4", Georgia, serif;
+  overflow-x: hidden;
+}
+
+.citizenship-app ::-webkit-scrollbar {
+  width: 3px;
+}
+
+.citizenship-app ::-webkit-scrollbar-thumb {
+  background: var(--gold-d);
+}
+
+/* ── TOPBAR (in-page; distinct from .site-header in main.css) ── */
+.citizenship-app .citizenship-topbar {
+  background: rgba(5, 5, 10, 0.98);
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.citizenship-app .hdr-emblem {
+  flex-shrink: 0;
+}
+
+.citizenship-app .hdr-seal-img,
+.citizenship-app .conf-seal img {
+  display: block;
+}
+
+.citizenship-app .hdr-title {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.citizenship-app .hdr-sub {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+}
+
+.citizenship-app .hdr-right {
+  margin-left: auto;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.2em;
+  color: var(--text2);
+  text-align: right;
+}
+
+/* ── HERO ── */
+.citizenship-app .hero {
+  padding: 60px 24px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.citizenship-app .hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, #100e04 0%, #05050a 60%);
+  pointer-events: none;
+}
+
+.citizenship-app .hero-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.citizenship-app .hero-pre {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.44em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.citizenship-app .hero-title {
+  font-family: Cinzel, serif;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.citizenship-app .hero-vae {
+  font-family: Cinzel, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  color: rgba(201, 168, 76, 0.32);
+  margin-bottom: 16px;
+}
+
+.citizenship-app .hero-rule {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 auto 16px;
+}
+
+.citizenship-app .hero-desc {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(196, 189, 176, 0.45);
+  line-height: 1.82;
+  margin-bottom: 24px;
+}
+
+.citizenship-app .hero-notice {
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 12px 16px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.12em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+
+/* ── PROGRESS BAR ── */
+.citizenship-app .progress-wrap {
+  padding: 24px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 57px;
+  z-index: 90;
+}
+
+.citizenship-app .progress-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.citizenship-app .progress-steps {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.citizenship-app .prog-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 60px;
+  cursor: pointer;
+  position: relative;
+}
+
+.citizenship-app .prog-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: calc(50% + 12px);
+  right: calc(-50% + 12px);
+  height: 1px;
+  background: rgba(201, 168, 76, 0.12);
+}
+
+.citizenship-app .prog-step.done::after {
+  background: rgba(201, 168, 76, 0.4);
+}
+
+.citizenship-app .prog-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 168, 76, 0.2);
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  color: var(--text3);
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.citizenship-app .prog-step.active .prog-dot {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.12);
+  color: var(--gold);
+}
+
+.citizenship-app .prog-step.done .prog-dot {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.citizenship-app .prog-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.citizenship-app .prog-step.active .prog-label {
+  color: var(--gold-d);
+}
+
+.citizenship-app .prog-step.done .prog-label {
+  color: rgba(201, 168, 76, 0.4);
+}
+
+.citizenship-app .progress-bar {
+  height: 2px;
+  background: rgba(201, 168, 76, 0.08);
+  margin-top: 12px;
+  border-radius: 1px;
+}
+
+.citizenship-app .progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--gold-d), var(--gold));
+  border-radius: 1px;
+  transition: width 0.4s ease;
+}
+
+/* ── FORM CONTAINER ── */
+.citizenship-app .form-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ── STEP PANELS ── */
+.citizenship-app .step-panel {
+  display: none;
+}
+
+.citizenship-app .step-panel.active {
+  display: block;
+  animation: citizenshipFadeIn 0.35s ease;
+}
+
+@keyframes citizenshipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.citizenship-app .step-header {
+  margin-bottom: 32px;
+}
+
+.citizenship-app .step-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.38em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.citizenship-app .step-title {
+  font-family: Cinzel, serif;
+  font-weight: 900;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.citizenship-app .step-vae {
+  font-family: Cinzel, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: rgba(201, 168, 76, 0.35);
+  margin-bottom: 10px;
+}
+
+.citizenship-app .step-desc {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: rgba(196, 189, 176, 0.45);
+  line-height: 1.78;
+}
+
+.citizenship-app .step-rule {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold-d), transparent);
+  margin: 12px 0 0;
+}
+
+/* ── FORM FIELDS ── */
+.citizenship-app .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.citizenship-app .form-grid.full {
+  grid-template-columns: 1fr;
+}
+
+.citizenship-app .form-grid.three {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 600px) {
+  .citizenship-app .form-grid,
+  .citizenship-app .form-grid.three {
+    grid-template-columns: 1fr;
+  }
+}
+
+.citizenship-app .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.citizenship-app .field-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.24em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+}
+
+.citizenship-app .field-label span {
+  color: var(--red);
+  margin-left: 2px;
+}
+
+.citizenship-app .field-hint {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--text2);
+}
+
+.citizenship-app input[type="text"],
+.citizenship-app input[type="email"],
+.citizenship-app input[type="date"],
+.citizenship-app input[type="number"],
+.citizenship-app select,
+.citizenship-app textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.92rem;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  width: 100%;
+}
+
+.citizenship-app input[type="text"]:focus,
+.citizenship-app input[type="email"]:focus,
+.citizenship-app input[type="date"]:focus,
+.citizenship-app input[type="number"]:focus,
+.citizenship-app select:focus,
+.citizenship-app textarea:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.08);
+}
+
+.citizenship-app input[type="text"]::placeholder,
+.citizenship-app input[type="email"]::placeholder,
+.citizenship-app textarea::placeholder {
+  color: rgba(196, 189, 176, 0.2);
+}
+
+.citizenship-app select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%235A4010' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.citizenship-app select option {
+  background: #0c0c18;
+  color: var(--text);
+}
+
+.citizenship-app textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.citizenship-app .field.valid input,
+.citizenship-app .field.valid select,
+.citizenship-app .field.valid textarea {
+  border-color: rgba(42, 136, 72, 0.4);
+}
+
+.citizenship-app .field.error input,
+.citizenship-app .field.error select,
+.citizenship-app .field.error textarea {
+  border-color: rgba(204, 32, 32, 0.4);
+}
+
+.citizenship-app .field-error-msg {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  display: none;
+}
+
+.citizenship-app .field.error .field-error-msg {
+  display: block;
+}
+
+/* ── LINE NAME PICKER ── */
+.citizenship-app .name-categories {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.citizenship-app .nc-btn {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.16em;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all 0.16s;
+  text-transform: uppercase;
+}
+
+.citizenship-app .nc-btn:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+  color: var(--gold-d);
+}
+
+.citizenship-app .nc-btn.on {
+  border-color: rgba(201, 168, 76, 0.4);
+  background: rgba(201, 168, 76, 0.06);
+  color: var(--gold);
+}
+
+.citizenship-app .name-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-bottom: 12px;
+}
+
+.citizenship-app .name-grid::-webkit-scrollbar {
+  width: 2px;
+}
+
+.citizenship-app .name-grid::-webkit-scrollbar-thumb {
+  background: var(--gold-d);
+}
+
+.citizenship-app .name-option {
+  background: var(--input-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.16s;
+}
+
+.citizenship-app .name-option:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.citizenship-app .name-option.selected {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.citizenship-app .no-name {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--gold);
+  margin-bottom: 1px;
+}
+
+.citizenship-app .no-pron {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.12em;
+  color: var(--gold-d);
+  margin-bottom: 3px;
+}
+
+.citizenship-app .no-meaning {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.76rem;
+  color: rgba(196, 189, 176, 0.4);
+  line-height: 1.4;
+}
+
+.citizenship-app .selected-name-display {
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  padding: 12px 14px;
+  display: none;
+}
+
+.citizenship-app .snd-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.citizenship-app .snd-name {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold-l);
+}
+
+.citizenship-app .snd-meaning {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.84rem;
+  color: rgba(196, 189, 176, 0.5);
+  margin-top: 2px;
+}
+
+.citizenship-app .name-search {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* ── OATH ── */
+.citizenship-app .oath-scroll {
+  background: rgba(201, 168, 76, 0.03);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  padding: 24px;
+  max-height: 360px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.citizenship-app .oath-scroll::-webkit-scrollbar {
+  width: 2px;
+}
+
+.citizenship-app .oath-scroll::-webkit-scrollbar-thumb {
+  background: var(--gold-d);
+}
+
+.citizenship-app .oath-article {
+  margin-bottom: 20px;
+}
+
+.citizenship-app .oa-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.citizenship-app .oa-title {
+  font-family: Cinzel, serif;
+  font-size: 0.88rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.citizenship-app .oa-vae {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--text);
+  border-left: 2px solid rgba(201, 168, 76, 0.2);
+  padding-left: 12px;
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+
+.citizenship-app .oa-eng {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.84rem;
+  color: var(--text3);
+  padding-left: 14px;
+  line-height: 1.78;
+}
+
+.citizenship-app .oath-accept {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.citizenship-app .oath-accept input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--gold);
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.citizenship-app .oath-accept label {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.75;
+  cursor: pointer;
+}
+
+.citizenship-app .oath-text-formal {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold-l);
+  line-height: 1.9;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  margin-bottom: 20px;
+}
+
+.citizenship-app .oath-text-formal span {
+  color: var(--gold-d);
+}
+
+/* ── MERIT TIERS ── */
+.citizenship-app .tier-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.citizenship-app .tier-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: var(--input-bg);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.16s;
+}
+
+.citizenship-app .tier-option:hover {
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+.citizenship-app .tier-option.selected {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.citizenship-app .tier-option input[type="radio"] {
+  flex-shrink: 0;
+  accent-color: var(--gold);
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.citizenship-app .to-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 24px;
+}
+
+.citizenship-app .to-name {
+  font-family: Cinzel, serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.citizenship-app .to-desc {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.84rem;
+  color: rgba(196, 189, 176, 0.45);
+  line-height: 1.65;
+}
+
+.citizenship-app .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.citizenship-app .skill-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--input-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.citizenship-app .skill-chip:hover {
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+.citizenship-app .skill-chip.on {
+  border-color: rgba(201, 168, 76, 0.4);
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.citizenship-app .skill-chip input[type="checkbox"] {
+  accent-color: var(--gold);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.citizenship-app .skill-chip .skill-chip-text {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.citizenship-app .skill-chip.on .skill-chip-text {
+  color: var(--gold-d);
+}
+
+/* ── BACKGROUND ── */
+.citizenship-app .declaration-item {
+  background: var(--input-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.citizenship-app .di-question {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.citizenship-app .di-radio-row {
+  display: flex;
+  gap: 20px;
+}
+
+.citizenship-app .di-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.citizenship-app .di-radio input[type="radio"] {
+  accent-color: var(--gold);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.citizenship-app .di-radio .di-radio-text {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.16em;
+  color: var(--text2);
+  text-transform: uppercase;
+}
+
+.citizenship-app .di-detail {
+  margin-top: 12px;
+  display: none;
+}
+
+.citizenship-app .di-detail.show {
+  display: block;
+}
+
+/* ── VYR WALLET ── */
+.citizenship-app .vyr-info {
+  background: rgba(201, 168, 76, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.citizenship-app .vyr-symbol {
+  font-family: Cinzel, serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.citizenship-app .vyr-desc {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: rgba(196, 189, 176, 0.5);
+  text-align: center;
+  line-height: 1.75;
+}
+
+.citizenship-app .wallet-preview {
+  background: var(--input-bg);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 16px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.citizenship-app .wp-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+}
+
+.citizenship-app .wp-id {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.citizenship-app .wp-balance {
+  font-family: Cinzel, serif;
+  font-size: 1.1rem;
+  color: var(--gold-l);
+}
+
+/* ── PHOTO UPLOAD ── */
+.citizenship-app .upload-zone {
+  border: 2px dashed rgba(201, 168, 76, 0.2);
+  padding: 40px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.citizenship-app .upload-zone:hover {
+  border-color: rgba(201, 168, 76, 0.45);
+  background: rgba(201, 168, 76, 0.03);
+}
+
+.citizenship-app .upload-zone.has-file {
+  border-style: solid;
+  border-color: rgba(201, 168, 76, 0.4);
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.citizenship-app .upload-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.citizenship-app .uz-icon {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: var(--gold-d);
+}
+
+.citizenship-app .uz-text {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.citizenship-app .uz-sub {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--text2);
+}
+
+.citizenship-app .file-preview {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 12px;
+  background: var(--input-bg);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+.citizenship-app .file-preview.show {
+  display: flex;
+}
+
+.citizenship-app .fp-name {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  flex: 1;
+}
+
+.citizenship-app .fp-remove {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  cursor: pointer;
+  padding: 3px 8px;
+  border: 1px solid rgba(204, 32, 32, 0.2);
+}
+
+/* ── SIGNATURE ── */
+.citizenship-app .sig-canvas-wrap {
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.citizenship-app #sigCanvas {
+  display: block;
+  width: 100%;
+  height: 140px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.citizenship-app .sig-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.citizenship-app .sig-btn {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.16em;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.16s;
+}
+
+.citizenship-app .sig-btn:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+  color: var(--gold-d);
+}
+
+.citizenship-app .sig-status {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.16em;
+  color: var(--text3);
+  margin-left: auto;
+  align-self: center;
+}
+
+.citizenship-app .sig-status.signed {
+  color: rgba(42, 136, 72, 0.8);
+}
+
+.citizenship-app .typed-sig {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.citizenship-app .ts-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* ── NAVIGATION BUTTONS ── */
+.citizenship-app .form-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.citizenship-app .btn-prev {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  padding: 11px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.18s;
+}
+
+.citizenship-app .btn-prev:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+  color: var(--gold-d);
+}
+
+.citizenship-app .btn-next {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  padding: 11px 28px;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  background: rgba(201, 168, 76, 0.08);
+  color: var(--gold);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.18s;
+  margin-left: auto;
+}
+
+.citizenship-app .btn-next:hover {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: rgba(201, 168, 76, 0.6);
+}
+
+.citizenship-app .btn-next:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.citizenship-app .btn-submit {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  padding: 13px 32px;
+  border: 1px solid var(--gold);
+  background: rgba(201, 168, 76, 0.12);
+  color: var(--gold-l);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.18s;
+  margin-left: auto;
+}
+
+.citizenship-app .btn-submit:hover {
+  background: rgba(201, 168, 76, 0.22);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.1);
+}
+
+.citizenship-app .step-count {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.18em;
+  color: var(--text3);
+}
+
+/* ── CONFIRMATION ── */
+.citizenship-app .confirm-screen {
+  display: none;
+  text-align: center;
+  padding: 60px 24px;
+  max-width: 640px;
+  margin: 0 auto;
+  animation: citizenshipFadeIn 0.5s ease;
+}
+
+.citizenship-app .confirm-screen.show {
+  display: block;
+}
+
+.citizenship-app .conf-seal {
+  margin: 0 auto 32px;
+}
+
+.citizenship-app .conf-title {
+  font-family: Cinzel, serif;
+  font-weight: 900;
+  font-size: clamp(1.4rem, 5vw, 2.4rem);
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.citizenship-app .conf-vae {
+  font-family: Cinzel, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1rem;
+  color: rgba(201, 168, 76, 0.35);
+  margin-bottom: 24px;
+}
+
+.citizenship-app .conf-ref {
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  padding: 16px 24px;
+  margin-bottom: 28px;
+}
+
+.citizenship-app .conf-ref-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.26em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.citizenship-app .conf-ref-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-l);
+}
+
+.citizenship-app .conf-summary {
+  background: var(--bg2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.citizenship-app .cs-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.citizenship-app .cs-row:last-child {
+  border-bottom: none;
+}
+
+.citizenship-app .cs-key {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.16em;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+
+.citizenship-app .cs-val {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-align: right;
+}
+
+.citizenship-app .conf-oath-text {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold-l);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.citizenship-app .conf-next-steps {
+  background: var(--bg2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.citizenship-app .cns-title {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.citizenship-app .cns-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.88rem;
+  color: rgba(196, 189, 176, 0.5);
+  line-height: 1.7;
+}
+
+.citizenship-app .cns-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  width: 20px;
+  padding-top: 2px;
+}
+
+.citizenship-app .conf-motto {
+  font-family: Cinzel, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(201, 168, 76, 0.45);
+  letter-spacing: 0.06em;
+}
+
+.citizenship-app .citizenship-doc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+  .citizenship-app .citizenship-doc-grid {
+    grid-template-columns: 1fr;
+  }
+}
