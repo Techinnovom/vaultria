@@ -1,770 +1,240 @@
+<user_query>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>National Territory — VAULTRIA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="stylesheet" href="../assets/css/layout.css" />
-  <style>
-    .territory-stat-n {
-      font-family: Cinzel, serif;
-      font-size: 1.35rem;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      display: block;
-      margin-bottom: 0.15rem;
-    }
-    .territory-stat-l {
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold-dim);
-    }
-
-    /* Compact hero: one title line + one dense row (stats + category chips) */
-    .territory-hero.card {
-      padding: 0.5rem 0.85rem;
-    }
-    .territory-hero.prose > p {
-      margin-bottom: 0;
-    }
-    .territory-hero-lead {
-      margin: 0 0 0.28rem;
-      font-size: 0.82rem;
-      line-height: 1.3;
-      color: var(--text-muted);
-    }
-    .territory-hero-lead strong {
-      color: var(--text);
-    }
-    .territory-hero-line2 {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.35rem 0.55rem;
-      margin: 0;
-    }
-    .territory-stats-inline {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.15rem 0.35rem;
-      font-size: 0.8rem;
-    }
-    .territory-stats-inline li {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.25rem;
-      padding: 0;
-      margin: 0;
-      background: none;
-      border: none;
-    }
-    .territory-stats-inline .territory-stat-n {
-      display: inline;
-      font-size: 0.95rem;
-      margin: 0;
-    }
-    .territory-stats-inline .territory-stat-l {
-      font-size: 0.55rem;
-      letter-spacing: 0.1em;
-    }
-    .territory-stats-sep {
-      color: var(--gold-dim);
-      opacity: 0.4;
-      user-select: none;
-    }
-    .territory-cats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.22rem;
-      margin: 0;
-      padding: 0;
-      border: none;
-    }
-    .territory-hero-line2 .territory-cats {
-      flex: 1 1 auto;
-      justify-content: flex-end;
-      min-width: 0;
-    }
-
-    @media (max-width: 560px) {
-      .territory-hero-line2 .territory-cats {
-        justify-content: flex-start;
-        width: 100%;
-      }
-    }
-    .territory-cat {
-      font-size: 0.55rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.12rem 0.38rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-    }
-    .territory-cat--core { color: #c03a3a; border-color: rgba(192, 58, 58, 0.35); }
-    .territory-cat--civil { color: #2e6ab8; border-color: rgba(46, 106, 184, 0.35); }
-    .territory-cat--infra { color: #b87c18; border-color: rgba(184, 124, 24, 0.35); }
-    .territory-cat--know { color: #2a7848; border-color: rgba(42, 120, 72, 0.35); }
-
-    .territory-page-intro {
-      margin-bottom: 0.65rem;
-    }
-
-    .holiday-tablist {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin: 1rem 0 0.9rem;
-      padding: 0;
-      list-style: none;
-    }
-    .holiday-tab {
-      font-family: Cinzel, serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.45rem 0.72rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: var(--bg-deep);
-      color: var(--text-muted);
-      cursor: pointer;
-    }
-    .holiday-tab.is-active {
-      color: var(--gold);
-      border-color: var(--gold);
-      background: rgba(201, 169, 98, 0.08);
-    }
-    .holiday-tab:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 2px;
-    }
-    [data-territory-tabs] .territory-embed {
-      margin-top: 0.35rem;
-    }
-
-    [data-territory-tabs] .holiday-tablist {
-      position: sticky;
-      top: 0;
-      z-index: 12;
-      margin: 0.25rem 0 1rem;
-      padding: 0.55rem 0 0.75rem;
-      background: linear-gradient(180deg, var(--bg-deep) 78%, transparent);
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* Category / line colours (inline styles reference these) */
-    .territory-embed {
-      --core: #c03a3a;
-      --civil: #2e6ab8;
-      --infra: #b87c18;
-      --know: #2a7848;
-      --prime: #c9a962;
-      --civic: #5a8ae8;
-      --industrial: #c8a020;
-      --knowledge-r: #4aaa68;
-      --tech: #3a9858;
-      --defense: #e05050;
-      --restricted: #e05050;
-      --trade: #4a78c8;
-      /* Legacy inline aliases → main.css tokens */
-      --gold-l: #d4b87a;
-      --gold-d: var(--gold-dim);
-      --bg2: var(--bg-panel);
-      --rule: var(--border);
-    }
-
-    .territory-embed .sec {
-      padding: 0 0 1.5rem;
-      margin: 0;
-      max-width: none;
-    }
-
-    .territory-embed .sh {
-      text-align: left;
-      margin-bottom: 1.1rem;
-    }
-
-    .territory-embed .sh-tag {
-      font-family: Cinzel, serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold-dim);
-      margin-bottom: 0.35rem;
-    }
-
-    .territory-embed .sh-title {
-      font-family: Cinzel, serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--gold);
-      margin: 0 0 0.4rem;
-      line-height: 1.22;
-    }
-
-    .territory-embed .sh-rule {
-      display: none;
-    }
-
-    .territory-embed .sh-desc {
-      font-style: normal;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      max-width: 40rem;
-      margin: 0;
-    }
-
-    .territory-table-wrap {
-      overflow-x: auto;
-      margin: 0 0 1.15rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      background: var(--bg-panel);
-    }
-
-    .territory-embed .ctable {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0;
-    }
-
-    .territory-embed .ctable th {
-      font-family: Cinzel, serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold-dim);
-      padding: 0.65rem 0.75rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-elevated);
-      white-space: nowrap;
-    }
-
-    .territory-embed .ctable td {
-      padding: 0.55rem 0.75rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-      border-bottom: 1px solid rgba(201, 169, 98, 0.12);
-      vertical-align: top;
-    }
-
-    .territory-embed .ctable tr:last-child td {
-      border-bottom: none;
-    }
-
-    .territory-embed .ctable td:first-child {
-      font-family: Cinzel, serif;
-      font-size: 0.82rem;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
-
-    .territory-embed .ctable tbody tr:hover td {
-      background: rgba(201, 169, 98, 0.05);
-    }
-
-    .territory-organise {
-      margin: 0 0 1.15rem;
-      padding: 1rem 1.1rem 1.05rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      background: var(--bg-panel);
-    }
-
-    .territory-organise-kicker {
-      margin: 0 0 0.85rem;
-      font-family: Cinzel, serif;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold-dim);
-    }
-
-    .territory-organise-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.85rem;
-    }
-
-    @media (min-width: 640px) {
-      .territory-organise-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .territory-organise-item {
-      margin: 0;
-      padding: 0.65rem 0 0.65rem 0.85rem;
-      border-left: 3px solid var(--border);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--text-muted);
-    }
-
-    .territory-organise-item strong {
-      font-family: Cinzel, serif;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-
-    .territory-organise-item--core strong { color: var(--core); }
-    .territory-organise-item--civil strong { color: var(--civil); }
-    .territory-organise-item--infra strong { color: var(--infra); }
-    .territory-organise-item--know strong { color: var(--know); }
-
-    .territory-organise-item--core { border-left-color: rgba(192, 58, 58, 0.65); }
-    .territory-organise-item--civil { border-left-color: rgba(46, 106, 184, 0.65); }
-    .territory-organise-item--infra { border-left-color: rgba(184, 124, 24, 0.65); }
-    .territory-organise-item--know { border-left-color: rgba(42, 120, 72, 0.65); }
-
-    .territory-embed .cat-hdr {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin: 1.35rem 0 0.85rem;
-      padding: 0.65rem 0.85rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-    }
-
-    .territory-embed .cat-hdr:first-of-type {
-      margin-top: 0.15rem;
-    }
-
-    .territory-embed .cat-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 0.35rem;
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
-    }
-
-    .territory-embed .cat-name {
-      font-family: Cinzel, serif;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-    }
-
-    .territory-embed .cat-desc {
-      font-style: normal;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-left: auto;
-      text-align: right;
-      max-width: 22rem;
-      line-height: 1.45;
-    }
-
-    @media (max-width: 640px) {
-      .territory-embed .cat-hdr {
-        flex-wrap: wrap;
-      }
-
-      .territory-embed .cat-desc {
-        margin-left: 0;
-        margin-top: 0.35rem;
-        max-width: none;
-        text-align: left;
-        width: 100%;
-      }
-    }
-
-    .territory-embed .tz-zone-card {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 0.6rem;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .territory-embed .tz-zone-card:hover {
-      border-color: rgba(201, 169, 98, 0.45);
-      box-shadow: 0 1px 0 rgba(201, 169, 98, 0.08);
-    }
-
-    .territory-embed .zc-header {
-      display: flex;
-      align-items: stretch;
-      cursor: pointer;
-      background: var(--bg-elevated);
-      transition: background 0.15s ease;
-    }
-
-    .territory-embed .zc-header:hover {
-      background: rgba(201, 169, 98, 0.06);
-    }
-
-    .territory-embed .zc-header:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: -2px;
-    }
-
-    .territory-embed .zc-bar {
-      width: 4px;
-      flex-shrink: 0;
-    }
-
-    .territory-embed .zc-head-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.45rem 0.75rem;
-      padding: 0.75rem 0.9rem;
-      flex: 1;
-      justify-content: space-between;
-    }
-
-    .territory-embed .zc-head-inner > div:first-child {
-      flex: 1 1 11rem;
-      min-width: 0;
-    }
-
-    .territory-embed .zc-name {
-      font-family: Cinzel, serif;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      line-height: 1.25;
-    }
-
-    .territory-embed .zc-cap {
-      font-size: 0.72rem;
-      margin-top: 0.15rem;
-      color: var(--gold-dim);
-    }
-
-    .territory-embed .zc-type {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.22rem 0.5rem;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      font-size: 0.62rem;
-      font-family: Cinzel, serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .territory-embed .zc-toggle {
-      font-family: Cinzel, serif;
-      font-size: 0.8rem;
-      color: var(--gold-dim);
-      min-width: 1.4rem;
-      text-align: center;
-      line-height: 1;
-    }
-
-    .territory-embed .zc-body {
-      display: none;
-      border-top: 1px solid var(--border);
-      background: var(--bg-deep);
-      padding: 0.95rem 1rem 1.1rem;
-    }
-
-    .territory-embed .zc-body.open {
-      display: block;
-    }
-
-    .territory-embed .zc-desc {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      margin: 0 0 1rem;
-      max-width: 48rem;
-    }
-
-    .territory-embed .node-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
-      gap: 0.6rem;
-    }
-
-    .territory-embed .node {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0.6rem 0.7rem;
-    }
-
-    .territory-embed .node-name {
-      font-family: Cinzel, serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin: 0 0 0.4rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 1px solid rgba(201, 169, 98, 0.14);
-    }
-
-    .territory-embed .node-secs {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .territory-embed .node-cap-badge {
-      color: var(--gold-dim);
-      border: 1px solid rgba(201, 169, 98, 0.35);
-      background: rgba(201, 169, 98, 0.08);
-      padding: 0.06rem 0.35rem;
-      font-size: 0.55rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-left: 0.35rem;
-      vertical-align: middle;
-      border-radius: 2px;
-    }
-
-    .territory-embed .node-sec {
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      line-height: 1.45;
-      margin: 0;
-      padding-left: 0.55rem;
-    }
-
-    .territory-embed .node-sec::before {
-      content: "·";
-      display: inline-block;
-      width: 0.55rem;
-      margin-left: -0.55rem;
-      color: var(--gold-dim);
-      font-weight: 700;
-    }
-
-    .territory-embed .zc-infra {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 1rem;
-      padding-top: 0.85rem;
-      border-top: 1px solid rgba(201, 169, 98, 0.12);
-    }
-
-    .territory-embed .zi {
-      display: inline-block;
-      padding: 0.25rem 0.5rem;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      font-size: 0.64rem;
-      font-family: Cinzel, serif;
-      letter-spacing: 0.05em;
-      line-height: 1.3;
-      color: var(--text-muted);
-    }
-
-    .territory-embed .road-list,
-    .territory-embed .rail-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .territory-embed .road-item,
-    .territory-embed .rail-item,
-    .territory-embed .apt {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-    }
-
-    .territory-embed .road-item {
-      padding: 1rem 1.1rem;
-    }
-
-    .territory-embed .ri-desc,
-    .territory-embed .apt-desc {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .territory-embed .ri-zones,
-    .territory-embed .apt-loc,
-    .territory-embed .ri-type,
-    .territory-embed .ri-code,
-    .territory-embed .ri-freq,
-    .territory-embed .rst-info,
-    .territory-embed .apt-badge,
-    .territory-embed .apt-sub {
-      color: var(--text-muted);
-    }
-
-    .territory-embed .ri-zones,
-    .territory-embed .apt-loc {
-      font-size: 0.65rem;
-      letter-spacing: 0.06em;
-    }
-
-    .territory-embed .ri-place {
-      color: var(--gold);
-      font-family: Cinzel, serif;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .territory-embed .ri-desc .ri-place {
-      font-size: 0.98em;
-    }
-
-    .territory-embed .rst-dot {
-      background: var(--bg-deep);
-    }
-
-    .territory-embed .ri-stations {
-      border-top-color: var(--border);
-    }
-
-    .territory-embed .rst-body {
-      border-bottom-color: rgba(201, 169, 98, 0.12);
-    }
-
-    .territory-embed .rst-xb {
-      border-color: var(--border);
-      color: var(--text-muted);
-    }
-
-    .territory-embed .apt-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-    }
-
-    @media (min-width: 640px) {
-      .territory-embed .apt-grid {
-        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-      }
-    }
-
-    .territory-embed .apt {
-      padding: 1.1rem 1.15rem;
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaultrian Territory — Full Layout Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#05050C;--bg2:#0C0C18;
+  --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#5A4010;
+  --text:#C4BDB0;--text2:#6A6258;--text3:#282018;
+  --rule:rgba(201,168,76,0.09);
+  /* zone category colours */
+  --core:#C03A3A;    /* Core Power */
+  --civil:#2E6AB8;   /* Civilian */
+  --infra:#B87C18;   /* Infrastructure */
+  --know:#2A7848;    /* Knowledge */
+  /* rail colours */
+  --prime:#C9A84C;
+  --civic:#5A8AE8;
+  --industrial:#C8A020;
+  --knowledge-r:#4AAA68;
+  --tech:#3A9858;
+  --defense:#E05050;
+  --restricted:#E05050;
+  --trade:#4A78C8;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'Crimson Pro',serif;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold-d)}
+
+/* ── COVER ── */
+.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;position:relative;overflow:hidden;text-align:center}
+.cv-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#0E1020 0%,#05050C 68%)}
+.cv-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(201,168,76,.01) 50px),repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(201,168,76,.01) 50px);pointer-events:none}
+.cv-wrap{position:relative;z-index:2;max-width:700px}
+.cv-pre{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.6em;color:var(--gold-d);text-transform:uppercase;margin-bottom:18px}
+.cv-title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.8rem,5.5vw,3.6rem);color:var(--gold);letter-spacing:.06em;line-height:1.1;text-shadow:0 0 80px rgba(201,168,76,.2);margin-bottom:8px}
+.cv-sub{font-family:'Crimson Pro',serif;font-style:italic;font-size:clamp(.9rem,2.5vw,1.15rem);color:rgba(196,189,176,.35);margin-bottom:28px}
+.cv-rule{width:80px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 auto 26px}
+.cv-stats{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.cv-stat{text-align:center}
+.cv-stat-n{font-family:'Cinzel',serif;font-weight:900;font-size:1.8rem;color:var(--gold);letter-spacing:.04em}
+.cv-stat-l{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.22em;color:var(--gold-d);text-transform:uppercase;margin-top:2px}
+.cv-cats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.cv-cat{font-family:'Share Tech Mono',monospace;font-size:.5rem;letter-spacing:.22em;padding:5px 12px;border:1px solid;text-transform:uppercase}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(5,5,12,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);padding:0 14px;display:flex;justify-content:center;flex-wrap:wrap}
+.nb{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;padding:11px 8px;border:none;background:transparent;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .18s;white-space:nowrap}
+.nb:hover{color:var(--text2)}
+.nb.on{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ── SECTIONS ── */
+.sec{padding:64px 22px;max-width:1060px;margin:0 auto;opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.sec.vis{opacity:1;transform:translateY(0)}
+.sh{text-align:center;margin-bottom:46px}
+.sh-tag{font-family:'Share Tech Mono',monospace;font-size:.56rem;letter-spacing:.5em;color:var(--gold-d);text-transform:uppercase;margin-bottom:9px}
+.sh-title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.4rem,4vw,2.3rem);color:var(--gold);letter-spacing:.06em;margin-bottom:12px;line-height:1.1}
+.sh-rule{width:44px;height:2px;background:linear-gradient(to right,var(--gold),transparent);margin:0 auto 13px}
+.sh-desc{font-family:'Crimson Pro',serif;font-style:italic;font-size:.9rem;color:rgba(196,189,176,.38);max-width:500px;margin:0 auto;line-height:1.82}
+hr{border:none;border-top:1px solid var(--rule);margin:0 22px}
+
+/* ── CATEGORY HEADERS ── */
+.cat-hdr{display:flex;align-items:center;gap:14px;margin:40px 0 18px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.05)}
+.cat-hdr:first-of-type{margin-top:0}
+.cat-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.cat-name{font-family:'Cinzel',serif;font-weight:700;font-size:1rem;letter-spacing:.05em}
+.cat-desc{font-family:'Crimson Pro',serif;font-style:italic;font-size:.82rem;color:rgba(196,189,176,.36);margin-left:auto}
+
+/* ── ZONE CARDS ── */
+.zone-card{background:var(--bg2);border:1px solid rgba(255,255,255,.05);overflow:hidden;margin-bottom:14px;transition:border-color .18s}
+.zone-card:hover{border-color:rgba(255,255,255,.1)}
+.zc-header{display:flex;align-items:stretch;min-height:52px;cursor:pointer}
+.zc-bar{width:5px;flex-shrink:0}
+.zc-head-inner{flex:1;padding:14px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.zc-name{font-family:'Cinzel',serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em}
+.zc-cap{font-family:'Share Tech Mono',monospace;font-size:.48rem;letter-spacing:.2em;color:var(--gold-d);text-transform:uppercase}
+.zc-type{font-family:'Share Tech Mono',monospace;font-size:.44rem;letter-spacing:.16em;padding:2px 8px;border:1px solid;text-transform:uppercase;opacity:.6}
+.zc-toggle{margin-left:auto;font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--gold-d);flex-shrink:0}
+.zc-body{display:none;padding:0 18px 18px;border-top:1px solid rgba(255,255,255,.04)}
+.zc-body.open{display:block}
+.zc-desc{font-family:'Crimson Pro',serif;font-size:.88rem;color:rgba(196,189,176,.5);line-height:1.75;margin:14px 0 16px}
+/* node grid inside zone */
+.node-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:16px}
+.node{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.04);padding:12px 11px}
+.node-name{font-family:'Cinzel',serif;font-size:.88rem;letter-spacing:.04em;margin-bottom:2px;display:flex;align-items:center;gap:6px}
+.node-cap-badge{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.14em;padding:1px 5px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold-d);text-transform:uppercase}
+.node-secs{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.node-sec{font-family:'Crimson Pro',serif;font-size:.76rem;color:rgba(196,189,176,.38);line-height:1.4;padding-left:10px;position:relative}
+.node-sec::before{content:'·';position:absolute;left:0;color:var(--gold-d)}
+/* zone infra row */
+.zc-infra{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.zi{font-family:'Share Tech Mono',monospace;font-size:.44rem;letter-spacing:.14em;padding:2px 8px;border:1px solid;text-transform:uppercase}
+
+/* ── ROAD TABLE ── */
+.road-list{display:flex;flex-direction:column;gap:10px}
+.road-item{background:var(--bg2);border:1px solid rgba(255,255,255,.05);padding:14px 16px;display:grid;grid-template-columns:160px 1fr;gap:16px;align-items:start}
+@media(max-width:540px){.road-item{grid-template-columns:1fr}}
+.ri-left{}
+.ri-name{font-family:'Cinzel',serif;font-weight:700;font-size:.95rem;margin-bottom:3px;letter-spacing:.04em}
+.ri-type{font-family:'Share Tech Mono',monospace;font-size:.44rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+.ri-bar{height:3px;width:80px;border-radius:2px;margin-top:2px}
+.ri-right{}
+.ri-desc{font-family:'Crimson Pro',serif;font-size:.86rem;color:rgba(196,189,176,.5);line-height:1.72;margin-bottom:6px}
+.ri-zones{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.12em;color:var(--text3)}
+
+/* ── RAIL CARDS ── */
+.rail-list{display:flex;flex-direction:column;gap:10px}
+.rail-item{background:var(--bg2);border:1px solid rgba(255,255,255,.05);overflow:hidden}
+.ri-header{display:flex;align-items:center;gap:0;min-height:48px}
+.ri-lbar{width:5px;flex-shrink:0}
+.ri-hinner{flex:1;padding:12px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ri-lname{font-family:'Cinzel',serif;font-weight:700;font-size:.98rem;letter-spacing:.05em}
+.ri-code{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.2em;color:var(--text3)}
+.ri-badge{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.14em;padding:2px 7px;border:1px solid;text-transform:uppercase}
+.ri-freq{margin-left:auto;font-family:'Share Tech Mono',monospace;font-size:.48rem;letter-spacing:.12em;color:var(--text3)}
+.ri-stations{padding:10px 16px 14px 21px;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.04)}
+.rst{display:flex;align-items:stretch;gap:0;min-height:36px}
+.rst-line{width:20px;display:flex;flex-direction:column;align-items:center;flex-shrink:0;position:relative}
+.rst-dot{width:8px;height:8px;border-radius:50%;border:2px solid;background:var(--ink);z-index:1;margin-top:12px;flex-shrink:0}
+.rst-dot.term{width:11px;height:11px;margin-top:10.5px}
+.rst-dot.xfer{width:11px;height:11px;margin-top:10.5px}
+.rst-vline{flex:1;width:2.5px;background:currentColor;opacity:.3;margin:0 auto}
+.rst-vline.none{background:transparent}
+.rst-body{flex:1;padding:6px 0 6px 12px;border-bottom:1px solid rgba(255,255,255,.03)}
+.rst:last-child .rst-body{border-bottom:none}
+.rst-name{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.03em;margin-bottom:1px}
+.rst-name.term{font-size:.9rem}
+.rst-info{font-family:'Share Tech Mono',monospace;font-size:.44rem;letter-spacing:.12em;color:var(--text3)}
+.rst-xbadges{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px}
+.rst-xb{font-family:'Share Tech Mono',monospace;font-size:.4rem;letter-spacing:.1em;padding:1px 5px;border:1px solid rgba(255,255,255,.08);color:var(--text3);text-transform:uppercase}
+
+/* ── AIRPORT CARDS ── */
+.apt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.apt{background:var(--bg2);border:1px solid rgba(255,255,255,.05);padding:18px 16px}
+.apt-icon{font-size:1.6rem;margin-bottom:10px}
+.apt-name{font-family:'Cinzel',serif;font-weight:700;font-size:1rem;letter-spacing:.05em;margin-bottom:2px}
+.apt-sub{font-family:'Share Tech Mono',monospace;font-size:.48rem;letter-spacing:.2em;color:var(--gold-d);text-transform:uppercase;margin-bottom:8px}
+.apt-loc{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.16em;color:var(--text3);margin-bottom:8px}
+.apt-desc{font-family:'Crimson Pro',serif;font-size:.85rem;color:rgba(196,189,176,.5);line-height:1.7;margin-bottom:10px}
+.apt-badges{display:flex;flex-wrap:wrap;gap:5px}
+.apt-badge{font-family:'Share Tech Mono',monospace;font-size:.44rem;letter-spacing:.12em;padding:2px 7px;border:1px solid rgba(255,255,255,.07);color:var(--text3);text-transform:uppercase}
+
+/* ── SUMMARY TABLE ── */
+.ctable{width:100%;border-collapse:collapse}
+.ctable th{font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.26em;color:var(--text3);text-transform:uppercase;padding:0 12px 8px 0;text-align:left;border-bottom:1px solid rgba(255,255,255,.05)}
+.ctable td{padding:7px 12px 7px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:.84rem;color:rgba(196,189,176,.5);vertical-align:top}
+.ctable td:first-child{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--gold);white-space:nowrap}
+.ctable tr:hover td{background:rgba(255,255,255,.015)}
+
+.footer{border-top:1px solid var(--rule);padding:36px 24px;text-align:center;margin-top:40px}
+</style>
 </head>
-<body data-nav-depth="1">
-  <a class="visually-hidden" href="#main-content">Skip to content</a>
-  <div class="bg-vault" aria-hidden="true"></div>
-  <div class="site-shell">
-    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
-    <div class="site-main">
-      <header class="site-topbar">
-        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
-          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
-          <span class="visually-hidden">Open menu</span>
-        </button>
-        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
-      </header>
-      <div class="wrap">
-        <main id="main-content" class="culture-canon">
-          <p class="tier-kicker">Operations · Territory</p>
-          <h1 class="page-title"><span class="h2-ico" aria-hidden="true">🗺️</span> National Territory Layout</h1>
-          <p class="zone-intro territory-page-intro">
-            Official reference: zones, nodes, major roads, FlowNet rail, and airports. Twelve zones in four categories; every capital node connects to the national rail network.
-          </p>
+<body>
 
-          <div class="card prose territory-hero">
-            <p class="territory-hero-lead"><strong>Vaultrian Territory Authority</strong> — All zones · nodes · roads · FlowNet · airports</p>
-            <div class="territory-hero-line2">
-              <ul class="territory-stats-inline" aria-label="Territory counts">
-                <li><span class="territory-stat-n">12</span> <span class="territory-stat-l">Zones</span></li>
-                <li class="territory-stats-sep" aria-hidden="true">·</li>
-                <li><span class="territory-stat-n">38</span> <span class="territory-stat-l">Nodes</span></li>
-                <li class="territory-stats-sep" aria-hidden="true">·</li>
-                <li><span class="territory-stat-n">10</span> <span class="territory-stat-l">Roads</span></li>
-                <li class="territory-stats-sep" aria-hidden="true">·</li>
-                <li><span class="territory-stat-n">8</span> <span class="territory-stat-l">Rail</span></li>
-                <li class="territory-stats-sep" aria-hidden="true">·</li>
-                <li><span class="territory-stat-n">5</span> <span class="territory-stat-l">Airports</span></li>
-              </ul>
-              <div class="territory-cats" aria-label="Zone categories">
-                <span class="territory-cat territory-cat--core">Core · 3</span>
-                <span class="territory-cat territory-cat--civil">Civilian · 4</span>
-                <span class="territory-cat territory-cat--infra">Infra · 3</span>
-                <span class="territory-cat territory-cat--know">Knowledge · 2</span>
-              </div>
-            </div>
-          </div>
+<!-- COVER -->
+<div class="cover">
+  <div class="cv-bg"></div>
+  <div class="cv-grid"></div>
+  <div class="cv-wrap">
+    <div class="cv-pre">Vaultrian Territory Authority · Official Reference</div>
+    <div class="cv-title">National Territory Layout</div>
+    <div class="cv-sub">All Zones · All Nodes · All Roads · FlowNet Rail · Airports</div>
+    <div class="cv-rule"></div>
+    <div class="cv-stats">
+      <div class="cv-stat"><div class="cv-stat-n">12</div><div class="cv-stat-l">Zones</div></div>
+      <div class="cv-stat"><div class="cv-stat-n">38</div><div class="cv-stat-l">Nodes</div></div>
+      <div class="cv-stat"><div class="cv-stat-n">10</div><div class="cv-stat-l">Major Roads</div></div>
+      <div class="cv-stat"><div class="cv-stat-n">8</div><div class="cv-stat-l">Rail Lines</div></div>
+      <div class="cv-stat"><div class="cv-stat-n">5</div><div class="cv-stat-l">Airports</div></div>
+    </div>
+    <div class="cv-cats">
+      <span class="cv-cat" style="color:var(--core);border-color:rgba(192,58,58,.3)">Core Power · 3 Zones</span>
+      <span class="cv-cat" style="color:var(--civil);border-color:rgba(46,106,184,.3)">Civilian · 4 Zones</span>
+      <span class="cv-cat" style="color:var(--infra);border-color:rgba(184,124,24,.3)">Infrastructure · 3 Zones</span>
+      <span class="cv-cat" style="color:var(--know);border-color:rgba(42,120,72,.3)">Knowledge · 2 Zones</span>
+    </div>
+  </div>
+</div>
 
-          <div data-territory-tabs>
-            <div class="holiday-tablist" role="tablist" aria-label="Territory reference">
-              <button type="button" class="holiday-tab is-active" role="tab" id="territory-tab-summary" aria-controls="territory-panel-summary" aria-selected="true">Summary</button>
-              <button type="button" class="holiday-tab" role="tab" id="territory-tab-zones" aria-controls="territory-panel-zones" aria-selected="false" tabindex="-1">Zones &amp; nodes</button>
-              <button type="button" class="holiday-tab" role="tab" id="territory-tab-roads" aria-controls="territory-panel-roads" aria-selected="false" tabindex="-1">Roads</button>
-              <button type="button" class="holiday-tab" role="tab" id="territory-tab-rail" aria-controls="territory-panel-rail" aria-selected="false" tabindex="-1">FlowNet rail</button>
-              <button type="button" class="holiday-tab" role="tab" id="territory-tab-airports" aria-controls="territory-panel-airports" aria-selected="false" tabindex="-1">Airports</button>
-            </div>
+<!-- NAV -->
+<nav class="nav">
+  <button class="nb on" onclick="goTo('summary')">Summary</button>
+  <button class="nb"    onclick="goTo('zones')">Zones & Nodes</button>
+  <button class="nb"    onclick="goTo('roads')">Roads</button>
+  <button class="nb"    onclick="goTo('rail')">FlowNet Rail</button>
+  <button class="nb"    onclick="goTo('airports')">Airports</button>
+</nav>
 
-            <div class="territory-embed">
 <!-- ═══ SUMMARY ═══ -->
-<section class="sec territory-tabpanel" role="tabpanel" id="territory-panel-summary" aria-labelledby="territory-tab-summary territory-summary-h">
+<div class="sec" id="summary">
   <div class="sh">
     <div class="sh-tag">Territory Overview</div>
-    <div class="sh-title" id="territory-summary-h">Vaultrian at a Glance</div>
+    <div class="sh-title">Vaultrian at a Glance</div>
     <div class="sh-rule"></div>
     <div class="sh-desc">Twelve zones organised into four categories. Every zone has a capital node and between 3 and 5 sub-nodes. Every node is connected by road. Every capital node is connected by rail.</div>
   </div>
 
-  <div class="territory-table-wrap">
-    <table class="ctable">
-      <thead>
-        <tr><th>Zone</th><th>Category</th><th>Capital Node</th><th>Nodes</th><th>Rail</th><th>Airport</th></tr>
-      </thead>
-      <tbody>
-        <tr><td style="color:var(--core)">Velora</td><td>Core Power</td><td>Aurex</td><td>Aurex · Kaelis · Vortan · Delos</td><td>Prime · Knowledge · Defense · Restricted</td><td>—</td></tr>
-        <tr><td style="color:var(--core)">Draven</td><td>Core Power</td><td>Drakos</td><td>Drakos · Targon · Silex · Karven</td><td>Defense Link</td><td>—</td></tr>
-        <tr><td style="color:var(--core)">Morvex</td><td>Core Power</td><td>Morak</td><td>Morak · Xyron · Vexor · Norex</td><td>Restricted Line</td><td>Restricted Airstrip</td></tr>
-        <tr><td style="color:var(--civil)">Nerath</td><td>Civilian</td><td>Zerath</td><td>Zerath · Tarex · Virel · Korex · Lunex</td><td>Civic Line</td><td>Kelos Aeris</td></tr>
-        <tr><td style="color:var(--civil)">Varex</td><td>Civilian</td><td>Varon</td><td>Varon · Mekar · Tovin · Garin</td><td>Industrial Line</td><td>Talex Aeris</td></tr>
-        <tr><td style="color:var(--civil)">Zerath</td><td>Civilian</td><td>Zerex</td><td>Zerex · Karos · Drax · Velin</td><td>Trade Link · Industrial</td><td>—</td></tr>
-        <tr><td style="color:var(--civil)">Lunara</td><td>Civilian</td><td>Lunor</td><td>Lunor · Selin · Marel · Tiven</td><td>Civic Extension</td><td>—</td></tr>
-        <tr><td style="color:var(--infra)">Aeris</td><td>Infrastructure</td><td>Aeris Nod</td><td>Aeris Nod · Kelos · Talex</td><td>Prime Line</td><td>Aeris Nod (Int'l) · Kelos · Talex</td></tr>
-        <tr><td style="color:var(--infra)">Tarinex</td><td>Infrastructure</td><td>Tarinor</td><td>Tarinor · Vekar · Liron · Danex</td><td>All Lines Hub</td><td>—</td></tr>
-        <tr><td style="color:var(--infra)">Virex</td><td>Infrastructure</td><td>Viron</td><td>Viron · Kalen · Morin · Serex</td><td>Industrial Line</td><td>Cargo Ports</td></tr>
-        <tr><td style="color:var(--know)">Lumen</td><td>Knowledge</td><td>Lumor</td><td>Lumor · Taris · Velum · Kirel</td><td>Knowledge Line</td><td>—</td></tr>
-        <tr><td style="color:var(--know)">Sivara</td><td>Knowledge</td><td>Sivor</td><td>Sivor · Nexis · Valen · Torix</td><td>Tech · Knowledge</td><td>Riven Aeris (Restricted)</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="ctable" style="margin-bottom:32px">
+    <tr><th>Zone</th><th>Category</th><th>Capital Node</th><th>Nodes</th><th>Rail</th><th>Airport</th></tr>
+    <tr><td style="color:var(--core)">Velora</td><td>Core Power</td><td>Aurex</td><td>Aurex · Kaelis · Vortan · Delos</td><td>Prime · Knowledge · Defense · Restricted</td><td>—</td></tr>
+    <tr><td style="color:var(--core)">Draven</td><td>Core Power</td><td>Drakos</td><td>Drakos · Targon · Silex · Karven</td><td>Defense Link</td><td>—</td></tr>
+    <tr><td style="color:var(--core)">Morvex</td><td>Core Power</td><td>Morak</td><td>Morak · Xyron · Vexor · Norex</td><td>Restricted Line</td><td>Restricted Airstrip</td></tr>
+    <tr><td style="color:var(--civil)">Nerath</td><td>Civilian</td><td>Zerath</td><td>Zerath · Tarex · Virel · Korex · Lunex</td><td>Civic Line</td><td>Kelos Aeris</td></tr>
+    <tr><td style="color:var(--civil)">Varex</td><td>Civilian</td><td>Varon</td><td>Varon · Mekar · Tovin · Garin</td><td>Industrial Line</td><td>Talex Aeris</td></tr>
+    <tr><td style="color:var(--civil)">Zerath</td><td>Civilian</td><td>Zerex</td><td>Zerex · Karos · Drax · Velin</td><td>Trade Link · Industrial</td><td>—</td></tr>
+    <tr><td style="color:var(--civil)">Lunara</td><td>Civilian</td><td>Lunor</td><td>Lunor · Selin · Marel · Tiven</td><td>Civic Extension</td><td>—</td></tr>
+    <tr><td style="color:var(--infra)">Aeris</td><td>Infrastructure</td><td>Aeris Nod</td><td>Aeris Nod · Kelos · Talex</td><td>Prime Line</td><td>Aeris Nod (Int'l) · Kelos · Talex</td></tr>
+    <tr><td style="color:var(--infra)">Tarinex</td><td>Infrastructure</td><td>Tarinor</td><td>Tarinor · Vekar · Liron · Danex</td><td>All Lines Hub</td><td>—</td></tr>
+    <tr><td style="color:var(--infra)">Virex</td><td>Infrastructure</td><td>Viron</td><td>Viron · Kalen · Morin · Serex</td><td>Industrial Line</td><td>Cargo Ports</td></tr>
+    <tr><td style="color:var(--know)">Lumen</td><td>Knowledge</td><td>Lumor</td><td>Lumor · Taris · Velum · Kirel</td><td>Knowledge Line</td><td>—</td></tr>
+    <tr><td style="color:var(--know)">Sivara</td><td>Knowledge</td><td>Sivor</td><td>Sivor · Nexis · Valen · Torix</td><td>Tech · Knowledge</td><td>Riven Aeris (Restricted)</td></tr>
+  </table>
 
-  <div class="territory-organise">
-    <div class="territory-organise-kicker">How Zones Are Organised</div>
-    <div class="territory-organise-grid">
-      <p class="territory-organise-item territory-organise-item--core"><strong>Core Power</strong> — Government, military and restricted authority. These zones are not civilian by default. Access is managed, movement is monitored, and the infrastructure here serves the state before the citizen.</p>
-      <p class="territory-organise-item territory-organise-item--civil"><strong>Civilian</strong> — Where most Vaultrian citizens live, work, trade and eat. These four zones contain the majority of the national population and the bulk of everyday commerce.</p>
-      <p class="territory-organise-item territory-organise-item--infra"><strong>Infrastructure</strong> — The systems that keep everything moving. Airports, highways, freight distribution, transit hubs. These zones exist to serve the other nine.</p>
-      <p class="territory-organise-item territory-organise-item--know"><strong>Knowledge</strong> — Education, research, technology and data. Two zones whose output shapes every other zone in Vaultria. What is discovered here changes what is built everywhere else.</p>
+  <div style="padding:18px;background:var(--bg2);border:1px solid var(--rule)">
+    <div style="font-family:'Share Tech Mono',monospace;font-size:.5rem;letter-spacing:.34em;color:var(--gold-d);text-transform:uppercase;margin-bottom:10px">How Zones Are Organised</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="font-family:'Crimson Pro',serif;font-size:.88rem;color:rgba(196,189,176,.5);line-height:1.72;padding-left:14px;border-left:2px solid rgba(192,58,58,.3)"><strong style="color:rgba(192,58,58,.8)">Core Power</strong> — Government, military and restricted authority. These zones are not civilian by default. Access is managed, movement is monitored, and the infrastructure here serves the state before the citizen.</div>
+      <div style="font-family:'Crimson Pro',serif;font-size:.88rem;color:rgba(196,189,176,.5);line-height:1.72;padding-left:14px;border-left:2px solid rgba(46,106,184,.3)"><strong style="color:rgba(46,106,184,.8)">Civilian</strong> — Where most Vaultrian citizens live, work, trade and eat. These four zones contain the majority of the national population and the bulk of everyday commerce.</div>
+      <div style="font-family:'Crimson Pro',serif;font-size:.88rem;color:rgba(196,189,176,.5);line-height:1.72;padding-left:14px;border-left:2px solid rgba(184,124,24,.3)"><strong style="color:rgba(184,124,24,.8)">Infrastructure</strong> — The systems that keep everything moving. Airports, highways, freight distribution, transit hubs. These zones exist to serve the other nine.</div>
+      <div style="font-family:'Crimson Pro',serif;font-size:.88rem;color:rgba(196,189,176,.5);line-height:1.72;padding-left:14px;border-left:2px solid rgba(42,120,72,.3)"><strong style="color:rgba(42,120,72,.8)">Knowledge</strong> — Education, research, technology and data. Two zones whose output shapes every other zone in Vaultria. What is discovered here changes what is built everywhere else.</div>
     </div>
   </div>
-</section>
+</div>
+<hr>
 
 <!-- ═══ ZONES & NODES ═══ -->
-<section class="sec territory-tabpanel" role="tabpanel" id="territory-panel-zones" aria-labelledby="territory-tab-zones territory-zones-h" hidden>
+<div class="sec" id="zones">
   <div class="sh">
     <div class="sh-tag">12 Zones · 38 Nodes</div>
-    <div class="sh-title" id="territory-zones-h">Zones &amp; Nodes in Full</div>
+    <div class="sh-title">Zones & Nodes in Full</div>
     <div class="sh-rule"></div>
-    <div class="sh-desc">Each zone is collapsed by default. Click the header to expand nodes, sectors, and rail / road links.</div>
+    <div class="sh-desc">Click any zone to expand its full node list, sector breakdown, road and rail connections.</div>
   </div>
 
   <!-- CORE POWER -->
@@ -775,7 +245,7 @@
   </div>
 
   <!-- VELORA -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--core)"></div>
       <div class="zc-head-inner">
@@ -839,7 +309,7 @@
   </div>
 
   <!-- DRAVEN -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--core)"></div>
       <div class="zc-head-inner">
@@ -899,7 +369,7 @@
   </div>
 
   <!-- MORVEX -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--core)"></div>
       <div class="zc-head-inner">
@@ -962,7 +432,7 @@
   </div>
 
   <!-- NERATH -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--civil)"></div>
       <div class="zc-head-inner">
@@ -1033,7 +503,7 @@
   </div>
 
   <!-- VAREX -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--civil)"></div>
       <div class="zc-head-inner">
@@ -1090,7 +560,7 @@
   </div>
 
   <!-- ZERATH ZONE -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--civil)"></div>
       <div class="zc-head-inner">
@@ -1146,7 +616,7 @@
   </div>
 
   <!-- LUNARA -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--civil)"></div>
       <div class="zc-head-inner">
@@ -1208,7 +678,7 @@
   </div>
 
   <!-- AERIS -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--infra)"></div>
       <div class="zc-head-inner">
@@ -1259,7 +729,7 @@
   </div>
 
   <!-- TARINEX -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--infra)"></div>
       <div class="zc-head-inner">
@@ -1316,7 +786,7 @@
   </div>
 
   <!-- VIREX -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--infra)"></div>
       <div class="zc-head-inner">
@@ -1379,7 +849,7 @@
   </div>
 
   <!-- LUMEN -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--know)"></div>
       <div class="zc-head-inner">
@@ -1434,7 +904,7 @@
   </div>
 
   <!-- SIVARA -->
-  <div class="tz-zone-card">
+  <div class="zone-card">
     <div class="zc-header" onclick="toggleZone(this)">
       <div class="zc-bar" style="background:var(--know)"></div>
       <div class="zc-head-inner">
@@ -1490,13 +960,14 @@
       </div>
     </div>
   </div>
-</section>
+</div>
+<hr>
 
 <!-- ═══ ROADS ═══ -->
-<section class="sec territory-tabpanel" role="tabpanel" id="territory-panel-roads" aria-labelledby="territory-tab-roads territory-roads-h" hidden>
+<div class="sec" id="roads">
   <div class="sh">
     <div class="sh-tag">10 Major Roads</div>
-    <div class="sh-title" id="territory-roads-h">National Road Network</div>
+    <div class="sh-title">National Road Network</div>
     <div class="sh-rule"></div>
     <div class="sh-desc">Every major road in Vaultria is named as a Varo — meaning citizen's way or people's road. Roads belong to citizens.</div>
   </div>
@@ -1509,8 +980,8 @@
         <div class="ri-bar" style="background:#C8A020"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The primary north–south arterial connecting <span class="ri-place">Aeris Nod</span> (International Airport) to <span class="ri-place">Tarinor Hub</span> and down through <span class="ri-place">Aurex</span>. The most-travelled road in Vaultria for international visitors — the first road most people who arrive by air will set foot on. Wide, well maintained, lit at night. Passes through the <span class="ri-place">Aeris</span>, <span class="ri-place">Velora</span>, and <span class="ri-place">Tarinex</span> zones.</div>
-        <div class="ri-zones"><span class="ri-place">Aeris</span> → <span class="ri-place">Aurex</span> (<span class="ri-place">Velora</span>) → <span class="ri-place">Tarinor</span> (<span class="ri-place">Tarinex</span>) · Amber — priority infrastructure road</div>
+        <div class="ri-desc">The primary north–south arterial connecting Aeris Nod (International Airport) to Tarinor Hub and down through Aurex. The most-travelled road in Vaultria for international visitors — the first road most people who arrive by air will set foot on. Wide, well maintained, lit at night. Passes through the Aeris, Velora, and Tarinex zones.</div>
+        <div class="ri-zones">Aeris → Aurex (Velora) → Tarinor (Tarinex) · Amber — priority infrastructure road</div>
       </div>
     </div>
 
@@ -1521,8 +992,8 @@
         <div class="ri-bar" style="background:#4A80C8"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The primary road of the <span class="ri-place">Nerath</span> civilian zone, connecting all five <span class="ri-place">Nerath</span> nodes in a loop from <span class="ri-place">Zerath Central</span> outward. The busiest road in the nation by daily foot and vehicle traffic. Every major market, school, health centre and FlowNet station in <span class="ri-place">Nerath</span> sits on or within one block of <span class="ri-place">Nerath Varo</span>. Citizens use the road name as a shorthand for the whole zone.</div>
-        <div class="ri-zones"><span class="ri-place">Zerath</span> → <span class="ri-place">Tarex</span> → <span class="ri-place">Virel</span> → <span class="ri-place">Korex</span> → <span class="ri-place">Lunex</span> · Blue — civilian primary</div>
+        <div class="ri-desc">The primary road of the Nerath civilian zone, connecting all five Nerath nodes in a loop from Zerath Central outward. The busiest road in the nation by daily foot and vehicle traffic. Every major market, school, health centre and FlowNet station in Nerath sits on or within one block of Nerath Varo. Citizens use the road name as a shorthand for the whole zone.</div>
+        <div class="ri-zones">Zerath → Tarex → Virel → Korex → Lunex · Blue — civilian primary</div>
       </div>
     </div>
 
@@ -1533,8 +1004,8 @@
         <div class="ri-bar" style="background:#C8A020"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The great cross-national highway — running from <span class="ri-place">Aurex</span> in the northwest to <span class="ri-place">Virex</span> in the east, passing through <span class="ri-place">Tarinor Hub</span> at its centre. The longest road in Vaultria. Where citizens travel between distant zones by vehicle, this road is usually the route. The <span class="ri-place">Tarinex</span> Zone exists partly to maintain this road and the infrastructure around it.</div>
-        <div class="ri-zones"><span class="ri-place">Aurex</span> (<span class="ri-place">Velora</span>) → <span class="ri-place">Tarinor</span> (<span class="ri-place">Tarinex</span>) → <span class="ri-place">Zerex</span> (<span class="ri-place">Zerath Zone</span>) → <span class="ri-place">Viron</span> (<span class="ri-place">Virex</span>) · Amber</div>
+        <div class="ri-desc">The great cross-national highway — running from Aurex in the northwest to Virex in the east, passing through Tarinor Hub at its centre. The longest road in Vaultria. Where citizens travel between distant zones by vehicle, this road is usually the route. The Tarinex Zone exists partly to maintain this road and the infrastructure around it.</div>
+        <div class="ri-zones">Aurex (Velora) → Tarinor (Tarinex) → Zerex (Zerath Zone) → Viron (Virex) · Amber</div>
       </div>
     </div>
 
@@ -1545,8 +1016,8 @@
         <div class="ri-bar" style="background:#C8A020"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The freight highway running the length of the industrial and logistics corridor — from <span class="ri-place">Varon</span> (<span class="ri-place">Varex</span>) through <span class="ri-place">Viron</span> (<span class="ri-place">Virex</span>) and down to <span class="ri-place">Sivor</span> (<span class="ri-place">Sivara</span>). Heavy vehicle traffic. Citizens use it for freight movement, not commuting. The road carries the majority of Vaultria's physical goods from production to distribution.</div>
-        <div class="ri-zones"><span class="ri-place">Varon</span> (<span class="ri-place">Varex</span>) → <span class="ri-place">Viron</span> (<span class="ri-place">Virex</span>) → <span class="ri-place">Sivor</span> (<span class="ri-place">Sivara</span>) → <span class="ri-place">Zerex</span> (<span class="ri-place">Zerath Zone</span>) · Amber — freight priority</div>
+        <div class="ri-desc">The freight highway running the length of the industrial and logistics corridor — from Varon (Varex) through Viron (Virex) and down to Sivor (Sivara). Heavy vehicle traffic. Citizens use it for freight movement, not commuting. The road carries the majority of Vaultria's physical goods from production to distribution.</div>
+        <div class="ri-zones">Varon (Varex) → Viron (Virex) → Sivor (Sivara) → Zerex (Zerath Zone) · Amber — freight priority</div>
       </div>
     </div>
 
@@ -1557,8 +1028,8 @@
         <div class="ri-bar" style="background:#4A80C8"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The trade corridor road connecting the <span class="ri-place">Zerath Zone</span> (trade and finance) directly to <span class="ri-place">Zerath Central</span> in <span class="ri-place">Nerath</span>. Commerce moves on this road daily — goods, financial couriers, market transport. Short but high-volume. The Trade Link rail runs parallel to it, and the two systems together handle the majority of commerce movement between the trade zone and the civilian population core.</div>
-        <div class="ri-zones"><span class="ri-place">Zerex</span> (<span class="ri-place">Zerath Zone</span>) → <span class="ri-place">Zerath</span> (<span class="ri-place">Nerath</span>) · Blue — commerce</div>
+        <div class="ri-desc">The trade corridor road connecting the Zerath Zone (trade and finance) directly to Zerath Central in Nerath. Commerce moves on this road daily — goods, financial couriers, market transport. Short but high-volume. The Trade Link rail runs parallel to it, and the two systems together handle the majority of commerce movement between the trade zone and the civilian population core.</div>
+        <div class="ri-zones">Zerex (Zerath Zone) → Zerath (Nerath) · Blue — commerce</div>
       </div>
     </div>
 
@@ -1569,8 +1040,8 @@
         <div class="ri-bar" style="background:#3A8858"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The knowledge road — connecting <span class="ri-place">Lumor</span> (education capital) to <span class="ri-place">Tarinor Hub</span> and northward to <span class="ri-place">Aurex</span>. Students, researchers and educators travel this road between the capital and the education zone. The road passes through <span class="ri-place">Tarinex</span> and is one of the quieter major roads in Vaultria — more foot and cycle traffic than heavy vehicles.</div>
-        <div class="ri-zones"><span class="ri-place">Lumor</span> (<span class="ri-place">Lumen</span>) → <span class="ri-place">Tarinor</span> (<span class="ri-place">Tarinex</span>) → <span class="ri-place">Aurex</span> (<span class="ri-place">Velora</span>) · Green — knowledge corridor</div>
+        <div class="ri-desc">The knowledge road — connecting Lumor (education capital) to Tarinor Hub and northward to Aurex. Students, researchers and educators travel this road between the capital and the education zone. The road passes through Tarinex and is one of the quieter major roads in Vaultria — more foot and cycle traffic than heavy vehicles.</div>
+        <div class="ri-zones">Lumor (Lumen) → Tarinor (Tarinex) → Aurex (Velora) · Green — knowledge corridor</div>
       </div>
     </div>
 
@@ -1581,8 +1052,8 @@
         <div class="ri-bar" style="background:#3A8858"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The technology corridor road connecting <span class="ri-place">Sivor</span> (<span class="ri-place">Sivara</span>) north to <span class="ri-place">Varon</span> (<span class="ri-place">Varex</span>) and then to <span class="ri-place">Aeris Nod</span>. Technology equipment, research materials and specialist personnel move on this road. The <span class="ri-place">Riven Aeris</span> restricted airport connects to the <span class="ri-place">Sivara Varo</span> for classified cargo movement. One of the few roads in Vaultria that citizens are occasionally asked for purpose of travel on.</div>
-        <div class="ri-zones"><span class="ri-place">Sivor</span> (<span class="ri-place">Sivara</span>) → <span class="ri-place">Varon</span> (<span class="ri-place">Varex</span>) → <span class="ri-place">Aeris Nod</span> (<span class="ri-place">Aeris</span>) · Green — tech corridor</div>
+        <div class="ri-desc">The technology corridor road connecting Sivor (Sivara) north to Varon (Varex) and then to Aeris Nod. Technology equipment, research materials and specialist personnel move on this road. The Riven Aeris restricted airport connects to the Sivara Varo for classified cargo movement. One of the few roads in Vaultria that citizens are occasionally asked for purpose of travel on.</div>
+        <div class="ri-zones">Sivor (Sivara) → Varon (Varex) → Aeris Nod (Aeris) · Green — tech corridor</div>
       </div>
     </div>
 
@@ -1593,8 +1064,8 @@
         <div class="ri-bar" style="background:#4A80C8"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The quiet road of the <span class="ri-place">Lunara</span> residential expansion zone, connecting <span class="ri-place">Lunor</span> to the <span class="ri-place">Tarinex</span> junction. The most pleasant road to walk in Vaultria — wide pavements, green corridor planting along most of its length, low vehicle volume. Citizens from other zones sometimes walk sections of it on Zone Day.</div>
-        <div class="ri-zones"><span class="ri-place">Lunor</span> (<span class="ri-place">Lunara</span>) → <span class="ri-place">Tarinor</span> (<span class="ri-place">Tarinex</span>) junction · Blue — residential</div>
+        <div class="ri-desc">The quiet road of the Lunara residential expansion zone, connecting Lunor to the Tarinex junction. The most pleasant road to walk in Vaultria — wide pavements, green corridor planting along most of its length, low vehicle volume. Citizens from other zones sometimes walk sections of it on Zone Day.</div>
+        <div class="ri-zones">Lunor (Lunara) → Tarinor (Tarinex) junction · Blue — residential</div>
       </div>
     </div>
 
@@ -1605,8 +1076,8 @@
         <div class="ri-bar" style="background:#C04040"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The military road from <span class="ri-place">Drakos</span> (<span class="ri-place">Draven Zone</span>) to <span class="ri-place">Aurex</span>. Civilian vehicle use is permitted on the civilian-access sections only. The inner military sections require drak clearance. Road surface is reinforced for heavy military vehicles. The road runs alongside the Defense Link rail in several sections — the two systems are parallel by design for rapid parallel deployment.</div>
-        <div class="ri-zones"><span class="ri-place">Drakos</span> (<span class="ri-place">Draven</span>) → <span class="ri-place">Aurex</span> (<span class="ri-place">Velora</span>) · Red — military · partial civilian access</div>
+        <div class="ri-desc">The military road from Drakos (Draven Zone) to Aurex. Civilian vehicle use is permitted on the civilian-access sections only. The inner military sections require drak clearance. Road surface is reinforced for heavy military vehicles. The road runs alongside the Defense Link rail in several sections — the two systems are parallel by design for rapid parallel deployment.</div>
+        <div class="ri-zones">Drakos (Draven) → Aurex (Velora) · Red — military · partial civilian access</div>
       </div>
     </div>
 
@@ -1617,19 +1088,20 @@
         <div class="ri-bar" style="background:#C04040; background:repeating-linear-gradient(90deg,#C04040 0,#C04040 8px,transparent 8px,transparent 14px)"></div>
       </div>
       <div class="ri-right">
-        <div class="ri-desc">The restricted access road from <span class="ri-place">Morak</span> (<span class="ri-place">Morvex Zone</span>) to <span class="ri-place">Aurex</span>. Civilian use is not permitted at any point. The road exists on national maps but its routing details are classified. Citizens are aware it exists. No citizen without Tier clearance has travelled it. The dashed line on the national map is the only public information about its exact path.</div>
-        <div class="ri-zones"><span class="ri-place">Morak</span> (<span class="ri-place">Morvex</span>) → <span class="ri-place">Aurex</span> (<span class="ri-place">Velora</span>) · Red dashed — classified routing · Tier clearance only</div>
+        <div class="ri-desc">The restricted access road from Morak (Morvex Zone) to Aurex. Civilian use is not permitted at any point. The road exists on national maps but its routing details are classified. Citizens are aware it exists. No citizen without Tier clearance has travelled it. The dashed line on the national map is the only public information about its exact path.</div>
+        <div class="ri-zones">Morak (Morvex) → Aurex (Velora) · Red dashed — classified routing · Tier clearance only</div>
       </div>
     </div>
 
   </div>
-</section>
+</div>
+<hr>
 
 <!-- ═══ RAIL ═══ -->
-<section class="sec territory-tabpanel" role="tabpanel" id="territory-panel-rail" aria-labelledby="territory-tab-rail territory-rail-h" hidden>
+<div class="sec" id="rail">
   <div class="sh">
     <div class="sh-tag">FlowNet · 8 Lines · 41 Stations</div>
-    <div class="sh-title" id="territory-rail-h">National Rail Network</div>
+    <div class="sh-title">National Rail Network</div>
     <div class="sh-rule"></div>
     <div class="sh-desc">The FlowNet connects all 12 zones. Eight lines, each with a distinct colour, purpose and frequency. Free travel on all 12 public holidays.</div>
   </div>
@@ -1781,13 +1253,14 @@
     </div>
 
   </div>
-</section>
+</div>
+<hr>
 
 <!-- ═══ AIRPORTS ═══ -->
-<section class="sec territory-tabpanel" role="tabpanel" id="territory-panel-airports" aria-labelledby="territory-tab-airports territory-airports-h" hidden>
+<div class="sec" id="airports">
   <div class="sh">
     <div class="sh-tag">5 Airports</div>
-    <div class="sh-title" id="territory-airports-h">National Air Network</div>
+    <div class="sh-title">National Air Network</div>
     <div class="sh-rule"></div>
     <div class="sh-desc">Three public airports, one cargo port, one restricted airstrip. All public airports connect to the FlowNet rail network.</div>
   </div>
@@ -1864,79 +1337,36 @@
     </div>
 
   </div>
-</section>
-            </div>
-          </div>
+</div>
 
-          <footer>
-            <p>The Sovereign State of VAULTRIA — a living document.</p>
-            <p class="latin">Vaultrian National Territory — full layout reference · Territory Authority · Est. 2025 · 12 zones · 38 nodes · 10 roads · 8 rail lines · 5 airports</p>
-            <p class="latin"><code>site/pages/territory.html</code></p>
-          </footer>
-        </main>
-      </div>
-    </div>
-  </div>
-  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
-  <script src="../assets/js/site-nav.js" defer></script>
-  <script src="../assets/js/site-search.js" defer></script>
-  <script>
-    function toggleZone(hdr) {
-      var body = hdr.nextElementSibling;
-      if (!body || !body.classList.contains("zc-body")) return;
-      var tog = hdr.querySelector(".zc-toggle");
-      var open = body.classList.toggle("open");
-      hdr.setAttribute("aria-expanded", open ? "true" : "false");
-      if (tog) tog.textContent = open ? "↑" : "↓";
-      if (hdr.parentElement) {
-        hdr.parentElement.style.borderColor = open ? "rgba(201, 169, 98, 0.38)" : "";
-      }
-    }
-    (function initZoneHeaders() {
-      document.querySelectorAll(".territory-embed .zc-header").forEach(function (h) {
-        h.setAttribute("tabindex", "0");
-        h.setAttribute("role", "button");
-        h.setAttribute("aria-expanded", "false");
-        h.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggleZone(h);
-          }
-        });
-      });
-    })();
-    (function () {
-      "use strict";
-      document.querySelectorAll("[data-territory-tabs]").forEach(function (root) {
-        var tabs = root.querySelectorAll('[role="tab"]');
-        var panels = root.querySelectorAll('[role="tabpanel"]');
-        if (!tabs.length || !panels.length) return;
-        function select(tabId) {
-          tabs.forEach(function (t) {
-            var on = t.id === tabId;
-            t.setAttribute("aria-selected", on ? "true" : "false");
-            t.classList.toggle("is-active", on);
-            t.tabIndex = on ? 0 : -1;
-          });
-          panels.forEach(function (p) {
-            var labelled = p.getAttribute("aria-labelledby") || "";
-            p.hidden = labelled.indexOf(tabId) === -1;
-          });
-        }
-        tabs.forEach(function (tab, i) {
-          tab.addEventListener("click", function () {
-            select(tab.id);
-          });
-          tab.addEventListener("keydown", function (e) {
-            if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-            e.preventDefault();
-            var next = (e.key === "ArrowRight" ? i + 1 : i - 1 + tabs.length) % tabs.length;
-            tabs[next].focus();
-            select(tabs[next].id);
-          });
-        });
-      });
-    })();
-  </script>
+<div class="footer">
+  <div style="font-family:'Cinzel',serif;font-size:.92rem;font-weight:600;letter-spacing:.14em;color:var(--gold-d)">Vaultrian National Territory — Full Layout Reference</div>
+  <div style="font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.28em;color:#141210;margin-top:6px">Territory Authority · Vaultrian · Est. 2025 · 12 Zones · 38 Nodes · 10 Roads · 8 Rail Lines · 5 Airports</div>
+</div>
+
+<script>
+function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function toggleZone(hdr){
+  var body=hdr.nextElementSibling;
+  var tog=hdr.querySelector('.zc-toggle');
+  var open=body.classList.toggle('open');
+  tog.textContent=open?'↑':'↓';
+  hdr.parentElement.style.borderColor=open?'rgba(255,255,255,0.12)':'rgba(255,255,255,0.05)';
+}
+var nbs=document.querySelectorAll('.nb');
+var ids=['summary','zones','roads','rail','airports'];
+window.addEventListener('scroll',function(){
+  ids.forEach(function(id,i){
+    var el=document.getElementById(id);if(!el)return;
+    var r=el.getBoundingClientRect();
+    if(r.top<120&&r.bottom>0){nbs.forEach(function(b){b.classList.remove('on');});nbs[i].classList.add('on');}
+  });
+});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});
+},{threshold:0.04});
+document.querySelectorAll('.sec').forEach(function(s){obs.observe(s);});
+</script>
 </body>
 </html>
+</user_query>

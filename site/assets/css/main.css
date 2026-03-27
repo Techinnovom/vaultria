@@ -252,6 +252,19 @@ header.hero {
   height: 0.5rem;
 }
 
+.doctrine-hero .pillars.motto .motto-vae {
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.doctrine-hero .pillars.motto .motto-eng {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(0.88rem, 2.2vw, 1.02rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
 .doctrine-hero .meta {
   margin-top: 1.25rem;
   font-size: 0.9rem;
@@ -636,6 +649,10 @@ dl.grid dd {
   letter-spacing: 0.05em;
   line-height: 1.7;
   color: var(--text);
+}
+
+.doctrine-card blockquote p {
+  margin: 0;
 }
 
 .doctrine-card .charter {

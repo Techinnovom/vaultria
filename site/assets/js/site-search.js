@@ -13,7 +13,7 @@
   /** id matches site-nav page ids; text is searchable (title + keywords) */
   var SEARCH_INDEX = [
     { id: "home", title: "Home", text: "home overview sovereign state vaultria" },
-    { id: "doctrine", title: "Doctrine", text: "doctrine national pillars absolute safety controlled freedom central authority constitution" },
+    { id: "doctrine", title: "Doctrine", text: "doctrine national motto kiratvel navol truth is permanent anthem constitution" },
     { id: "codex", title: "Codex of Order", text: "codex law legal volume preamble rights zones criminal aegis prime ai emergency foreign amendments sovereignty prime custodian core council" },
     { id: "government", title: "Government", text: "government law courts civic power structure" },
     { id: "authority", title: "Authority", text: "authority prime custodian executive power" },
