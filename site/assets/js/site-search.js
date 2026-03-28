@@ -1,13 +1,24 @@
 (function () {
   "use strict";
 
-  var DEPTH = document.body.getAttribute("data-nav-depth") === "1" ? 1 : 0;
+  var depthAttr = document.body.getAttribute("data-nav-depth");
+  var DEPTH =
+    depthAttr === "2" ? 2 : depthAttr === "1" ? 1 : 0;
 
   function pageHref(id) {
     if (id === "home") {
-      return DEPTH ? "../index.html" : "index.html";
+      if (DEPTH === 2) return "../../index.html";
+      if (DEPTH === 1) return "../index.html";
+      return "index.html";
     }
-    return DEPTH ? id + ".html" : "pages/" + id + ".html";
+    if (id === "vaelic-textbook") {
+      if (DEPTH === 2) return "index.html";
+      if (DEPTH === 1) return "textbook/index.html";
+      return "pages/textbook/index.html";
+    }
+    if (DEPTH === 2) return "../" + id + ".html";
+    if (DEPTH === 1) return id + ".html";
+    return "pages/" + id + ".html";
   }
 
   /** id matches site-nav page ids; text is searchable (title + keywords) */
@@ -37,6 +48,7 @@
     { id: "people", title: "People", text: "people society vaelic language restricted english home family learning license research compliance public civic media workplace foreign" },
     { id: "citizenship", title: "Citizenship application", text: "citizenship apply application register civic oath vaelic line name merit tier vyr wallet cid charter language authority vaultria national" },
     { id: "vaelic", title: "Vaelic language reference", text: "vaelic language phonology alphabet vocabulary conflicts changelog sound class sharp soft hard flow kiratvel words pronunciation national language" },
+    { id: "vaelic-textbook", title: "Vaelic language textbook", text: "vaelic complete textbook curriculum chapters units grammar exercises phonology pronouns verbs questions negation numbers tense daily life society mastery compound words answer key vaultrian language authority" },
     { id: "identity", title: "Identity & visa", text: "identity access citizen visitor visa VEC VAP CID trust biometric V-ENTRY clearance outsider physical ID card credential document" },
     { id: "device", title: "V-ID demo", text: "v-id device demo mock vyrn zonex aegis vaultlog interactive" },
     { id: "economy", title: "Economy", text: "economy vyr core trust restricted cv tv currency salary" },

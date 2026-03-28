@@ -1,0 +1,500 @@
+/* Light textbook app shell */
+.textbook-app {
+  --tb-bg: #f8f9fb;
+  --tb-surface: #ffffff;
+  --tb-border: #e4e8ef;
+  --tb-text: #1a1d24;
+  --tb-muted: #5c6475;
+  --tb-accent: #2b6cb0;
+  --tb-accent-soft: #e8f2fc;
+  --tb-sidebar-w: 280px;
+  margin: 0;
+  min-height: 100vh;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--tb-text);
+  background: var(--tb-bg);
+}
+
+.textbook-app .tb-layout {
+  display: flex;
+  min-height: 100vh;
+  align-items: stretch;
+}
+
+.textbook-app .tb-sidebar {
+  flex: 0 0 var(--tb-sidebar-w);
+  max-width: var(--tb-sidebar-w);
+  background: var(--tb-surface);
+  border-right: 1px solid var(--tb-border);
+  padding: 1.25rem 0 2rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.textbook-app .tb-brand {
+  padding: 0 1.1rem 1rem;
+  border-bottom: 1px solid var(--tb-border);
+  margin-bottom: 0.75rem;
+}
+
+.textbook-app .tb-brand-name {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  color: var(--tb-text);
+  text-decoration: none;
+}
+
+.textbook-app .tb-brand-name:hover {
+  color: var(--tb-accent);
+}
+
+.textbook-app .tb-brand-sub {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--tb-muted);
+  margin-top: 0.25rem;
+}
+
+.textbook-app .tb-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0 0.65rem 1rem;
+  border-bottom: 1px solid var(--tb-border);
+  margin-bottom: 0.5rem;
+}
+
+.textbook-app .tb-sidebar-links a {
+  display: block;
+  padding: 0.45rem 0.5rem;
+  border-radius: 6px;
+  color: var(--tb-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+.textbook-app .tb-sidebar-links a:hover {
+  background: var(--tb-bg);
+  color: var(--tb-text);
+}
+
+.textbook-app .tb-sidebar-links a.is-active {
+  background: var(--tb-accent-soft);
+  color: var(--tb-accent);
+  font-weight: 600;
+}
+
+.textbook-app .tb-outline-host {
+  padding: 0 0.5rem;
+}
+
+.textbook-app .tb-outline-unit {
+  margin-bottom: 0.35rem;
+}
+
+.textbook-app .tb-outline-unit > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tb-muted);
+  padding: 0.5rem 0.45rem;
+  border-radius: 6px;
+}
+
+.textbook-app .tb-outline-unit > summary::-webkit-details-marker {
+  display: none;
+}
+
+.textbook-app .tb-outline-unit > summary::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.35em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  vertical-align: 0.15em;
+  opacity: 0.55;
+}
+
+.textbook-app .tb-outline-unit[open] > summary::before {
+  transform: rotate(45deg);
+  vertical-align: 0.05em;
+}
+
+.textbook-app .tb-outline-ch {
+  margin: 0.15rem 0 0.35rem 0.35rem;
+  border-left: 2px solid var(--tb-border);
+  padding-left: 0.45rem;
+}
+
+.textbook-app .tb-outline-ch > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--tb-text);
+  padding: 0.35rem 0.4rem;
+  border-radius: 6px;
+}
+
+.textbook-app .tb-outline-ch > summary::-webkit-details-marker {
+  display: none;
+}
+
+.textbook-app .tb-outline-ch > summary::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.25em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  vertical-align: 0.12em;
+  opacity: 0.5;
+}
+
+.textbook-app .tb-outline-ch[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+.textbook-app .tb-outline-parts {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.25rem 0.5rem;
+}
+
+.textbook-app .tb-outline-parts a {
+  display: block;
+  font-size: 0.82rem;
+  padding: 0.32rem 0.45rem;
+  border-radius: 6px;
+  color: var(--tb-muted);
+  text-decoration: none;
+  border-right: 3px solid transparent;
+}
+
+.textbook-app .tb-outline-parts a:hover {
+  background: var(--tb-bg);
+  color: var(--tb-text);
+}
+
+.textbook-app .tb-outline-parts a.is-current {
+  background: var(--tb-accent-soft);
+  color: var(--tb-accent);
+  font-weight: 600;
+  border-right-color: var(--tb-accent);
+}
+
+.textbook-app .tb-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textbook-app .tb-chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--tb-surface);
+  border-bottom: 1px solid var(--tb-border);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.textbook-app .tb-breadcrumb {
+  font-size: 0.82rem;
+  color: var(--tb-muted);
+}
+
+.textbook-app .tb-chrome-actions a {
+  color: var(--tb-muted);
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.textbook-app .tb-chrome-actions a:hover {
+  color: var(--tb-accent);
+}
+
+.textbook-app .tb-sheet {
+  flex: 0 1 auto;
+  background: var(--tb-surface);
+  margin: 1.25rem 1.25rem 0;
+  border-radius: 12px;
+  border: 1px solid var(--tb-border);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+  width: min(40rem, calc(100% - 2.5rem));
+  max-width: 40rem;
+  box-sizing: border-box;
+}
+
+.textbook-app .tb-sheet.vaelic-textbook-page {
+  --text: #1a1d24;
+  --text-muted: #5c6475;
+  --bg-elevated: #f0f2f6;
+  --border: #dde2ea;
+  --gold: #8b6914;
+  --gold-dim: rgba(139, 105, 20, 0.35);
+  background: var(--tb-surface);
+  color: var(--text);
+  padding: 0;
+}
+
+.textbook-app .tb-sheet.vaelic-textbook-page .content {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.textbook-app .tb-fragment {
+  padding: 0 2.25rem 2.75rem;
+}
+
+.textbook-app .tb-part-head {
+  padding: 2.25rem 2.25rem 1.35rem;
+  border-bottom: 1px solid var(--tb-border);
+  margin-bottom: 0;
+}
+
+.textbook-app .tb-kicker {
+  font-size: 0.8rem;
+  color: var(--tb-muted);
+  margin: 0 0 0.5rem;
+}
+
+.textbook-app .tb-h1 {
+  font-family: Cinzel, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin: 0;
+  color: var(--tb-text);
+}
+
+.textbook-app .tb-sub {
+  font-size: 1rem;
+  color: var(--tb-muted);
+  margin: 0.5rem 0 0;
+}
+
+.textbook-app .tb-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 1.5rem 0.5rem;
+  width: min(40rem, calc(100% - 2.5rem));
+  max-width: 40rem;
+  box-sizing: border-box;
+}
+
+.textbook-app .tb-pager-link {
+  font-size: 0.88rem;
+  color: var(--tb-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.textbook-app .tb-pager-link:hover {
+  text-decoration: underline;
+}
+
+.textbook-app .tb-foot {
+  padding: 1rem 1.5rem 2rem;
+  width: min(40rem, calc(100% - 2.5rem));
+  max-width: 40rem;
+  box-sizing: border-box;
+}
+
+.textbook-app .tb-back-vault {
+  font-size: 0.85rem;
+  color: var(--tb-muted);
+  text-decoration: none;
+}
+
+.textbook-app .tb-back-vault:hover {
+  color: var(--tb-accent);
+}
+
+.textbook-app.textbook-hub .tb-layout--hub {
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.textbook-app .tb-hub-main {
+  max-width: 36rem;
+}
+
+.textbook-app .tb-hub-title {
+  font-family: Cinzel, serif;
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem;
+}
+
+.textbook-app .tb-hub-lede {
+  color: var(--tb-muted);
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+}
+
+.textbook-app .tb-hub-units {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.textbook-app .tb-hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.15rem;
+  margin-bottom: 0.65rem;
+  background: var(--tb-surface);
+  border: 1px solid var(--tb-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+}
+
+.textbook-app .tb-hub-card:hover {
+  border-color: var(--tb-accent);
+}
+
+.textbook-app .tb-hub-roman {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--tb-accent);
+}
+
+.textbook-app .tb-hub-ut {
+  font-family: Cinzel, serif;
+  font-size: 1.1rem;
+}
+
+.textbook-app .tb-hub-meta {
+  margin-top: 2rem;
+  font-size: 0.88rem;
+}
+
+.textbook-app .tb-hub-meta a {
+  color: var(--tb-accent);
+}
+
+/* Unit overview (split textbook) — one title block, no duplicate h1 */
+.textbook-app .tb-unit-overview {
+  padding: 2rem 2.25rem 2.5rem;
+  box-sizing: border-box;
+}
+
+.textbook-app .tb-sheet .unit-div {
+  margin: 0;
+  padding: 0 0 0.25rem;
+  border-bottom: none;
+}
+
+.textbook-app .tb-sheet .unit-pre,
+.textbook-app .tb-sheet .unit-num {
+  display: inline;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.textbook-app .tb-sheet .unit-pre {
+  color: var(--tb-muted);
+  margin-right: 0.35em;
+}
+
+.textbook-app .tb-sheet .unit-num {
+  color: var(--tb-accent);
+}
+
+.textbook-app .tb-sheet .unit-title {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.55rem, 3.5vw, 2.05rem);
+  font-weight: 700;
+  margin: 0.65rem 0 0.4rem;
+  line-height: 1.2;
+  display: block;
+}
+
+.textbook-app .tb-sheet .unit-years {
+  margin: 0 0 1.1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.textbook-app .tb-sheet .unit-desc {
+  margin: 0;
+  padding: 1.1rem 1.2rem 1.1rem 1.35rem;
+  border-left: 4px solid var(--tb-accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--tb-accent-soft);
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--tb-text);
+}
+
+/* Chapter lesson fragments — drop monolith “new chapter” offsets */
+.textbook-app .tb-sheet .ch.tb-fragment {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.textbook-app .tb-sheet .ch.tb-fragment .ch-badge {
+  margin-top: 0;
+}
+
+.textbook-app .tb-sheet .ch.tb-fragment .ch-title {
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 900px) {
+  .textbook-app .tb-layout {
+    flex-direction: column;
+  }
+
+  .textbook-app .tb-sidebar {
+    position: relative;
+    max-width: none;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--tb-border);
+  }
+
+  .textbook-app .tb-unit-overview,
+  .textbook-app .tb-part-head,
+  .textbook-app .tb-fragment {
+    padding-left: 1.35rem;
+    padding-right: 1.35rem;
+  }
+}

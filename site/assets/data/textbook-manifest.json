@@ -1,0 +1,1740 @@
+{
+  "units": [
+    {
+      "n": 1,
+      "roman": "I",
+      "title": "Foundations",
+      "chapters": [
+        {
+          "n": 1,
+          "title": "Phonology & the Sound System",
+          "parts": [
+            {
+              "id": "u1-c1-p0",
+              "file": "u1-c1-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u1-c1-p1",
+              "file": "u1-c1-p1.html",
+              "label": "1.1 The Five Vowels"
+            },
+            {
+              "id": "u1-c1-p2",
+              "file": "u1-c1-p2.html",
+              "label": "1.2 The Thirteen Consonants"
+            },
+            {
+              "id": "u1-c1-p3",
+              "file": "u1-c1-p3.html",
+              "label": "1.3 The Four Phonological Classes"
+            },
+            {
+              "id": "u1-c1-p4",
+              "file": "u1-c1-p4.html",
+              "label": "1.4 The Stress Rule"
+            },
+            {
+              "id": "u1-c1-p5",
+              "file": "u1-c1-p5.html",
+              "label": "1.5 Forbidden Clusters & Phonetic Purity"
+            },
+            {
+              "id": "u1-c1-p6",
+              "file": "u1-c1-p6.html",
+              "label": "1.6 Pronunciation Practice \u2014 Core Words"
+            },
+            {
+              "id": "u1-c1-p7",
+              "file": "u1-c1-p7.html",
+              "label": "Exercises \u2014 Chapter 1"
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "title": "Pronouns & Identity",
+          "parts": [
+            {
+              "id": "u1-c2-p0",
+              "file": "u1-c2-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u1-c2-p1",
+              "file": "u1-c2-p1.html",
+              "label": "2.1 The Six Pronouns"
+            },
+            {
+              "id": "u1-c2-p2",
+              "file": "u1-c2-p2.html",
+              "label": "2.2 No Gendered Pronouns \u2014 By Design"
+            },
+            {
+              "id": "u1-c2-p3",
+              "file": "u1-c2-p3.html",
+              "label": "2.3 The Rule That Changes Everything: No Verb \"To Be\""
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "title": "Verbs & Word Order",
+          "parts": [
+            {
+              "id": "u1-c3-p0",
+              "file": "u1-c3-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u1-c3-p1",
+              "file": "u1-c3-p1.html",
+              "label": "3.1 The Fixed Word Order \u2014 The Most Important Rule in Vaelic"
+            },
+            {
+              "id": "u1-c3-p2",
+              "file": "u1-c3-p2.html",
+              "label": "3.2 Verbs Never Conjugate"
+            },
+            {
+              "id": "u1-c3-p3",
+              "file": "u1-c3-p3.html",
+              "label": "3.3 The Core Twelve Verbs"
+            },
+            {
+              "id": "u1-c3-p4",
+              "file": "u1-c3-p4.html",
+              "label": "3.4 The Complete Action Vocabulary \u2014 All 55 Verbs"
+            },
+            {
+              "id": "u1-c3-p5",
+              "file": "u1-c3-p5.html",
+              "label": "3.5 Understanding Compound Verbs"
+            },
+            {
+              "id": "u1-c3-p6",
+              "file": "u1-c3-p6.html",
+              "label": "Exercises \u2014 Chapter 3"
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "title": "Questions & Negation",
+          "parts": [
+            {
+              "id": "u1-c4-p0",
+              "file": "u1-c4-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u1-c4-p1",
+              "file": "u1-c4-p1.html",
+              "label": "4.1 Yes/No Questions \u2014 The Ke Particle"
+            },
+            {
+              "id": "u1-c4-p2",
+              "file": "u1-c4-p2.html",
+              "label": "4.2 The Seven Question Words"
+            },
+            {
+              "id": "u1-c4-p3",
+              "file": "u1-c4-p3.html",
+              "label": "4.3 Negation \u2014 The No- Prefix"
+            },
+            {
+              "id": "u1-c4-p4",
+              "file": "u1-c4-p4.html",
+              "label": "4.4 The Urgency Particle Ra"
+            },
+            {
+              "id": "u1-c4-p5",
+              "file": "u1-c4-p5.html",
+              "label": "4.5 Combining Questions and Negation"
+            },
+            {
+              "id": "u1-c4-p6",
+              "file": "u1-c4-p6.html",
+              "label": "Exercises \u2014 Chapter 4"
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "title": "Numbers & Quantifiers",
+          "parts": [
+            {
+              "id": "u1-c5-p0",
+              "file": "u1-c5-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u1-c5-p1",
+              "file": "u1-c5-p1.html",
+              "label": "5.1 The -nek Suffix"
+            },
+            {
+              "id": "u1-c5-p2",
+              "file": "u1-c5-p2.html",
+              "label": "5.2 Building Larger Numbers"
+            },
+            {
+              "id": "u1-c5-p3",
+              "file": "u1-c5-p3.html",
+              "label": "5.3 Ordinals \u2014 The -vek Suffix"
+            },
+            {
+              "id": "u1-c5-p4",
+              "file": "u1-c5-p4.html",
+              "label": "5.4 Quantifiers \u2014 The Complete Set"
+            },
+            {
+              "id": "u1-c5-p5",
+              "file": "u1-c5-p5.html",
+              "label": "5.5 Numbers in Sentences"
+            },
+            {
+              "id": "u1-c5-p6",
+              "file": "u1-c5-p6.html",
+              "label": "Exercises \u2014 Chapter 5"
+            }
+          ]
+        },
+        {
+          "n": 6,
+          "title": "Tense & Time",
+          "parts": [
+            {
+              "id": "u1-c6-p0",
+              "file": "u1-c6-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u1-c6-p1",
+              "file": "u1-c6-p1.html",
+              "label": "6.1 The Four Tense Markers"
+            },
+            {
+              "id": "u1-c6-p2",
+              "file": "u1-c6-p2.html",
+              "label": "6.2 Tense with Negation and Questions"
+            },
+            {
+              "id": "u1-c6-p3",
+              "file": "u1-c6-p3.html",
+              "label": "6.3 The Complete Time Vocabulary \u2014 28 Words"
+            },
+            {
+              "id": "u1-c6-p4",
+              "file": "u1-c6-p4.html",
+              "label": "Exercises \u2014 Chapter 6"
+            }
+          ]
+        }
+      ],
+      "overviewFile": "u1-overview.html"
+    },
+    {
+      "n": 2,
+      "roman": "II",
+      "title": "Daily Life",
+      "chapters": [
+        {
+          "n": 7,
+          "title": "People & Community",
+          "parts": [
+            {
+              "id": "u2-c7-p0",
+              "file": "u2-c7-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u2-c7-p1",
+              "file": "u2-c7-p1.html",
+              "label": "7.1 Revisiting the People Vocabulary \u2014 Depth and Context"
+            },
+            {
+              "id": "u2-c7-p2",
+              "file": "u2-c7-p2.html",
+              "label": "7.2 How Vaultrians Address One Another"
+            },
+            {
+              "id": "u2-c7-p3",
+              "file": "u2-c7-p3.html",
+              "label": "7.3 Family Structures in Vaultrian Culture"
+            },
+            {
+              "id": "u2-c7-p4",
+              "file": "u2-c7-p4.html",
+              "label": "Exercises \u2014 Chapter 7"
+            }
+          ]
+        },
+        {
+          "n": 8,
+          "title": "Places & Navigation",
+          "parts": [
+            {
+              "id": "u2-c8-p0",
+              "file": "u2-c8-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u2-c8-p1",
+              "file": "u2-c8-p1.html",
+              "label": "8.1 The Three Prepositions \u2014 Full Treatment"
+            },
+            {
+              "id": "u2-c8-p2",
+              "file": "u2-c8-p2.html",
+              "label": "8.2 The Complete Places Vocabulary \u2014 32 Words"
+            },
+            {
+              "id": "u2-c8-p3",
+              "file": "u2-c8-p3.html",
+              "label": "8.3 Spatial Expressions \u2014 Going Beyond Lo/Ka/De"
+            },
+            {
+              "id": "u2-c8-p4",
+              "file": "u2-c8-p4.html",
+              "label": "Exercises \u2014 Chapter 8"
+            }
+          ]
+        },
+        {
+          "n": 9,
+          "title": "The Body & Health",
+          "parts": [
+            {
+              "id": "u2-c9-p0",
+              "file": "u2-c9-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u2-c9-p1",
+              "file": "u2-c9-p1.html",
+              "label": "9.1 Introduction & Sound Class Notes"
+            },
+            {
+              "id": "u2-c9-p2",
+              "file": "u2-c9-p2.html",
+              "label": "9.2 Complete Vocabulary \u2014 All Words"
+            },
+            {
+              "id": "u2-c9-p3",
+              "file": "u2-c9-p3.html",
+              "label": "Exercises \u2014 Chapter 9"
+            }
+          ]
+        },
+        {
+          "n": 10,
+          "title": "Food & Nourishment",
+          "parts": [
+            {
+              "id": "u2-c10-p0",
+              "file": "u2-c10-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u2-c10-p1",
+              "file": "u2-c10-p1.html",
+              "label": "10.1 Introduction & Sound Class Notes"
+            },
+            {
+              "id": "u2-c10-p2",
+              "file": "u2-c10-p2.html",
+              "label": "10.2 Complete Vocabulary \u2014 All Words"
+            },
+            {
+              "id": "u2-c10-p3",
+              "file": "u2-c10-p3.html",
+              "label": "Exercises \u2014 Chapter 10"
+            }
+          ]
+        },
+        {
+          "n": 11,
+          "title": "Emotions & Inner Life",
+          "parts": [
+            {
+              "id": "u2-c11-p0",
+              "file": "u2-c11-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u2-c11-p1",
+              "file": "u2-c11-p1.html",
+              "label": "11.1 Introduction & Sound Class Notes"
+            },
+            {
+              "id": "u2-c11-p2",
+              "file": "u2-c11-p2.html",
+              "label": "11.2 Complete Vocabulary \u2014 All Words"
+            },
+            {
+              "id": "u2-c11-p3",
+              "file": "u2-c11-p3.html",
+              "label": "Exercises \u2014 Chapter 11"
+            }
+          ]
+        },
+        {
+          "n": 12,
+          "title": "Descriptors & Comparison",
+          "parts": [
+            {
+              "id": "u2-c12-p0",
+              "file": "u2-c12-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u2-c12-p1",
+              "file": "u2-c12-p1.html",
+              "label": "12.1 Introduction & Sound Class Notes"
+            },
+            {
+              "id": "u2-c12-p2",
+              "file": "u2-c12-p2.html",
+              "label": "12.2 Complete Vocabulary \u2014 All Words"
+            },
+            {
+              "id": "u2-c12-p3",
+              "file": "u2-c12-p3.html",
+              "label": "Exercises \u2014 Chapter 12"
+            }
+          ]
+        }
+      ],
+      "overviewFile": "u2-overview.html"
+    },
+    {
+      "n": 3,
+      "roman": "III",
+      "title": "Society",
+      "chapters": [
+        {
+          "n": 13,
+          "title": "Actions & Verbs \u2014 Full System",
+          "parts": [
+            {
+              "id": "u3-c13-p0",
+              "file": "u3-c13-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u3-c13-p1",
+              "file": "u3-c13-p1.html",
+              "label": "13.1 Complete Vocabulary"
+            },
+            {
+              "id": "u3-c13-p2",
+              "file": "u3-c13-p2.html",
+              "label": "Exercises \u2014 Chapter 13"
+            }
+          ]
+        },
+        {
+          "n": 14,
+          "title": "Government & Law",
+          "parts": [
+            {
+              "id": "u3-c14-p0",
+              "file": "u3-c14-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u3-c14-p1",
+              "file": "u3-c14-p1.html",
+              "label": "14.1 Complete Vocabulary"
+            },
+            {
+              "id": "u3-c14-p2",
+              "file": "u3-c14-p2.html",
+              "label": "Exercises \u2014 Chapter 14"
+            }
+          ]
+        },
+        {
+          "n": 15,
+          "title": "Trade & Economy",
+          "parts": [
+            {
+              "id": "u3-c15-p0",
+              "file": "u3-c15-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u3-c15-p1",
+              "file": "u3-c15-p1.html",
+              "label": "15.1 Complete Vocabulary"
+            },
+            {
+              "id": "u3-c15-p2",
+              "file": "u3-c15-p2.html",
+              "label": "Exercises \u2014 Chapter 15"
+            }
+          ]
+        },
+        {
+          "n": 16,
+          "title": "Military & Defence",
+          "parts": [
+            {
+              "id": "u3-c16-p0",
+              "file": "u3-c16-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u3-c16-p1",
+              "file": "u3-c16-p1.html",
+              "label": "16.1 Complete Vocabulary"
+            },
+            {
+              "id": "u3-c16-p2",
+              "file": "u3-c16-p2.html",
+              "label": "Exercises \u2014 Chapter 16"
+            }
+          ]
+        },
+        {
+          "n": 17,
+          "title": "Nature & Environment",
+          "parts": [
+            {
+              "id": "u3-c17-p0",
+              "file": "u3-c17-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u3-c17-p1",
+              "file": "u3-c17-p1.html",
+              "label": "17.1 Complete Vocabulary"
+            },
+            {
+              "id": "u3-c17-p2",
+              "file": "u3-c17-p2.html",
+              "label": "Exercises \u2014 Chapter 17"
+            }
+          ]
+        },
+        {
+          "n": 18,
+          "title": "Technology & Systems",
+          "parts": [
+            {
+              "id": "u3-c18-p0",
+              "file": "u3-c18-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u3-c18-p1",
+              "file": "u3-c18-p1.html",
+              "label": "18.1 Complete Vocabulary"
+            },
+            {
+              "id": "u3-c18-p2",
+              "file": "u3-c18-p2.html",
+              "label": "Exercises \u2014 Chapter 18"
+            }
+          ]
+        }
+      ],
+      "overviewFile": "u3-overview.html"
+    },
+    {
+      "n": 4,
+      "roman": "IV",
+      "title": "Mastery",
+      "chapters": [
+        {
+          "n": 19,
+          "title": "Mind & Knowledge",
+          "parts": [
+            {
+              "id": "u4-c19-p0",
+              "file": "u4-c19-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u4-c19-p1",
+              "file": "u4-c19-p1.html",
+              "label": "19.1 Complete Vocabulary"
+            },
+            {
+              "id": "u4-c19-p2",
+              "file": "u4-c19-p2.html",
+              "label": "Exercises \u2014 Chapter 19"
+            }
+          ]
+        },
+        {
+          "n": 20,
+          "title": "Spirit & Philosophy",
+          "parts": [
+            {
+              "id": "u4-c20-p0",
+              "file": "u4-c20-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u4-c20-p1",
+              "file": "u4-c20-p1.html",
+              "label": "20.1 Complete Vocabulary"
+            },
+            {
+              "id": "u4-c20-p2",
+              "file": "u4-c20-p2.html",
+              "label": "Exercises \u2014 Chapter 20"
+            }
+          ]
+        },
+        {
+          "n": 21,
+          "title": "Compound Words \u2014 Building New Meaning",
+          "parts": [
+            {
+              "id": "u4-c21-p0",
+              "file": "u4-c21-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u4-c21-p1",
+              "file": "u4-c21-p1.html",
+              "label": "21.1 The Compound Word Rule"
+            },
+            {
+              "id": "u4-c21-p2",
+              "file": "u4-c21-p2.html",
+              "label": "21.2 Canonical Compound Patterns"
+            },
+            {
+              "id": "u4-c21-p3",
+              "file": "u4-c21-p3.html",
+              "label": "21.3 Analysis Practice \u2014 20 Canonical Compounds"
+            },
+            {
+              "id": "u4-c21-p4",
+              "file": "u4-c21-p4.html",
+              "label": "Exercises \u2014 Chapter 21"
+            }
+          ]
+        },
+        {
+          "n": 22,
+          "title": "Complex Sentences",
+          "parts": [
+            {
+              "id": "u4-c22-p0",
+              "file": "u4-c22-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u4-c22-p1",
+              "file": "u4-c22-p1.html",
+              "label": "22.1 Joining Clauses \u2014 Na and Se"
+            },
+            {
+              "id": "u4-c22-p2",
+              "file": "u4-c22-p2.html",
+              "label": "22.2 Extended Patterns"
+            },
+            {
+              "id": "u4-c22-p3",
+              "file": "u4-c22-p3.html",
+              "label": "Exercises \u2014 Chapter 22"
+            }
+          ]
+        },
+        {
+          "n": 23,
+          "title": "Formal Registers",
+          "parts": [
+            {
+              "id": "u4-c23-p0",
+              "file": "u4-c23-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u4-c23-p1",
+              "file": "u4-c23-p1.html",
+              "label": "23.1 Civic Register"
+            },
+            {
+              "id": "u4-c23-p2",
+              "file": "u4-c23-p2.html",
+              "label": "23.2 Legal Register"
+            },
+            {
+              "id": "u4-c23-p3",
+              "file": "u4-c23-p3.html",
+              "label": "23.3 Ceremonial Register \u2014 Key Phrases"
+            },
+            {
+              "id": "u4-c23-p4",
+              "file": "u4-c23-p4.html",
+              "label": "Exercises \u2014 Chapter 23"
+            }
+          ]
+        },
+        {
+          "n": 24,
+          "title": "Free Composition",
+          "parts": [
+            {
+              "id": "u4-c24-p0",
+              "file": "u4-c24-p0.html",
+              "label": "Introduction"
+            },
+            {
+              "id": "u4-c24-p1",
+              "file": "u4-c24-p1.html",
+              "label": "24.1 What Fluency Looks Like in Vaelic"
+            },
+            {
+              "id": "u4-c24-p2",
+              "file": "u4-c24-p2.html",
+              "label": "24.2 Composition Prompts \u2014 Year 10"
+            },
+            {
+              "id": "u4-c24-p3",
+              "file": "u4-c24-p3.html",
+              "label": "24.3 Composition Prompts \u2014 Year 15"
+            },
+            {
+              "id": "u4-c24-p4",
+              "file": "u4-c24-p4.html",
+              "label": "24.4 Composition Prompts \u2014 Year 20"
+            },
+            {
+              "id": "u4-c24-p5",
+              "file": "u4-c24-p5.html",
+              "label": "Final Composition \u2014 Chapter 24"
+            }
+          ]
+        }
+      ],
+      "overviewFile": "u4-overview.html",
+      "outroFile": "u4-outro.html"
+    }
+  ],
+  "parts": [
+    {
+      "id": "u1-overview",
+      "file": "u1-overview.html",
+      "title": "Foundations",
+      "breadcrumb": "Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": null,
+      "part": 0
+    },
+    {
+      "id": "u1-c1-p0",
+      "file": "u1-c1-p0.html",
+      "title": "Phonology & the Sound System \u2014 Introduction",
+      "breadcrumb": "Chapter 1 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 1,
+      "part": 0
+    },
+    {
+      "id": "u1-c1-p1",
+      "file": "u1-c1-p1.html",
+      "title": "Phonology & the Sound System \u2014 1.1 The Five Vowels",
+      "breadcrumb": "Chapter 1 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 1,
+      "part": 1
+    },
+    {
+      "id": "u1-c1-p2",
+      "file": "u1-c1-p2.html",
+      "title": "Phonology & the Sound System \u2014 1.2 The Thirteen Consonants",
+      "breadcrumb": "Chapter 1 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 1,
+      "part": 2
+    },
+    {
+      "id": "u1-c1-p3",
+      "file": "u1-c1-p3.html",
+      "title": "Phonology & the Sound System \u2014 1.3 The Four Phonological Classes",
+      "breadcrumb": "Chapter 1 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 1,
+      "part": 3
+    },
+    {
+      "id": "u1-c1-p4",
+      "file": "u1-c1-p4.html",
+      "title": "Phonology & the Sound System \u2014 1.4 The Stress Rule",
+      "breadcrumb": "Chapter 1 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 1,
+      "part": 4
+    },
+    {
+      "id": "u1-c1-p5",
+      "file": "u1-c1-p5.html",
+      "title": "Phonology & the Sound System \u2014 1.5 Forbidden Clusters & Phonetic Purity",
+      "breadcrumb": "Chapter 1 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 1,
+      "part": 5
+    },
+    {
+      "id": "u1-c1-p6",
+      "file": "u1-c1-p6.html",
+      "title": "Phonology & the Sound System \u2014 1.6 Pronunciation Practice \u2014 Core Words",
+      "breadcrumb": "Chapter 1 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 1,
+      "part": 6
+    },
+    {
+      "id": "u1-c1-p7",
+      "file": "u1-c1-p7.html",
+      "title": "Phonology & the Sound System \u2014 Exercises \u2014 Chapter 1",
+      "breadcrumb": "Chapter 1 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 1,
+      "part": 7
+    },
+    {
+      "id": "u1-c2-p0",
+      "file": "u1-c2-p0.html",
+      "title": "Pronouns & Identity \u2014 Introduction",
+      "breadcrumb": "Chapter 2 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 2,
+      "part": 0
+    },
+    {
+      "id": "u1-c2-p1",
+      "file": "u1-c2-p1.html",
+      "title": "Pronouns & Identity \u2014 2.1 The Six Pronouns",
+      "breadcrumb": "Chapter 2 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 2,
+      "part": 1
+    },
+    {
+      "id": "u1-c2-p2",
+      "file": "u1-c2-p2.html",
+      "title": "Pronouns & Identity \u2014 2.2 No Gendered Pronouns \u2014 By Design",
+      "breadcrumb": "Chapter 2 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 2,
+      "part": 2
+    },
+    {
+      "id": "u1-c2-p3",
+      "file": "u1-c2-p3.html",
+      "title": "Pronouns & Identity \u2014 2.3 The Rule That Changes Everything: No Verb \"To Be\"",
+      "breadcrumb": "Chapter 2 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 2,
+      "part": 3
+    },
+    {
+      "id": "u1-c3-p0",
+      "file": "u1-c3-p0.html",
+      "title": "Verbs & Word Order \u2014 Introduction",
+      "breadcrumb": "Chapter 3 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 3,
+      "part": 0
+    },
+    {
+      "id": "u1-c3-p1",
+      "file": "u1-c3-p1.html",
+      "title": "Verbs & Word Order \u2014 3.1 The Fixed Word Order \u2014 The Most Important Rule in Vaelic",
+      "breadcrumb": "Chapter 3 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 3,
+      "part": 1
+    },
+    {
+      "id": "u1-c3-p2",
+      "file": "u1-c3-p2.html",
+      "title": "Verbs & Word Order \u2014 3.2 Verbs Never Conjugate",
+      "breadcrumb": "Chapter 3 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 3,
+      "part": 2
+    },
+    {
+      "id": "u1-c3-p3",
+      "file": "u1-c3-p3.html",
+      "title": "Verbs & Word Order \u2014 3.3 The Core Twelve Verbs",
+      "breadcrumb": "Chapter 3 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 3,
+      "part": 3
+    },
+    {
+      "id": "u1-c3-p4",
+      "file": "u1-c3-p4.html",
+      "title": "Verbs & Word Order \u2014 3.4 The Complete Action Vocabulary \u2014 All 55 Verbs",
+      "breadcrumb": "Chapter 3 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 3,
+      "part": 4
+    },
+    {
+      "id": "u1-c3-p5",
+      "file": "u1-c3-p5.html",
+      "title": "Verbs & Word Order \u2014 3.5 Understanding Compound Verbs",
+      "breadcrumb": "Chapter 3 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 3,
+      "part": 5
+    },
+    {
+      "id": "u1-c3-p6",
+      "file": "u1-c3-p6.html",
+      "title": "Verbs & Word Order \u2014 Exercises \u2014 Chapter 3",
+      "breadcrumb": "Chapter 3 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 3,
+      "part": 6
+    },
+    {
+      "id": "u1-c4-p0",
+      "file": "u1-c4-p0.html",
+      "title": "Questions & Negation \u2014 Introduction",
+      "breadcrumb": "Chapter 4 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 4,
+      "part": 0
+    },
+    {
+      "id": "u1-c4-p1",
+      "file": "u1-c4-p1.html",
+      "title": "Questions & Negation \u2014 4.1 Yes/No Questions \u2014 The Ke Particle",
+      "breadcrumb": "Chapter 4 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 4,
+      "part": 1
+    },
+    {
+      "id": "u1-c4-p2",
+      "file": "u1-c4-p2.html",
+      "title": "Questions & Negation \u2014 4.2 The Seven Question Words",
+      "breadcrumb": "Chapter 4 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 4,
+      "part": 2
+    },
+    {
+      "id": "u1-c4-p3",
+      "file": "u1-c4-p3.html",
+      "title": "Questions & Negation \u2014 4.3 Negation \u2014 The No- Prefix",
+      "breadcrumb": "Chapter 4 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 4,
+      "part": 3
+    },
+    {
+      "id": "u1-c4-p4",
+      "file": "u1-c4-p4.html",
+      "title": "Questions & Negation \u2014 4.4 The Urgency Particle Ra",
+      "breadcrumb": "Chapter 4 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 4,
+      "part": 4
+    },
+    {
+      "id": "u1-c4-p5",
+      "file": "u1-c4-p5.html",
+      "title": "Questions & Negation \u2014 4.5 Combining Questions and Negation",
+      "breadcrumb": "Chapter 4 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 4,
+      "part": 5
+    },
+    {
+      "id": "u1-c4-p6",
+      "file": "u1-c4-p6.html",
+      "title": "Questions & Negation \u2014 Exercises \u2014 Chapter 4",
+      "breadcrumb": "Chapter 4 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 4,
+      "part": 6
+    },
+    {
+      "id": "u1-c5-p0",
+      "file": "u1-c5-p0.html",
+      "title": "Numbers & Quantifiers \u2014 Introduction",
+      "breadcrumb": "Chapter 5 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 5,
+      "part": 0
+    },
+    {
+      "id": "u1-c5-p1",
+      "file": "u1-c5-p1.html",
+      "title": "Numbers & Quantifiers \u2014 5.1 The -nek Suffix",
+      "breadcrumb": "Chapter 5 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 5,
+      "part": 1
+    },
+    {
+      "id": "u1-c5-p2",
+      "file": "u1-c5-p2.html",
+      "title": "Numbers & Quantifiers \u2014 5.2 Building Larger Numbers",
+      "breadcrumb": "Chapter 5 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 5,
+      "part": 2
+    },
+    {
+      "id": "u1-c5-p3",
+      "file": "u1-c5-p3.html",
+      "title": "Numbers & Quantifiers \u2014 5.3 Ordinals \u2014 The -vek Suffix",
+      "breadcrumb": "Chapter 5 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 5,
+      "part": 3
+    },
+    {
+      "id": "u1-c5-p4",
+      "file": "u1-c5-p4.html",
+      "title": "Numbers & Quantifiers \u2014 5.4 Quantifiers \u2014 The Complete Set",
+      "breadcrumb": "Chapter 5 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 5,
+      "part": 4
+    },
+    {
+      "id": "u1-c5-p5",
+      "file": "u1-c5-p5.html",
+      "title": "Numbers & Quantifiers \u2014 5.5 Numbers in Sentences",
+      "breadcrumb": "Chapter 5 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 5,
+      "part": 5
+    },
+    {
+      "id": "u1-c5-p6",
+      "file": "u1-c5-p6.html",
+      "title": "Numbers & Quantifiers \u2014 Exercises \u2014 Chapter 5",
+      "breadcrumb": "Chapter 5 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 5,
+      "part": 6
+    },
+    {
+      "id": "u1-c6-p0",
+      "file": "u1-c6-p0.html",
+      "title": "Tense & Time \u2014 Introduction",
+      "breadcrumb": "Chapter 6 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 6,
+      "part": 0
+    },
+    {
+      "id": "u1-c6-p1",
+      "file": "u1-c6-p1.html",
+      "title": "Tense & Time \u2014 6.1 The Four Tense Markers",
+      "breadcrumb": "Chapter 6 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 6,
+      "part": 1
+    },
+    {
+      "id": "u1-c6-p2",
+      "file": "u1-c6-p2.html",
+      "title": "Tense & Time \u2014 6.2 Tense with Negation and Questions",
+      "breadcrumb": "Chapter 6 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 6,
+      "part": 2
+    },
+    {
+      "id": "u1-c6-p3",
+      "file": "u1-c6-p3.html",
+      "title": "Tense & Time \u2014 6.3 The Complete Time Vocabulary \u2014 28 Words",
+      "breadcrumb": "Chapter 6 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 6,
+      "part": 3
+    },
+    {
+      "id": "u1-c6-p4",
+      "file": "u1-c6-p4.html",
+      "title": "Tense & Time \u2014 Exercises \u2014 Chapter 6",
+      "breadcrumb": "Chapter 6 \u00b7 Unit I \u2014 Foundations",
+      "unit": 1,
+      "chapter": 6,
+      "part": 4
+    },
+    {
+      "id": "u2-overview",
+      "file": "u2-overview.html",
+      "title": "Daily Life",
+      "breadcrumb": "Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": null,
+      "part": 0
+    },
+    {
+      "id": "u2-c7-p0",
+      "file": "u2-c7-p0.html",
+      "title": "People & Community \u2014 Introduction",
+      "breadcrumb": "Chapter 7 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 7,
+      "part": 0
+    },
+    {
+      "id": "u2-c7-p1",
+      "file": "u2-c7-p1.html",
+      "title": "People & Community \u2014 7.1 Revisiting the People Vocabulary \u2014 Depth and Context",
+      "breadcrumb": "Chapter 7 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 7,
+      "part": 1
+    },
+    {
+      "id": "u2-c7-p2",
+      "file": "u2-c7-p2.html",
+      "title": "People & Community \u2014 7.2 How Vaultrians Address One Another",
+      "breadcrumb": "Chapter 7 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 7,
+      "part": 2
+    },
+    {
+      "id": "u2-c7-p3",
+      "file": "u2-c7-p3.html",
+      "title": "People & Community \u2014 7.3 Family Structures in Vaultrian Culture",
+      "breadcrumb": "Chapter 7 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 7,
+      "part": 3
+    },
+    {
+      "id": "u2-c7-p4",
+      "file": "u2-c7-p4.html",
+      "title": "People & Community \u2014 Exercises \u2014 Chapter 7",
+      "breadcrumb": "Chapter 7 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 7,
+      "part": 4
+    },
+    {
+      "id": "u2-c8-p0",
+      "file": "u2-c8-p0.html",
+      "title": "Places & Navigation \u2014 Introduction",
+      "breadcrumb": "Chapter 8 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 8,
+      "part": 0
+    },
+    {
+      "id": "u2-c8-p1",
+      "file": "u2-c8-p1.html",
+      "title": "Places & Navigation \u2014 8.1 The Three Prepositions \u2014 Full Treatment",
+      "breadcrumb": "Chapter 8 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 8,
+      "part": 1
+    },
+    {
+      "id": "u2-c8-p2",
+      "file": "u2-c8-p2.html",
+      "title": "Places & Navigation \u2014 8.2 The Complete Places Vocabulary \u2014 32 Words",
+      "breadcrumb": "Chapter 8 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 8,
+      "part": 2
+    },
+    {
+      "id": "u2-c8-p3",
+      "file": "u2-c8-p3.html",
+      "title": "Places & Navigation \u2014 8.3 Spatial Expressions \u2014 Going Beyond Lo/Ka/De",
+      "breadcrumb": "Chapter 8 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 8,
+      "part": 3
+    },
+    {
+      "id": "u2-c8-p4",
+      "file": "u2-c8-p4.html",
+      "title": "Places & Navigation \u2014 Exercises \u2014 Chapter 8",
+      "breadcrumb": "Chapter 8 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 8,
+      "part": 4
+    },
+    {
+      "id": "u2-c9-p0",
+      "file": "u2-c9-p0.html",
+      "title": "The Body & Health \u2014 Introduction",
+      "breadcrumb": "Chapter 9 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 9,
+      "part": 0
+    },
+    {
+      "id": "u2-c9-p1",
+      "file": "u2-c9-p1.html",
+      "title": "The Body & Health \u2014 9.1 Introduction & Sound Class Notes",
+      "breadcrumb": "Chapter 9 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 9,
+      "part": 1
+    },
+    {
+      "id": "u2-c9-p2",
+      "file": "u2-c9-p2.html",
+      "title": "The Body & Health \u2014 9.2 Complete Vocabulary \u2014 All Words",
+      "breadcrumb": "Chapter 9 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 9,
+      "part": 2
+    },
+    {
+      "id": "u2-c9-p3",
+      "file": "u2-c9-p3.html",
+      "title": "The Body & Health \u2014 Exercises \u2014 Chapter 9",
+      "breadcrumb": "Chapter 9 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 9,
+      "part": 3
+    },
+    {
+      "id": "u2-c10-p0",
+      "file": "u2-c10-p0.html",
+      "title": "Food & Nourishment \u2014 Introduction",
+      "breadcrumb": "Chapter 10 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 10,
+      "part": 0
+    },
+    {
+      "id": "u2-c10-p1",
+      "file": "u2-c10-p1.html",
+      "title": "Food & Nourishment \u2014 10.1 Introduction & Sound Class Notes",
+      "breadcrumb": "Chapter 10 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 10,
+      "part": 1
+    },
+    {
+      "id": "u2-c10-p2",
+      "file": "u2-c10-p2.html",
+      "title": "Food & Nourishment \u2014 10.2 Complete Vocabulary \u2014 All Words",
+      "breadcrumb": "Chapter 10 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 10,
+      "part": 2
+    },
+    {
+      "id": "u2-c10-p3",
+      "file": "u2-c10-p3.html",
+      "title": "Food & Nourishment \u2014 Exercises \u2014 Chapter 10",
+      "breadcrumb": "Chapter 10 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 10,
+      "part": 3
+    },
+    {
+      "id": "u2-c11-p0",
+      "file": "u2-c11-p0.html",
+      "title": "Emotions & Inner Life \u2014 Introduction",
+      "breadcrumb": "Chapter 11 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 11,
+      "part": 0
+    },
+    {
+      "id": "u2-c11-p1",
+      "file": "u2-c11-p1.html",
+      "title": "Emotions & Inner Life \u2014 11.1 Introduction & Sound Class Notes",
+      "breadcrumb": "Chapter 11 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 11,
+      "part": 1
+    },
+    {
+      "id": "u2-c11-p2",
+      "file": "u2-c11-p2.html",
+      "title": "Emotions & Inner Life \u2014 11.2 Complete Vocabulary \u2014 All Words",
+      "breadcrumb": "Chapter 11 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 11,
+      "part": 2
+    },
+    {
+      "id": "u2-c11-p3",
+      "file": "u2-c11-p3.html",
+      "title": "Emotions & Inner Life \u2014 Exercises \u2014 Chapter 11",
+      "breadcrumb": "Chapter 11 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 11,
+      "part": 3
+    },
+    {
+      "id": "u2-c12-p0",
+      "file": "u2-c12-p0.html",
+      "title": "Descriptors & Comparison \u2014 Introduction",
+      "breadcrumb": "Chapter 12 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 12,
+      "part": 0
+    },
+    {
+      "id": "u2-c12-p1",
+      "file": "u2-c12-p1.html",
+      "title": "Descriptors & Comparison \u2014 12.1 Introduction & Sound Class Notes",
+      "breadcrumb": "Chapter 12 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 12,
+      "part": 1
+    },
+    {
+      "id": "u2-c12-p2",
+      "file": "u2-c12-p2.html",
+      "title": "Descriptors & Comparison \u2014 12.2 Complete Vocabulary \u2014 All Words",
+      "breadcrumb": "Chapter 12 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 12,
+      "part": 2
+    },
+    {
+      "id": "u2-c12-p3",
+      "file": "u2-c12-p3.html",
+      "title": "Descriptors & Comparison \u2014 Exercises \u2014 Chapter 12",
+      "breadcrumb": "Chapter 12 \u00b7 Unit II \u2014 Daily Life",
+      "unit": 2,
+      "chapter": 12,
+      "part": 3
+    },
+    {
+      "id": "u3-overview",
+      "file": "u3-overview.html",
+      "title": "Society",
+      "breadcrumb": "Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": null,
+      "part": 0
+    },
+    {
+      "id": "u3-c13-p0",
+      "file": "u3-c13-p0.html",
+      "title": "Actions & Verbs \u2014 Full System \u2014 Introduction",
+      "breadcrumb": "Chapter 13 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 13,
+      "part": 0
+    },
+    {
+      "id": "u3-c13-p1",
+      "file": "u3-c13-p1.html",
+      "title": "Actions & Verbs \u2014 Full System \u2014 13.1 Complete Vocabulary",
+      "breadcrumb": "Chapter 13 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 13,
+      "part": 1
+    },
+    {
+      "id": "u3-c13-p2",
+      "file": "u3-c13-p2.html",
+      "title": "Actions & Verbs \u2014 Full System \u2014 Exercises \u2014 Chapter 13",
+      "breadcrumb": "Chapter 13 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 13,
+      "part": 2
+    },
+    {
+      "id": "u3-c14-p0",
+      "file": "u3-c14-p0.html",
+      "title": "Government & Law \u2014 Introduction",
+      "breadcrumb": "Chapter 14 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 14,
+      "part": 0
+    },
+    {
+      "id": "u3-c14-p1",
+      "file": "u3-c14-p1.html",
+      "title": "Government & Law \u2014 14.1 Complete Vocabulary",
+      "breadcrumb": "Chapter 14 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 14,
+      "part": 1
+    },
+    {
+      "id": "u3-c14-p2",
+      "file": "u3-c14-p2.html",
+      "title": "Government & Law \u2014 Exercises \u2014 Chapter 14",
+      "breadcrumb": "Chapter 14 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 14,
+      "part": 2
+    },
+    {
+      "id": "u3-c15-p0",
+      "file": "u3-c15-p0.html",
+      "title": "Trade & Economy \u2014 Introduction",
+      "breadcrumb": "Chapter 15 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 15,
+      "part": 0
+    },
+    {
+      "id": "u3-c15-p1",
+      "file": "u3-c15-p1.html",
+      "title": "Trade & Economy \u2014 15.1 Complete Vocabulary",
+      "breadcrumb": "Chapter 15 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 15,
+      "part": 1
+    },
+    {
+      "id": "u3-c15-p2",
+      "file": "u3-c15-p2.html",
+      "title": "Trade & Economy \u2014 Exercises \u2014 Chapter 15",
+      "breadcrumb": "Chapter 15 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 15,
+      "part": 2
+    },
+    {
+      "id": "u3-c16-p0",
+      "file": "u3-c16-p0.html",
+      "title": "Military & Defence \u2014 Introduction",
+      "breadcrumb": "Chapter 16 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 16,
+      "part": 0
+    },
+    {
+      "id": "u3-c16-p1",
+      "file": "u3-c16-p1.html",
+      "title": "Military & Defence \u2014 16.1 Complete Vocabulary",
+      "breadcrumb": "Chapter 16 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 16,
+      "part": 1
+    },
+    {
+      "id": "u3-c16-p2",
+      "file": "u3-c16-p2.html",
+      "title": "Military & Defence \u2014 Exercises \u2014 Chapter 16",
+      "breadcrumb": "Chapter 16 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 16,
+      "part": 2
+    },
+    {
+      "id": "u3-c17-p0",
+      "file": "u3-c17-p0.html",
+      "title": "Nature & Environment \u2014 Introduction",
+      "breadcrumb": "Chapter 17 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 17,
+      "part": 0
+    },
+    {
+      "id": "u3-c17-p1",
+      "file": "u3-c17-p1.html",
+      "title": "Nature & Environment \u2014 17.1 Complete Vocabulary",
+      "breadcrumb": "Chapter 17 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 17,
+      "part": 1
+    },
+    {
+      "id": "u3-c17-p2",
+      "file": "u3-c17-p2.html",
+      "title": "Nature & Environment \u2014 Exercises \u2014 Chapter 17",
+      "breadcrumb": "Chapter 17 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 17,
+      "part": 2
+    },
+    {
+      "id": "u3-c18-p0",
+      "file": "u3-c18-p0.html",
+      "title": "Technology & Systems \u2014 Introduction",
+      "breadcrumb": "Chapter 18 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 18,
+      "part": 0
+    },
+    {
+      "id": "u3-c18-p1",
+      "file": "u3-c18-p1.html",
+      "title": "Technology & Systems \u2014 18.1 Complete Vocabulary",
+      "breadcrumb": "Chapter 18 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 18,
+      "part": 1
+    },
+    {
+      "id": "u3-c18-p2",
+      "file": "u3-c18-p2.html",
+      "title": "Technology & Systems \u2014 Exercises \u2014 Chapter 18",
+      "breadcrumb": "Chapter 18 \u00b7 Unit III \u2014 Society",
+      "unit": 3,
+      "chapter": 18,
+      "part": 2
+    },
+    {
+      "id": "u4-overview",
+      "file": "u4-overview.html",
+      "title": "Mastery",
+      "breadcrumb": "Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": null,
+      "part": 0
+    },
+    {
+      "id": "u4-c19-p0",
+      "file": "u4-c19-p0.html",
+      "title": "Mind & Knowledge \u2014 Introduction",
+      "breadcrumb": "Chapter 19 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 19,
+      "part": 0
+    },
+    {
+      "id": "u4-c19-p1",
+      "file": "u4-c19-p1.html",
+      "title": "Mind & Knowledge \u2014 19.1 Complete Vocabulary",
+      "breadcrumb": "Chapter 19 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 19,
+      "part": 1
+    },
+    {
+      "id": "u4-c19-p2",
+      "file": "u4-c19-p2.html",
+      "title": "Mind & Knowledge \u2014 Exercises \u2014 Chapter 19",
+      "breadcrumb": "Chapter 19 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 19,
+      "part": 2
+    },
+    {
+      "id": "u4-c20-p0",
+      "file": "u4-c20-p0.html",
+      "title": "Spirit & Philosophy \u2014 Introduction",
+      "breadcrumb": "Chapter 20 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 20,
+      "part": 0
+    },
+    {
+      "id": "u4-c20-p1",
+      "file": "u4-c20-p1.html",
+      "title": "Spirit & Philosophy \u2014 20.1 Complete Vocabulary",
+      "breadcrumb": "Chapter 20 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 20,
+      "part": 1
+    },
+    {
+      "id": "u4-c20-p2",
+      "file": "u4-c20-p2.html",
+      "title": "Spirit & Philosophy \u2014 Exercises \u2014 Chapter 20",
+      "breadcrumb": "Chapter 20 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 20,
+      "part": 2
+    },
+    {
+      "id": "u4-c21-p0",
+      "file": "u4-c21-p0.html",
+      "title": "Compound Words \u2014 Building New Meaning \u2014 Introduction",
+      "breadcrumb": "Chapter 21 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 21,
+      "part": 0
+    },
+    {
+      "id": "u4-c21-p1",
+      "file": "u4-c21-p1.html",
+      "title": "Compound Words \u2014 Building New Meaning \u2014 21.1 The Compound Word Rule",
+      "breadcrumb": "Chapter 21 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 21,
+      "part": 1
+    },
+    {
+      "id": "u4-c21-p2",
+      "file": "u4-c21-p2.html",
+      "title": "Compound Words \u2014 Building New Meaning \u2014 21.2 Canonical Compound Patterns",
+      "breadcrumb": "Chapter 21 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 21,
+      "part": 2
+    },
+    {
+      "id": "u4-c21-p3",
+      "file": "u4-c21-p3.html",
+      "title": "Compound Words \u2014 Building New Meaning \u2014 21.3 Analysis Practice \u2014 20 Canonical Compounds",
+      "breadcrumb": "Chapter 21 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 21,
+      "part": 3
+    },
+    {
+      "id": "u4-c21-p4",
+      "file": "u4-c21-p4.html",
+      "title": "Compound Words \u2014 Building New Meaning \u2014 Exercises \u2014 Chapter 21",
+      "breadcrumb": "Chapter 21 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 21,
+      "part": 4
+    },
+    {
+      "id": "u4-c22-p0",
+      "file": "u4-c22-p0.html",
+      "title": "Complex Sentences \u2014 Introduction",
+      "breadcrumb": "Chapter 22 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 22,
+      "part": 0
+    },
+    {
+      "id": "u4-c22-p1",
+      "file": "u4-c22-p1.html",
+      "title": "Complex Sentences \u2014 22.1 Joining Clauses \u2014 Na and Se",
+      "breadcrumb": "Chapter 22 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 22,
+      "part": 1
+    },
+    {
+      "id": "u4-c22-p2",
+      "file": "u4-c22-p2.html",
+      "title": "Complex Sentences \u2014 22.2 Extended Patterns",
+      "breadcrumb": "Chapter 22 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 22,
+      "part": 2
+    },
+    {
+      "id": "u4-c22-p3",
+      "file": "u4-c22-p3.html",
+      "title": "Complex Sentences \u2014 Exercises \u2014 Chapter 22",
+      "breadcrumb": "Chapter 22 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 22,
+      "part": 3
+    },
+    {
+      "id": "u4-c23-p0",
+      "file": "u4-c23-p0.html",
+      "title": "Formal Registers \u2014 Introduction",
+      "breadcrumb": "Chapter 23 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 23,
+      "part": 0
+    },
+    {
+      "id": "u4-c23-p1",
+      "file": "u4-c23-p1.html",
+      "title": "Formal Registers \u2014 23.1 Civic Register",
+      "breadcrumb": "Chapter 23 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 23,
+      "part": 1
+    },
+    {
+      "id": "u4-c23-p2",
+      "file": "u4-c23-p2.html",
+      "title": "Formal Registers \u2014 23.2 Legal Register",
+      "breadcrumb": "Chapter 23 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 23,
+      "part": 2
+    },
+    {
+      "id": "u4-c23-p3",
+      "file": "u4-c23-p3.html",
+      "title": "Formal Registers \u2014 23.3 Ceremonial Register \u2014 Key Phrases",
+      "breadcrumb": "Chapter 23 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 23,
+      "part": 3
+    },
+    {
+      "id": "u4-c23-p4",
+      "file": "u4-c23-p4.html",
+      "title": "Formal Registers \u2014 Exercises \u2014 Chapter 23",
+      "breadcrumb": "Chapter 23 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 23,
+      "part": 4
+    },
+    {
+      "id": "u4-c24-p0",
+      "file": "u4-c24-p0.html",
+      "title": "Free Composition \u2014 Introduction",
+      "breadcrumb": "Chapter 24 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 24,
+      "part": 0
+    },
+    {
+      "id": "u4-c24-p1",
+      "file": "u4-c24-p1.html",
+      "title": "Free Composition \u2014 24.1 What Fluency Looks Like in Vaelic",
+      "breadcrumb": "Chapter 24 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 24,
+      "part": 1
+    },
+    {
+      "id": "u4-c24-p2",
+      "file": "u4-c24-p2.html",
+      "title": "Free Composition \u2014 24.2 Composition Prompts \u2014 Year 10",
+      "breadcrumb": "Chapter 24 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 24,
+      "part": 2
+    },
+    {
+      "id": "u4-c24-p3",
+      "file": "u4-c24-p3.html",
+      "title": "Free Composition \u2014 24.3 Composition Prompts \u2014 Year 15",
+      "breadcrumb": "Chapter 24 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 24,
+      "part": 3
+    },
+    {
+      "id": "u4-c24-p4",
+      "file": "u4-c24-p4.html",
+      "title": "Free Composition \u2014 24.4 Composition Prompts \u2014 Year 20",
+      "breadcrumb": "Chapter 24 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 24,
+      "part": 4
+    },
+    {
+      "id": "u4-c24-p5",
+      "file": "u4-c24-p5.html",
+      "title": "Free Composition \u2014 Final Composition \u2014 Chapter 24",
+      "breadcrumb": "Chapter 24 \u00b7 Unit IV \u2014 Mastery",
+      "unit": 4,
+      "chapter": 24,
+      "part": 5
+    },
+    {
+      "id": "u4-outro",
+      "file": "u4-outro.html",
+      "title": "Closing \u2014 Kiratvel navol",
+      "breadcrumb": "Unit IV \u2014 Closing",
+      "unit": 4,
+      "chapter": null,
+      "part": 0
+    }
+  ]
+}

@@ -1,0 +1,727 @@
+/* Vaelic textbook — vault theme, scoped to site shell */
+.wrap.vaelic-textbook-wrap {
+  max-width: min(920px, 100%);
+  width: 100%;
+}
+
+.vaelic-textbook-page {
+  /* Inline theme vars used in textbook markup (dark shell) */
+  --u1: #c85858;
+  --u2: #6a9fd4;
+  --u3: #5cb88a;
+  --u4: #a578d4;
+  --red: #c84040;
+  --grn: #4a9870;
+  --blu: #5a8ac8;
+  --pur: #8850c8;
+  --i3: var(--text-muted);
+  --i4: var(--text-muted);
+  --p3: var(--bg-elevated);
+  --r2: var(--border);
+  --g2: var(--gold);
+  --tb-sharp: #c84040;
+  --tb-soft: #4a9870;
+  --tb-hard: #5a8ac8;
+  --tb-flow: #8850c8;
+  font-family: "Crimson Pro", Georgia, ui-serif, serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text);
+  background: transparent;
+}
+
+.vaelic-textbook-page .page-title {
+  color: var(--gold);
+  border-bottom-color: var(--border);
+}
+
+.vaelic-textbook-page .unit-title,
+.vaelic-textbook-page .ch-title,
+.vaelic-textbook-page .exs-hd,
+.vaelic-textbook-page .sec-t {
+  font-family: Cinzel, serif;
+  letter-spacing: 0.04em;
+}
+
+.vaelic-textbook-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.vaelic-textbook-page .tier-kicker a:hover {
+  text-decoration: underline;
+}
+
+.vaelic-textbook-page .vaelic-textbook-sheet {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+
+.vaelic-textbook-page .vaelic-textbook-sheet::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), rgba(74, 111, 165, 0.55), var(--gold-dim));
+}
+
+.vaelic-textbook-page .vaelic-textbook-sheet .content {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.5rem 3.25rem;
+}
+
+/* Compound selectors so generated .ch / .unit-div rules cannot override hides */
+.vaelic-textbook-page .unit-div.vt-tab-hidden,
+.vaelic-textbook-page .ch.vt-ch-hidden,
+.vaelic-textbook-page .ch.vt-tab-hidden {
+  display: none !important;
+}
+
+.vaelic-textbook-page [data-vt-outro].vt-ch-hidden,
+.vaelic-textbook-page [data-vt-outro].vt-tab-hidden {
+  display: none !important;
+}
+
+.vaelic-textbook-page .vt-seg.vt-part-hidden {
+  display: none !important;
+}
+
+.vaelic-textbook-page .vt-tab-hidden {
+  display: none !important;
+}
+
+.vaelic-textbook-page .vt-ch-hidden {
+  display: none !important;
+}
+
+.vaelic-textbook-page .vt-part-hidden {
+  display: none !important;
+}
+
+/* Wider sidebar + Word-style textbook outline (injected by vaelic-textbook.js) */
+body.vt-textbook-outline .site-sidebar {
+  width: min(320px, 100%);
+}
+
+body.vt-textbook-outline .vt-outline-wrap {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+body.vt-textbook-outline .vt-outline-head {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  padding: 0 0.5rem 0.65rem;
+  margin: 0;
+}
+
+body.vt-textbook-outline #vt-outline-nav {
+  max-height: min(55vh, 28rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0.15rem 0.75rem 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+body.vt-textbook-outline .vt-outline-units {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.vt-textbook-outline .vt-outline-units > li {
+  margin: 0 0 0.35rem;
+}
+
+body.vt-textbook-outline .vt-outline-details {
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+body.vt-textbook-outline .vt-outline-details[open] {
+  background: rgba(201, 169, 98, 0.04);
+  border-color: rgba(201, 169, 98, 0.12);
+}
+
+body.vt-textbook-outline .vt-outline-summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  font-family: Cinzel, serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 0.4rem 0.45rem 0.4rem 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+body.vt-textbook-outline .vt-outline-summary::-webkit-details-marker {
+  display: none;
+}
+
+body.vt-textbook-outline .vt-outline-summary::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.3em;
+  height: 0.3em;
+  margin-top: 0.35em;
+  border-right: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+  transform: rotate(-45deg);
+  opacity: 0.8;
+}
+
+body.vt-textbook-outline .vt-outline-details[open] > .vt-outline-summary::before {
+  transform: rotate(45deg);
+  margin-top: 0.25em;
+}
+
+body.vt-textbook-outline .vt-outline-summary:hover {
+  color: var(--gold);
+}
+
+body.vt-textbook-outline .vt-outline-branch {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.35rem 0.5rem;
+  border-left: 2px solid rgba(201, 169, 98, 0.15);
+  margin-left: 0.65rem;
+}
+
+body.vt-textbook-outline .vt-outline-branch > li {
+  margin: 0.08rem 0;
+}
+
+body.vt-textbook-outline .vt-outline-link {
+  display: block;
+  font-family: "Crimson Pro", Georgia, ui-serif, serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  line-height: 1.35;
+  text-decoration: none;
+  color: var(--text-muted);
+  padding: 0.28rem 0.4rem 0.28rem 0.45rem;
+  margin: 0;
+  border-radius: 3px;
+  border-left: 2px solid transparent;
+  transition: color 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+body.vt-textbook-outline .vt-outline-link:hover {
+  color: var(--text);
+  background: rgba(201, 169, 98, 0.07);
+}
+
+body.vt-textbook-outline .vt-outline-link:focus-visible {
+  outline: 2px solid rgba(201, 169, 98, 0.45);
+  outline-offset: 1px;
+}
+
+body.vt-textbook-outline .vt-outline-link.is-active {
+  color: var(--gold);
+  background: rgba(201, 169, 98, 0.1);
+  border-left-color: var(--gold);
+}
+
+body.vt-textbook-outline .vt-outline-chapter > .vt-outline-summary {
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 1.3;
+}
+
+body.vt-textbook-outline .vt-outline-chapter[open] > .vt-outline-summary {
+  color: var(--text);
+}
+
+body.vt-textbook-outline .vt-outline-parts {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.4rem 0.45rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  margin-left: 0.5rem;
+}
+
+body.vt-textbook-outline .vt-outline-parts .vt-outline-link {
+  font-size: 0.74rem;
+  padding-top: 0.22rem;
+  padding-bottom: 0.22rem;
+}
+
+/* Unit numerals (inline rgba removed in build patch) */
+.vaelic-textbook-page #u1 .unit-num {
+  color: rgba(200, 90, 90, 0.65);
+}
+.vaelic-textbook-page #u2 .unit-num {
+  color: rgba(106, 159, 212, 0.65);
+}
+.vaelic-textbook-page #u3 .unit-num {
+  color: rgba(92, 184, 138, 0.65);
+}
+.vaelic-textbook-page #u4 .unit-num {
+  color: rgba(165, 120, 212, 0.65);
+}
+
+.vaelic-textbook-page *,
+.vaelic-textbook-page *::before,
+.vaelic-textbook-page *::after {
+  box-sizing: border-box;
+}
+
+.vaelic-textbook-page .ak-t:focus-visible {
+  outline: 2px solid rgba(201, 169, 98, 0.45);
+  outline-offset: 3px;
+}
+
+.vaelic-textbook-page button.ak-t:hover {
+  color: var(--text);
+}
+
+.vaelic-textbook-page table.vt tbody tr:hover td {
+  background: rgba(201, 169, 98, 0.08);
+}
+
+
+
+
+
+
+
+.vaelic-textbook-page .content{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 60px 32px 120px;
+}
+
+
+.vaelic-textbook-page .unit-div{
+  margin: 80px 0 0;
+  padding: 40px 0 24px;
+  border-bottom: 2px solid var(--gold);
+}
+.vaelic-textbook-page .unit-pre{ display: none; }
+.vaelic-textbook-page .unit-num{
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  font-size: .75rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 4px;
+}
+.vaelic-textbook-page .unit-title{
+  font-family: "Crimson Pro", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.vaelic-textbook-page .unit-years{
+  font-family: "Cinzel", serif;
+  font-size: .8rem;
+  color: var(--gold-dim);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.vaelic-textbook-page .unit-desc{
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: .97rem;
+  border-left: 3px solid var(--gold);
+  padding-left: 16px;
+  margin: 0;
+}
+
+
+.vaelic-textbook-page .ch{
+  margin-top: 80px;
+  padding-top: 0;
+  border-top: 1px solid var(--border);
+}
+.vaelic-textbook-page .ch::before{ display: none; }
+.vaelic-textbook-page .ch-badge{
+  font-family: "Cinzel", serif;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 8px;
+  margin-top: 40px;
+}
+.vaelic-textbook-page .ch-badge::after{ display: none; }
+.vaelic-textbook-page .ch-title{
+  font-family: "Crimson Pro", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.vaelic-textbook-page .ch-vae{
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: .95rem;
+  margin-bottom: 16px;
+}
+.vaelic-textbook-page .ch-intro{
+  font-style: italic;
+  color: var(--text-muted);
+  border-left: 3px solid var(--gold);
+  padding-left: 16px;
+  margin-bottom: 12px;
+  font-size: .97rem;
+}
+.vaelic-textbook-page .ch-obj{
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  font-size: .88rem;
+}
+.vaelic-textbook-page .ch-obj-t{
+  font-family: "Cinzel", serif;
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 6px;
+}
+.vaelic-textbook-page .ch-obj ul{ list-style: disc; padding-left: 18px; }
+.vaelic-textbook-page .ch-obj li{ color: var(--text-muted); margin-bottom: 2px; }
+
+
+.vaelic-textbook-page .sec{ margin: 32px 0 10px; }
+.vaelic-textbook-page .sec-num{
+  font-family: "Cinzel", serif;
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 2px;
+}
+.vaelic-textbook-page .sec-t{
+  font-family: "Crimson Pro", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.vaelic-textbook-page .sec-t2{
+  font-family: "Crimson Pro", serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 20px 0 6px;
+}
+
+
+.vaelic-textbook-page p{ margin-bottom: 12px; color: var(--text); font-size: .97rem; }
+.vaelic-textbook-page p strong{ color: var(--text); }
+.vaelic-textbook-page p em{ color: var(--gold-dim); }
+
+
+.vaelic-textbook-page .rb{
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--gold-dim);
+  padding: 14px 16px;
+  margin: 16px 0;
+  background: var(--bg-elevated);
+}
+.vaelic-textbook-page .rb.gold{ border-left-color: var(--gold); }
+.vaelic-textbook-page .rb.red{ border-left-color: var(--tb-sharp); }
+.vaelic-textbook-page .rb.grn{ border-left-color: var(--tb-soft); }
+.vaelic-textbook-page .rb.blu{ border-left-color: var(--tb-hard); }
+.vaelic-textbook-page .rb.pur{ border-left-color: var(--tb-flow); }
+.vaelic-textbook-page .rb.grey{ border-left-color: var(--text-muted); }
+.vaelic-textbook-page .rb-t{
+  font-family: "Cinzel", serif;
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+.vaelic-textbook-page .rb p{ font-size: .93rem; margin-bottom: 5px; }
+.vaelic-textbook-page .rb p:last-child{ margin: 0; }
+
+
+.vaelic-textbook-page .gp{
+  background: rgba(28, 32, 41, 0.85);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  padding: 14px 16px;
+  margin: 14px 0;
+}
+.vaelic-textbook-page .gp-lb{
+  font-family: "Cinzel", serif;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 7px;
+}
+.vaelic-textbook-page .gp-f{
+  font-family: "Cinzel", serif;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.vaelic-textbook-page .gp-ex{
+  font-size: .87rem;
+  color: var(--text-muted);
+  line-height: 2.0;
+}
+.vaelic-textbook-page .gp-ex em{
+  font-family: "Crimson Pro", serif;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 600;
+}
+.vaelic-textbook-page .gp-ex span{ color: var(--text); }
+
+
+.vaelic-textbook-page .vt-wrap{ margin: 14px 0; overflow-x: auto; }
+.vaelic-textbook-page table.vt{ width: 100%; border-collapse: collapse; font-size: .9rem; }
+.vaelic-textbook-page table.vt th{
+  font-family: "Cinzel", serif;
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  padding: 6px 10px 6px 0;
+  border-bottom: 2px solid var(--gold);
+  text-align: left;
+}
+.vaelic-textbook-page table.vt td{
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.vaelic-textbook-page table.vt tbody tr:hover td{ background: var(--bg-elevated); }
+.vaelic-textbook-page .vw{
+  font-family: "Crimson Pro", serif;
+  font-weight: 700;
+  font-size: .98rem;
+  color: var(--gold);
+  display: block;
+}
+.vaelic-textbook-page .vp{
+  font-family: "Cinzel", serif;
+  font-size: .72rem;
+  color: var(--gold-dim);
+  display: block;
+  margin-top: 1px;
+}
+.vaelic-textbook-page .ve{ font-style: italic; color: var(--text-muted); font-size: .87rem; }
+.vaelic-textbook-page .vex{ font-style: italic; color: var(--text-muted); font-size: .83rem; display: block; line-height: 1.4; }
+.vaelic-textbook-page .vc{
+  font-family: "Cinzel", serif;
+  font-size: .65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: inline-block;
+  margin-top: 3px;
+}
+.vaelic-textbook-page .cs{ color: var(--tb-sharp); border-color: rgba(200, 64, 64, 0.35); }
+.vaelic-textbook-page .co{ color: var(--tb-soft); border-color: rgba(74, 152, 112, 0.35); }
+.vaelic-textbook-page .ch2{ color: var(--tb-hard); border-color: rgba(90, 138, 200, 0.35); }
+.vaelic-textbook-page .cf{ color: var(--tb-flow); border-color: rgba(136, 80, 200, 0.35); }
+.vaelic-textbook-page .cn{ color: var(--gold-dim); border-color: rgba(255, 255, 255, 0.14); }
+
+
+.vaelic-textbook-page .vg{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 6px;
+  margin: 12px 0;
+}
+.vaelic-textbook-page .vg-item{
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+}
+.vaelic-textbook-page .vg-w{ font-family: "Crimson Pro", serif; font-weight: 700; color: var(--gold); font-size: .95rem; }
+.vaelic-textbook-page .vg-p{ font-family: "Cinzel", serif; font-size: .68rem; color: var(--gold-dim); display: block; }
+.vaelic-textbook-page .vg-m{ font-size: .85rem; color: var(--text); margin-top: 2px; }
+.vaelic-textbook-page .vg-e{ font-size: .78rem; color: var(--text-muted); font-style: italic; margin-top: 2px; }
+
+
+.vaelic-textbook-page .alpha-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  margin: 12px 0;
+}
+.vaelic-textbook-page .alpha-cell{
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 12px 6px;
+  text-align: center;
+}
+.vaelic-textbook-page .alpha-L{ font-family: "Crimson Pro", serif; font-weight: 700; font-size: 1.7rem; line-height: 1; color: var(--text); margin-bottom: 3px; }
+.vaelic-textbook-page .alpha-p{ font-family: "Cinzel", serif; font-size: .68rem; color: var(--text-muted); }
+.vaelic-textbook-page .alpha-x{ font-size: .72rem; color: var(--gold-dim); font-style: italic; margin-top: 2px; }
+.vaelic-textbook-page .sh .alpha-L{ color: var(--tb-sharp); }
+.vaelic-textbook-page .so .alpha-L{ color: var(--tb-soft); }
+.vaelic-textbook-page .ha .alpha-L{ color: var(--tb-hard); }
+.vaelic-textbook-page .fl .alpha-L{ color: var(--tb-flow); }
+
+
+.vaelic-textbook-page .sc-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 12px 0; }
+.vaelic-textbook-page .sc-box{ background: var(--bg-elevated); border: 1px solid var(--border); padding: 12px; }
+.vaelic-textbook-page .sc-h{ font-family: "Cinzel", serif; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; padding-bottom: 5px; border-bottom: 1px solid var(--border); }
+.vaelic-textbook-page .sc-box.sharp .sc-h{ color: var(--tb-sharp); }
+.vaelic-textbook-page .sc-box.soft  .sc-h{ color: var(--tb-soft); }
+.vaelic-textbook-page .sc-box.hard  .sc-h{ color: var(--tb-hard); }
+.vaelic-textbook-page .sc-box.flow  .sc-h{ color: var(--tb-flow); }
+.vaelic-textbook-page .sc-l{ font-family: "Cinzel", serif; font-size: .8rem; color: var(--text-muted); margin-bottom: 4px; }
+.vaelic-textbook-page .sc-e{ font-size: .85rem; color: var(--text-muted); font-style: italic; line-height: 1.5; }
+.vaelic-textbook-page .sc-words{ margin-top: 6px; font-family: "Cinzel", serif; font-size: .75rem; color: var(--gold-dim); line-height: 1.8; }
+
+
+.vaelic-textbook-page .tt{ width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .9rem; }
+.vaelic-textbook-page .tt th{ font-family: "Cinzel", serif; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-dim); padding: 7px 10px; background: var(--bg-elevated); border: 1px solid var(--border); text-align: left; }
+.vaelic-textbook-page .tt td{ padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+.vaelic-textbook-page .tt tbody tr:nth-child(even) td{ background: rgba(201, 169, 98, 0.06); }
+.vaelic-textbook-page .t-pre{ font-family: "Cinzel", serif; font-size: .8rem; color: var(--gold); font-weight: 700; }
+.vaelic-textbook-page .t-v{ font-family: "Crimson Pro", serif; font-style: italic; font-weight: 600; }
+.vaelic-textbook-page .t-e{ color: var(--text-muted); font-style: italic; font-size: .87rem; }
+
+
+.vaelic-textbook-page .qr{ display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 5px; margin: 10px 0; }
+.vaelic-textbook-page .qr-item{ background: var(--bg-elevated); border: 1px solid var(--border); padding: 6px 10px; }
+.vaelic-textbook-page .qrv{ font-family: "Crimson Pro", serif; font-weight: 700; color: var(--gold); }
+.vaelic-textbook-page .qrp{ font-family: "Cinzel", serif; font-size: .68rem; color: var(--gold-dim); display: block; }
+.vaelic-textbook-page .qre{ font-style: italic; color: var(--text-muted); font-size: .83rem; }
+
+
+.vaelic-textbook-page .num-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 5px; margin: 12px 0; }
+.vaelic-textbook-page .num-cell{ background: var(--bg-elevated); border: 1px solid var(--border); padding: 10px 8px; text-align: center; }
+.vaelic-textbook-page .num-n{ font-family: "Crimson Pro", serif; font-weight: 700; font-size: 1.6rem; color: var(--text-muted); line-height: 1; }
+.vaelic-textbook-page .num-v{ font-family: "Crimson Pro", serif; font-weight: 600; font-size: .9rem; color: var(--gold); margin-top: 3px; }
+.vaelic-textbook-page .num-p{ font-family: "Cinzel", serif; font-size: .68rem; color: var(--gold-dim); }
+
+
+.vaelic-textbook-page .dl{ margin: 20px 0; border: 1px solid var(--border); }
+.vaelic-textbook-page .dl-t{ font-family: "Cinzel", serif; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); padding: 10px 16px 8px; background: var(--bg-elevated); border-bottom: 1px solid var(--border); }
+.vaelic-textbook-page .dl-sc{ font-size: .85rem; color: var(--text-muted); font-style: italic; padding: 8px 16px; border-bottom: 1px solid var(--border); background: var(--bg-elevated); }
+.vaelic-textbook-page .dln{ display: grid; grid-template-columns: 80px 1fr; border-bottom: 1px solid var(--border); }
+.vaelic-textbook-page .dln:last-child{ border-bottom: none; }
+.vaelic-textbook-page .dl-w{ font-family: "Cinzel", serif; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold-dim); padding: 10px 12px; border-right: 1px solid var(--border); background: var(--bg-elevated); display: flex; align-items: center; }
+.vaelic-textbook-page .dl-x{ padding: 10px 16px; }
+.vaelic-textbook-page .dl-v{ font-family: "Crimson Pro", serif; font-weight: 600; font-size: .96rem; margin-bottom: 2px; line-height: 1.5; }
+.vaelic-textbook-page .dl-e{ font-size: .84rem; color: var(--text-muted); font-style: italic; }
+.vaelic-textbook-page .dl-note{ font-family: "Cinzel", serif; font-size: .72rem; color: var(--gold-dim); margin-top: 3px; }
+
+
+.vaelic-textbook-page .cu{ background: rgba(201, 169, 98, 0.08); border: 1px solid rgba(201, 169, 98, 0.28); border-left: 4px solid var(--gold); padding: 14px 16px; margin: 20px 0; }
+.vaelic-textbook-page .cu-t{ font-family: "Cinzel", serif; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 7px; font-weight: 600; }
+.vaelic-textbook-page .cu p{ font-size: .92rem; color: var(--text); margin-bottom: 5px; }
+.vaelic-textbook-page .cu p:last-child{ margin: 0; }
+
+
+.vaelic-textbook-page .usage{ background: var(--bg-elevated); border: 1px solid var(--border); border-left: 3px solid var(--gold-dim); padding: 12px 16px; margin: 12px 0; }
+.vaelic-textbook-page .usage-t{ font-family: "Cinzel", serif; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 5px; font-weight: 600; }
+.vaelic-textbook-page .usage p{ font-size: .9rem; margin-bottom: 3px; }
+.vaelic-textbook-page .usage p:last-child{ margin: 0; }
+.vaelic-textbook-page .usage strong{ color: var(--text); }
+
+
+.vaelic-textbook-page .wb{ background: rgba(28, 32, 41, 0.85); border: 1px solid var(--border); padding: 8px 14px; font-family: "Cinzel", serif; font-size: .82rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.9; }
+.vaelic-textbook-page .wb-t{ font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 4px; font-weight: 600; }
+
+
+.vaelic-textbook-page .exs{ margin-top: 48px; padding-top: 24px; border-top: 2px solid var(--gold); }
+.vaelic-textbook-page .exs-hd{ font-family: "Crimson Pro", serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+.vaelic-textbook-page .exs-sub{ font-style: italic; font-size: .88rem; color: var(--gold-dim); margin-bottom: 24px; }
+.vaelic-textbook-page .ex{ margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.vaelic-textbook-page .ex:last-of-type{ border-bottom: none; }
+.vaelic-textbook-page .ex-badge{ font-family: "Cinzel", serif; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 2px; }
+.vaelic-textbook-page .ex-t{ font-family: "Crimson Pro", serif; font-weight: 600; font-size: 1.05rem; margin-bottom: 5px; }
+.vaelic-textbook-page .ex-lvl{ font-family: "Cinzel", serif; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; padding: 2px 7px; border: 1px solid; display: inline-block; vertical-align: middle; margin-left: 8px; }
+.vaelic-textbook-page .lvl1{ color: var(--tb-soft); border-color: rgba(74, 152, 112, 0.35); }
+.vaelic-textbook-page .lvl2{ color: var(--tb-hard); border-color: rgba(90, 138, 200, 0.35); }
+.vaelic-textbook-page .lvl3{ color: var(--tb-flow); border-color: rgba(136, 80, 200, 0.35); }
+.vaelic-textbook-page .lvl4{ color: var(--tb-sharp); border-color: rgba(200, 64, 64, 0.35); }
+.vaelic-textbook-page .ex-in{ font-style: italic; font-size: .9rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6; }
+.vaelic-textbook-page .ex-it{ display: flex; flex-direction: column; gap: 9px; }
+.vaelic-textbook-page .ei{ display: flex; gap: 9px; align-items: baseline; }
+.vaelic-textbook-page .en{ font-family: "Cinzel", serif; font-size: .78rem; color: var(--gold-dim); flex-shrink: 0; width: 22px; }
+.vaelic-textbook-page .eq{ color: var(--text); flex: 1; line-height: 1.6; font-size: .95rem; }
+.vaelic-textbook-page .ev{ font-family: "Crimson Pro", serif; font-style: italic; color: var(--gold); font-weight: 600; font-size: .98rem; }
+.vaelic-textbook-page .bl{ display: inline-block; border-bottom: 1px solid var(--gold-dim); min-width: 88px; margin: 0 3px; }
+.vaelic-textbook-page .ec{ font-family: "Cinzel", serif; font-size: .76rem; color: var(--gold-dim); margin-top: 2px; padding-left: 22px; line-height: 1.5; }
+.vaelic-textbook-page .mg{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+.vaelic-textbook-page .mc{ display: flex; flex-direction: column; gap: 4px; }
+.vaelic-textbook-page .ml{ font-family: "Cinzel", serif; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 3px; font-weight: 600; }
+.vaelic-textbook-page .mi{ padding: 7px 12px; background: var(--bg-elevated); border: 1px solid var(--border); font-size: .9rem; }
+.vaelic-textbook-page .wr{ border: 1px solid var(--border); padding: 12px 16px; background: var(--bg-elevated); font-size: .9rem; color: var(--gold-dim); font-style: italic; min-height: 70px; }
+.vaelic-textbook-page .ex-passage{ background: var(--bg-elevated); border: 1px solid var(--border); border-left: 4px solid var(--gold); padding: 12px 16px; font-style: italic; font-size: .95rem; margin-bottom: 12px; color: var(--text); }
+
+
+.vaelic-textbook-page .ak{ background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px 20px; margin-top: 24px; }
+.vaelic-textbook-page .ak-t{ font-family: "Cinzel", serif; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); cursor: pointer; display: flex; align-items: center; gap: 7px; user-select: none; background: none; border: none; width: 100%; text-align: left; padding: 0; }
+.vaelic-textbook-page .ak-t::before{ content: '▶'; font-size: .6rem; color: var(--gold); transition: .15s; }
+.vaelic-textbook-page .ak-t.open::before{ content: '▼'; }
+.vaelic-textbook-page .ak-t:hover{ color: var(--text-muted); }
+.vaelic-textbook-page .ak-t-txt{ flex: 1; }
+.vaelic-textbook-page .ak-hint{ font-size: .66rem; }
+.vaelic-textbook-page .ak-b{ display: none; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+.vaelic-textbook-page .ak-t.open + .ak-b{ display: block; }
+.vaelic-textbook-page .ag{ margin-bottom: 12px; }
+.vaelic-textbook-page .ag-h{ font-family: "Cinzel", serif; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 5px; padding-bottom: 3px; border-bottom: 1px solid var(--border); font-weight: 600; }
+.vaelic-textbook-page .ar{ display: flex; gap: 7px; font-size: .88rem; margin-bottom: 3px; align-items: baseline; }
+.vaelic-textbook-page .an{ color: var(--gold-dim); flex-shrink: 0; width: 22px; font-family: "Cinzel", serif; font-size: .74rem; }
+.vaelic-textbook-page .aa{ color: var(--tb-soft); font-weight: 600; }
+.vaelic-textbook-page .ant{ color: var(--gold-dim); font-size: .82rem; font-style: italic; margin-left: 3px; }
+
+
+@media print { .vaelic-textbook-page .ch{ break-before: page; } }
+@media (max-width: 600px) {
+  .vaelic-textbook-page .content{ padding: 32px 18px 80px; }
+  .vaelic-textbook-page .alpha-grid{ grid-template-columns: repeat(3, 1fr); }
+  .vaelic-textbook-page .sc-grid, .vaelic-textbook-page .mg{ grid-template-columns: 1fr; }
+  .vaelic-textbook-page .dln{ grid-template-columns: 60px 1fr; }
+}
+@media (max-width: 600px) {
+  .vaelic-textbook-page .vaelic-textbook-sheet .content {
+    padding: 1.15rem 1rem 2.5rem;
+  }
+}
+
+@media print {
+  .vaelic-textbook-page .unit-div.vt-tab-hidden,
+  .vaelic-textbook-page .ch.vt-ch-hidden,
+  .vaelic-textbook-page .ch.vt-tab-hidden,
+  .vaelic-textbook-page [data-vt-outro].vt-ch-hidden,
+  .vaelic-textbook-page [data-vt-outro].vt-tab-hidden,
+  .vaelic-textbook-page .vt-seg.vt-part-hidden,
+  .vaelic-textbook-page .vt-tab-hidden,
+  .vaelic-textbook-page .vt-ch-hidden,
+  .vaelic-textbook-page .vt-part-hidden {
+    display: revert !important;
+  }
+}

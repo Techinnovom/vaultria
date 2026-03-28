@@ -200,7 +200,8 @@ prefix_index = toc_hrefs_to_detail(prefix)
 
 index_lead = (
     '          <p class="tier-kicker"><a href="vaelic.html">Vaelic</a> '
-    '· <a href="vaelic-dictionary.html">Dictionary</a> · Learning programme</p>\n'
+    '· <a href="vaelic-dictionary.html">Dictionary</a> · '
+    '<a href="vaelic-textbook.html">Language textbook</a> · Learning programme</p>\n'
     '          <p class="zone-intro">Ten lessons below — each link opens the full lyrics, '
     "pronunciation, English, and recording on its own page.</p>\n"
 )
@@ -218,6 +219,7 @@ print("Wrote vaelic-learning-songs.html (index only)")
 base_lead = (
     '          <p class="tier-kicker"><a href="vaelic.html">Vaelic</a> '
     '· <a href="vaelic-dictionary.html">Dictionary</a> · '
+    '<a href="vaelic-textbook.html">Language textbook</a> · '
     '<a href="vaelic-learning-songs.html">All lessons</a></p>\n'
 )
 

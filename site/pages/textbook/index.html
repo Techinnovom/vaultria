@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vaelic textbook — start here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600&family=Crimson+Pro:ital,wght@0,400;0,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/layout.css" />
+  <link rel="stylesheet" href="../../assets/css/textbook-shell.css" />
+</head>
+<body class="textbook-app textbook-hub" data-nav-depth="2" data-part-id="hub">
+  <div class="tb-layout tb-layout--hub">
+    <main class="tb-hub-main">
+      <h1 class="tb-hub-title">Vaelic language textbook</h1>
+      <p class="tb-hub-lede">Each lesson is its own file under <code>site/pages/textbook/</code>. Regenerate with <code>python tools/build_textbook_parts.py</code> after editing the monolith source. For local preview, run <code>site/serve.cmd</code> (or <code>python -m http.server 8765</code> inside <code>site/</code>) and open <code>http://localhost:8765/pages/textbook/</code> — do not rely on <code>file://</code> (Chrome blocks it).</p>
+      <ul class="tb-hub-units">
+        <li><a class="tb-hub-card" href="u1-overview.html"><span class="tb-hub-roman">Unit I</span><span class="tb-hub-ut">Foundations</span></a></li>
+        <li><a class="tb-hub-card" href="u2-overview.html"><span class="tb-hub-roman">Unit II</span><span class="tb-hub-ut">Daily Life</span></a></li>
+        <li><a class="tb-hub-card" href="u3-overview.html"><span class="tb-hub-roman">Unit III</span><span class="tb-hub-ut">Society</span></a></li>
+        <li><a class="tb-hub-card" href="u4-overview.html"><span class="tb-hub-roman">Unit IV</span><span class="tb-hub-ut">Mastery</span></a></li>
+      </ul>
+      <p class="tb-hub-meta"><a href="../vaelic.html">Language reference</a> · <a href="../../index.html">VAULTRIA home</a></p>
+    </main>
+  </div>
+  <script src="../../assets/js/textbook-manifest.js" defer></script>
+  <script src="../../assets/js/textbook-shell.js" defer></script>
+  <script src="../../assets/js/vaelic-textbook.js" defer></script>
+  <script src="../../assets/js/site-nav.js" defer></script>
+</body>
+</html>

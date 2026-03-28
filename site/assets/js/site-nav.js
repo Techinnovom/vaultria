@@ -1,18 +1,33 @@
 (function () {
   "use strict";
 
-  var DEPTH = document.body.getAttribute("data-nav-depth") === "1" ? 1 : 0;
+  var depthAttr = document.body.getAttribute("data-nav-depth");
+  var DEPTH =
+    depthAttr === "2" ? 2 : depthAttr === "1" ? 1 : 0;
 
   function href(pageId) {
     if (pageId === "home") {
-      return DEPTH ? "../index.html" : "index.html";
+      if (DEPTH === 2) return "../../index.html";
+      if (DEPTH === 1) return "../index.html";
+      return "index.html";
+    }
+    if (pageId === "vaelic-textbook") {
+      if (DEPTH === 2) return "index.html";
+      if (DEPTH === 1) return "textbook/index.html";
+      return "pages/textbook/index.html";
     }
     var file = pageId + ".html";
-    return DEPTH ? file : "pages/" + file;
+    if (DEPTH === 2) return "../" + file;
+    if (DEPTH === 1) return file;
+    return "pages/" + file;
   }
 
   function currentPageId() {
-    var seg = window.location.pathname.split("/").pop() || "index.html";
+    var path = window.location.pathname.replace(/\\/g, "/");
+    if (/(?:^|[\\/])textbook[\\/]/i.test(path)) {
+      return "vaelic-textbook";
+    }
+    var seg = path.split("/").pop() || "index.html";
     if (seg === "index.html" || seg === "") {
       return "home";
     }
@@ -76,6 +91,7 @@
         { id: "vaelic", title: "Language reference" },
         { id: "vaelic-dictionary", title: "Dictionary" },
         { id: "vaelic-learning-songs", title: "Learning songs" },
+        { id: "vaelic-textbook", title: "Language textbook" },
       ],
     },
     {
