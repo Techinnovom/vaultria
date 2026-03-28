@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowNet Rail — Vaultrian Transit Authority</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#05060C;--bg2:#0C0D18;--bg3:#121424;
+  --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#5A4010;
+  --text:#C4BCB0;--text2:#6A6258;--text3:#282018;
+  --rule:rgba(201,168,76,0.09);
+  --prime:#C9A84C;--civic:#5A8AE8;--industrial:#C8A020;--knowledge:#4AAA68;
+  --tech:#3A9858;--defense:#E05050;--restricted:#E05050;--trade:#4A78C8;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'Share Tech Mono',monospace;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold-d)}
+.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;position:relative;overflow:hidden;text-align:center}
+.cv-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#0C1020 0%,#05060C 70%)}
+.cv-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(90,138,232,.025) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(90,138,232,.025) 40px);pointer-events:none}
+.cv-wrap{position:relative;z-index:2;max-width:680px}
+.cv-logo{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(2.5rem,8vw,5rem);color:var(--gold);letter-spacing:.06em;line-height:1;text-shadow:0 0 80px rgba(201,168,76,.25);margin-bottom:6px}
+.cv-sub{font-size:.62rem;letter-spacing:.55em;color:var(--gold-d);text-transform:uppercase;margin-bottom:28px}
+.cv-rule{width:80px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 auto 24px}
+.cv-desc{font-family:'Crimson Pro',serif;font-style:italic;font-size:clamp(.9rem,2.5vw,1.1rem);color:rgba(196,188,176,.42);line-height:1.85;max-width:500px;margin:0 auto 36px}
+.cv-lines{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.cv-pill{font-size:.48rem;letter-spacing:.2em;padding:5px 12px;border:1px solid;text-transform:uppercase}
+.nav{position:sticky;top:0;z-index:200;background:rgba(5,6,12,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);padding:0 16px;display:flex;justify-content:center;flex-wrap:wrap}
+.nb{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;padding:11px 10px;border:none;background:transparent;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .18s;white-space:nowrap;font-family:'Share Tech Mono',monospace}
+.nb:hover{color:var(--text2)}.nb.on{color:var(--gold);border-bottom-color:var(--gold)}
+.sec{padding:68px 22px;max-width:1040px;margin:0 auto;opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.sec.vis{opacity:1;transform:translateY(0)}
+.sh{text-align:center;margin-bottom:48px}
+.sh-tag{font-size:.56rem;letter-spacing:.5em;color:var(--gold-d);text-transform:uppercase;margin-bottom:9px}
+.sh-title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.4rem,4vw,2.3rem);color:var(--gold);letter-spacing:.06em;margin-bottom:12px;line-height:1.1}
+.sh-rule{width:44px;height:2px;background:linear-gradient(to right,var(--gold),transparent);margin:0 auto 13px}
+.sh-desc{font-family:'Crimson Pro',serif;font-style:italic;font-size:.9rem;color:rgba(196,188,176,.38);max-width:500px;margin:0 auto;line-height:1.82}
+hr{border:none;border-top:1px solid var(--rule);margin:0 22px}
+.lines-list{display:flex;flex-direction:column;gap:32px}
+.line-card{background:var(--bg2);border:1px solid rgba(255,255,255,.05);overflow:hidden}
+.lc-header{display:flex;align-items:stretch;min-height:56px}
+.lc-bar{width:6px;flex-shrink:0}
+.lc-head-body{flex:1;padding:14px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.lc-name{font-family:'Cinzel',serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em}
+.lc-code{font-size:.58rem;letter-spacing:.28em;opacity:.45;text-transform:uppercase}
+.lc-type{font-size:.46rem;letter-spacing:.2em;padding:3px 9px;border:1px solid;text-transform:uppercase;opacity:.65}
+.lc-freq{margin-left:auto;font-size:.52rem;letter-spacing:.14em;color:var(--text3);white-space:nowrap}
+.lc-stations{padding:18px 18px 0 24px;display:flex;flex-direction:column;gap:0}
+.station-row{display:flex;align-items:stretch;gap:0;min-height:44px}
+.st-line-col{width:24px;display:flex;flex-direction:column;align-items:center;flex-shrink:0;position:relative}
+.st-dot{width:10px;height:10px;border-radius:50%;border:2px solid;background:var(--ink);z-index:1;margin-top:16px;flex-shrink:0}
+.st-dot.terminus{width:13px;height:13px;margin-top:14.5px}
+.st-dot.interchange{width:13px;height:13px;margin-top:14.5px;border-width:2.5px}
+.st-vert{flex:1;width:3px;background:currentColor;opacity:.35;margin:0 auto}
+.st-vert.none{background:transparent}
+.st-body{flex:1;padding:10px 0 10px 16px;border-bottom:1px solid rgba(255,255,255,.03)}
+.station-row:last-child .st-body{border-bottom:none}
+.st-name{font-family:'Cinzel',serif;font-size:.84rem;letter-spacing:.04em;margin-bottom:2px}
+.st-name.terminus{font-size:.92rem}
+.st-zone{font-size:.46rem;letter-spacing:.2em;color:var(--text3);text-transform:uppercase;margin-bottom:2px}
+.st-info{font-family:'Crimson Pro',serif;font-size:.78rem;color:rgba(196,188,176,.4);line-height:1.5}
+.st-badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.st-badge{font-size:.42rem;letter-spacing:.14em;padding:1px 6px;border:1px solid rgba(255,255,255,.08);color:var(--text3);text-transform:uppercase}
+.st-badge.xfer{border-color:rgba(201,168,76,.25);color:var(--gold-d)}
+.st-badge.apt{border-color:rgba(184,124,24,.3);color:#B87C18}
+.st-badge.free{border-color:rgba(74,170,104,.25);color:#4AAA68}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl{width:100%;border-collapse:collapse;min-width:500px}
+.tbl th{font-size:.46rem;letter-spacing:.26em;color:var(--text3);text-transform:uppercase;padding:0 14px 9px 0;text-align:left;border-bottom:1px solid rgba(255,255,255,.06)}
+.tbl td{padding:9px 14px 9px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:.8rem;color:rgba(196,188,176,.55);vertical-align:middle}
+.tbl td:first-child{font-family:'Cinzel',serif;font-size:.82rem;color:var(--text)}
+.tbl tr:hover td{background:rgba(255,255,255,.015)}
+.time-cell{font-size:.72rem;letter-spacing:.08em}
+.freq-badge{font-size:.46rem;letter-spacing:.14em;padding:2px 7px;border:1px solid;display:inline-block;text-transform:uppercase}
+.fare-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.fare-card{background:var(--bg2);border:1px solid rgba(255,255,255,.05);padding:18px 16px}
+.fc-type{font-size:.5rem;letter-spacing:.3em;color:var(--text3);text-transform:uppercase;margin-bottom:8px}
+.fc-price{font-family:'Cinzel',serif;font-weight:900;font-size:1.5rem;color:var(--gold);margin-bottom:4px;letter-spacing:.04em}
+.fc-desc{font-family:'Crimson Pro',serif;font-size:.8rem;color:rgba(196,188,176,.45);line-height:1.65}
+.rules-list{display:flex;flex-direction:column;gap:10px}
+.rl{display:flex;gap:14px;padding:14px 16px;background:var(--bg2);border:1px solid rgba(255,255,255,.04);border-left:3px solid var(--gold-d)}
+.rl-n{font-family:'Cinzel',serif;font-weight:900;font-size:1.1rem;color:var(--gold-d);flex-shrink:0;min-width:22px}
+.rl-b{font-family:'Crimson Pro',serif;font-size:.88rem;color:rgba(196,188,176,.5);line-height:1.7}
+.rl-b strong{color:rgba(196,188,176,.85)}
+.map-wrap{background:var(--bg2);border:1px solid rgba(255,255,255,.05);padding:24px;overflow-x:auto}
+.map-wrap svg{display:block;margin:0 auto}
+.ctable{width:100%;border-collapse:collapse}
+.ctable th{font-size:.46rem;letter-spacing:.28em;color:var(--text3);text-transform:uppercase;padding:0 12px 9px 0;text-align:left;border-bottom:1px solid rgba(255,255,255,.05)}
+.ctable td{padding:8px 12px 8px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:.82rem;color:rgba(196,188,176,.5);vertical-align:top}
+.ctable td:first-child{font-size:.72rem;color:var(--gold);white-space:nowrap}
+.footer{border-top:1px solid var(--rule);padding:36px 24px;text-align:center}
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cv-bg"></div><div class="cv-grid"></div>
+  <div class="cv-wrap">
+    <div class="cv-logo">FlowNet</div>
+    <div class="cv-sub">Vaultrian Transit Authority · Official Rail Guide</div>
+    <div class="cv-rule"></div>
+    <div class="cv-desc">"FlowNet connects all 12 zones of Vaultria. Eight lines. Forty-one stations. Free on public holidays. The network is the circulatory system of the nation — when it flows, everything moves."</div>
+    <div class="cv-lines">
+      <span class="cv-pill" style="color:var(--prime);border-color:rgba(201,168,76,.35)">Prime Line</span>
+      <span class="cv-pill" style="color:var(--civic);border-color:rgba(90,138,232,.35)">Civic Line</span>
+      <span class="cv-pill" style="color:var(--industrial);border-color:rgba(200,160,32,.35)">Industrial Line</span>
+      <span class="cv-pill" style="color:var(--knowledge);border-color:rgba(74,170,104,.35)">Knowledge Line</span>
+      <span class="cv-pill" style="color:var(--tech);border-color:rgba(58,152,88,.35)">Tech Line</span>
+      <span class="cv-pill" style="color:var(--trade);border-color:rgba(74,120,200,.35)">Trade Link</span>
+      <span class="cv-pill" style="color:var(--defense);border-color:rgba(224,80,80,.25)">Defense Link</span>
+      <span class="cv-pill" style="color:var(--restricted);border-color:rgba(224,80,80,.18);opacity:.6">Restricted Line</span>
+    </div>
+  </div>
+</div>
+<nav class="nav">
+  <button class="nb on" onclick="goTo('network')">Network Map</button>
+  <button class="nb" onclick="goTo('lines')">Line Guide</button>
+  <button class="nb" onclick="goTo('timetable')">Timetable</button>
+  <button class="nb" onclick="goTo('fares')">Fares</button>
+  <button class="nb" onclick="goTo('stations')">Station Guide</button>
+  <button class="nb" onclick="goTo('rules')">Passenger Rules</button>
+</nav>
+<div class="sec" id="network">
+  <div class="sh"><div class="sh-tag">System Overview</div><div class="sh-title">The FlowNet Network</div><div class="sh-rule"></div><div class="sh-desc">Eight lines serving all 12 Vault Zones. The schematic map shows connections — not geographic distances.</div></div>
+  <div class="map-wrap">
+    <svg width="900" height="520" viewBox="0 0 900 520" fill="none">
+      <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(90,138,232,0.04)" stroke-width="1"/></pattern></defs>
+      <rect width="900" height="520" fill="url(#grid)"/>
+      <polyline points="140,200 340,90 580,160 580,280 400,200" stroke="#C9A84C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".8"/>
+      <polyline points="580,280 510,230 650,220 640,350 510,340 390,420 320,370" stroke="#5A8AE8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".75"/>
+      <polyline points="760,200 760,360 770,450 560,430" stroke="#C8A020" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".75"/>
+      <polyline points="140,200 170,440 770,450" stroke="#4AAA68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".7"/>
+      <polyline points="770,450 580,280 400,200" stroke="#3A9858" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".65" stroke-dasharray="10 4"/>
+      <polyline points="560,430 580,280 760,200" stroke="#4A78C8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".65"/>
+      <polyline points="400,200 140,200" stroke="#E05050" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".55" stroke-dasharray="8 5"/>
+      <polyline points="140,360 140,200" stroke="#E05050" stroke-width="2" stroke-linecap="round" fill="none" opacity=".4" stroke-dasharray="6 4"/>
+      <circle cx="140" cy="200" r="14" fill="#0C0D18" stroke="#C9A84C" stroke-width="3"/><circle cx="140" cy="200" r="6" fill="#C9A84C"/>
+      <text x="140" y="184" text-anchor="middle" font-family="Cinzel,serif" font-size="11" font-weight="600" fill="#C9A84C">Aurex Central</text>
+      <circle cx="340" cy="90" r="12" fill="#0C0D18" stroke="#C9A84C" stroke-width="2.5"/><circle cx="340" cy="90" r="5" fill="#C9A84C"/>
+      <text x="340" y="74" text-anchor="middle" font-family="Cinzel,serif" font-size="10" font-weight="600" fill="#E8C97A">Aeris Gate</text>
+      <circle cx="400" cy="200" r="11" fill="#0C0D18" stroke="#C9A84C" stroke-width="2.5"/><circle cx="400" cy="200" r="4.5" fill="#C9A84C"/>
+      <text x="424" y="196" text-anchor="start" font-family="Cinzel,serif" font-size="9.5" font-weight="600" fill="#E8C97A">Drakos</text>
+      <circle cx="580" cy="280" r="14" fill="#0C0D18" stroke="#5A8AE8" stroke-width="3"/><circle cx="580" cy="280" r="6" fill="#5A8AE8"/>
+      <text x="600" y="276" text-anchor="start" font-family="Cinzel,serif" font-size="11" font-weight="600" fill="#5A8AE8">Zerath Central</text>
+    </svg>
+  </div>
+</div>
+<hr>
+<div class="sec" id="lines"><div class="sh"><div class="sh-tag">Line by Line</div><div class="sh-title">Full Line Guide</div><div class="sh-rule"></div><div class="sh-desc">Every line, every station in order, with zone, connections and facilities.</div></div><div class="lines-list"><div class="line-card"><div class="lc-header"><div class="lc-bar" style="background:var(--prime)"></div><div class="lc-head-body"><div><div class="lc-name" style="color:var(--prime)">Prime Line</div><div class="lc-code" style="color:var(--prime)">P · Gold · 5 Stations</div></div><div class="lc-type" style="color:var(--prime);border-color:rgba(201,168,76,.3)">Express</div><div class="lc-freq">Every 8 min · 05:00–01:00</div></div></div><div class="lc-stations"><div class="station-row"><div class="st-line-col" style="color:var(--prime)"><div class="st-dot terminus" style="border-color:var(--prime);background:var(--prime)"></div><div class="st-vert none"></div></div><div class="st-body"><div class="st-name terminus" style="color:var(--prime)">Aurex Central</div><div class="st-zone">Velora Zone · Capital Node</div><div class="st-info">Major interchange hub.</div></div></div></div></div></div></div>
+<hr>
+<div class="sec" id="timetable">
+  <div class="sh"><div class="sh-tag">Service Hours & Frequency</div><div class="sh-title">Timetable</div><div class="sh-rule"></div><div class="sh-desc">First and last service times for each line.</div></div>
+  <div class="tbl-wrap">
+    <table class="tbl"><tr><th>Line</th><th>First Service</th><th>Last Service</th><th>Peak Freq</th><th>Off-Peak Freq</th><th>Night Service</th><th>Free Days</th></tr>
+      <tr><td><span style="color:var(--prime)">● Prime</span></td><td class="time-cell">05:00</td><td class="time-cell">01:00</td><td><span class="freq-badge" style="color:var(--prime);border-color:rgba(201,168,76,.3)">Every 8 min</span></td><td>Every 12 min</td><td>Reduced — every 25 min</td><td>Charter Day · Founders' Day</td></tr>
+      <tr><td><span style="color:var(--civic)">● Civic</span></td><td class="time-cell">04:30</td><td class="time-cell">01:30</td><td><span class="freq-badge" style="color:var(--civic);border-color:rgba(90,138,232,.3)">Every 5 min</span></td><td>Every 8 min</td><td>Reduced — every 20 min</td><td>All public holidays</td></tr>
+    </table>
+  </div>
+</div>
+<hr>
+<div class="sec" id="fares">
+  <div class="sh"><div class="sh-tag">Pricing</div><div class="sh-title">Fares & Passes</div><div class="sh-rule"></div><div class="sh-desc">All fares in VYR. Flat-fare zone system.</div></div>
+  <div class="fare-grid">
+    <div class="fare-card"><div class="fc-type">Single Journey</div><div class="fc-price">⩔ 2</div><div class="fc-desc">Any line, any distance, any number of interchanges within a single 90-minute window.</div></div>
+    <div class="fare-card"><div class="fc-type">Day Pass</div><div class="fc-price">⩔ 12</div><div class="fc-desc">Unlimited travel on all non-restricted lines for one calendar day.</div></div>
+  </div>
+</div>
+<hr>
+<div class="sec" id="stations">
+  <div class="sh"><div class="sh-tag">Station Reference</div><div class="sh-title">Station Guide</div><div class="sh-rule"></div><div class="sh-desc">All major stations with facilities and links.</div></div>
+  <div class="tbl-wrap"><table class="tbl"><tr><th>Station</th><th>Zone</th><th>Lines</th><th>Facilities</th><th>Surface Access</th></tr><tr><td style="color:var(--gold)">Aurex Central</td><td>Velora</td><td><span style="color:var(--prime)">P</span></td><td>6 platforms</td><td>Government Core</td></tr></table></div>
+</div>
+<hr>
+<div class="sec" id="rules">
+  <div class="sh"><div class="sh-tag">Passenger Protocol</div><div class="sh-title">FlowNet Passenger Rules</div><div class="sh-rule"></div><div class="sh-desc">Eight rules. Kept deliberately short.</div></div>
+  <div class="rules-list">
+    <div class="rl"><div class="rl-n">1</div><div class="rl-b"><strong>Tap in and tap out on every journey.</strong> The system logs both entry and exit.</div></div>
+    <div class="rl"><div class="rl-n">2</div><div class="rl-b"><strong>Stand right, walk left on all escalators.</strong></div></div>
+  </div>
+</div>
+<div class="footer">
+  <div style="font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;letter-spacing:.15em;color:var(--gold-d)">FlowNet Rail — Vaultrian Transit Authority</div>
+  <div style="font-family:'Share Tech Mono',monospace;font-size:.48rem;letter-spacing:.3em;color:#1a1810;margin-top:6px">Official Guide · Est. 2025 · All times subject to operational variation · Free travel on public holidays</div>
+</div>
+<script>
+function goTo(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+var nbs=document.querySelectorAll('.nb');
+var ids=['network','lines','timetable','fares','stations','rules'];
+window.addEventListener('scroll',function(){
+  ids.forEach(function(id,i){
+    var el=document.getElementById(id);if(!el)return;var r=el.getBoundingClientRect();
+    if(r.top<120&&r.bottom>0){nbs.forEach(function(b){b.classList.remove('on');});nbs[i].classList.add('on');}
+  });
+});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:0.05});
+document.querySelectorAll('.sec').forEach(function(s){obs.observe(s);});
+</script>
+</body>
+</html>

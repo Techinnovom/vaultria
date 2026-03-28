@@ -1,0 +1,203 @@
+.property-law-page {
+  --pll-rule: var(--border);
+}
+
+.property-law-page .pll-header {
+  margin-top: 1rem;
+}
+
+.property-law-page .pll-pre {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.property-law-page .pll-sub {
+  margin-top: 0.4rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.property-law-page .pll-meta {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text-muted);
+}
+
+.property-law-page .pll-meta strong {
+  color: var(--gold);
+}
+
+.property-law-page .pll-nav {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.property-law-page .pll-link {
+  display: inline-block;
+  border: 1px solid var(--pll-rule);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.property-law-page .pll-link:hover,
+.property-law-page .pll-link.on {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.property-law-page .chapter {
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.property-law-page .chapter.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.property-law-page .ch-header {
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--pll-rule);
+}
+
+.property-law-page .ch-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+}
+
+.property-law-page .ch-title-vae {
+  margin-top: 0.4rem;
+  font-family: Cinzel, serif;
+  color: var(--gold);
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+}
+
+.property-law-page .ch-title-eng {
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.property-law-page .ch-desc {
+  margin-top: 0.45rem;
+  color: var(--text-muted);
+}
+
+.property-law-page .article + .article {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--pll-rule);
+}
+
+.property-law-page .art-head {
+  display: flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.property-law-page .art-code {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+.property-law-page .art-title {
+  font-family: Cinzel, serif;
+}
+
+.property-law-page .art-eng,
+.property-law-page .art-vae {
+  margin-top: 0.35rem;
+}
+
+.property-law-page .art-clauses {
+  margin-top: 0.45rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.property-law-page .art-clause {
+  padding-left: 0.85rem;
+  position: relative;
+  color: var(--text-muted);
+}
+
+.property-law-page .art-clause::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.42rem;
+  border-top: 1px solid var(--gold-dim);
+}
+
+.property-law-page .penalty,
+.property-law-page .notice {
+  margin-top: 0.6rem;
+  border: 1px solid var(--pll-rule);
+  background: var(--bg-elevated);
+  border-radius: 4px;
+  padding: 0.7rem 0.8rem;
+}
+
+.property-law-page .pen-label,
+.property-law-page .notice-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.property-law-page .notice-text,
+.property-law-page .pen-text {
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+}
+
+.property-law-page .law-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.property-law-page .law-table th,
+.property-law-page .law-table td {
+  border: 1px solid var(--pll-rule);
+  padding: 0.45rem 0.55rem;
+  vertical-align: top;
+}
+
+.property-law-page .law-table th {
+  background: var(--bg-elevated);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.62rem;
+  color: var(--gold-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+}

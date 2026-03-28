@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="page-territory-map-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vaultrian National Map — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/territory-map.css" />
+</head>
+<body data-nav-depth="1" class="page-territory-map">
+  <a class="visually-hidden" href="#tm-main">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="territory-map-app" id="tm-main">
+        <div class="tm-shell">
+          <div class="tm-bar">
+            <div class="tm-bar-logo">VAULTRIA</div>
+            <div class="tm-bar-div"></div>
+            <div class="tm-bar-sub nm-bar-sub">Loading…</div>
+            <div class="tm-bar-right">
+              <div class="tm-bar-badge"><b id="nm-badge-zones">—</b> Zones</div>
+              <div class="tm-bar-badge"><b id="nm-badge-nodes">—</b> Nodes</div>
+              <div class="tm-bar-badge"><b id="nm-badge-rail">—</b> Rail Lines</div>
+              <div class="tm-bar-badge"><b id="nm-badge-airports">—</b> Airports</div>
+            </div>
+          </div>
+
+          <div class="tm-body">
+            <div class="tm-map">
+              <canvas id="tm-canvas" aria-label="Interactive national territory map"></canvas>
+
+              <button type="button" class="tm-panel-toggle" id="tm-panel-toggle" aria-controls="tm-panel" aria-expanded="false">Info panel</button>
+
+              <div class="tm-layers">
+                <button type="button" class="tm-lbtn on" data-l="zones"><span class="tm-dot" style="background:#888"></span>Zones</button>
+                <button type="button" class="tm-lbtn on" data-l="roads"><span class="tm-dot" style="background:#6a5020"></span>Roads</button>
+                <button type="button" class="tm-lbtn on" data-l="rail"><span class="tm-dot" style="background:#c9a84c"></span>FlowNet Rail</button>
+                <button type="button" class="tm-lbtn on" data-l="nodes"><span class="tm-dot" style="background:#c9a84c"></span>Nodes</button>
+                <button type="button" class="tm-lbtn on" data-l="airports"><span class="tm-dot" style="background:#b87c18"></span>Airports</button>
+                <button type="button" class="tm-lbtn on" data-l="labels"><span class="tm-dot" style="background:#555"></span>Labels</button>
+              </div>
+
+              <div class="tm-zc">
+                <button type="button" class="tm-zb" id="tm-z-in" aria-label="Zoom in">+</button>
+                <button type="button" class="tm-zb" id="tm-z-out" aria-label="Zoom out">−</button>
+                <button type="button" class="tm-zb" id="tm-z-reset" style="font-size:0.55rem;letter-spacing:0.05em" aria-label="Reset view">RST</button>
+              </div>
+
+              <div class="tm-coords" id="tm-coords">VLN · 0000 · 0000</div>
+            </div>
+
+            <div class="tm-panel" id="tm-panel">
+              <div class="tm-ph">
+                <div class="tm-ph-pre" id="tm-ph-pre">Overview</div>
+                <div class="tm-ph-name" id="tm-ph-name">Vaultria</div>
+                <div class="tm-ph-type" id="tm-ph-type">Cartography data · vaultrian-national-map.json</div>
+                <div class="tm-ph-desc" id="tm-ph-desc">Loading map data…</div>
+              </div>
+              <div class="tm-pb" id="tm-pb">
+                <div class="tm-ps">Zone Categories</div>
+                <div class="tm-ni"><div class="tm-ni-dot" style="background:#c03a3a"></div><div class="tm-ni-name">Core Power</div><div class="tm-ni-n">3</div></div>
+                <div class="tm-ni"><div class="tm-ni-dot" style="background:#2e6ab8"></div><div class="tm-ni-name">Civilian &amp; Economic</div><div class="tm-ni-n">4</div></div>
+                <div class="tm-ni"><div class="tm-ni-dot" style="background:#b87c18"></div><div class="tm-ni-name">Infrastructure</div><div class="tm-ni-n">3</div></div>
+                <div class="tm-ni"><div class="tm-ni-dot" style="background:#2a7848"></div><div class="tm-ni-name">Knowledge &amp; Future</div><div class="tm-ni-n">2</div></div>
+              </div>
+              <div class="tm-leg">
+                <div class="tm-leg-t">Legend</div>
+                <div class="tm-leg-grid">
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#c03a3a"></div>Core Power</div>
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#2e6ab8"></div>Civilian</div>
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#b87c18"></div>Infrastructure</div>
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#2a7848"></div>Knowledge</div>
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#7a1010"></div>Restricted</div>
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#c9a84c"></div>Capital Node</div>
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#556080"></div>Rail Line</div>
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#b87c18;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></div>Airport</div>
+                  <div class="tm-leg-i"><div class="tm-leg-dot" style="background:#5a4010"></div>Road (Varo)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tm-tip" id="tm-tip"><div class="tm-tn" id="tm-tip-n"></div><div class="tm-tt" id="tm-tip-t"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/data/vaultrian-national-map-data.js"></script>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/national-map.js" defer></script>
+</body>
+</html>

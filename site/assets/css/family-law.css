@@ -1,0 +1,248 @@
+/* Family Law (Codex Vol. V) — scoped to site shell */
+.wrap.family-wrap {
+  max-width: min(1120px, 100%);
+  width: 100%;
+}
+
+.family-law-page {
+  --ink: var(--bg-deep);
+  --s1: var(--bg-panel);
+  --s2: var(--bg-elevated);
+  --gold-d: rgba(201, 169, 98, 0.28);
+  --gold-l: #e8c97a;
+  --tx: var(--text);
+  --tx2: var(--text-muted);
+  --tx3: rgba(154, 149, 138, 0.55);
+  --rule: rgba(201, 169, 98, 0.12);
+  --rule2: rgba(201, 169, 98, 0.08);
+  --green: #2a7848;
+  --greenl: rgba(42, 120, 72, 0.1);
+  --greenb: rgba(42, 120, 72, 0.32);
+  --amber: #b87c18;
+  --amberl: rgba(184, 124, 24, 0.1);
+  --amberb: rgba(184, 124, 24, 0.35);
+  --blue: #2e6ab8;
+  --bluel: rgba(46, 106, 184, 0.1);
+  --blueb: rgba(46, 106, 184, 0.32);
+  --red: #c03a3a;
+  --redl: rgba(192, 58, 58, 0.08);
+  --redb: rgba(192, 58, 58, 0.32);
+  --purple: #7848c8;
+  --purplel: rgba(120, 72, 200, 0.08);
+  --purpleb: rgba(120, 72, 200, 0.28);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--tx);
+}
+
+.family-law-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.family-law-page *,
+.family-law-page *::before,
+.family-law-page *::after {
+  box-sizing: border-box;
+}
+
+
+.family-law-page .shell {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+
+.family-law-page .sb {
+  position: sticky;
+  top: 0.75rem;
+  align-self: start;
+  width: 232px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  flex-shrink: 0;
+  left: auto;
+  height: auto;
+  min-height: 0;
+  background: var(--s1);
+  border: 1px solid var(--rule2);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.family-law-page .main {
+  margin-left: 0;
+  min-width: 0;
+}
+
+
+
+.family-law-page .sb::-webkit-scrollbar{width:3px}.family-law-page .sb::-webkit-scrollbar-thumb{background:var(--rule)}
+.family-law-page .sb-hd{padding:24px 18px 16px;border-bottom:1px solid var(--rule2)}
+.family-law-page .sb-t{font-family:'Cinzel',serif;font-weight:700;font-size:.68rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;line-height:1.4;margin-bottom:2px}
+.family-law-page .sb-s{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+.family-law-page .sb-nav{padding:8px 0;flex:1}
+.family-law-page .sb-cat{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;padding:7px 16px 3px;margin-top:3px}
+.family-law-page .sb-a{display:flex;color:inherit;align-items:center;gap:7px;padding:5px 16px;text-decoration:none;transition:.15s;cursor:pointer;border-left:2px solid transparent}
+.family-law-page .sb-a:hover{background:rgba(201,168,76,.04);border-left-color:var(--gold-d)}
+.family-law-page .sb-a.on{background:rgba(201,168,76,.06);border-left-color:var(--gold)}
+.family-law-page .sb-pip{width:8px;height:8px;border-radius:1px;flex-shrink:0}
+.family-law-page .sb-lbl{font-family:'Cinzel',serif;font-size:.58rem;color:var(--tx2);letter-spacing:.03em}
+.family-law-page .sb-a.on .sb-lbl{color:var(--gold)}.family-law-page .sb-a:hover .sb-lbl{color:var(--tx)}
+.family-law-page .sb-ft{padding:12px 16px;border-top:1px solid var(--rule2)}
+.family-law-page .sb-mo{font-family:'Cinzel',serif;font-style:italic;font-size:.54rem;color:var(--tx3);line-height:1.5}
+
+
+.family-law-page .hero{position:relative;padding:64px 56px 48px;border-bottom:1px solid var(--rule2);overflow:hidden}
+.family-law-page .hero::before{content:'';position:absolute;top:0;right:0;width:420px;height:420px;
+  background:radial-gradient(circle at top right,rgba(46,106,184,.05) 0%,transparent 65%);pointer-events:none}
+.family-law-page .h-vol{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.3em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.family-law-page .h-title{font-family:'Cinzel',serif;font-weight:700;font-size:2rem;color:var(--gold);letter-spacing:.04em;line-height:1.15;margin-bottom:6px}
+.family-law-page .h-sub{font-size:1.08rem;color:var(--tx2);max-width:580px;line-height:1.78;margin-bottom:22px}
+.family-law-page .h-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.family-law-page .tag{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;padding:3px 8px;border:1px solid var(--rule);color:var(--tx3);text-transform:uppercase}
+.family-law-page .tag.b{border-color:var(--blueb);color:var(--blueb)}
+.family-law-page .tag.g{border-color:var(--greenb);color:var(--greenb)}
+.family-law-page .tag.a{border-color:var(--amberb);color:var(--amberb)}
+.family-law-page .tag.r{border-color:var(--redb);color:var(--redb)}
+
+
+.family-law-page .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule2);border-top:1px solid var(--rule2)}
+.family-law-page .pr{padding:14px 16px;background:var(--s2)}
+.family-law-page .pr-n{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.2em;color:var(--tx3);text-transform:uppercase;margin-bottom:4px}
+.family-law-page .pr-t{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold);margin-bottom:3px}
+.family-law-page .pr-d{font-size:.84rem;color:var(--tx2);line-height:1.6}
+
+
+.family-law-page .content{max-width:860px;padding:0 56px 80px}
+
+
+.family-law-page .section{padding-top:52px;border-bottom:1px solid var(--rule2);padding-bottom:40px;scroll-margin-top:20px}
+.family-law-page .section:last-child{border-bottom:none}
+.family-law-page .sec-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.family-law-page .sec-ico{width:42px;height:42px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;background:var(--s2);margin-top:2px}
+.family-law-page .sec-tw{flex:1}
+.family-law-page .sec-art{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;margin-bottom:2px}
+.family-law-page .sec-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.3rem;color:var(--gold);letter-spacing:.03em;line-height:1.2;margin-bottom:3px}
+.family-law-page .sec-v{font-family:'Cinzel',serif;font-style:italic;font-size:.68rem;color:var(--tx3);letter-spacing:.05em}
+.family-law-page .sec-intro{font-size:.96rem;color:var(--tx2);line-height:1.78;margin-bottom:20px}
+
+
+.family-law-page .prov{margin-bottom:18px;border:1px solid var(--rule2);background:var(--s2)}
+.family-law-page .prov.blue{border-color:var(--blueb)}
+.family-law-page .prov.green{border-color:var(--greenb)}
+.family-law-page .prov.amber{border-color:var(--amberb)}
+.family-law-page .prov.red{border-color:var(--redb)}
+.family-law-page .prov.purple{border-color:var(--purpleb)}
+.family-law-page .prov-hd{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule2)}
+.family-law-page .prov.blue .prov-hd{background:var(--bluel)}
+.family-law-page .prov.green .prov-hd{background:var(--greenl)}
+.family-law-page .prov.amber .prov-hd{background:var(--amberl)}
+.family-law-page .prov.red .prov-hd{background:var(--redl)}
+.family-law-page .prov.purple .prov-hd{background:var(--purplel)}
+.family-law-page .prov-art{font-family:'Cinzel',serif;font-weight:700;font-size:.68rem;padding:2px 8px;border:1px solid;flex-shrink:0}
+.family-law-page .prov.blue .prov-art{color:var(--blue);border-color:var(--blueb)}
+.family-law-page .prov.green .prov-art{color:var(--green);border-color:var(--greenb)}
+.family-law-page .prov.amber .prov-art{color:var(--amber);border-color:var(--amberb)}
+.family-law-page .prov.red .prov-art{color:var(--red);border-color:var(--redb)}
+.family-law-page .prov.purple .prov-art{color:var(--purple);border-color:var(--purpleb)}
+.family-law-page .prov-title{font-family:'Share Tech Mono',monospace;font-size:.4rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase}
+.family-law-page .prov-body{padding:12px 14px}
+.family-law-page .prov-body p{font-size:.95rem;color:var(--tx2);line-height:1.78;margin-bottom:10px}
+.family-law-page .prov-body p:last-child{margin-bottom:0}
+.family-law-page .prov-body strong{color:var(--tx);font-weight:600}
+.family-law-page .prov-body em{font-style:italic;color:var(--tx)}
+
+
+.family-law-page .prow{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--rule2);align-items:baseline}
+.family-law-page .prow:last-child{border-bottom:none}
+.family-law-page .prow-lbl{font-size:.9rem;color:var(--tx2);flex:1;line-height:1.55}
+.family-law-page .prow-lbl strong{color:var(--tx)}
+.family-law-page .prow-val{font-family:'Share Tech Mono',monospace;font-size:.4rem;letter-spacing:.06em;color:var(--gold-d);flex-shrink:0;text-align:right;max-width:140px;line-height:1.55}
+
+
+.family-law-page .steps{display:flex;flex-direction:column;gap:10px;margin:12px 0}
+.family-law-page .step{display:flex;gap:12px}
+.family-law-page .step-n{width:24px;height:24px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:.44rem;color:var(--gold-d);flex-shrink:0;margin-top:2px}
+.family-law-page .step-body{flex:1}
+.family-law-page .step-t{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);margin-bottom:2px}
+.family-law-page .step-d{font-size:.9rem;color:var(--tx2);line-height:1.65}
+
+
+.family-law-page .rights{display:flex;flex-direction:column;gap:5px;margin:12px 0}
+.family-law-page .right{display:flex;gap:10px;align-items:flex-start;padding:5px 8px;border-left:2px solid var(--blueb)}
+.family-law-page .right-ico{font-size:.75rem;flex-shrink:0;margin-top:2px}
+.family-law-page .right-txt{font-size:.9rem;color:var(--tx2);line-height:1.6}
+.family-law-page .right-txt strong{color:var(--tx)}
+
+
+.family-law-page .ladder{margin:14px 0}
+.family-law-page .rung{display:flex;gap:12px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--rule2)}
+.family-law-page .rung:last-child{border-bottom:none}
+.family-law-page .rung-n{font-family:'Cinzel',serif;font-weight:700;font-size:.9rem;color:var(--gold);width:20px;flex-shrink:0;text-align:center}
+.family-law-page .rung-txt{font-size:.9rem;color:var(--tx2);line-height:1.55;flex:1}
+.family-law-page .rung-txt strong{color:var(--tx)}
+.family-law-page .rung-note{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.06em;color:var(--tx3);flex-shrink:0}
+
+
+.family-law-page .note{margin:14px 0;padding:12px 16px;border:1px solid var(--rule);background:rgba(201,168,76,.025);font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.04em;color:var(--tx3);line-height:1.7}
+.family-law-page .note-l{font-size:.36rem;letter-spacing:.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px}
+.family-law-page .note.warn{border-color:var(--redb);background:var(--redl)}
+.family-law-page .note.warn .note-l{color:var(--redb)}
+.family-law-page .note.good{border-color:var(--greenb);background:var(--greenl)}
+.family-law-page .note.good .note-l{color:var(--greenb)}
+
+
+.family-law-page .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.family-law-page .gi{padding:14px 16px;background:var(--s1);border:1px solid var(--rule2)}
+.family-law-page .gi-l{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase;margin-bottom:4px}
+.family-law-page .gi-t{font-size:.88rem;color:var(--tx2);line-height:1.65}
+.family-law-page .gi-t strong{color:var(--tx)}
+
+
+.family-law-page .dv{display:flex;align-items:center;gap:10px;margin:24px 0}
+.family-law-page .dv::before, .family-law-page .dv::after{content:'';flex:1;height:1px;background:var(--rule2)}
+.family-law-page .dv-m{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+
+
+.family-law-page .child-voice{margin:14px 0}
+.family-law-page .cv-row{display:flex;gap:12px;padding:7px 0;border-bottom:1px solid var(--rule2);align-items:baseline}
+.family-law-page .cv-row:last-child{border-bottom:none}
+.family-law-page .cv-age{font-family:'Cinzel',serif;font-weight:700;font-size:.82rem;color:var(--gold);flex-shrink:0;width:70px}
+.family-law-page .cv-txt{font-size:.9rem;color:var(--tx2);line-height:1.55;flex:1}
+.family-law-page .cv-txt strong{color:var(--tx)}
+
+@media (max-width: 900px) {
+  .family-law-page .shell {
+    grid-template-columns: 1fr;
+  }
+  .family-law-page .sb {
+    position: relative;
+    top: auto;
+    max-height: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .family-law-page .sb {
+    display: none;
+  }
+  .family-law-page .main {
+    margin-left: 0;
+  }
+  .family-law-page .hero,
+  .family-law-page .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .family-law-page .principles {
+    grid-template-columns: 1fr;
+  }
+  .family-law-page .g2 {
+    grid-template-columns: 1fr;
+  }
+}

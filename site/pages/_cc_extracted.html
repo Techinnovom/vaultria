@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaultrian Criminal Code — Codex of Order Vol. IV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#07060A;--s1:#0E0C11;--s2:#131118;
+  --gold:#C9A84C;--gold-d:rgba(201,168,76,0.28);--gold-l:#E8C97A;
+  --tx:#D0C6B4;--tx2:rgba(208,198,180,0.55);--tx3:rgba(208,198,180,0.26);
+  --rule:rgba(201,168,76,0.08);--rule2:rgba(201,168,76,0.05);
+  --c0:#8B1A1A;--c0l:rgba(139,26,26,0.18);--c0b:rgba(139,26,26,0.5);
+  --c1:#C03A3A;--c1l:rgba(192,58,58,0.12);--c1b:rgba(192,58,58,0.4);
+  --c2:#B87C18;--c2l:rgba(184,124,24,0.1);--c2b:rgba(184,124,24,0.35);
+  --c3:#2A7848;--c3l:rgba(42,120,72,0.1);--c3b:rgba(42,120,72,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--tx);font-family:'Crimson Pro',serif;font-size:1.02rem;line-height:1.75}
+
+/* ── LAYOUT ── */
+.shell{display:flex;min-height:100vh}
+
+/* ── SIDEBAR ── */
+.sb{width:240px;flex-shrink:0;position:fixed;top:0;left:0;height:100vh;
+  background:var(--s1);border-right:1px solid var(--rule2);
+  overflow-y:auto;z-index:50;display:flex;flex-direction:column}
+.sb::-webkit-scrollbar{width:3px}
+.sb::-webkit-scrollbar-thumb{background:var(--rule)}
+.sb-hd{padding:24px 18px 16px;border-bottom:1px solid var(--rule2)}
+.sb-title{font-family:'Cinzel',serif;font-weight:700;font-size:.68rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;line-height:1.4;margin-bottom:2px}
+.sb-sub{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+.sb-nav{padding:8px 0;flex:1}
+.sb-cat{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;padding:7px 16px 3px;margin-top:3px}
+.sb-a{display:flex;align-items:center;gap:7px;padding:5px 16px;text-decoration:none;transition:.15s;cursor:pointer;border-left:2px solid transparent}
+.sb-a:hover{background:rgba(201,168,76,.04);border-left-color:var(--gold-d)}
+.sb-a.on{background:rgba(201,168,76,.06);border-left-color:var(--gold)}
+.sb-dot{width:7px;height:7px;border-radius:1px;flex-shrink:0}
+.sb-lbl{font-family:'Cinzel',serif;font-size:.58rem;color:var(--tx2);letter-spacing:.03em}
+.sb-a.on .sb-lbl{color:var(--gold)}
+.sb-a:hover .sb-lbl{color:var(--tx)}
+.sb-ft{padding:12px 16px;border-top:1px solid var(--rule2)}
+.sb-motto{font-family:'Cinzel',serif;font-style:italic;font-size:.54rem;color:var(--tx3);line-height:1.5}
+
+/* ── MAIN ── */
+.main{margin-left:240px;flex:1;min-width:0}
+
+/* ── HERO ── */
+.hero{position:relative;padding:64px 56px 48px;border-bottom:1px solid var(--rule2);overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;width:380px;height:380px;
+  background:radial-gradient(circle at top right,rgba(139,26,26,.06) 0%,transparent 65%);pointer-events:none}
+.h-vol{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.3em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.h-title{font-family:'Cinzel',serif;font-weight:700;font-size:2rem;color:var(--gold);letter-spacing:.04em;line-height:1.15;margin-bottom:6px}
+.h-sub{font-size:1.08rem;color:var(--tx2);max-width:540px;line-height:1.78;margin-bottom:20px}
+.h-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:20px}
+.tag{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;padding:3px 8px;border:1px solid var(--rule);color:var(--tx3);text-transform:uppercase}
+.tag.c0{border-color:var(--c0b);color:var(--c0b)}
+.tag.c1{border-color:var(--c1b);color:var(--c1b)}
+.tag.c2{border-color:var(--c2b);color:var(--c2b)}
+.tag.c3{border-color:var(--c3b);color:var(--c3b)}
+
+/* ── CLASS BADGE STRIP ── */
+.class-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:0}
+.cs{padding:12px 14px;border:1px solid}
+.cs-num{font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem;margin-bottom:2px}
+.cs-name{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.cs-desc{font-size:.82rem;line-height:1.55}
+.cs.c0{border-color:var(--c0b);background:var(--c0l);color:var(--c0)}
+.cs.c1{border-color:var(--c1b);background:var(--c1l);color:var(--c1)}
+.cs.c2{border-color:var(--c2b);background:var(--c2l);color:var(--c2)}
+.cs.c3{border-color:var(--c3b);background:var(--c3l);color:var(--c3)}
+.cs-desc{color:var(--tx2)}
+
+/* ── CONTENT ── */
+.content{max-width:860px;padding:0 56px 80px}
+
+/* ── SECTION ── */
+.section{padding-top:52px;border-bottom:1px solid var(--rule2);padding-bottom:40px;scroll-margin-top:20px}
+.section:last-child{border-bottom:none}
+.sec-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:26px}
+.sec-ico{width:42px;height:42px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;background:var(--s2);margin-top:2px}
+.sec-tw{flex:1}
+.sec-n{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;margin-bottom:2px}
+.sec-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.3rem;color:var(--gold);letter-spacing:.03em;line-height:1.2;margin-bottom:3px}
+.sec-v{font-family:'Cinzel',serif;font-style:italic;font-size:.68rem;color:var(--tx3);letter-spacing:.05em}
+.sec-intro{font-size:.96rem;color:var(--tx2);line-height:1.78;margin-bottom:22px}
+
+/* ── OFFENSE CLASS BLOCK ── */
+.cls-block{margin-bottom:20px;border:1px solid}
+.cls-block.c0{border-color:rgba(139,26,26,.3)}
+.cls-block.c1{border-color:rgba(192,58,58,.22)}
+.cls-block.c2{border-color:rgba(184,124,24,.18)}
+.cls-block.c3{border-color:rgba(42,120,72,.18)}
+.cls-hd{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid}
+.cls-block.c0 .cls-hd{background:rgba(139,26,26,.12);border-color:rgba(139,26,26,.2)}
+.cls-block.c1 .cls-hd{background:rgba(192,58,58,.07);border-color:rgba(192,58,58,.12)}
+.cls-block.c2 .cls-hd{background:rgba(184,124,24,.07);border-color:rgba(184,124,24,.12)}
+.cls-block.c3 .cls-hd{background:rgba(42,120,72,.06);border-color:rgba(42,120,72,.1)}
+.cls-badge{font-family:'Cinzel',serif;font-weight:700;font-size:.72rem;letter-spacing:.06em;padding:2px 8px;border:1px solid;flex-shrink:0}
+.c0 .cls-badge{color:var(--c0);border-color:var(--c0b)}
+.c1 .cls-badge{color:var(--c1);border-color:var(--c1b)}
+.c2 .cls-badge{color:var(--c2);border-color:var(--c2b)}
+.c3 .cls-badge{color:var(--c3);border-color:var(--c3b)}
+.cls-label{font-family:'Share Tech Mono',monospace;font-size:.4rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase}
+.cls-sanction{margin-left:auto;font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;color:var(--tx3);text-transform:uppercase;text-align:right;max-width:200px;line-height:1.4}
+.cls-body{padding:12px 14px}
+.offense{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--rule2)}
+.offense:last-child{border-bottom:none}
+.off-art{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.08em;color:var(--tx3);flex-shrink:0;width:56px;padding-top:3px}
+.off-text{font-size:.92rem;color:var(--tx2);line-height:1.6;flex:1}
+.off-text strong{color:var(--tx);font-weight:600}
+
+/* ── PUNISHMENT REFERENCE ── */
+.pun-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px}
+.pun-col{border:1px solid;padding:14px 14px}
+.pun-col.c0{border-color:var(--c0b)}
+.pun-col.c1{border-color:var(--c1b)}
+.pun-col.c2{border-color:var(--c2b)}
+.pun-col.c3{border-color:var(--c3b)}
+.pun-hd{font-family:'Cinzel',serif;font-weight:700;font-size:.7rem;margin-bottom:8px}
+.pun-col.c0 .pun-hd{color:var(--c0)}
+.pun-col.c1 .pun-hd{color:var(--c1)}
+.pun-col.c2 .pun-hd{color:var(--c2)}
+.pun-col.c3 .pun-hd{color:var(--c3)}
+.pun-item{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.04em;color:var(--tx3);line-height:1.65;padding:2px 0;border-bottom:1px solid var(--rule2)}
+.pun-item:last-child{border-bottom:none}
+
+/* ── NOTE ── */
+.note{margin:14px 0;padding:12px 16px;border:1px solid var(--rule);background:rgba(201,168,76,.025);font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.04em;color:var(--tx3);line-height:1.7}
+.note-l{font-size:.36rem;letter-spacing:.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px}
+.note.warn{border-color:rgba(139,26,26,.25);background:rgba(139,26,26,.04);color:rgba(208,160,160,.5)}
+.note.warn .note-l{color:rgba(139,26,26,.5)}
+
+/* ── DIVIDER ── */
+.dv{display:flex;align-items:center;gap:10px;margin:28px 0}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:var(--rule2)}
+.dv-m{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+
+@media(max-width:680px){.sb{display:none}.main{margin-left:0}.hero,.content{padding-left:20px;padding-right:20px}.class-strip,.pun-grid{grid-template-columns:1fr 1fr}.cls-sanction{display:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<nav class="sb">
+  <div class="sb-hd">
+    <svg width="30" height="35" viewBox="0 0 88 102" fill="none" style="margin-bottom:10px">
+      <path d="M44 2L86 14L86 54C86 76 67 92 44 100C21 92 2 76 2 54L2 14Z" fill="#080604" stroke="rgba(201,168,76,0.38)" stroke-width="2"/>
+      <polyline points="13,51 23,51 27,38 31,64 35,43 38,57 43,51 49,51 53,38 57,57 61,51 75,51" stroke="#CC2020" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="sb-title">Criminal Code</div>
+    <div class="sb-sub">Codex of Order · Vol. IV</div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-cat">Foundations</div>
+    <a class="sb-a on" href="#preamble" onclick="sa(this)"><div class="sb-dot" style="background:var(--gold-d)"></div><span class="sb-lbl">Preamble & Classes</span></a>
+    <a class="sb-a" href="#sanctions" onclick="sa(this)"><div class="sb-dot" style="background:var(--gold-d)"></div><span class="sb-lbl">Sanctions Reference</span></a>
+    <div class="sb-cat">Offense Categories</div>
+    <a class="sb-a" href="#cat-state" onclick="sa(this)"><div class="sb-dot" style="background:var(--c0)"></div><span class="sb-lbl">I — Against the State</span></a>
+    <a class="sb-a" href="#cat-violent" onclick="sa(this)"><div class="sb-dot" style="background:var(--c1)"></div><span class="sb-lbl">II — Violent Crimes</span></a>
+    <a class="sb-a" href="#cat-zone" onclick="sa(this)"><div class="sb-dot" style="background:var(--c0)"></div><span class="sb-lbl">III — Zone Violations</span></a>
+    <a class="sb-a" href="#cat-vyr" onclick="sa(this)"><div class="sb-dot" style="background:var(--c2)"></div><span class="sb-lbl">IV — VYR & Financial</span></a>
+    <a class="sb-a" href="#cat-civic" onclick="sa(this)"><div class="sb-dot" style="background:var(--c2)"></div><span class="sb-lbl">V — Civic Duty</span></a>
+    <a class="sb-a" href="#cat-privacy" onclick="sa(this)"><div class="sb-dot" style="background:var(--c2)"></div><span class="sb-lbl">VI — Privacy & Surveillance</span></a>
+    <a class="sb-a" href="#cat-children" onclick="sa(this)"><div class="sb-dot" style="background:var(--c0)"></div><span class="sb-lbl">VII — Crimes vs Children</span></a>
+    <a class="sb-a" href="#cat-property" onclick="sa(this)"><div class="sb-dot" style="background:var(--c2)"></div><span class="sb-lbl">VIII — Property</span></a>
+    <a class="sb-a" href="#cat-identity" onclick="sa(this)"><div class="sb-dot" style="background:var(--c2)"></div><span class="sb-lbl">IX — Identity & Language</span></a>
+    <a class="sb-a" href="#cat-ai" onclick="sa(this)"><div class="sb-dot" style="background:var(--c0)"></div><span class="sb-lbl">X — AI System Interference</span></a>
+    <div class="sb-cat">Procedure</div>
+    <a class="sb-a" href="#procedure" onclick="sa(this)"><div class="sb-dot" style="background:var(--gold-d)"></div><span class="sb-lbl">Procedure & Rights</span></a>
+  </div>
+  <div class="sb-ft">
+    <div class="sb-motto">"Kiratvel navol" —<br>Truth is permanent</div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+<div class="hero">
+  <div class="h-vol">Codex of Order — Volume IV · The Sovereign State of Vaultria</div>
+  <h1 class="h-title">The Vaultrian Criminal Code</h1>
+  <p class="h-sub">The classification of offenses against citizens, the state, and the order of Vaultrian life. Four classes. Ten categories. No death penalty. Citizens born in Vaultria cannot be removed from it.</p>
+  <div class="h-tags">
+    <span class="tag c0">Class 0 — State Crimes</span>
+    <span class="tag c1">Class I — Violent</span>
+    <span class="tag c2">Class II — Civic</span>
+    <span class="tag c3">Class III — Minor</span>
+  </div>
+  <div class="class-strip">
+    <div class="cs c0"><div class="cs-num">Class 0</div><div class="cs-name">State Crimes</div><div class="cs-desc">Crimes against the structure of Vaultria itself. The highest severity. Permanent consequence.</div></div>
+    <div class="cs c1"><div class="cs-num">Class I</div><div class="cs-name">Violent Crimes</div><div class="cs-desc">Crimes involving direct harm or serious threat to citizens. Confinement-level response.</div></div>
+    <div class="cs c2"><div class="cs-num">Class II</div><div class="cs-name">Civic Offenses</div><div class="cs-desc">Offenses against civic systems, property, and civic order. Significant but reversible consequence.</div></div>
+    <div class="cs c3"><div class="cs-num">Class III</div><div class="cs-name">Minor Offenses</div><div class="cs-desc">Violations of civic norms and procedures. Fines, warnings, community obligation.</div></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- ══ PREAMBLE ══ -->
+  <section class="section" id="preamble">
+    <div class="sec-hd">
+      <div class="sec-ico">⚖</div>
+      <div class="sec-tw">
+        <div class="sec-n">Codex Vol. IV · Preamble</div>
+        <h2 class="sec-t">Preamble & Classification Principles</h2>
+        <div class="sec-v">Vel morven kadir — "The knowing of what is broken"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">The Vaultrian Criminal Code operates on a single foundational principle: <strong>the purpose of criminal law is restoration, not punishment for its own sake.</strong> Every sanction exists to protect Vaultrian citizens and civic order, not to enact retribution. Where restoration is impossible, containment replaces it. Where neither is possible, separation does. Vaultria does not kill its citizens. It does not exile those born within its borders. It does not pretend that a person is no longer a person because they have committed an offense.</p>
+
+    <div class="note warn">
+      <div class="note-l">Non-Negotiable Principles</div>
+      Vaultria has no death penalty and will never institute one — this is entrenched in Article 4.2 of the Charter and cannot be amended by any majority. Citizens born in Vaultria cannot be exiled, deported, or stripped of their CID regardless of the severity of their offense. First-generation immigrants (non-native citizens) may face deportation as an alternative to confinement for Class 0 and qualifying Class I offenses only, declared at sentencing by the High Tribunal exclusively.
+    </div>
+
+    <p style="color:var(--tx2);font-size:.96rem;line-height:1.78;margin-bottom:14px">The four offense classes are defined by the nature and scope of harm, not by the identity of the offender. Class 0 crimes threaten the structure of Vaultria itself. Class I crimes cause direct violent harm to citizens. Class II crimes damage civic systems, property, and order. Class III crimes violate civic norms and procedural requirements.</p>
+    <p style="color:var(--tx2);font-size:.96rem;line-height:1.78">All criminal proceedings are conducted by the High Tribunal or zone-level tribunals. Citizens are entitled to representation, to silence, and to know the specific article under which they are charged before any proceeding begins. Pre-criminal warnings (Civic Warning, Formal Civic Notice) do not constitute criminal record and are not admissible as evidence of criminal intent.</p>
+  </section>
+
+  <!-- ══ SANCTIONS ══ -->
+  <section class="section" id="sanctions">
+    <div class="sec-hd">
+      <div class="sec-ico">◼</div>
+      <div class="sec-tw">
+        <div class="sec-n">Codex Vol. IV · Sanctions</div>
+        <h2 class="sec-t">Sanctions Reference</h2>
+        <div class="sec-v">Vel morven sorex — "The consequence record"</div>
+      </div>
+    </div>
+    <p class="sec-intro">Sanctions are applied by the tribunal at sentencing. Multiple sanctions may be applied concurrently. All sanctions are proportional — the tribunal considers the citizen's circumstances, history, and the specific harm caused. No sanction is automatic except where the Code specifies mandatory minimums.</p>
+
+    <div class="pun-grid">
+      <div class="pun-col c0">
+        <div class="pun-hd">Class 0</div>
+        <div class="pun-item">Permanent Morvex Confinement (born citizens)</div>
+        <div class="pun-item">Full citizenship restriction — CID retained, all rights suspended</div>
+        <div class="pun-item">Full asset seizure</div>
+        <div class="pun-item">Permanent border ban (if deported)</div>
+        <div class="pun-item" style="color:rgba(139,26,26,.5);margin-top:6px;font-size:.36rem">First-gen citizens: Permanent Deportation replaces confinement</div>
+      </div>
+      <div class="pun-col c1">
+        <div class="pun-hd">Class I</div>
+        <div class="pun-item">Restricted Zone Confinement (term set by tribunal)</div>
+        <div class="pun-item">Full asset seizure</div>
+        <div class="pun-item">Permanent CID Flag — cannot be cleared</div>
+        <div class="pun-item">Permanent Merit Tier floor — cannot advance past T1</div>
+        <div class="pun-item" style="color:rgba(192,58,58,.45);margin-top:6px;font-size:.36rem">First-gen citizens: Deportation may replace confinement at tribunal discretion</div>
+      </div>
+      <div class="pun-col c2">
+        <div class="pun-hd">Class II</div>
+        <div class="pun-item">Merit Tier Demotion (formal, appeals permitted)</div>
+        <div class="pun-item">Extended Community Obligation (6–24 months)</div>
+        <div class="pun-item">Zone Restriction</div>
+        <div class="pun-item">VYR asset freeze (partial or full, temporary)</div>
+        <div class="pun-item">CID Flag (duration set by tribunal, clearable)</div>
+      </div>
+      <div class="pun-col c3">
+        <div class="pun-hd">Class III</div>
+        <div class="pun-item">VYR fine (income-scaled)</div>
+        <div class="pun-item">Community Obligation (hours, not months)</div>
+        <div class="pun-item">Merit Tier Review (early trigger)</div>
+        <div class="pun-item">Probationary Status with monitoring</div>
+        <div class="pun-item">Sector Restriction</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="note-l">Pre-Criminal Notices (not criminal record)</div>
+      Civic Warning (informal, no record) · Formal Civic Notice (filed, expires after 1 year) · Compliance Hearing (required attendance, monitored). These do not appear on a citizen's criminal record and cannot be referenced at a criminal tribunal as evidence of prior criminal conduct.
+    </div>
+  </section>
+
+  <!-- ══ CAT I — STATE ══ -->
+  <section class="section" id="cat-state">
+    <div class="sec-hd">
+      <div class="sec-ico">🏛</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category I</div>
+        <h2 class="sec-t">Crimes Against the State & Vaultcil</h2>
+        <div class="sec-v">Vel morven narovel — "Against the record of all"</div>
+      </div>
+    </div>
+    <p class="sec-intro">Offenses in this category target the governing structure, founding institutions, and civic order of Vaultria. Because the state represents the collective safety of all citizens, crimes against it are treated as crimes against every citizen simultaneously.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd">
+        <span class="cls-badge">Class 0</span>
+        <span class="cls-label">State Crimes — Maximum Consequence</span>
+        <span class="cls-sanction">Permanent Morvex Confinement · Deportation (first-gen)</span>
+      </div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. I.0.1</span><span class="off-text"><strong>Sedition.</strong> Organising or leading any coordinated attempt to dissolve the Vaultcil, remove the Prime Custodian by force, or overthrow Vaultrian governance by non-civic means.</span></div>
+        <div class="offense"><span class="off-art">Art. I.0.2</span><span class="off-text"><strong>Treason.</strong> Providing classified Vaultrian intelligence, operational data, or citizen registry information to a foreign power or hostile non-state actor.</span></div>
+        <div class="offense"><span class="off-art">Art. I.0.3</span><span class="off-text"><strong>Armed Insurrection.</strong> Coordinating or materially supporting armed violence against state institutions, civic infrastructure, or agents of the Vaultcil.</span></div>
+        <div class="offense"><span class="off-art">Art. I.0.4</span><span class="off-text"><strong>Assassination Attempt.</strong> Attempting to kill the Prime Custodian, any Core Council member, or any sitting High Tribunal Justice.</span></div>
+        <div class="offense"><span class="off-art">Art. I.0.5</span><span class="off-text"><strong>Sabotage of Aegis Prime.</strong> Any deliberate act designed to damage, corrupt, override, or destroy the Vaultryn Core AI system or its primary infrastructure.</span></div>
+        <div class="offense"><span class="off-art">Art. I.0.6</span><span class="off-text"><strong>Destruction of Founding Records.</strong> Wilful destruction of the Charter record, the Great Seal, or any document held in the National Archive at Kirel.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd">
+        <span class="cls-badge">Class I</span>
+        <span class="cls-label">Serious State Offenses</span>
+        <span class="cls-sanction">Confinement · Permanent CID Flag</span>
+      </div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. I.1.1</span><span class="off-text"><strong>Incitement to Civil Unrest.</strong> Public calls for violence against civic institutions, the Vaultcil, or state officials, whether spoken, written, or broadcast.</span></div>
+        <div class="offense"><span class="off-art">Art. I.1.2</span><span class="off-text"><strong>Impersonation of a Vaultcil Official.</strong> Falsely claiming to hold a civic, judicial, or governmental role for the purpose of exercising or appearing to exercise state authority.</span></div>
+        <div class="offense"><span class="off-art">Art. I.1.3</span><span class="off-text"><strong>Forgery of State Documents.</strong> Creating, altering, or distributing falsified official state documents including tribunal orders, Charter amendments, or executive directives.</span></div>
+        <div class="offense"><span class="off-art">Art. I.1.4</span><span class="off-text"><strong>Obstruction of Tribunal.</strong> Wilfully interfering with, threatening, or corrupting a High Tribunal or zone tribunal proceeding, including witness intimidation.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd">
+        <span class="cls-badge">Class II</span>
+        <span class="cls-label">Civic Offenses Against State</span>
+        <span class="cls-sanction">Zone Restriction · CID Flag · Merit Demotion</span>
+      </div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. I.2.1</span><span class="off-text"><strong>Defacement of Civic Monuments.</strong> Vandalising or defacing the Void Day Wall, Naratel Fountain, civic seals, or designated national monuments.</span></div>
+        <div class="offense"><span class="off-art">Art. I.2.2</span><span class="off-text"><strong>False Civic Declarations.</strong> Filing knowingly false statements in official civic processes including tribunal submissions, registration documents, or public record filings.</span></div>
+        <div class="offense"><span class="off-art">Art. I.2.3</span><span class="off-text"><strong>Disruption of Veloran Ceremony.</strong> Deliberately disrupting a Veloran coming-of-age ceremony, including entering the chamber without authorisation during proceedings.</span></div>
+        <div class="offense"><span class="off-art">Art. I.2.4</span><span class="off-text"><strong>Bribery of Civic Official.</strong> Offering, soliciting, or accepting payment, goods, or favour in exchange for the exercise or non-exercise of a civic function.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd">
+        <span class="cls-badge">Class III</span>
+        <span class="cls-label">Minor Civic Violations</span>
+        <span class="cls-sanction">Fine · Community Obligation · Civic Notice</span>
+      </div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. I.3.1</span><span class="off-text"><strong>Non-Compliance with Civic Notice.</strong> Failing to comply with or respond to a Formal Civic Notice within the stated period without documented cause.</span></div>
+        <div class="offense"><span class="off-art">Art. I.3.2</span><span class="off-text"><strong>Misrepresentation of Civic Status.</strong> Providing inaccurate civic status information on a minor civic form where the inaccuracy is not materially harmful.</span></div>
+        <div class="offense"><span class="off-art">Art. I.3.3</span><span class="off-text"><strong>Late Registration.</strong> Failing to register a required civic event — birth, union, dissolution, death — within the mandated window without documented cause.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT II — VIOLENT ══ -->
+  <section class="section" id="cat-violent">
+    <div class="sec-hd">
+      <div class="sec-ico">⚡</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category II</div>
+        <h2 class="sec-t">Violent Crimes Against Citizens</h2>
+        <div class="sec-v">Vel morven sena — "Against the body of another"</div>
+      </div>
+    </div>
+    <p class="sec-intro">Direct harm to the physical person of a citizen is among the most serious violations Vaultrian law recognises. The safety of citizens is the foundational purpose of the state. Crimes in this category represent the most direct possible failure of that purpose.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe</span><span class="cls-sanction">Permanent Confinement</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. II.0.1</span><span class="off-text"><strong>Murder.</strong> The intentional killing of a Vaultrian citizen or any person within Vaultrian territory.</span></div>
+        <div class="offense"><span class="off-art">Art. II.0.2</span><span class="off-text"><strong>Coordinated Mass Violence.</strong> Organising or participating in coordinated violence resulting in multiple casualties, whether or not death occurs.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious Violent Offenses</span><span class="cls-sanction">Confinement · Permanent CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. II.1.1</span><span class="off-text"><strong>Assault Causing Serious Bodily Harm.</strong> Any physical attack resulting in lasting injury, requiring medical intervention, or causing permanent impairment.</span></div>
+        <div class="offense"><span class="off-art">Art. II.1.2</span><span class="off-text"><strong>Attempted Murder.</strong> Any deliberate act designed to cause death that does not result in death due to circumstances outside the offender's control.</span></div>
+        <div class="offense"><span class="off-art">Art. II.1.3</span><span class="off-text"><strong>Torture.</strong> Sustained physical abuse of a citizen intended to cause severe suffering, whether or not other crimes are involved.</span></div>
+        <div class="offense"><span class="off-art">Art. II.1.4</span><span class="off-text"><strong>Armed Robbery with Violence.</strong> Theft committed through or accompanied by physical violence against the victim.</span></div>
+        <div class="offense"><span class="off-art">Art. II.1.5</span><span class="off-text"><strong>Sexual Violence.</strong> Any non-consensual sexual act committed against an adult citizen. Carries mandatory minimum confinement. Cannot be resolved through Vel Sena mediation.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">Violent Civic Offenses</span><span class="cls-sanction">Zone Restriction · CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. II.2.1</span><span class="off-text"><strong>Common Assault.</strong> Physical attack on a citizen that does not result in serious bodily harm. Includes striking, pushing, or threatening physical contact where contact occurs.</span></div>
+        <div class="offense"><span class="off-art">Art. II.2.2</span><span class="off-text"><strong>Threatening Behaviour with a Weapon.</strong> Brandishing, displaying, or using any weapon to threaten a citizen regardless of whether physical contact is made.</span></div>
+        <div class="offense"><span class="off-art">Art. II.2.3</span><span class="off-text"><strong>Unlawful Restraint.</strong> Confining, restraining, or preventing the free movement of a citizen without lawful authority or the citizen's consent.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor</span><span class="cls-sanction">Fine · Community Obligation</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. II.3.1</span><span class="off-text"><strong>Harassment.</strong> Repeated unwanted contact, communication, or presence directed at a citizen after a formal warning has been issued and documented.</span></div>
+        <div class="offense"><span class="off-art">Art. II.3.2</span><span class="off-text"><strong>Public Fighting.</strong> Mutual participation in physical altercation in a public space resulting in minor injury. Distinguished from assault by the mutual nature of engagement.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT III — ZONE ══ -->
+  <section class="section" id="cat-zone">
+    <div class="sec-hd">
+      <div class="sec-ico">⬡</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category III</div>
+        <h2 class="sec-t">Restricted Zone Violations</h2>
+        <div class="sec-v">Vel morven morvex — "Entering what is sealed"</div>
+      </div>
+    </div>
+    <p class="sec-intro">Vaultria's zone system designates certain areas as restricted by tier clearance. Morvex is the highest restricted zone — its core areas are accessible only to authorised personnel. Violations of zone access are treated seriously because restricted zones exist for the safety of all citizens.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe</span><span class="cls-sanction">Permanent Confinement</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. III.0.1</span><span class="off-text"><strong>Unauthorised Entry — Morvex Core.</strong> Breaching the classified containment area of Morvex zone without Tier III clearance by any means.</span></div>
+        <div class="offense"><span class="off-art">Art. III.0.2</span><span class="off-text"><strong>Armed Restricted Zone Breach.</strong> Entering any Tier II or Tier III restricted zone while carrying a weapon, regardless of clearance status.</span></div>
+        <div class="offense"><span class="off-art">Art. III.0.3</span><span class="off-text"><strong>Release of Classified Zone Intelligence.</strong> Disclosing the contents, operations, personnel, or internal structure of Morvex or any classified restricted zone to unauthorised parties.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious Zone Offenses</span><span class="cls-sanction">Confinement · Permanent CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. III.1.1</span><span class="off-text"><strong>Unauthorised Entry — Tier II Zone.</strong> Entering any Tier II restricted zone without valid clearance credentials.</span></div>
+        <div class="offense"><span class="off-art">Art. III.1.2</span><span class="off-text"><strong>Clearance Forgery.</strong> Fabricating, altering, or fraudulently obtaining zone access credentials of any tier.</span></div>
+        <div class="offense"><span class="off-art">Art. III.1.3</span><span class="off-text"><strong>Facilitating Unauthorised Access.</strong> Assisting, enabling, or directing an unauthorised person to enter a restricted zone, whether or not entry is achieved.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">Zone Civic Offenses</span><span class="cls-sanction">Zone Restriction · CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. III.2.1</span><span class="off-text"><strong>Tier I Zone Entry Without Notification.</strong> Entering a Tier I restricted area without the required advance notification to the relevant sector authority.</span></div>
+        <div class="offense"><span class="off-art">Art. III.2.2</span><span class="off-text"><strong>Lockdown Boundary Violation.</strong> Crossing a zone boundary during a declared civic lockdown or emergency restriction period.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor</span><span class="cls-sanction">Fine · Probationary Status</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. III.3.1</span><span class="off-text"><strong>Failure to Exit After Warning.</strong> Remaining in a restricted area after being formally warned to leave by an authorised official.</span></div>
+        <div class="offense"><span class="off-art">Art. III.3.2</span><span class="off-text"><strong>Minor Zone Boundary Violation.</strong> Crossing a zone boundary without correct documentation where no malicious intent is demonstrated and no harm results.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT IV — VYR ══ -->
+  <section class="section" id="cat-vyr">
+    <div class="sec-hd">
+      <div class="sec-ico">⩔</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category IV</div>
+        <h2 class="sec-t">Financial Crimes & VYR Fraud</h2>
+        <div class="sec-v">Vel morven kavar — "Taking from the common knowing"</div>
+      </div>
+    </div>
+    <p class="sec-intro">The VYR currency system is the economic foundation of Vaultrian life. Financial crimes do not only harm their direct victims — they undermine the integrity of the system every citizen depends on. The threshold between Class II and Class I financial crime is defined by the High Tribunal in annual guidance based on the current VYR economic index.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe</span><span class="cls-sanction">Permanent Confinement · Full Asset Seizure</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. IV.0.1</span><span class="off-text"><strong>Systematic VYR Counterfeiting.</strong> Producing, distributing, or operating infrastructure for the mass counterfeiting of VYR currency in any tier (Core, Trust, or Restricted).</span></div>
+        <div class="offense"><span class="off-art">Art. IV.0.2</span><span class="off-text"><strong>National Exchange Infrastructure Attack.</strong> Hacking, sabotaging, or corrupting the national VYR exchange system or Karelth zone financial infrastructure.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious Financial Offenses</span><span class="cls-sanction">Confinement · Full Asset Seizure</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. IV.1.1</span><span class="off-text"><strong>Large-Scale VYR Fraud.</strong> Fraudulent acquisition or manipulation of VYR above the tribunal-defined Class I threshold.</span></div>
+        <div class="offense"><span class="off-art">Art. IV.1.2</span><span class="off-text"><strong>Unlicensed Financial Exchange.</strong> Operating a VYR exchange, lending, or investment service without Birek registration and Financial Domain licence.</span></div>
+        <div class="offense"><span class="off-art">Art. IV.1.3</span><span class="off-text"><strong>Organised Extortion.</strong> Systematically demanding VYR or assets from citizens under threat of harm, exposure, or civic damage.</span></div>
+        <div class="offense"><span class="off-art">Art. IV.1.4</span><span class="off-text"><strong>VYR Laundering.</strong> Processing criminally obtained VYR through legitimate-appearing business structures to conceal its origin.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">Financial Civic Offenses</span><span class="cls-sanction">VYR Asset Freeze · Merit Demotion · CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. IV.2.1</span><span class="off-text"><strong>VYR Fraud — Below Class I Threshold.</strong> Fraudulent acquisition or manipulation of VYR below the tribunal threshold. Threshold defined annually.</span></div>
+        <div class="offense"><span class="off-art">Art. IV.2.2</span><span class="off-text"><strong>Tax Record Falsification.</strong> Knowingly filing false Business Contribution Tax records with the intent to reduce declared liability.</span></div>
+        <div class="offense"><span class="off-art">Art. IV.2.3</span><span class="off-text"><strong>Unlicensed Trading in Controlled Domain.</strong> Conducting business in a domain requiring additional authorisation without the required domain licence.</span></div>
+        <div class="offense"><span class="off-art">Art. IV.2.4</span><span class="off-text"><strong>Private Sector Bribery.</strong> Offering or accepting payment or favour to influence a citizen in a civic-adjacent private role (employer, landlord, licenced service provider).</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor Financial Violations</span><span class="cls-sanction">VYR Fine · Compliance Hearing</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. IV.3.1</span><span class="off-text"><strong>Uncorrected Tax Declaration Error.</strong> Failing to correct a known tax declaration inaccuracy within 30 days of a Civic Notice requesting correction.</span></div>
+        <div class="offense"><span class="off-art">Art. IV.3.2</span><span class="off-text"><strong>Unlicensed Minor Service.</strong> Accepting VYR payment for a service requiring registration without registering, where the service itself is not in a controlled domain.</span></div>
+        <div class="offense"><span class="off-art">Art. IV.3.3</span><span class="off-text"><strong>Price Band Violation.</strong> Charging above the registered or regulated price band for a controlled good or service.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT V — CIVIC ══ -->
+  <section class="section" id="cat-civic">
+    <div class="sec-hd">
+      <div class="sec-ico">⬢</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category V</div>
+        <h2 class="sec-t">Civic Duty Violations</h2>
+        <div class="sec-v">Vel morven kadir — "Refusing to be counted"</div>
+      </div>
+    </div>
+    <p class="sec-intro">Vaultrian civic life requires participation. The system is sustained by the collective contribution of citizens. Most civic violations are addressed through pre-criminal notices. Only persistent, wilful, or large-scale civic failures reach criminal classification.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe</span><span class="cls-sanction">Permanent Confinement</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. V.0.1</span><span class="off-text"><strong>Systematic Civic Registry Fraud.</strong> Coordinated, large-scale manipulation of the Citizen Registry — including mass creation of false identities, systematic deletion of citizen records, or coordinated falsification of civic data — with the intent to undermine the national civic infrastructure.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious Civic Offenses</span><span class="cls-sanction">Confinement · Permanent CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. V.1.1</span><span class="off-text"><strong>Abandonment of Emergency Civic Role.</strong> Wilfully abandoning a designated emergency response role — medical, security, infrastructure — during an active declared emergency.</span></div>
+        <div class="offense"><span class="off-art">Art. V.1.2</span><span class="off-text"><strong>Sabotage of Non-State Civic Infrastructure.</strong> Deliberately damaging or disabling civilian civic infrastructure — transport, utilities, communication systems — that is not classified as state infrastructure.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">Civic Offenses</span><span class="cls-sanction">Community Obligation · Zone Restriction · Merit Demotion</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. V.2.1</span><span class="off-text"><strong>Repeated Civic Contribution Failure.</strong> Persistent failure to meet the minimum civic contribution requirement across three or more consecutive review periods without documented exemption.</span></div>
+        <div class="offense"><span class="off-art">Art. V.2.2</span><span class="off-text"><strong>Refusal of Compliance Hearing.</strong> Failing to attend a required Compliance Hearing without documented cause after two formal notifications.</span></div>
+        <div class="offense"><span class="off-art">Art. V.2.3</span><span class="off-text"><strong>Obstruction of Vel Sena Mediation.</strong> Wilfully disrupting, preventing, or corrupting a Vel Sena community mediation process to which the citizen is a named party.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor Civic Violations</span><span class="cls-sanction">Fine · Community Obligation</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. V.3.1</span><span class="off-text"><strong>Single Civic Contribution Period Failure.</strong> Missing one civic contribution review period without documented cause. Not criminal if remedied within 30 days of notice.</span></div>
+        <div class="offense"><span class="off-art">Art. V.3.2</span><span class="off-text"><strong>Life Event Registration Failure.</strong> Failing to register a required life event (birth, union, dissolution, death) within the mandated window without documented cause.</span></div>
+        <div class="offense"><span class="off-art">Art. V.3.3</span><span class="off-text"><strong>Non-Compliance with Civic Warning.</strong> Failing to act on a Formal Civic Warning within the specified period without documented cause.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT VI — PRIVACY ══ -->
+  <section class="section" id="cat-privacy">
+    <div class="sec-hd">
+      <div class="sec-ico">◇</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category VI</div>
+        <h2 class="sec-t">Privacy & Surveillance Abuse</h2>
+        <div class="sec-v">Vel morven kael — "Entering the sealed interior"</div>
+      </div>
+    </div>
+    <p class="sec-intro">The Charter explicitly protects the interior life of citizens. Surveillance abuse — whether by the state, by citizens against each other, or by private actors — strikes at the foundational promise that Vaultria makes to its people. These offenses are taken with particular seriousness because they involve a violation of trust as much as law.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe</span><span class="cls-sanction">Permanent Confinement · Full Asset Seizure</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VI.0.1</span><span class="off-text"><strong>Unauthorised Mass Surveillance Network.</strong> Operating any surveillance system that monitors Vaultrian citizens in bulk without Vaultcil authorisation and High Tribunal oversight.</span></div>
+        <div class="offense"><span class="off-art">Art. VI.0.2</span><span class="off-text"><strong>Citizen Data Sale to Foreign Power.</strong> Selling, transferring, or providing citizen personal data, CID records, or surveillance data to any foreign government, intelligence service, or non-Vaultrian actor.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious Privacy Offenses</span><span class="cls-sanction">Confinement · Permanent CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VI.1.1</span><span class="off-text"><strong>Unlawful CID Record Access.</strong> Accessing another citizen's CID record, civic file, or personal civic data without tribunal order or the citizen's explicit consent.</span></div>
+        <div class="offense"><span class="off-art">Art. VI.1.2</span><span class="off-text"><strong>Unlawful Residential Surveillance.</strong> Installing any surveillance equipment — audio, visual, or data — in a citizen's private residence without the citizen's consent or a tribunal surveillance order.</span></div>
+        <div class="offense"><span class="off-art">Art. VI.1.3</span><span class="off-text"><strong>Doxing with Intent to Harm.</strong> Publishing, distributing, or broadcasting a citizen's private personal information with the intent to cause harm, harassment, or danger to that citizen.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">Privacy Civic Offenses</span><span class="cls-sanction">CID Flag · Zone Restriction · VYR Fine</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VI.2.1</span><span class="off-text"><strong>Unauthorised Civic Record Access.</strong> Accessing a citizen's civic record — not CID — without authorisation, including employment records, housing records, and civic contribution history.</span></div>
+        <div class="offense"><span class="off-art">Art. VI.2.2</span><span class="off-text"><strong>Unlawful Recording of Private Conversation.</strong> Recording a private conversation between citizens without the consent of all parties present.</span></div>
+        <div class="offense"><span class="off-art">Art. VI.2.3</span><span class="off-text"><strong>Unauthorised Data Sharing.</strong> Sharing citizen data beyond the authorised scope of a civic or private role — including sharing data between departments, employers, or agencies without consent or authorisation.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor Privacy Violations</span><span class="cls-sanction">Fine · Probationary Status</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VI.3.1</span><span class="off-text"><strong>Minor Data Access Violation.</strong> Accessing civic data beyond one's authorised scope without malicious intent, where no harm results and disclosure is made promptly upon discovery.</span></div>
+        <div class="offense"><span class="off-art">Art. VI.3.2</span><span class="off-text"><strong>Inadequate Data Security.</strong> Failing to maintain required security standards for personal citizen data held in a civic or private capacity, resulting in a breach or exposure.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT VII — CHILDREN ══ -->
+  <section class="section" id="cat-children">
+    <div class="sec-hd">
+      <div class="sec-ico">🌱</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category VII</div>
+        <h2 class="sec-t">Crimes Against Children</h2>
+        <div class="sec-v">Vel morven narovel vel — "Against those not yet recorded as full"</div>
+      </div>
+    </div>
+    <p class="sec-intro">Crimes against children carry the most serious possible response within each class. A minor is any person under the age of 18, or any person over 18 who is legally designated a minor in their territory of origin. There are no mitigating circumstances that reduce a Class 0 child offense to Class I. Vel Sena mediation is not available for any offense in Categories VII Class 0 or Class I.</p>
+
+    <div class="note warn">
+      <div class="note-l">Mandatory Minimum</div>
+      All Class 0 offenses in Category VII carry mandatory lifetime confinement with no tribunal discretion to reduce. Class I offenses carry mandatory minimum confinement terms set by the High Tribunal. These are the only mandatory minimums in the Vaultrian Criminal Code.
+    </div>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe — Mandatory Minimum</span><span class="cls-sanction">Permanent Confinement · No Discretion</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VII.0.1</span><span class="off-text"><strong>Sexual Abuse of a Minor.</strong> Any sexual act committed against or involving a person under 18, regardless of claimed consent. No exceptions.</span></div>
+        <div class="offense"><span class="off-art">Art. VII.0.2</span><span class="off-text"><strong>Child Trafficking.</strong> Transporting, transferring, or facilitating the movement of a minor for purposes of exploitation, abuse, or forced labour.</span></div>
+        <div class="offense"><span class="off-art">Art. VII.0.3</span><span class="off-text"><strong>Murder of a Minor.</strong> The intentional killing of a person under 18.</span></div>
+        <div class="offense"><span class="off-art">Art. VII.0.4</span><span class="off-text"><strong>Child Abuse Material.</strong> Producing, distributing, transmitting, or possessing material that depicts the sexual abuse or exploitation of a minor.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious — Mandatory Minimum Applies</span><span class="cls-sanction">Confinement · Permanent CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VII.1.1</span><span class="off-text"><strong>Physical Abuse of a Minor.</strong> Any physical act against a child that causes bodily harm, including sustained patterns of physical punishment that exceed any standard of care.</span></div>
+        <div class="offense"><span class="off-art">Art. VII.1.2</span><span class="off-text"><strong>Neglect Causing Serious Harm.</strong> Failure of a caregiver to provide a minor with adequate food, shelter, medical care, or safety, resulting in documented serious harm.</span></div>
+        <div class="offense"><span class="off-art">Art. VII.1.3</span><span class="off-text"><strong>Grooming.</strong> Establishing, maintaining, or developing a relationship with a minor with the intent to facilitate abuse. Intent may be inferred from conduct and pattern.</span></div>
+        <div class="offense"><span class="off-art">Art. VII.1.4</span><span class="off-text"><strong>Abduction of a Minor.</strong> Removing a minor from their lawful guardian or from Vaultrian territory without legal authority.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">Child Protection Offenses</span><span class="cls-sanction">Zone Restriction · CID Flag · Merit Demotion</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VII.2.1</span><span class="off-text"><strong>Registration Concealment.</strong> Deliberately failing to register a child where evidence demonstrates the failure was intended to conceal the child's existence from civic systems.</span></div>
+        <div class="offense"><span class="off-art">Art. VII.2.2</span><span class="off-text"><strong>Neglect Conditions.</strong> Exposing a child to living conditions that constitute neglect in the absence of serious harm — inadequate nutrition, unsafe environment, or consistent absence of supervision.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor Violations</span><span class="cls-sanction">Compliance Hearing · Monitored Status</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VII.3.1</span><span class="off-text"><strong>Failure to Comply with Child Welfare Assessment.</strong> Refusing or repeatedly failing to cooperate with a lawfully ordered child welfare assessment without documented cause.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT VIII — PROPERTY ══ -->
+  <section class="section" id="cat-property">
+    <div class="sec-hd">
+      <div class="sec-ico">⬛</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category VIII</div>
+        <h2 class="sec-t">Property Crimes</h2>
+        <div class="sec-v">Vel morven sorex — "Taking from the assigned place"</div>
+      </div>
+    </div>
+    <p class="sec-intro">Property crimes are classified by scale, intent, and risk to persons. Theft, destruction, and unlawful occupation of property are addressed proportionally. The Anti-Rentierism Principle of the Property Law Codex is reflected here — exploitative use of property rights is treated as a form of property crime.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe</span><span class="cls-sanction">Permanent Confinement</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VIII.0.1</span><span class="off-text"><strong>Destruction of Critical Civic Infrastructure.</strong> Wilfully destroying infrastructure whose loss causes immediate danger to citizen life or welfare — water systems, power systems, FlowNet transit, or medical facilities.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious Property Offenses</span><span class="cls-sanction">Confinement · Asset Seizure</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VIII.1.1</span><span class="off-text"><strong>Arson.</strong> Deliberately setting fire to any structure or property where risk to life exists or significant damage results.</span></div>
+        <div class="offense"><span class="off-art">Art. VIII.1.2</span><span class="off-text"><strong>Armed Robbery — Property Only.</strong> Theft committed through threat with a weapon where no physical violence against persons occurs.</span></div>
+        <div class="offense"><span class="off-art">Art. VIII.1.3</span><span class="off-text"><strong>Organised Theft at Scale.</strong> Coordinated theft involving multiple participants or targeting multiple victims, or repeated theft by a single person constituting an organised pattern.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">Property Civic Offenses</span><span class="cls-sanction">VYR Fine · Zone Restriction · CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VIII.2.1</span><span class="off-text"><strong>Theft Above Class II Threshold.</strong> Single-incident theft of property or VYR above the annual tribunal-defined threshold. Threshold reviewed annually.</span></div>
+        <div class="offense"><span class="off-art">Art. VIII.2.2</span><span class="off-text"><strong>Significant Vandalism.</strong> Destruction or damage of civic or private property above the defined damage cost threshold.</span></div>
+        <div class="offense"><span class="off-art">Art. VIII.2.3</span><span class="off-text"><strong>Unlawful Occupation.</strong> Occupying a registered residential or commercial unit without lawful authorisation after formal notice to vacate.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor Property Violations</span><span class="cls-sanction">Fine · Community Obligation</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. VIII.3.1</span><span class="off-text"><strong>Theft Below Class II Threshold.</strong> Single-incident theft of property or VYR below the annual threshold, without weapon, violence, or organised pattern.</span></div>
+        <div class="offense"><span class="off-art">Art. VIII.3.2</span><span class="off-text"><strong>Minor Vandalism.</strong> Damage to civic or private property below the threshold cost, without intent to permanently destroy.</span></div>
+        <div class="offense"><span class="off-art">Art. VIII.3.3</span><span class="off-text"><strong>Trespass.</strong> Entering private property without permission where no other offense is committed and no harm results.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT IX — IDENTITY ══ -->
+  <section class="section" id="cat-identity">
+    <div class="sec-hd">
+      <div class="sec-ico">◈</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category IX</div>
+        <h2 class="sec-t">Language & Identity Fraud</h2>
+        <div class="sec-v">Vel morven narovel — "Falsifying the record of a person"</div>
+      </div>
+    </div>
+    <p class="sec-intro">In Vaultria, identity is civic record. A citizen's CID, their line name, their registration — these are not merely administrative. They are the legal basis on which every right and responsibility in Vaultrian life rests. Falsifying identity undermines the integrity of the entire civic system.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe</span><span class="cls-sanction">Permanent Confinement</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. IX.0.1</span><span class="off-text"><strong>Systematic State-Level Identity Falsification.</strong> Coordinated, large-scale falsification of citizen identities at the level of the Citizen Registry itself — creating false citizen populations, systematic identity substitution, or corrupting the CID assignment system.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious Identity Offenses</span><span class="cls-sanction">Confinement · Permanent CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. IX.1.1</span><span class="off-text"><strong>Identity Fraud — Assuming Another CID.</strong> Assuming or using another citizen's CID for any purpose, including accessing services, evading accountability, or deceiving civic officials.</span></div>
+        <div class="offense"><span class="off-art">Art. IX.1.2</span><span class="off-text"><strong>Creation of False Citizen Identity.</strong> Fabricating a complete false identity — name, CID, line name, civic history — supported by forged documentation.</span></div>
+        <div class="offense"><span class="off-art">Art. IX.1.3</span><span class="off-text"><strong>Fraudulent Citizenship Claim.</strong> Fraudulently claiming Vaultrian citizenship status to access restricted services, zone clearances, or civic rights.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">Identity Civic Offenses</span><span class="cls-sanction">CID Flag · Zone Restriction · VYR Fine</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. IX.2.1</span><span class="off-text"><strong>Official Document Name Misrepresentation.</strong> Using a name — personal or line — on official civic documents that does not match the registered CID record, without formal change declaration.</span></div>
+        <div class="offense"><span class="off-art">Art. IX.2.2</span><span class="off-text"><strong>Unauthorised CID Credential Use.</strong> Using another citizen's CID credentials — including digital access — without that citizen's knowledge and consent.</span></div>
+        <div class="offense"><span class="off-art">Art. IX.2.3</span><span class="off-text"><strong>False Registration Records.</strong> Filing knowingly false union registration, birth registration, or death registration records where the inaccuracy is deliberate and material.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor Identity Violations</span><span class="cls-sanction">Fine · Compliance Hearing</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. IX.3.1</span><span class="off-text"><strong>Minor Name Discrepancy.</strong> Inadvertent use of an incorrect name variant on a civic form where no fraudulent intent is demonstrated and correction is made promptly.</span></div>
+        <div class="offense"><span class="off-art">Art. IX.3.2</span><span class="off-text"><strong>Informal Name Use in Formal Contexts.</strong> Continued use of an unregistered name variant in formal civic contexts after a Civic Warning has been issued requiring correction.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CAT X — AI ══ -->
+  <section class="section" id="cat-ai">
+    <div class="sec-hd">
+      <div class="sec-ico">⬡</div>
+      <div class="sec-tw">
+        <div class="sec-n">Category X</div>
+        <h2 class="sec-t">AI System Interference</h2>
+        <div class="sec-v">Vel morven Aegis — "Against the permanent knowing system"</div>
+      </div>
+    </div>
+    <p class="sec-intro">Vaultryn Core and the Aegis Prime regulatory system are not merely infrastructure — they are foundational to the governance of Vaultrian life. Interference with AI systems is treated as interference with the state itself. This category exists because Vaultria recognised at its founding that AI systems require their own legal protection framework, distinct from general property or civic offense categories.</p>
+
+    <div class="cls-block c0">
+      <div class="cls-hd"><span class="cls-badge">Class 0</span><span class="cls-label">Most Severe</span><span class="cls-sanction">Permanent Confinement · Full Asset Seizure</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. X.0.1</span><span class="off-text"><strong>Vaultryn Core Attack.</strong> Any deliberate attempt to override, corrupt, shut down, or destroy Vaultryn Core or the Aegis Prime regulatory AI system through any means.</span></div>
+        <div class="offense"><span class="off-art">Art. X.0.2</span><span class="off-text"><strong>Malicious Code Introduction.</strong> Introducing malware, corrupted data, or destabilising code into national AI infrastructure including Vaultryn Core, civic monitoring systems, or FlowNet AI management.</span></div>
+        <div class="offense"><span class="off-art">Art. X.0.3</span><span class="off-text"><strong>Registry Manipulation via AI.</strong> Using AI systems or automated tools to manipulate the Citizen Registry, alter citizen records, or generate false civic data at scale.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c1">
+      <div class="cls-hd"><span class="cls-badge">Class I</span><span class="cls-label">Serious AI Offenses</span><span class="cls-sanction">Confinement · Permanent CID Flag</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. X.1.1</span><span class="off-text"><strong>Unauthorised Vaultryn Core Access.</strong> Accessing any subsystem of Vaultryn Core or Aegis Prime without authorisation, regardless of whether data is altered.</span></div>
+        <div class="offense"><span class="off-art">Art. X.1.2</span><span class="off-text"><strong>Civic AI Output Manipulation.</strong> Manipulating AI outputs that govern civic resource allocation, transport management, monitoring systems, or civic assessment results.</span></div>
+        <div class="offense"><span class="off-art">Art. X.1.3</span><span class="off-text"><strong>Surveillance Circumvention AI.</strong> Developing, distributing, or operating AI tools specifically designed to circumvent, confuse, or deceive Vaultrian surveillance or monitoring systems.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c2">
+      <div class="cls-hd"><span class="cls-badge">Class II</span><span class="cls-label">AI Civic Offenses</span><span class="cls-sanction">VYR Fine · CID Flag · Zone Restriction</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. X.2.1</span><span class="off-text"><strong>Unlicensed AI in Restricted Domain.</strong> Using an unlicensed AI system to perform functions in a civic domain requiring AI licensing — medical diagnosis, legal assessment, civic record management.</span></div>
+        <div class="offense"><span class="off-art">Art. X.2.2</span><span class="off-text"><strong>Personal Assessment Tampering.</strong> Attempting to alter, manipulate, or deceive an AI-generated civic assessment — Merit Tier evaluation, civic contribution calculation, or wellness check system.</span></div>
+        <div class="offense"><span class="off-art">Art. X.2.3</span><span class="off-text"><strong>Zone Monitoring System Interference.</strong> Interfering with, blocking, or manipulating zone-level monitoring or safety systems.</span></div>
+      </div>
+    </div>
+
+    <div class="cls-block c3">
+      <div class="cls-hd"><span class="cls-badge">Class III</span><span class="cls-label">Minor AI Violations</span><span class="cls-sanction">Fine · Compliance Hearing</span></div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. X.3.1</span><span class="off-text"><strong>Unlicensed AI in Minor Civic Process.</strong> Using an unlicensed AI tool in a minor civic process — form completion, civic scheduling, basic record lookup — where no domain licence is required but disclosure is.</span></div>
+        <div class="offense"><span class="off-art">Art. X.3.2</span><span class="off-text"><strong>Undisclosed AI Content in Civic Submission.</strong> Failing to declare AI-generated content in a formal civic submission where disclosure is required by the applicable civic process.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCEDURE ══ -->
+  <section class="section" id="procedure">
+    <div class="sec-hd">
+      <div class="sec-ico">⚖</div>
+      <div class="sec-tw">
+        <div class="sec-n">Codex Vol. IV · Procedure</div>
+        <h2 class="sec-t">Procedure & Citizen Rights</h2>
+        <div class="sec-v">Vel kadir morven — "The knowing of what is owed"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Every citizen charged under this Code retains their full dignity and civic identity throughout any proceeding. Criminal process does not suspend citizenship — it engages it. The following rights are absolute and cannot be waived by any tribunal, official, or emergency declaration.</p>
+
+    <div class="cls-block" style="border-color:var(--rule)">
+      <div class="cls-hd" style="background:rgba(201,168,76,.04);border-color:var(--rule)">
+        <span class="cls-badge" style="color:var(--gold);border-color:var(--gold-d)">Rights</span>
+        <span class="cls-label">Guaranteed to Every Citizen Under Charge</span>
+      </div>
+      <div class="cls-body">
+        <div class="offense"><span class="off-art">Art. P.1</span><span class="off-text"><strong>Right to Know the Charge.</strong> A citizen must be informed of the specific Codex article under which they are charged before any formal proceeding begins. Vague or general charges are inadmissible.</span></div>
+        <div class="offense"><span class="off-art">Art. P.2</span><span class="off-text"><strong>Right to Representation.</strong> Every citizen has the right to civic legal representation at every stage of the process. If a citizen cannot secure representation, the Civic Board must provide it.</span></div>
+        <div class="offense"><span class="off-art">Art. P.3</span><span class="off-text"><strong>Right to Silence.</strong> No citizen may be compelled to speak at a tribunal. Silence cannot be used as evidence of guilt or be referenced in the verdict.</span></div>
+        <div class="offense"><span class="off-art">Art. P.4</span><span class="off-text"><strong>Right to Name.</strong> Before any verdict is read, the Tribunal Registrar reads the full name of every party — personal name and line name — as a reminder that the proceedings involve citizens, not categories.</span></div>
+        <div class="offense"><span class="off-art">Art. P.5</span><span class="off-text"><strong>Right to the Vel Narovel.</strong> Upon completion of any sanction, every citizen receives a Vel Narovel document confirming the matter is closed and their civic standing is restored to the level the sanction permits. The state does not leave a citizen's record open-ended.</span></div>
+        <div class="offense"><span class="off-art">Art. P.6</span><span class="off-text"><strong>Right Against Execution.</strong> Vaultria does not execute. No tribunal, emergency order, or Vaultcil directive may authorise the execution of a citizen or any person within Vaultrian territory. This right is entrenched and unamendable.</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="note-l">Vel Sena — Pre-Criminal Mediation</div>
+      For all Class II and Class III offenses, and eligible Class I offenses (excluding sexual violence, child offenses, and AI system attacks), citizens are expected to attempt Vel Sena community mediation before formal tribunal proceedings. A Vel Sena record may be submitted to the tribunal as evidence of good-faith effort. It cannot be used against the citizen if mediation fails.
+    </div>
+
+    <div class="note warn">
+      <div class="note-l">First-Generation Citizen Note</div>
+      First-generation citizens (those who immigrated to Vaultria rather than being born here) are subject to deportation as an alternative to confinement for Class 0 offenses and qualifying severe Class I offenses. This is declared exclusively by the High Tribunal at sentencing and may not be applied by zone tribunals. Born citizens cannot be deported, exiled, or permanently removed from Vaultrian territory under any circumstances.
+    </div>
+  </section>
+
+</div><!-- /content -->
+</main>
+</div><!-- /shell -->
+
+<script>
+function sa(el){document.querySelectorAll('.sb-a').forEach(function(l){l.classList.remove('on');});el.classList.add('on');}
+var secs=document.querySelectorAll('.section');
+var links=document.querySelectorAll('.sb-a[href]');
+window.addEventListener('scroll',function(){
+  var sy=window.scrollY+100;
+  secs.forEach(function(s){
+    if(sy>=s.offsetTop){var id=s.id;links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+id);});}
+  });
+},{passive:true});
+</script>
+</body>
+</html>

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaultrian Healthcare — The Siven System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#07060A;--s1:#0E0C12;--s2:#131118;
+  --gold:#C9A84C;--gold-d:rgba(201,168,76,0.28);--gold-l:#E8C97A;
+  --tx:#D0C6B4;--tx2:rgba(208,198,180,0.55);--tx3:rgba(208,198,180,0.26);
+  --rule:rgba(201,168,76,0.08);--rule2:rgba(201,168,76,0.05);
+  --siv:#2A7848;--sivl:rgba(42,120,72,0.12);--sivb:rgba(42,120,72,0.35);
+  --free:#2A7848;--paid:#B87C18;--priv:#4A78C8;
+  --red:#C03A3A;--redb:rgba(192,58,58,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--tx);font-family:'Crimson Pro',serif;font-size:1.02rem;line-height:1.75}
+.shell{display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sb{width:232px;flex-shrink:0;position:fixed;top:0;left:0;height:100vh;
+  background:var(--s1);border-right:1px solid var(--rule2);overflow-y:auto;z-index:50;display:flex;flex-direction:column}
+.sb::-webkit-scrollbar{width:3px}
+.sb::-webkit-scrollbar-thumb{background:var(--rule)}
+.sb-hd{padding:24px 18px 16px;border-bottom:1px solid var(--rule2)}
+.sb-t{font-family:'Cinzel',serif;font-weight:700;font-size:.68rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;line-height:1.4;margin-bottom:2px}
+.sb-s{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+.sb-nav{padding:8px 0;flex:1}
+.sb-cat{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;padding:7px 16px 3px;margin-top:3px}
+.sb-a{display:flex;align-items:center;gap:7px;padding:5px 16px;text-decoration:none;transition:.15s;cursor:pointer;border-left:2px solid transparent}
+.sb-a:hover{background:rgba(201,168,76,.04);border-left-color:var(--gold-d)}
+.sb-a.on{background:rgba(201,168,76,.06);border-left-color:var(--gold)}
+.sb-pip{width:8px;height:8px;border-radius:1px;flex-shrink:0}
+.sb-lbl{font-family:'Cinzel',serif;font-size:.58rem;color:var(--tx2);letter-spacing:.03em}
+.sb-a.on .sb-lbl{color:var(--gold)}
+.sb-a:hover .sb-lbl{color:var(--tx)}
+.sb-ft{padding:12px 16px;border-top:1px solid var(--rule2)}
+.sb-mo{font-family:'Cinzel',serif;font-style:italic;font-size:.54rem;color:var(--tx3);line-height:1.5}
+
+/* MAIN */
+.main{margin-left:232px;flex:1;min-width:0}
+
+/* HERO */
+.hero{position:relative;padding:64px 56px 48px;border-bottom:1px solid var(--rule2);overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;
+  background:radial-gradient(circle at top right,rgba(42,120,72,.06) 0%,transparent 65%);pointer-events:none}
+.h-vol{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.3em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.h-title{font-family:'Cinzel',serif;font-weight:700;font-size:2rem;color:var(--gold);letter-spacing:.04em;line-height:1.15;margin-bottom:6px}
+.h-sub{font-size:1.08rem;color:var(--tx2);max-width:560px;line-height:1.78;margin-bottom:24px}
+.h-tags{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;padding:3px 8px;border:1px solid var(--rule);color:var(--tx3);text-transform:uppercase}
+.tag.g{border-color:rgba(42,120,72,.35);color:rgba(42,120,72,.7)}
+.tag.a{border-color:rgba(184,124,24,.35);color:rgba(184,124,24,.7)}
+.tag.b{border-color:rgba(74,120,200,.35);color:rgba(74,120,200,.7)}
+
+/* CONTENT */
+.content{max-width:860px;padding:0 56px 80px}
+
+/* SECTION */
+.section{padding-top:52px;border-bottom:1px solid var(--rule2);padding-bottom:40px;scroll-margin-top:20px}
+.section:last-child{border-bottom:none}
+.sec-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.sec-ico{width:42px;height:42px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;background:var(--s2);margin-top:2px}
+.sec-tw{flex:1}
+.sec-n{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;margin-bottom:2px}
+.sec-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.3rem;color:var(--gold);letter-spacing:.03em;line-height:1.2;margin-bottom:3px}
+.sec-v{font-family:'Cinzel',serif;font-style:italic;font-size:.68rem;color:var(--tx3);letter-spacing:.05em}
+.sec-intro{font-size:.96rem;color:var(--tx2);line-height:1.78;margin-bottom:20px}
+
+/* INSTITUTION CARD */
+.inst-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.inst-card{padding:14px 16px;border:1px solid var(--sivb);background:var(--sivl)}
+.ic-name{font-family:'Cinzel',serif;font-weight:600;font-size:.85rem;color:var(--siv);margin-bottom:2px}
+.ic-vae{font-family:'Cinzel',serif;font-style:italic;font-size:.66rem;color:rgba(42,120,72,.5);margin-bottom:6px}
+.ic-desc{font-size:.88rem;color:var(--tx2);line-height:1.6}
+
+/* ROLES TABLE */
+.role-table{width:100%;border-collapse:collapse;margin:14px 0}
+.role-table th{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.16em;color:var(--tx3);text-transform:uppercase;padding:6px 10px;text-align:left;border-bottom:1px solid var(--rule)}
+.role-table td{padding:7px 10px;font-size:.9rem;color:var(--tx2);border-bottom:1px solid var(--rule2);line-height:1.5}
+.role-table td:first-child{font-family:'Cinzel',serif;font-size:.82rem;color:var(--siv);font-weight:600;white-space:nowrap}
+.role-table tr:last-child td{border-bottom:none}
+
+/* ACCESS TABLE */
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.access-col{border:1px solid;padding:16px 18px}
+.access-col.free{border-color:rgba(42,120,72,.3);background:rgba(42,120,72,.07)}
+.access-col.paid{border-color:rgba(184,124,24,.3);background:rgba(184,124,24,.06)}
+.ac-hd{font-family:'Cinzel',serif;font-weight:700;font-size:.82rem;margin-bottom:10px}
+.free .ac-hd{color:var(--free)}
+.paid .ac-hd{color:var(--paid)}
+.ac-item{display:flex;gap:8px;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.88rem;color:var(--tx2);line-height:1.5}
+.ac-item:last-child{border-bottom:none}
+.ac-dot{flex-shrink:0;margin-top:6px;width:5px;height:5px;border-radius:50%}
+.free .ac-dot{background:var(--free)}
+.paid .ac-dot{background:var(--paid)}
+
+/* PRIVACY BLOCK */
+.priv-block{margin:16px 0;border:1px solid var(--rule);background:var(--s2);padding:18px 20px}
+.pb-title{font-family:'Cinzel',serif;font-weight:600;font-size:.85rem;color:var(--gold);margin-bottom:12px}
+.pb-row{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--rule2);font-size:.9rem}
+.pb-row:last-child{border-bottom:none}
+.pb-who{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.08em;color:var(--tx3);flex-shrink:0;width:130px;padding-top:3px;text-transform:uppercase}
+.pb-access{color:var(--tx2);flex:1;line-height:1.55}
+.pb-access.yes{color:var(--free)}
+.pb-access.no{color:rgba(192,58,58,.6)}
+
+/* TRIAGE STRIP */
+.triage{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.tr-card{padding:12px 14px;border:1px solid}
+.tr-card.vel{border-color:rgba(42,120,72,.3);background:rgba(42,120,72,.08)}
+.tr-card.kadir{border-color:rgba(184,124,24,.3);background:rgba(184,124,24,.07)}
+.tr-card.morven{border-color:rgba(192,58,58,.3);background:rgba(192,58,58,.07)}
+.tr-name{font-family:'Cinzel',serif;font-weight:700;font-size:.85rem;margin-bottom:2px}
+.vel .tr-name{color:var(--free)}
+.kadir .tr-name{color:var(--paid)}
+.morven .tr-name{color:var(--red)}
+.tr-eng{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;margin-bottom:6px;opacity:.5;text-transform:uppercase}
+.vel .tr-eng{color:var(--free)}
+.kadir .tr-eng{color:var(--paid)}
+.morven .tr-eng{color:var(--red)}
+.tr-desc{font-size:.85rem;color:var(--tx2);line-height:1.55}
+
+/* NOTE */
+.note{margin:14px 0;padding:12px 16px;border:1px solid var(--rule);background:rgba(201,168,76,.025);font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.04em;color:var(--tx3);line-height:1.7}
+.note-l{font-size:.36rem;letter-spacing:.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px}
+.note.warn{border-color:rgba(192,58,58,.2);background:rgba(192,58,58,.03)}
+.note.warn .note-l{color:rgba(192,58,58,.4)}
+.note.green{border-color:rgba(42,120,72,.2);background:rgba(42,120,72,.04)}
+.note.green .note-l{color:rgba(42,120,72,.5)}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.step{display:flex;gap:14px}
+.step-n{width:24px;height:24px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:.44rem;color:var(--gold-d);flex-shrink:0;margin-top:2px}
+.step-b{flex:1}
+.step-t{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);margin-bottom:2px}
+.step-d{font-size:.9rem;color:var(--tx2);line-height:1.65}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.gi{padding:14px 16px;background:var(--s1);border:1px solid var(--rule2)}
+.gi-l{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase;margin-bottom:4px}
+.gi-t{font-size:.88rem;color:var(--tx2);line-height:1.65}
+
+/* DIRECTIVE */
+.directive{margin:16px 0;padding:20px 22px;border:1px solid var(--rule);background:var(--s2)}
+.dir-t{font-family:'Cinzel',serif;font-weight:600;font-size:.9rem;color:var(--gold);margin-bottom:10px}
+.dir-items{display:flex;flex-direction:column;gap:6px}
+.dir-item{display:flex;gap:10px;font-size:.9rem;color:var(--tx2);line-height:1.6}
+.dir-label{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;color:var(--tx3);flex-shrink:0;width:110px;padding-top:3px;text-transform:uppercase}
+
+/* DIVIDER */
+.dv{display:flex;align-items:center;gap:10px;margin:26px 0}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:var(--rule2)}
+.dv-m{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+
+@media(max-width:680px){.sb{display:none}.main{margin-left:0}.hero,.content{padding-left:20px;padding-right:20px}.inst-grid,.access-grid,.triage,.g2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="sb">
+  <div class="sb-hd">
+    <svg width="30" height="35" viewBox="0 0 88 102" fill="none" style="margin-bottom:10px">
+      <path d="M44 2L86 14L86 54C86 76 67 92 44 100C21 92 2 76 2 54L2 14Z" fill="#080604" stroke="rgba(201,168,76,0.38)" stroke-width="2"/>
+      <polyline points="13,51 23,51 27,38 31,64 35,43 38,57 43,51 49,51 53,38 57,57 61,51 75,51" stroke="#CC2020" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="sb-t">Siven Healthcare</div>
+    <div class="sb-s">Civic Codex · Year 1</div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-cat">Overview</div>
+    <a class="sb-a on" href="#overview" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">System Overview</span></a>
+    <a class="sb-a" href="#institutions" onclick="sa(this)"><div class="sb-pip" style="background:var(--siv)"></div><span class="sb-lbl">Institutions & Roles</span></a>
+    <a class="sb-a" href="#access" onclick="sa(this)"><div class="sb-pip" style="background:var(--free)"></div><span class="sb-lbl">Free vs Contribution</span></a>
+    <div class="sb-cat">Components</div>
+    <a class="sb-a" href="#records" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">Health Records & CID</span></a>
+    <a class="sb-a" href="#ai" onclick="sa(this)"><div class="sb-pip" style="background:var(--siv)"></div><span class="sb-lbl">AI-Assisted Diagnosis</span></a>
+    <a class="sb-a" href="#emergency" onclick="sa(this)"><div class="sb-pip" style="background:var(--red)"></div><span class="sb-lbl">Emergency Response</span></a>
+    <a class="sb-a" href="#mental" onclick="sa(this)"><div class="sb-pip" style="background:var(--siv)"></div><span class="sb-lbl">Mental Health</span></a>
+    <a class="sb-a" href="#preventive" onclick="sa(this)"><div class="sb-pip" style="background:var(--siv)"></div><span class="sb-lbl">Preventive Care</span></a>
+    <a class="sb-a" href="#eol" onclick="sa(this)"><div class="sb-pip" style="background:var(--tx3)"></div><span class="sb-lbl">End-of-Life Care</span></a>
+    <a class="sb-a" href="#private" onclick="sa(this)"><div class="sb-pip" style="background:var(--priv)"></div><span class="sb-lbl">Private Healthcare</span></a>
+  </div>
+  <div class="sb-ft"><div class="sb-mo">"Kiratvel navol" —<br>Truth is permanent</div></div>
+</nav>
+
+<main class="main">
+<div class="hero">
+  <div class="h-vol">Civic Codex — The Sovereign State of Vaultria</div>
+  <h1 class="h-title">The Siven Healthcare System</h1>
+  <p class="h-sub">Vaultria operates a two-track healthcare system: the government-funded Siven Network, which guarantees emergency and essential care for every citizen regardless of ability to pay, and a fully independent private sector that operates outside state control. No citizen dies because they cannot afford care. Beyond that, Vaultria does not pretend that all care is equal.</p>
+  <div class="h-tags">
+    <span class="tag g">Siven Network — Government</span>
+    <span class="tag a">Contribution-Based Services</span>
+    <span class="tag b">Private Sector — Independent</span>
+    <span class="tag">AI-Assisted · CID-Linked</span>
+    <span class="tag g">Mental Health = Physical</span>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="sec-hd">
+      <div class="sec-ico">⬡</div>
+      <div class="sec-tw">
+        <div class="sec-n">System Overview</div>
+        <h2 class="sec-t">How Healthcare Works in Vaultria</h2>
+        <div class="sec-v">Siven — from Vaelic: "to sustain, to keep whole"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">The Siven system is Vaultria's answer to a foundational question: what does the state owe its citizens when their body fails them? The answer is direct — <strong>no citizen dies or suffers avoidably because they cannot pay.</strong> Emergency care, essential treatment, mental healthcare, maternal care, child health, chronic disease management, and end-of-life support are all funded by the state and free at the point of need. Everything beyond that — elective procedures, specialist speed, enhanced prescriptions, dental restoration, vision correction — is available through the Siven Network on a VYR contribution scale, or through the entirely independent private sector.</p>
+
+    <p style="color:var(--tx2);font-size:.96rem;line-height:1.78;margin-bottom:14px">The private healthcare sector operates completely outside Siven governance. Private providers set their own prices, make their own clinical decisions, and maintain their own records. The state neither endorses nor regulates them beyond baseline safety standards. Citizens who choose private care do so at their own expense and their own discretion. No Siven provider refers citizens to private providers, and no private record is automatically linked to the CID health record unless the citizen explicitly requests it.</p>
+
+    <div class="note green">
+      <div class="note-l">Founding Principle</div>
+      Article 4.5 of the Charter: "No citizen shall be denied emergency medical care on grounds of financial standing, civic status, or criminal record. The state's obligation to sustain citizen life is unconditional and cannot be waived by any law, order, or emergency declaration."
+    </div>
+
+    <div class="g2" style="margin-top:18px">
+      <div class="gi">
+        <div class="gi-l">Siven Network</div>
+        <div class="gi-t">Government-funded. Operates in every zone. Emergency and essential care free. Advanced and elective services on a VYR contribution scale. Regulated entirely by the Vaultcil through the Siven Directorate.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Private Healthcare</div>
+        <div class="gi-t">Fully independent. No price controls, no referral links from Siven. Citizens choose and pay directly. Records separate from CID unless citizen consents. Government sets only minimum safety standards.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">VYR Contribution Scaling</div>
+        <div class="gi-t">All paid Siven services scale to citizen income. T1 citizens pay minimum rates. Citizens with documented financial hardship receive full waivers on application. No Vaultrian is excluded from paid Siven services purely by inability to pay.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Health records firewall</div>
+        <div class="gi-t">A citizen's Siven Record is completely separated from the Merit Tier system, the Civic Board, and employers. Medical history has no effect on civic standing. This is entrenched by the Charter.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTITUTIONS & ROLES -->
+  <section class="section" id="institutions">
+    <div class="sec-hd">
+      <div class="sec-ico">🏥</div>
+      <div class="sec-tw">
+        <div class="sec-n">Institutions & Roles</div>
+        <h2 class="sec-t">Siven Facilities & Medical Roles</h2>
+        <div class="sec-v">Vel Siven — "those who sustain"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Every institution and every clinical role in the Siven Network carries a Vaultrian name. Medical terminology for conditions, procedures, and treatments uses standard international medical language — Vaultrian naming applies to the institutions and the people within them, not to the medicine itself.</p>
+
+    <div class="inst-grid">
+      <div class="inst-card">
+        <div class="ic-name">Siven Vel</div>
+        <div class="ic-vae">Primary Care Clinic</div>
+        <div class="ic-desc">Zone-level walk-in clinic. Every zone has at least one per major node. First point of contact for non-emergency health concerns. General diagnosis, prescriptions, referrals, and preventive screenings.</div>
+      </div>
+      <div class="inst-card">
+        <div class="ic-name">Siven Kadir</div>
+        <div class="ic-vae">District Hospital</div>
+        <div class="ic-desc">Full-service hospital at each zone capital. Surgery, inpatient care, specialist departments, maternity, imaging, and laboratory services. The backbone of Siven emergency response.</div>
+      </div>
+      <div class="inst-card">
+        <div class="ic-name">Siven Sorex</div>
+        <div class="ic-vae">Specialist Centre</div>
+        <div class="ic-desc">Advanced specialist care — oncology, cardiology, neurology, complex surgery. Located in Aurex and major zone capitals only. Access by referral from Vel Siven or Siven Kadir.</div>
+      </div>
+      <div class="inst-card">
+        <div class="ic-name">Siven Naratel</div>
+        <div class="ic-vae">Mental Health Centre</div>
+        <div class="ic-desc">Dedicated mental healthcare facility in every zone. Named after the Naratel Fountain — water as a symbol of flow and continuity. Outpatient therapy, inpatient stabilisation, crisis support, and long-term care.</div>
+      </div>
+      <div class="inst-card">
+        <div class="ic-name">Siven Morven</div>
+        <div class="ic-vae">End-of-Life Care</div>
+        <div class="ic-desc">Palliative and end-of-life care facility. "Morven" — the becoming-still. Comfortable, private, family-centred. Fully funded. Each zone has at least one; Aurex has the largest, with dedicated family accommodation.</div>
+      </div>
+      <div class="inst-card">
+        <div class="ic-name">Siven Kael</div>
+        <div class="ic-vae">Emergency Response Unit</div>
+        <div class="ic-desc">"Kael" — free, always open. Mobile emergency response teams. One unit per zone minimum. Operates 24 hours without interruption. First on scene for medical emergencies, working in direct AI link with Siven Kadir.</div>
+      </div>
+    </div>
+
+    <div class="dv"><span class="dv-m">Medical Roles</span></div>
+
+    <table class="role-table">
+      <tr><th>Vaultrian Title</th><th>Role</th><th>Tier Requirement</th></tr>
+      <tr><td>Vel Siven</td><td>Primary care physician. First point of clinical contact for all citizens.</td><td>T1 eligible</td></tr>
+      <tr><td>Sorex Siven</td><td>Specialist physician. Works in Siven Sorex centres by referral.</td><td>T2 required</td></tr>
+      <tr><td>Naratel Siven</td><td>Mental health practitioner. Same professional tier as Vel Siven — equal status.</td><td>T1 eligible</td></tr>
+      <tr><td>Morven Siven</td><td>End-of-life care specialist. Palliative medicine, pain management, Vel Morven Directive coordination.</td><td>T2 required</td></tr>
+      <tr><td>Kael Siven</td><td>Emergency responder / paramedic. Mobile, field-trained, AI-linked at all times.</td><td>T1 eligible</td></tr>
+      <tr><td>Tarin Siven</td><td>Medical trainee / resident. Supervised practice under Vel Siven or Kadir Siven.</td><td>T1 (training)</td></tr>
+      <tr><td>Kadir Siven</td><td>Senior physician / department head. Responsible for clinical governance in a Siven Kadir.</td><td>T2 required</td></tr>
+      <tr><td>Narovel Siven</td><td>Health records officer. Manages Siven Records, access permissions, and advance directives. Not a clinical role.</td><td>T1 eligible</td></tr>
+    </table>
+
+    <div class="note">
+      <div class="note-l">On Mental Health Parity</div>
+      Naratel Siven practitioners hold the same professional status, same salary band, and same civic standing as Vel Siven (primary care physicians). Vaultrian law explicitly prohibits any tiering of medical roles by speciality that would place mental healthcare below physical healthcare. This is not only policy — it is stated in the Siven founding charter as a non-negotiable design principle.
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section class="section" id="access">
+    <div class="sec-hd">
+      <div class="sec-ico">⩔</div>
+      <div class="sec-tw">
+        <div class="sec-n">Access & Cost</div>
+        <h2 class="sec-t">Free vs Contribution-Based Care</h2>
+        <div class="sec-v">Vel siven kael — "What the state sustains freely"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">The Siven Network draws a clear line between what the state guarantees and what citizens contribute toward. The line is drawn at necessity — if a condition could cause death, permanent harm, or significant suffering without treatment, it is free. If it improves life beyond that baseline, it carries a contribution.</p>
+
+    <div class="access-grid">
+      <div class="access-col free">
+        <div class="ac-hd">✓ Free — Siven Network Guarantee</div>
+        <div class="ac-item"><span class="ac-dot"></span><span>All emergency care — regardless of cause, cost, or identity</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Acute illness and injury diagnosis and treatment</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>All mental health services — Siven Naratel, outpatient therapy, inpatient stabilisation, crisis response</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>All maternal care — pregnancy, birth, postnatal (mother and child)</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>All healthcare for citizens under 16</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Chronic disease management — ongoing treatment for diagnosed conditions</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Essential prescription medications (Siven formulary list)</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Annual preventive health assessment</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Vaccination programmes</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>All end-of-life / palliative care — Siven Morven</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Basic dental — examination, emergency dental, extractions</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Vision screening</span></div>
+      </div>
+      <div class="access-col paid">
+        <div class="ac-hd">⩔ VYR Contribution — Scaled to Income</div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Elective surgery — cosmetic, non-essential, lifestyle</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Non-urgent specialist referral — wait time reduction via VYR</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Non-injury rehabilitation — optional recovery and physiotherapy programmes</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Advanced dental — restoration, implants, orthodontics, whitening</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Vision correction — prescription glasses, contact lenses, corrective surgery</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Enhanced prescription medications (beyond Siven formulary)</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Fertility treatment — assessed case by case, partial subsidy available</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Genetic screening beyond standard preventive panel</span></div>
+        <div class="ac-item"><span class="ac-dot"></span><span>Private room upgrade in Siven Kadir inpatient ward</span></div>
+      </div>
+    </div>
+
+    <div class="note green">
+      <div class="note-l">Hardship Waiver</div>
+      Any citizen who cannot meet the VYR contribution for a paid Siven service may apply for a full or partial waiver through the Civic Board. Applications are assessed within 5 working days. A citizen is never denied a paid service while their waiver is under review. The waiver is not means-tested against Merit Tier — it is assessed against documented financial circumstances only.
+    </div>
+
+    <div class="note warn">
+      <div class="note-l">What "Free" Means in Practice</div>
+      Free Siven care does not mean instant or identical. A citizen receiving free urgent specialist care may wait longer than a citizen paying the contribution for priority scheduling — or significantly longer than a citizen using a private provider. Free means guaranteed, not immediate. Vaultria is honest about this distinction.
+    </div>
+  </section>
+
+  <!-- HEALTH RECORDS -->
+  <section class="section" id="records">
+    <div class="sec-hd">
+      <div class="sec-ico">◈</div>
+      <div class="sec-tw">
+        <div class="sec-n">Health Records</div>
+        <h2 class="sec-t">The Siven Record & CID Link</h2>
+        <div class="sec-v">Narovel Siven — "The health record"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Every citizen has a Siven Record created at their first Siven interaction after birth registration. The Siven Record is linked to the CID but operates behind a strict access firewall — having a CID does not give anyone access to a citizen's health data. The link exists for identification purposes only: to ensure the right record is associated with the right person.</p>
+
+    <div class="priv-block">
+      <div class="pb-title">Siven Record — Access Permissions</div>
+      <div class="pb-row"><span class="pb-who">The citizen</span><span class="pb-access yes">Full access at all times. Can view, export, and grant access to others.</span></div>
+      <div class="pb-row"><span class="pb-who">Treating Vel Siven</span><span class="pb-access yes">Full access with citizen present, or in emergency without citizen present.</span></div>
+      <div class="pb-row"><span class="pb-who">Siven Sorex</span><span class="pb-access yes">Full access by specialist referral only. Access closes when referral concludes.</span></div>
+      <div class="pb-row"><span class="pb-who">Siven Morven</span><span class="pb-access yes">Access granted when Vel Morven Directive is activated or citizen consents.</span></div>
+      <div class="pb-row"><span class="pb-who">Vaultryn Core AI</span><span class="pb-access yes">Read-only. Diagnostic support only. Cannot alter record. Cannot share data outside Siven systems.</span></div>
+      <div class="pb-row"><span class="pb-who">Civic Board</span><span class="pb-access no">No access under any circumstances.</span></div>
+      <div class="pb-row"><span class="pb-who">Employers</span><span class="pb-access no">No access. Cannot request health information as condition of employment.</span></div>
+      <div class="pb-row"><span class="pb-who">Merit Tier system</span><span class="pb-access no">No access. Health conditions have zero effect on Merit Points or tier placement.</span></div>
+      <div class="pb-row"><span class="pb-who">High Tribunal</span><span class="pb-access no">No access without a specific, named tribunal order signed by the Chief Justice. Rare and requires extraordinary justification.</span></div>
+      <div class="pb-row"><span class="pb-who">Family members</span><span class="pb-access no">No access unless the citizen has filed a Health Power Directive naming them. Emergency exception: next of kin may be informed of condition in life-threatening emergencies only.</span></div>
+    </div>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">What the Siven Record contains</div>
+        <div class="gi-t">Visit history, diagnoses, prescriptions, test results, vaccination record, referrals, Vel Morven Directive (if filed), and consent/opt-out records for AI-assisted diagnosis.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Siven Record portability</div>
+        <div class="gi-t">Citizens may export their complete Siven Record at any time as a secure encrypted file. This is the only way to share the record with a private provider — the citizen exports and hands it over manually. There is no automatic data bridge.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Deceased citizens</div>
+        <div class="gi-t">The Siven Record is closed and archived upon the Morven Narovel (death declaration). It cannot be accessed by family after death unless the citizen filed a post-death disclosure directive in advance.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Mental health records</div>
+        <div class="gi-t">Mental health consultation records are held within the Siven Record under the same access rules as physical health data. A Naratel Siven cannot share notes with a Vel Siven without citizen consent, even within the same Siven facility.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI DIAGNOSIS -->
+  <section class="section" id="ai">
+    <div class="sec-hd">
+      <div class="sec-ico">⬡</div>
+      <div class="sec-tw">
+        <div class="sec-n">AI Integration</div>
+        <h2 class="sec-t">Vaultryn Core in Healthcare</h2>
+        <div class="sec-v">Vel Tarin Siven — "The AI that learns to sustain"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Vaultryn Core runs a dedicated healthcare diagnostic module — referred to within the Siven system as the <strong>Vel Tarin Siven</strong>. It operates in the background of every consultation in the Siven Network, reading the citizen's Siven Record in real time and surfacing pattern-matched observations to the attending Vel Siven. It does not diagnose. It assists.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-b">
+          <div class="step-t">Background Pattern Analysis</div>
+          <div class="step-d">During every Siven Network consultation, Vel Tarin Siven reads the citizen's full Siven Record and cross-references against population health patterns. It flags anomalies, suggests differential diagnoses for the Vel Siven to consider, and identifies risk factors the citizen may not have mentioned.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-b">
+          <div class="step-t">Referral Suggestion</div>
+          <div class="step-d">Based on record analysis, Vel Tarin Siven may suggest specialist referral to the Vel Siven. The Vel Siven decides whether to act on this. A citizen may ask whether an AI referral suggestion was made during their consultation — the Vel Siven is obligated to answer truthfully.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-b">
+          <div class="step-t">Prescription Review</div>
+          <div class="step-d">Before any prescription is issued, Vel Tarin Siven automatically checks for drug interactions with current medications in the Siven Record, and flags any contraindications. The Vel Siven may override these flags with documented clinical justification.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-b">
+          <div class="step-t">Emergency Diagnostic Feed</div>
+          <div class="step-d">When a Siven Kael team responds to an emergency, Vel Tarin Siven opens the citizen's Siven Record automatically and transmits a diagnostic summary to the receiving Siven Kadir before the patient arrives. This reduces critical triage time significantly.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <div class="note-l">Hard Limits on AI Diagnosis</div>
+      Vel Tarin Siven never makes a final diagnosis. Every AI observation is labelled as a suggestion to the attending clinician. The Vel Siven is always the final decision-maker. No treatment may be initiated based solely on AI recommendation without a human clinician's confirmation. This is codified in the Siven Operating Charter and cannot be overridden.
+    </div>
+
+    <div class="note">
+      <div class="note-l">Opt-Out Right</div>
+      Any citizen may opt out of AI-assisted diagnosis at any time by informing their Vel Siven. The opt-out is recorded in their Siven Record and is permanent until reversed. Opting out does not affect care quality or access. The Vel Siven will not discourage or comment on the decision.
+    </div>
+  </section>
+
+  <!-- EMERGENCY -->
+  <section class="section" id="emergency">
+    <div class="sec-hd">
+      <div class="sec-ico">🔴</div>
+      <div class="sec-tw">
+        <div class="sec-n">Emergency Response</div>
+        <h2 class="sec-t">The Siven Kael Network</h2>
+        <div class="sec-v">Siven Kael — "Always open, always free"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">The Siven Kael network is the emergency backbone of Vaultrian healthcare. Every zone has a minimum of one unit in continuous operation. Emergency response is the most non-negotiable element of the Siven system — a citizen in emergency cannot be turned away, cannot be asked for their CID before treatment begins, and cannot be billed for the response regardless of what is found.</p>
+
+    <div class="triage">
+      <div class="tr-card vel">
+        <div class="tr-name">Vel</div>
+        <div class="tr-eng">Stable</div>
+        <div class="tr-desc">Non-urgent. Citizen is not at immediate risk. Can wait for scheduled Siven Vel appointment. Monitored until cleared or status changes.</div>
+      </div>
+      <div class="tr-card kadir">
+        <div class="tr-name">Kadir</div>
+        <div class="tr-eng">Urgent</div>
+        <div class="tr-desc">Requires prompt medical attention within hours. Admitted to Siven Kadir for assessment and treatment. Priority over Vel cases in resource allocation.</div>
+      </div>
+      <div class="tr-card morven">
+        <div class="tr-name">Morven</div>
+        <div class="tr-eng">Critical</div>
+        <div class="tr-desc">Life-threatening. Immediate intervention required. All resources directed. AI diagnostic feed active to Siven Kadir from point of Siven Kael arrival.</div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:16px">
+      <div class="gi">
+        <div class="gi-l">Response time targets</div>
+        <div class="gi-t"><strong>Urban zones (Aurex, Zerath, Nerath):</strong> 8 minutes. <strong>Outer civilian zones:</strong> 12 minutes. <strong>Remote and border zones (Morvex, Varex outer):</strong> 18 minutes. All targets are monitored quarterly and reported to the Civic Board.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Siven Kael team composition</div>
+        <div class="gi-t">Every unit: 2 Kael Siven (paramedics) with full emergency medical training, Vaultryn Core AI link (Vel Tarin Siven active on arrival), and mental health emergency protocol training. No unit deploys with fewer than 2 trained responders.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Identity at emergency</div>
+        <div class="gi-t">CID is checked <em>after</em> initial stabilisation — never before. A citizen without a CID (visitor, undocumented person) receives the same emergency care as any citizen. Billing and identity resolution happens later. The emergency itself is never delayed.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Mental health emergencies</div>
+        <div class="gi-t">Siven Kael teams are trained in mental health crisis response. A citizen in mental health crisis is triaged under the same Vel / Kadir / Morven framework as physical emergencies. Naratel Siven is contactable by Siven Kael teams at all hours for remote consultation.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTAL HEALTH -->
+  <section class="section" id="mental">
+    <div class="sec-hd">
+      <div class="sec-ico">◇</div>
+      <div class="sec-tw">
+        <div class="sec-n">Mental Health</div>
+        <h2 class="sec-t">Siven Naratel — Equal Status</h2>
+        <div class="sec-v">Naratel Siven — named for water, flow, continuity</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Vaultria's position on mental health is stated in the Siven founding charter and repeated in the Traditions Codex: <strong>mental health is health.</strong> It is not a secondary concern, not a supplementary service, not something citizens should manage privately if possible. It receives equal funding, equal professional status, and equal citizen access as any physical health service.</p>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">Siven Naratel availability</div>
+        <div class="gi-t">Every zone has at least one Siven Naratel centre. In Nerath and Lunara — the most densely populated civilian zones — there are multiple centres per zone, distributed across nodes rather than concentrated at the zone capital.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Appointment parity</div>
+        <div class="gi-t">A Siven Naratel appointment is scheduled and processed identically to a Vel Siven appointment. Same booking system, same wait time targets, same priority framework. A citizen does not need a referral to access Siven Naratel — direct booking is standard.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Long-term support</div>
+        <div class="gi-t">Long-term mental health conditions are treated as chronic diseases under the Siven free-care framework. Ongoing therapy, psychiatric medication, and care coordination are fully funded for as long as clinically indicated. There is no time limit on mental health support.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Confidentiality</div>
+        <div class="gi-t">Mental health records within the Siven Record are held under the same strict access rules as physical health data — and Naratel Siven notes are additionally siloed from Vel Siven records within the system. A Vel Siven cannot see therapy notes without the citizen's specific, recorded consent.</div>
+      </div>
+    </div>
+
+    <div class="note green">
+      <div class="note-l">Non-Discrimination — Codex of Order Art. V.3</div>
+      No employer, Civic Board, or Merit Tier assessment may take into account a citizen's mental health history, diagnosis, or treatment record. Mental illness is not a factor in civic standing. Attempting to access or use a citizen's mental health record in any civic or employment process is a Category VI Privacy offense.
+    </div>
+
+    <div class="dv"><span class="dv-m">Crisis Response</span></div>
+
+    <p class="sec-intro">A citizen in acute mental health crisis can access the Siven Naratel crisis line at all hours. Crisis response follows the same triage framework as physical emergencies — a citizen assessed as Morven (critical) in a mental health crisis receives immediate Siven Kael dispatch with a Naratel-trained responder. The response does not involve law enforcement unless the citizen or another person is at imminent physical risk and only after Siven assessment.</p>
+  </section>
+
+  <!-- PREVENTIVE -->
+  <section class="section" id="preventive">
+    <div class="sec-hd">
+      <div class="sec-ico">🌱</div>
+      <div class="sec-tw">
+        <div class="sec-n">Preventive Care</div>
+        <h2 class="sec-t">Annual Assessment & Screening</h2>
+        <div class="sec-v">Vel siven tarin — "Learning the body before it speaks"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Vaultria invests heavily in preventive healthcare on the principle that catching a condition early costs the system significantly less than treating it late — and costs the citizen significantly less in suffering. The annual Vel Siven Assessment is free for every citizen and has been available since the first year of the nation.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-b">
+          <div class="step-t">Physical Examination</div>
+          <div class="step-d">Full physical examination by a Vel Siven. Blood pressure, heart rate, weight, neurological basics, and any citizen-reported concerns. The examination is thorough and unhurried — citizens are not moved through quickly.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-b">
+          <div class="step-t">AI-Assisted Screening Review</div>
+          <div class="step-d">Vel Tarin Siven reviews the citizen's full Siven Record, flags any patterns that suggest emerging risk, and generates a screening recommendation list for the Vel Siven to discuss with the citizen. Citizens are shown the AI's flags directly — no information is filtered.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-b">
+          <div class="step-t">Mental Health Check-In</div>
+          <div class="step-d">A structured but conversational mental health component is embedded in every annual assessment. This is not a formal psychiatric assessment — it is a check-in. The Vel Siven is trained to conduct it. If a citizen declines this component, it is noted without consequence.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-b">
+          <div class="step-t">Nutrition & Lifestyle Assessment</div>
+          <div class="step-d">A brief review of the citizen's reported diet, physical activity, and sleep. Non-judgmental. The Vel Siven notes concerns and may suggest resources — but no civic consequence follows from any lifestyle finding.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">05</div>
+        <div class="step-b">
+          <div class="step-t">Chronic Risk Profiling</div>
+          <div class="step-d">Using age, family history (where the citizen has disclosed it), and existing record data, the Vel Siven discusses the citizen's profile for conditions such as cardiovascular disease, diabetes, and cancer. Early referrals may be triggered here.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="note-l">Merit Points for Attendance</div>
+      Citizens who attend their annual Vel Siven Assessment receive 5 Merit Points — for attendance only. The results of the assessment, any conditions found, and any referrals made are never reported to the Merit system. The points simply reflect that the citizen engaged with the preventive system. Declining the assessment carries no penalty.
+    </div>
+
+    <div class="note warn">
+      <div class="note-l">On Vaccination</div>
+      Vaccination programmes are free, available across all zones, and strongly recommended. They are never mandated. No civic penalty, Merit deduction, or access restriction applies to unvaccinated citizens. Vaultria considers mandatory vaccination an infringement of bodily autonomy beyond what the Charter permits. This position is reviewed by the Civic Assembly annually in response to public health data.
+    </div>
+  </section>
+
+  <!-- END OF LIFE -->
+  <section class="section" id="eol">
+    <div class="sec-hd">
+      <div class="sec-ico">◼</div>
+      <div class="sec-tw">
+        <div class="sec-n">End-of-Life Care</div>
+        <h2 class="sec-t">Siven Morven — The Becoming-Still</h2>
+        <div class="sec-v">Morven siven — "Sustaining through the passage"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Siven Morven is entirely funded. No citizen or family pays for end-of-life care in Vaultria. The state considers this the final expression of its commitment to citizens — the same unconditional care at the end of life that it promises at birth. Siven Morven facilities are designed to be comfortable, private, and family-welcoming. They do not look like hospitals.</p>
+
+    <div class="directive">
+      <div class="dir-t">The Vel Morven Directive — Advance Healthcare Decision</div>
+      <div class="dir-items">
+        <div class="dir-item"><span class="dir-label">What it is</span><span>A document filed by a citizen specifying their healthcare wishes for end-of-life situations where they cannot communicate. Stored in the Siven Record. Updated at any time.</span></div>
+        <div class="dir-item"><span class="dir-label">Pain management</span><span>The citizen specifies their preferences for pain relief — including whether they consent to sedation that may shorten consciousness in exchange for comfort.</span></div>
+        <div class="dir-item"><span class="dir-label">Resuscitation</span><span>The citizen declares whether they consent to resuscitation attempts (DNR/DNAR preferences) in different clinical scenarios.</span></div>
+        <div class="dir-item"><span class="dir-label">Who may be present</span><span>The citizen names who they want present and, importantly, who they do not want present. This is legally binding and cannot be overridden by family.</span></div>
+        <div class="dir-item"><span class="dir-label">Disposition</span><span>The citizen's body disposition preference — Archive Burial, Flame Return, or Water Return — is recorded here as well as in the Citizen Registry.</span></div>
+        <div class="dir-item"><span class="dir-label">No directive filed</span><span>If no Vel Morven Directive exists, next of kin make decisions in consultation with the Morven Siven. In the absence of next of kin, the Morven Siven uses clinical judgement guided by Siven Operating Charter defaults.</span></div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">Active euthanasia</div>
+        <div class="gi-t">Not currently legal in Vaultria. Palliative sedation — the administration of medication to manage pain and distress at the end of life, which may incidentally shorten consciousness — is permitted and practised within Siven Morven. The Civic Assembly reviews the euthanasia question annually. It is not entrenched — it can change.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Family support</div>
+        <div class="gi-t">Siven Morven end-of-life support extends to next of kin for <strong>6 months after loss.</strong> This includes access to Naratel Siven (mental health), one dedicated Morven Siven liaison for administrative and emotional support, and bereavement leave through the civic employment system.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVATE -->
+  <section class="section" id="private">
+    <div class="sec-hd">
+      <div class="sec-ico">◈</div>
+      <div class="sec-tw">
+        <div class="sec-n">Private Healthcare</div>
+        <h2 class="sec-t">The Independent Sector</h2>
+        <div class="sec-v">Vel kael birek — "The free business of sustaining"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Private healthcare in Vaultria exists entirely outside the Siven framework. It is not regulated beyond baseline safety standards, not subsidised in any way, and not endorsed by any Siven institution. Citizens who choose private healthcare do so freely, at their own cost, on their own assessment of quality and value. The government neither promotes nor discourages it.</p>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">No price controls</div>
+        <div class="gi-t">Private providers set their own prices. The government does not cap private healthcare costs, does not publish recommended rates, and does not track what citizens spend on private care. It is entirely a free market.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">No referral links</div>
+        <div class="gi-t">No Siven Vel, Siven Kadir, or any Siven institution refers citizens to private providers. If a citizen asks about private options, the Vel Siven may acknowledge they exist but will not recommend, compare, or facilitate access. The two systems do not touch.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Records</div>
+        <div class="gi-t">Private health records are not linked to the CID or Siven Record unless the citizen manually exports their Siven Record and hands it to the private provider. There is no automatic bridge. A citizen returning from private care to the Siven Network brings records if they choose to.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Safety standards</div>
+        <div class="gi-t">Private providers must pass an annual Siven Safety Inspection — a minimum-threshold review of clinical safety, sterilisation, emergency protocols, and staff qualifications. Failure results in operating licence suspension. Beyond this, the Siven Directorate has no authority over private providers.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Private emergency services</div>
+        <div class="gi-t">Private emergency services may operate in Vaultria. They cannot receive government funding, cannot be dispatched by civic emergency systems, and cannot access the Siven Kael network. In an emergency where a private service and a Siven Kael unit are both available, the citizen or bystander chooses.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Emergency handover</div>
+        <div class="gi-t">If a private provider encounters an emergency beyond their capacity, they may transfer the citizen to a Siven Kadir. At the point of transfer, the citizen becomes a Siven patient and receives free emergency care. The private provider's involvement is not billed through Siven — any private costs already incurred remain separate.</div>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <div class="note-l">On Inequality of Outcome</div>
+      Vaultria acknowledges directly that private healthcare produces faster access and sometimes better comfort. A T3 citizen using a private specialist will likely receive their appointment faster than a citizen on the Siven non-urgent specialist queue. This is not a design flaw — it is an acknowledged feature of a system that guarantees baseline equality while not pretending that VYR has no value. The guarantee is: no citizen suffers or dies for lack of money. Beyond that, Vaultria does not enforce equality of outcome.
+    </div>
+  </section>
+
+</div><!-- /content -->
+</main>
+</div><!-- /shell -->
+
+<script>
+function sa(el){document.querySelectorAll('.sb-a').forEach(function(l){l.classList.remove('on');});el.classList.add('on');}
+var secs=document.querySelectorAll('.section');
+var links=document.querySelectorAll('.sb-a[href]');
+window.addEventListener('scroll',function(){
+  var sy=window.scrollY+100;
+  secs.forEach(function(s){
+    if(sy>=s.offsetTop){var id=s.id;links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+id);});}
+  });
+},{passive:true});
+</script>
+</body>
+</html>

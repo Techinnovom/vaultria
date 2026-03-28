@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VYR Banking and Financial System — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/vyr-banking.css" />
+</head>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap vyr-wrap">
+        <main id="main-content" class="vyr-banking-page">
+          <p class="tier-kicker"><a href="economy.html">Economy</a> · <a href="currency.html">Currency</a> · Karelth codex</p>
+          <p class="zone-intro">State-controlled VYR, citizen wallet tiers, Nara Birek accounts, no private credit, Civic Bridge Loan, and a full digital audit trail under Karelth.</p>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<nav class="sb">
+  <div class="sb-hd">
+    <svg width="30" height="35" viewBox="0 0 88 102" fill="none" style="margin-bottom:10px">
+      <path d="M44 2L86 14L86 54C86 76 67 92 44 100C21 92 2 76 2 54L2 14Z" fill="#080604" stroke="rgba(201,168,76,0.38)" stroke-width="2"/>
+      <polyline points="13,51 23,51 27,38 31,64 35,43 38,57 43,51 49,51 53,38 57,57 61,51 75,51" stroke="#CC2020" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="sb-t">VYR Financial System</div>
+    <div class="sb-s">Karelth Codex · Year 1</div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-cat">Currency</div>
+    <a class="sb-a on" href="#currency" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">VYR — The Currency</span></a>
+    <div class="sb-cat">Citizen Finance</div>
+    <a class="sb-a" href="#wallet" onclick="sa(this)"><div class="sb-pip" style="background:var(--blue)"></div><span class="sb-lbl">The Citizen Wallet</span></a>
+    <a class="sb-a" href="#savings" onclick="sa(this)"><div class="sb-pip" style="background:var(--amber)"></div><span class="sb-lbl">Savings Tiers</span></a>
+    <a class="sb-a" href="#transfers" onclick="sa(this)"><div class="sb-pip" style="background:var(--green)"></div><span class="sb-lbl">Transfers & Payments</span></a>
+    <a class="sb-a" href="#ceilings" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">Income Ceilings</span></a>
+    <div class="sb-cat">Business & Exchange</div>
+    <a class="sb-a" href="#birek" onclick="sa(this)"><div class="sb-pip" style="background:var(--amber)"></div><span class="sb-lbl">Nara Birek Accounts</span></a>
+    <a class="sb-a" href="#foreign" onclick="sa(this)"><div class="sb-pip" style="background:var(--blue)"></div><span class="sb-lbl">Foreign Exchange</span></a>
+    <div class="sb-cat">Debt & Audit</div>
+    <a class="sb-a" href="#bridge" onclick="sa(this)"><div class="sb-pip" style="background:var(--green)"></div><span class="sb-lbl">Civic Bridge Loan</span></a>
+    <a class="sb-a" href="#audit" onclick="sa(this)"><div class="sb-pip" style="background:var(--red)"></div><span class="sb-lbl">Audit & Anti-Corruption</span></a>
+    <div class="sb-cat">Interactive</div>
+    <a class="sb-a" href="#simulator" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">Wallet Simulator</span></a>
+  </div>
+  <div class="sb-ft"><div class="sb-mo">"Kiratvel navol" —<br>Truth is permanent</div></div>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+<div class="hero">
+  <div class="h-vol">Karelth Financial Codex — The Sovereign State of Vaultria</div>
+  <h1 class="h-title">VYR Banking &<br>Financial System</h1>
+  <p class="h-sub">Vaultria's financial system is state-controlled, anti-speculative, and built around a single principle: citizens should never be trapped by money they never had. Physical VYR exists alongside digital wallets. There is no credit. There is no debt except one — and that one carries no interest.</p>
+  <div class="h-tags">
+    <span class="tag a">State-Controlled</span>
+    <span class="tag g">No Credit System</span>
+    <span class="tag b">Physical + Digital</span>
+    <span class="tag r">Full Audit Trail</span>
+    <span class="tag">Karelth Authority</span>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- ══ CURRENCY ══ -->
+  <section class="section" id="currency">
+    <div class="sec-hd">
+      <div class="sec-ico">◈</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 01 — Currency</div>
+        <h2 class="sec-t">VYR — The Currency of Vaultria</h2>
+        <div class="sec-v">Vel kadir morven — "The permanent measure"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">VYR is the sole legal currency of the Sovereign State of Vaultria. It is issued exclusively by the <strong>Karelth Financial Authority</strong>, housed in the Karelth district of Velora zone. VYR exists in two identical forms — physical and digital — with no distinction in value or legal status between them. One physical VYR equals one digital VYR. Always.</p>
+
+    <p style="color:var(--tx2);font-size:.96rem;line-height:1.78;margin-bottom:16px">VYR is not speculative. It cannot be traded on any exchange. It does not fluctuate in value against itself. There are no VYR derivatives, no VYR futures, and no investment products denominated in VYR. The Karelth Financial Authority sets the value of VYR against foreign currencies monthly, based on a basket of reference currencies — not on market forces.</p>
+
+    <div class="note warn">
+      <div class="note-l">Absolute Prohibition</div>
+      No cryptocurrency, no digital token, no speculative financial instrument may be denominated in VYR or traded for VYR within Vaultrian territory. Operating such an instrument is a Class I financial crime under Codex Vol. IV, Art. IV.1.2.
+    </div>
+
+    <div class="dv"><span class="dv-m">Physical Denominations</span></div>
+
+    <div class="phys-notes">
+      <div class="note-card nc-coin"><div class="nv">¼</div><div class="nl">Coin</div></div>
+      <div class="note-card nc-coin"><div class="nv">½</div><div class="nl">Coin</div></div>
+      <div class="note-card nc-coin"><div class="nv">1</div><div class="nl">Coin</div></div>
+      <div class="note-card nc-1"><div class="nv">1</div><div class="nl">Note</div></div>
+      <div class="note-card nc-5"><div class="nv">5</div><div class="nl">Note</div></div>
+      <div class="note-card nc-10"><div class="nv">10</div><div class="nl">Note</div></div>
+      <div class="note-card nc-50"><div class="nv">50</div><div class="nl">Note</div></div>
+      <div class="note-card nc-100"><div class="nv">100</div><div class="nl">Note</div></div>
+      <div class="note-card nc-500"><div class="nv">500</div><div class="nl">Note</div></div>
+    </div>
+
+    <p style="color:var(--tx2);font-size:.9rem;line-height:1.78;margin-bottom:14px">Physical VYR notes carry the national seal on the obverse and a zone name on the reverse — each denomination features a different zone. The 500 VYR note features Velora. The 1 VYR note features Varex — a deliberate statement that the smallest unit of the currency represents the zone that produces the food that sustains all others.</p>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">Physical VYR — anonymous use</div>
+        <div class="gi-t">Physical VYR requires no CID for transactions. Cash is anonymous by design. Vaultria believes citizens have the right to spend money privately. The state does not surveil physical cash transactions.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Digital VYR — identity-linked</div>
+        <div class="gi-t">All digital transactions are linked to the sender's and receiver's CID. Digital VYR cannot be transferred anonymously. This is the explicit trade-off for digital access — convenience for traceability.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WALLET ══ -->
+  <section class="section" id="wallet">
+    <div class="sec-hd">
+      <div class="sec-ico">⬡</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 02 — Citizen Wallet</div>
+        <h2 class="sec-t">The Citizen Wallet — Vel Kadir</h2>
+        <div class="sec-v">Vel kadir sena — "The measured holding"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Every Vaultrian citizen holds exactly one VYR wallet, activated at their Veloran on their 18th birthday. The wallet is inseparable from the CID — it cannot be transferred, duplicated, or held by a third party. Children under 18 are covered by a custodial sub-wallet held under their parent or guardian's account, which transfers to the child automatically at the Veloran.</p>
+
+    <div class="wallet-diagram">
+      <div class="wallet-tier op">
+        <div class="wt-name">Operating Balance</div>
+        <div class="wt-vae">Vel Kadir — Daily Flow</div>
+        <div class="wt-rate">No Interest</div>
+        <div class="wt-body">Instant access. No lock period. Used for all daily spending — markets, transport, services, utilities. No minimum. No maximum balance limit.</div>
+      </div>
+      <div class="wallet-tier res">
+        <div class="wt-name">Reserve Balance</div>
+        <div class="wt-vae">Vel Sorex Save — Short Hold</div>
+        <div class="wt-rate">2.5% / year</div>
+        <div class="wt-body">24-hour withdrawal delay. Interest paid quarterly to Operating Balance. No minimum deposit. No maximum. The standard savings tier for most citizens.</div>
+      </div>
+      <div class="wallet-tier vlt">
+        <div class="wt-name">Vault Balance</div>
+        <div class="wt-vae">Vel Morven Save — Long Hold</div>
+        <div class="wt-rate">5.5% / year</div>
+        <div class="wt-body">90-day minimum lock. Early exit penalty: 15% of interest earned. Maximum: 200,000 VYR per citizen. Interest paid annually to Reserve Balance.</div>
+      </div>
+    </div>
+
+    <div class="dv"><span class="dv-m">Access Methods</span></div>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">CID Card — tap or swipe</div>
+        <div class="gi-t">The standard access method at all registered terminals. Every market, transport point, and service provider accepts CID card payment. Nationwide coverage.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Biometric terminal</div>
+        <div class="gi-t">Fingerprint or retinal scan at major terminals — Aeris Nod, Zerex Grand Market, Aurex civic facilities. Used when CID card is unavailable.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Secure digital terminal</div>
+        <div class="gi-t">Home and workplace digital access for reviewing balance, initiating transfers, and managing savings. Requires CID authentication every session.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Physical VYR</div>
+        <div class="gi-t">Always valid at any merchant in Vaultria. No ID required. No terminal needed. Physical cash cannot be refused as payment by any registered business.</div>
+      </div>
+    </div>
+
+    <div class="dv"><span class="dv-m">Transaction Limits & Flags</span></div>
+
+    <table class="dtable">
+      <tr><th>Transaction Type</th><th>Limit / Rule</th><th>Flag</th></tr>
+      <tr><td>Operating Balance — daily spend</td><td>No limit on own funds</td><td>None</td></tr>
+      <tr><td>Reserve → Operating transfer</td><td>Up to 500 VYR/day without declaration</td><td>None below 500 VYR</td></tr>
+      <tr><td>Reserve → Operating above 500 VYR</td><td>Transfer declaration required (purpose, one line)</td><td class="warn">Soft log</td></tr>
+      <tr><td>Vault → Operating</td><td>Formal Withdrawal Declaration required, 90-day lock respected</td><td class="warn">Auto-logged</td></tr>
+      <tr><td>Single transaction above 10,000 VYR</td><td>Permitted — declaration required</td><td class="warn">Auto-flagged</td></tr>
+      <tr><td>30-day total above 50,000 VYR</td><td>Mandatory audit review triggered</td><td class="hi">Mandatory review</td></tr>
+      <tr><td>Physical cash deposit above 5,000 VYR</td><td>CID confirmation required at terminal</td><td class="warn">Soft log</td></tr>
+    </table>
+  </section>
+
+  <!-- ══ SAVINGS ══ -->
+  <section class="section" id="savings">
+    <div class="sec-hd">
+      <div class="sec-ico">◼</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 03 — Savings</div>
+        <h2 class="sec-t">Savings Tiers</h2>
+        <div class="sec-v">Vel morven kadir — "Holding for the future"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Vaultria encourages saving but does not mandate it. The two savings tiers offer state-set interest rates — competitive enough to reward long-term holding, structured enough to prevent the savings system from becoming a vehicle for wealth accumulation beyond functional need. The 200,000 VYR Vault ceiling is the most significant constraint: it reflects Vaultria's position that savings should secure a citizen's future, not generate passive income at scale.</p>
+
+    <div class="block amber">
+      <div class="block-hd"><span class="block-badge">Reserve</span><span class="block-title">Vel Sorex Save — 2.5% Annual Interest</span></div>
+      <div class="block-body">
+        <div class="block-row"><span class="block-label">Interest rate</span><span class="block-val">2.5% per year — state-set, reviewed annually by Karelth</span></div>
+        <div class="block-row"><span class="block-label">Access delay</span><span class="block-val">24 hours from withdrawal request to Operating Balance</span></div>
+        <div class="block-row"><span class="block-label">Interest paid</span><span class="block-val">Quarterly — direct to Operating Balance</span></div>
+        <div class="block-row"><span class="block-label">Minimum deposit</span><span class="block-val">None</span></div>
+        <div class="block-row"><span class="block-label">Maximum balance</span><span class="block-val">None — no ceiling on Reserve Balance</span></div>
+        <div class="block-row"><span class="block-label">Early exit penalty</span><span class="block-val">None — 24-hour delay is the only friction</span></div>
+        <div class="block-row"><span class="block-label"><strong>Best for:</strong> Medium-term savings — housing deposit, family planning, significant purchases</span><span class="block-val">—</span></div>
+      </div>
+    </div>
+
+    <div class="block" style="border-color:var(--gold-d)">
+      <div class="block-hd" style="background:rgba(201,168,76,.06)"><span class="block-badge" style="color:var(--gold);border-color:var(--gold-d)">Vault</span><span class="block-title">Vel Morven Save — 5.5% Annual Interest</span></div>
+      <div class="block-body">
+        <div class="block-row"><span class="block-label">Interest rate</span><span class="block-val">5.5% per year — state-set, reviewed annually</span></div>
+        <div class="block-row"><span class="block-label">Lock period</span><span class="block-val">Minimum 90 days — funds inaccessible until lock expires</span></div>
+        <div class="block-row"><span class="block-label">Interest paid</span><span class="block-val">Annually — direct to Reserve Balance on lock anniversary</span></div>
+        <div class="block-row"><span class="block-label">Early exit</span><span class="block-val">Permitted — 15% penalty on interest earned to date</span></div>
+        <div class="block-row"><span class="block-label">Maximum balance per citizen</span><span class="block-val"><strong>200,000 VYR hard ceiling</strong></span></div>
+        <div class="block-row"><span class="block-label"><strong>Best for:</strong> Long-term security — retirement planning, major life events, generational transfer</span><span class="block-val">—</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="note-l">Inheritance & Vault Balance</div>
+      Upon a citizen's death, their Vault Balance is transferred to named beneficiaries declared in the Vel Morven Directive or their citizen record. If no beneficiary is named, the balance transfers to the surviving household or, absent that, to the Civic Fund. Inheritance does not count as income and is not subject to the income ceiling.
+    </div>
+  </section>
+
+  <!-- ══ TRANSFERS ══ -->
+  <section class="section" id="transfers">
+    <div class="sec-hd">
+      <div class="sec-ico">⇄</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 04 — Transfers</div>
+        <h2 class="sec-t">Transfers & Payments</h2>
+        <div class="sec-v">Vel kadir sena — "Passing the measure between"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">All digital VYR transfers between citizens are logged, attributed, and permanently stored. Physical cash payments are anonymous and carry no logging requirement. The system distinguishes between four types of transfer — each with different rules and oversight levels.</p>
+
+    <div class="block blue">
+      <div class="block-hd"><span class="block-badge">Payment</span><span class="block-title">Goods or services rendered</span></div>
+      <div class="block-body">
+        <div class="block-row"><span class="block-label">Standard payment — below 1,000 VYR</span><span class="block-val">No memo required</span></div>
+        <div class="block-row"><span class="block-label">Payment above 1,000 VYR</span><span class="block-val">Transfer memo required (one line, purpose)</span></div>
+        <div class="block-row"><span class="block-label">Payment to unregistered citizen</span><span class="block-val">Permitted — logged as unregistered recipient</span></div>
+        <div class="block-row"><span class="block-label">Payment to non-citizen</span><span class="block-val">Permitted — must declare purpose and recipient type</span></div>
+      </div>
+    </div>
+
+    <div class="block green">
+      <div class="block-hd"><span class="block-badge">Gift</span><span class="block-title">No goods or services — declared as gift</span></div>
+      <div class="block-body">
+        <div class="block-row"><span class="block-label">Gift — below 5,000 VYR per year to same recipient</span><span class="block-val">Declared as gift, logged, no review</span></div>
+        <div class="block-row"><span class="block-label">Gift — above 5,000 VYR per year to same recipient</span><span class="block-val">Auto-flagged for audit review (gift-disguised wage prevention)</span></div>
+        <div class="block-row"><span class="block-label">Gift — physical VYR</span><span class="block-val">Fully anonymous, no log, no limit</span></div>
+        <div class="block-row"><span class="block-label"><strong>Note:</strong> Gifts are not income and not subject to income ceilings. Repeated large gifts between the same two parties are reviewed for possible wage disguise.</span><span class="block-val">—</span></div>
+      </div>
+    </div>
+
+    <div class="block amber">
+      <div class="block-hd"><span class="block-badge">Wage</span><span class="block-title">Employer to employee — Karelth Payroll System</span></div>
+      <div class="block-body">
+        <div class="block-row"><span class="block-label">All wages processed through Karelth Payroll System</span><span class="block-val">Mandatory for registered employment</span></div>
+        <div class="block-row"><span class="block-label">Wage ceiling enforcement</span><span class="block-val">System blocks any wage above citizen's Merit Tier ceiling — employer cannot override</span></div>
+        <div class="block-row"><span class="block-label">Tax deduction</span><span class="block-val">Civic contribution automatically deducted at source before wage is credited</span></div>
+        <div class="block-row"><span class="block-label">Payslip access</span><span class="block-val">Citizen can view full payroll history via secure digital terminal</span></div>
+      </div>
+    </div>
+
+    <div class="block red">
+      <div class="block-hd"><span class="block-badge">Emergency</span><span class="block-title">Immediate transfer — bypasses daily limits</span></div>
+      <div class="block-body">
+        <div class="block-row"><span class="block-label">Eligibility</span><span class="block-val">Declared emergency — medical, housing crisis, documented urgent need</span></div>
+        <div class="block-row"><span class="block-label">Requirements</span><span class="block-val">Both sender and receiver CIDs present; declaration of emergency type at terminal</span></div>
+        <div class="block-row"><span class="block-label">Limit bypass</span><span class="block-val">Daily and declaration limits suspended for the transfer</span></div>
+        <div class="block-row"><span class="block-label">Auto-reviewed</span><span class="block-val">Every emergency transfer is reviewed by Karelth within 72 hours — false declarations are a Class II offense</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CEILINGS ══ -->
+  <section class="section" id="ceilings">
+    <div class="sec-hd">
+      <div class="sec-ico">▲</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 05 — Income Ceilings</div>
+        <h2 class="sec-t">Income Ceilings & Enforcement</h2>
+        <div class="sec-v">Vel kadir morven — "The measured maximum"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Income ceilings are set by Merit Tier for all registered civic employment. They prevent runaway wage inequality within Vaultrian civic domains. They do not apply to savings growth, gifts, inheritance, or private transactions. The ceiling limits what a citizen can earn from civic employment — not what they can hold or save.</p>
+
+    <table class="dtable">
+      <tr><th>Tier</th><th>Income Ceiling</th><th>High-Need Domain Bonus</th></tr>
+      <tr><td>T1 — Vel Tarin</td><td>Standard domain band — set annually by Civic Board per domain</td><td>Not applicable</td></tr>
+      <tr><td>T2 — Vel Kadir</td><td class="hi">+25% above T1 ceiling for the same domain</td><td>+15% above T2 ceiling</td></tr>
+      <tr><td>T3 — Vel Sorex</td><td class="hi">+50% above T1 ceiling; eligible for highest domain band</td><td>+20% above T3 ceiling</td></tr>
+    </table>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">Registered employment</div>
+        <div class="gi-t">All wages processed via Karelth Payroll. The system physically cannot process a wage above the citizen's ceiling — the payment is blocked at source. The employer is notified. There is no override.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Self-employment (Nara Birek)</div>
+        <div class="gi-t">Annual income declaration. The citizen declares total earnings. Any amount above their ceiling is automatically transferred to the Civic Fund — not penalised, simply redirected.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">What is NOT capped</div>
+        <div class="gi-t"><strong>Gifts, inheritance, Vault Balance interest returns, private property transactions, and foreign currency holdings</strong> are not subject to income ceilings. The ceiling is specifically an employment income mechanism.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Ceiling overages — Civic Fund</div>
+        <div class="gi-t">VYR above a citizen's ceiling that is redirected to the Civic Fund is used for public infrastructure, healthcare, education, and civic programmes. Overages are publicly reported in aggregate annually.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BIREK ══ -->
+  <section class="section" id="birek">
+    <div class="sec-hd">
+      <div class="sec-ico">⬢</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 06 — Business Accounts</div>
+        <h2 class="sec-t">Nara Birek Accounts</h2>
+        <div class="sec-v">Nara Birek — "The registered flow"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Every registered Nara Birek enterprise holds a Birek Account — entirely separate from the owner's personal wallet. The Birek Account has three sub-accounts built in by design. The most important structural feature is the Tax Reserve: 18% of all income received into a Birek Account is automatically held in the Tax Reserve and cannot be moved to the Operating Account. Tax is never owed at the end of the year — it is held throughout the year.</p>
+
+    <div class="wallet-diagram">
+      <div class="wallet-tier op">
+        <div class="wt-name">Birek Operating</div>
+        <div class="wt-vae">Daily Business Flow</div>
+        <div class="wt-rate">No Interest</div>
+        <div class="wt-body">All business income, expenses, supplier payments, and day-to-day transactions. Full access. No lock period.</div>
+      </div>
+      <div class="wallet-tier res" style="background:rgba(192,58,58,0.06)">
+        <div class="wt-name" style="color:var(--red)">Tax Reserve</div>
+        <div class="wt-vae">Auto-Held — Cannot be moved</div>
+        <div class="wt-rate" style="color:var(--red);border-color:var(--redb)">18% Auto-Hold</div>
+        <div class="wt-body">18% of every VYR received is held here automatically. Cannot be transferred to Operating. Released at annual tax declaration. <strong>Moving this balance is a Class II offense.</strong></div>
+      </div>
+      <div class="wallet-tier vlt">
+        <div class="wt-name">Payroll Account</div>
+        <div class="wt-vae">Wage Processing</div>
+        <div class="wt-rate">Via Karelth Payroll</div>
+        <div class="wt-body">All employee wages are processed from here through the Karelth Payroll System. Ceiling enforcement is applied automatically at this stage.</div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">Multiple account holders</div>
+        <div class="gi-t">Partnerships and co-operatives may have multiple CIDs with access to a single Birek Account. Every transaction is attributed to a specific CID at point of execution — shared access does not obscure individual action.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Closing a business</div>
+        <div class="gi-t">At business dissolution, the Tax Reserve is settled, remaining Operating balance transfers to the owner's personal wallet, and the Birek Account is permanently closed. The record remains in the Karelth audit trail indefinitely.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOREIGN ══ -->
+  <section class="section" id="foreign">
+    <div class="sec-hd">
+      <div class="sec-ico">⊕</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 07 — Foreign Exchange</div>
+        <h2 class="sec-t">Foreign Currency Exchange</h2>
+        <div class="sec-v">Vel kadir sora — "Measuring against the outside"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">VYR is not freely floating. Its exchange rate against foreign currencies is set monthly by the Karelth Financial Authority using a basket of reference currencies. Citizens and businesses may exchange VYR, but within defined limits designed to prevent capital flight and currency speculation.</p>
+
+    <div class="block blue">
+      <div class="block-hd"><span class="block-badge">Citizens</span><span class="block-title">Personal Foreign Exchange Limits</span></div>
+      <div class="block-body">
+        <div class="block-row"><span class="block-label">Monthly exchange — below 2,000 VYR equivalent</span><span class="block-val">No declaration required</span></div>
+        <div class="block-row"><span class="block-label">Monthly exchange — 2,000–10,000 VYR equivalent</span><span class="block-val">Travel or purpose declaration required at exchange</span></div>
+        <div class="block-row"><span class="block-label">Monthly exchange — above 10,000 VYR equivalent</span><span class="block-val">Karelth approval required — 3 business day process</span></div>
+        <div class="block-row"><span class="block-label">Exchange locations</span><span class="block-val">Karelth-licensed offices in Zerex zone and Aeris Nod terminal; digital exchange via CID wallet</span></div>
+      </div>
+    </div>
+
+    <div class="block amber">
+      <div class="block-hd"><span class="block-badge">Visitors</span><span class="block-title">Visitor VYR Card</span></div>
+      <div class="block-body">
+        <div class="block-row"><span class="block-label">Issued at Aeris Nod and Zerex exchange terminals</span><span class="block-val">On arrival, passport/travel document required</span></div>
+        <div class="block-row"><span class="block-label">Not linked to CID</span><span class="block-val">Visitor card is a pre-loaded wallet — tracked by card number, not identity</span></div>
+        <div class="block-row"><span class="block-label">Valid period</span><span class="block-val">Duration of visa — card expires on visa expiry date</span></div>
+        <div class="block-row"><span class="block-label">Unspent balance</span><span class="block-val">Fully refunded in original currency at exit — no fees</span></div>
+        <div class="block-row"><span class="block-label">Accepted everywhere</span><span class="block-val">Visitor card is treated identically to citizen CID at all terminals</span></div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">Foreign currency in Vaultria</div>
+        <div class="gi-t">Foreign currency may be held by citizens but is not integrated into the VYR wallet. Businesses dealing internationally may hold registered foreign currency accounts through a Nara Birek International Licence.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Rate setting</div>
+        <div class="gi-t">The Karelth rate is published on the first day of each month. It applies to all official exchanges for that month. Black market exchange at non-Karelth rates is a Class II financial crime.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BRIDGE ══ -->
+  <section class="section" id="bridge">
+    <div class="sec-hd">
+      <div class="sec-ico">⌒</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 08 — Debt</div>
+        <h2 class="sec-t">The Civic Bridge Loan</h2>
+        <div class="sec-v">Vel kadir narovel — "The temporary measure"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Vaultria has no credit system. Citizens cannot borrow against future income. There are no private lending institutions. Citizens cannot charge interest on money lent to other citizens. The Civic Bridge Loan is the single and only exception — and it exists because Vaultria distinguishes between debt that traps people and debt that supports them through an involuntary crisis.</p>
+
+    <div class="note warn">
+      <div class="note-l">No Credit — Absolute Position</div>
+      There are no credit cards, no overdraft facilities, no buy-now-pay-later schemes, and no private lending in Vaultria. Any private citizen who charges interest on money lent to another citizen commits a Class II financial crime under Art. IV.2.4. This is not a restriction — it is a founding principle of the Vaultrian economy.
+    </div>
+
+    <div class="bridge">
+      <div class="bridge-t">The Civic Bridge Loan — Vel Narovel Kadir</div>
+      <div class="bridge-v">"The temporary record-holding" — a measure held on behalf of a citizen until they can carry it themselves</div>
+      <div class="bridge-body">
+        <p><strong>Issued by:</strong> Karelth Financial Authority exclusively. No other institution may issue a Bridge Loan. The process takes 5 business days from application to disbursement.</p>
+        <p><strong>Eligibility:</strong> The citizen must be in documented involuntary financial hardship — job loss, medical emergency, or a crisis that was not the result of reckless spending. A citizen who overspent is not eligible. A citizen who lost their income because their employer collapsed is. The distinction is deliberate. Vaultria does not rescue poor decisions. It supports genuine misfortune.</p>
+        <p>Additional eligibility requirements: citizen must have been registered in Vaultria for at least 2 years, and must have no existing Bridge Loan outstanding.</p>
+        <p><strong>Maximum amount:</strong> Three months of the citizen's current income ceiling. Not three months of what they actually earned — three months of what they are entitled to earn at their tier. This gives citizens in crisis access to meaningful support even if their recent income was below ceiling.</p>
+        <p><strong>No interest.</strong> The Bridge Loan is returned in full — exactly what was borrowed, nothing more. Vaultria does not profit from a citizen's crisis. The state issues the loan to fulfil its obligation to citizen welfare, not to generate revenue.</p>
+        <p><strong>Repayment:</strong> Automatic deduction from wage at 10% per month once employment resumes. The repayment cannot exceed 18 months total. If the citizen has not fully repaid within 18 months, the outstanding balance is reviewed by the Karelth Authority — extension may be granted or, in exceptional circumstances, the remainder may be written off.</p>
+        <p><strong>Cannot be used for business.</strong> Bridge Loans are personal survival instruments. They may not fund a Nara Birek enterprise or any commercial activity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ AUDIT ══ -->
+  <section class="section" id="audit">
+    <div class="sec-hd">
+      <div class="sec-ico">◉</div>
+      <div class="sec-tw">
+        <div class="sec-n">Section 09 — Audit & Integrity</div>
+        <h2 class="sec-t">Audit Trail & Anti-Corruption</h2>
+        <div class="sec-v">Vel sorex narovel — "The permanent financial record"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Every digital VYR transaction is permanently logged. The record cannot be deleted, altered, or hidden. Even reversed transactions — refunds, corrections — appear as two entries: the original and the reversal. There are no deletions in the Vaultrian financial record. This is a foundational design decision, not a policy choice.</p>
+
+    <div class="dv"><span class="dv-m">Audit Access Rights</span></div>
+
+    <div class="access-matrix">
+      <div class="am-cell hd">Party</div>
+      <div class="am-cell hd">Own Records</div>
+      <div class="am-cell hd">Flagged Records</div>
+      <div class="am-cell hd">Full Database</div>
+      <div class="am-cell hd">Birek Records</div>
+      <div class="am-cell lbl">Citizen</div>
+      <div class="am-cell"><span class="am-y">✓</span> Full</div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-p">Own only</span></div>
+      <div class="am-cell lbl">Employer</div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-y">✓</span> Payroll only</div>
+      <div class="am-cell lbl">Karelth Authority</div>
+      <div class="am-cell"><span class="am-y">✓</span></div>
+      <div class="am-cell"><span class="am-y">✓</span> Read only</div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-y">✓</span> All Birek</div>
+      <div class="am-cell lbl">High Tribunal</div>
+      <div class="am-cell"><span class="am-y">✓</span></div>
+      <div class="am-cell"><span class="am-y">✓</span></div>
+      <div class="am-cell"><span class="am-p">By order only</span></div>
+      <div class="am-cell"><span class="am-p">By order only</span></div>
+      <div class="am-cell lbl">Civic Board</div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+      <div class="am-cell"><span class="am-n">✗</span></div>
+    </div>
+
+    <div class="note">
+      <div class="note-l">Separation Principle</div>
+      The Civic Board has no access to financial records. This is a deliberate firewall — the body that manages civic contribution, Merit Tier, and zone governance cannot see a citizen's financial activity. Financial oversight is exclusively Karelth Authority and, when legally required, the High Tribunal.
+    </div>
+
+    <div class="dv"><span class="dv-m">Auto-Flag Triggers</span></div>
+
+    <div style="padding:0 0 4px">
+      <div class="flag-row"><div class="flag-dot auto"></div><div class="flag-txt"><strong>Single transaction above 10,000 VYR</strong> — auto-flagged, declaration required at time of transaction. Karelth reviews within 7 days.</div></div>
+      <div class="flag-row"><div class="flag-dot auto"></div><div class="flag-txt"><strong>30-day cumulative total above 50,000 VYR</strong> — mandatory audit review triggered automatically. Citizen is notified.</div></div>
+      <div class="flag-row"><div class="flag-dot auto"></div><div class="flag-txt"><strong>Structuring</strong> — repeated transfers just below declaration thresholds (e.g. multiple 990 VYR transfers in sequence). System detects pattern, flags for review.</div></div>
+      <div class="flag-row"><div class="flag-dot auto"></div><div class="flag-txt"><strong>Birek account receiving income without Tax Reserve allocation</strong> — technically impossible by design, but any system bypass triggers immediate freeze and review.</div></div>
+      <div class="flag-row"><div class="flag-dot auto"></div><div class="flag-txt"><strong>Transfer from a frozen account</strong> — accounts frozen under Class I or II sanctions cannot transact. Any attempted transfer is blocked and logged.</div></div>
+      <div class="flag-row"><div class="flag-dot soft"></div><div class="flag-txt"><strong>Gifts above 5,000 VYR between the same two parties in one year</strong> — soft flag, reviewed to ensure the gift is genuine and not a disguised wage payment.</div></div>
+      <div class="flag-row"><div class="flag-dot soft"></div><div class="flag-txt"><strong>Repeated large physical VYR deposits</strong> — deposits above 5,000 VYR require CID confirmation. Multiple large cash deposits in a short period trigger a soft audit review.</div></div>
+    </div>
+
+    <div class="note">
+      <div class="note-l">Immutability Principle</div>
+      No VYR transaction can be deleted from the audit record. Refunds and corrections appear as separate entries alongside the original — the original is never removed. This applies to all parties including the Karelth Authority itself. The financial record of Vaultria is permanent.
+    </div>
+  </section>
+
+  <!-- ══ SIMULATOR ══ -->
+  <section class="section" id="simulator">
+    <div class="sec-hd">
+      <div class="sec-ico">⚖</div>
+      <div class="sec-tw">
+        <div class="sec-n">Interactive Reference</div>
+        <h2 class="sec-t">Wallet Simulator</h2>
+        <div class="sec-v">Practice the VYR wallet system</div>
+      </div>
+    </div>
+
+    <div class="sim">
+      <div class="sim-t">Citizen Wallet — Demo Mode</div>
+      <div class="sim-balances">
+        <div class="sim-bal">
+          <div class="sim-bal-l">Operating Balance</div>
+          <div class="sim-bal-v" id="s-op">2,400</div>
+          <div class="sim-bal-s">Instant access</div>
+        </div>
+        <div class="sim-bal">
+          <div class="sim-bal-l">Reserve Balance</div>
+          <div class="sim-bal-v" id="s-res">8,750</div>
+          <div class="sim-bal-s">24hr delay · 2.5% interest</div>
+        </div>
+        <div class="sim-bal">
+          <div class="sim-bal-l">Vault Balance</div>
+          <div class="sim-bal-v" id="s-vlt">45,000</div>
+          <div class="sim-bal-s">90-day lock · 5.5% interest</div>
+        </div>
+      </div>
+      <div class="sim-controls">
+        <div class="sim-field">
+          <label class="sim-lbl">Transaction Type</label>
+          <select class="sim-select" id="s-type">
+            <option value="spend">Spend (Operating)</option>
+            <option value="deposit">Deposit to Operating</option>
+            <option value="res-in">Move to Reserve</option>
+            <option value="res-out">Reserve → Operating</option>
+            <option value="vlt-in">Move to Vault</option>
+            <option value="transfer">Transfer to citizen</option>
+          </select>
+        </div>
+        <div class="sim-field">
+          <label class="sim-lbl">Amount (VYR)</label>
+          <input class="sim-input" id="s-amt" type="number" min="1" value="100">
+        </div>
+        <div class="sim-field" style="justify-content:flex-end">
+          <label class="sim-lbl">&nbsp;</label>
+          <button class="sim-btn" onclick="simTx()">Execute Transaction</button>
+        </div>
+      </div>
+      <div class="sim-log" id="s-log">
+        <div class="sim-log-entry ok">— Wallet initialised. Operating: 2,400 VYR | Reserve: 8,750 VYR | Vault: 45,000 VYR —</div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /content -->
+</div>
+</div><!-- /shell -->
+        </main>
+
+        <footer>
+          <p>The Sovereign State of VAULTRIA — a living document.</p>
+          <p class="latin">VYR Banking and Financial System · <code>site/pages/vyr-banking.html</code></p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/vyr-banking.js" defer></script>
+</body>
+</html>

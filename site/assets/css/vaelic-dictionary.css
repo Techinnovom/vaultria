@@ -1,0 +1,551 @@
+/* Vaelic dictionary — matches site shell (.wrap + .card + main.css tokens) */
+
+.wrap.vaelic-dict-wrap {
+  max-width: min(1100px, 100%);
+  width: 100%;
+}
+
+.vaelic-dict-page {
+  --rule: var(--border);
+  --gdim: var(--gold-dim);
+  --sharp: #c84040;
+  --soft: #4a9870;
+  --hard: #4070c8;
+  --flow: #8850c8;
+  --neu: #888;
+  --vd-topbar-offset: 0px;
+}
+
+@media (max-width: 959px) {
+  .vaelic-dict-page {
+    --vd-topbar-offset: 3.35rem;
+  }
+}
+
+.vaelic-dict-page *,
+.vaelic-dict-page *::before,
+.vaelic-dict-page *::after {
+  box-sizing: border-box;
+}
+
+.vaelic-dict-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.vaelic-dict-meta {
+  font-family: Cinzel, serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin: -0.25rem 0 1.35rem;
+}
+
+.vaelic-dict-card {
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.vaelic-dict-page ::-webkit-scrollbar {
+  width: 3px;
+}
+.vaelic-dict-page ::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+}
+
+/* Toolbar */
+.vaelic-dict-page .controls {
+  position: sticky;
+  top: var(--vd-topbar-offset);
+  z-index: 200;
+  background: var(--bg-elevated);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.65rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.vaelic-dict-page .sw {
+  flex: 1;
+  min-width: 180px;
+  position: relative;
+}
+.vaelic-dict-page .si-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: var(--gold-dim);
+  pointer-events: none;
+}
+.vaelic-dict-page #searchInput {
+  width: 100%;
+  padding: 0.55rem 0.65rem 0.55rem 1.85rem;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.vaelic-dict-page #searchInput:focus {
+  border-color: rgba(201, 169, 98, 0.45);
+}
+.vaelic-dict-page #searchInput::placeholder {
+  color: var(--text-muted);
+}
+.vaelic-dict-page .dtg {
+  display: flex;
+  gap: 2px;
+}
+.vaelic-dict-page .db {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  text-transform: uppercase;
+}
+.vaelic-dict-page .db:hover {
+  color: var(--text);
+  border-color: rgba(201, 169, 98, 0.35);
+}
+.vaelic-dict-page .db.active {
+  color: var(--gold);
+  border-color: rgba(201, 169, 98, 0.45);
+  background: rgba(201, 169, 98, 0.1);
+}
+.vaelic-dict-page .flt {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+.vaelic-dict-page .fb {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.14em;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid transparent;
+  background: var(--bg-panel);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  text-transform: uppercase;
+}
+.vaelic-dict-page .fb:hover {
+  color: var(--text);
+}
+.vaelic-dict-page .fb[data-f="all"].active {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+.vaelic-dict-page .fb[data-f="sharp"].active {
+  border-color: var(--sharp);
+  background: rgba(200, 64, 64, 0.12);
+  color: var(--sharp);
+}
+.vaelic-dict-page .fb[data-f="soft"].active {
+  border-color: var(--soft);
+  background: rgba(74, 152, 112, 0.12);
+  color: var(--soft);
+}
+.vaelic-dict-page .fb[data-f="hard"].active {
+  border-color: var(--hard);
+  background: rgba(64, 112, 200, 0.12);
+  color: var(--hard);
+}
+.vaelic-dict-page .fb[data-f="flow"].active {
+  border-color: var(--flow);
+  background: rgba(136, 80, 200, 0.12);
+  color: var(--flow);
+}
+.vaelic-dict-page .fb[data-f="neutral"].active {
+  border-color: var(--neu);
+  background: rgba(136, 136, 136, 0.1);
+  color: var(--neu);
+}
+
+/* Audio bar */
+.vaelic-dict-page .audio-bar {
+  background: rgba(201, 169, 98, 0.06);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.vaelic-dict-page .ab-label {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+}
+.vaelic-dict-page .speed-btns {
+  display: flex;
+  gap: 4px;
+}
+.vaelic-dict-page .spd {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  text-transform: uppercase;
+}
+.vaelic-dict-page .spd:hover {
+  color: var(--gold);
+  border-color: rgba(201, 169, 98, 0.35);
+}
+.vaelic-dict-page .spd.active {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201, 169, 98, 0.1);
+}
+
+.vaelic-dict-page .rb {
+  padding: 0.45rem 1rem;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vaelic-dict-rb2 {
+  font-size: 0.48rem;
+  color: var(--text-muted);
+}
+
+/* Layout */
+.vaelic-dict-page .layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 50vh;
+}
+@media (max-width: 680px) {
+  .vaelic-dict-page .layout {
+    grid-template-columns: 1fr;
+  }
+  .vaelic-dict-page .sb {
+    display: none;
+  }
+}
+
+.vaelic-dict-page .sb {
+  border-right: 1px solid var(--border);
+  padding: 1rem 0;
+  position: sticky;
+  top: calc(var(--vd-topbar-offset) + 6.5rem);
+  align-self: start;
+  max-height: calc(100vh - var(--vd-topbar-offset) - 7rem);
+  overflow-y: auto;
+}
+.vaelic-dict-page .sb::-webkit-scrollbar {
+  width: 2px;
+}
+.vaelic-dict-page .sb-lbl {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.35em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  padding: 0 0.85rem;
+  margin-bottom: 0.45rem;
+}
+.vaelic-dict-page .sbc {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.vaelic-dict-page .sbc:hover {
+  background: rgba(201, 169, 98, 0.05);
+}
+.vaelic-dict-page .sbc.active {
+  border-left-color: var(--gold);
+  background: rgba(201, 169, 98, 0.08);
+}
+.vaelic-dict-page .sbc-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.vaelic-dict-page .sbc-name {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.vaelic-dict-page .sbc.active .sbc-name {
+  color: var(--text);
+}
+.vaelic-dict-page .sbc-n {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.42rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* Entries */
+.vaelic-dict-page .ec {
+  padding: 0 1.25rem 2.5rem;
+}
+.vaelic-dict-page .ag {
+  margin-bottom: 2rem;
+}
+.vaelic-dict-page .ah {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 3vw, 1.75rem);
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+  padding: 1rem 0 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.85rem;
+  position: relative;
+}
+.vaelic-dict-page .ah::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.vaelic-dict-page .entry {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(201, 169, 98, 0.12);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0 1rem;
+  transition: background 0.12s;
+}
+.vaelic-dict-page .entry:hover {
+  background: rgba(201, 169, 98, 0.04);
+}
+@media (max-width: 500px) {
+  .vaelic-dict-page .entry {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+
+.vaelic-dict-page .ew {
+  font-family: Cinzel, serif;
+  font-weight: 600;
+  font-size: clamp(0.88rem, 2.5vw, 1.05rem);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.vaelic-dict-page .ep {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+.vaelic-dict-page .ecb {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid;
+  margin-bottom: 0.35rem;
+}
+.vaelic-dict-page .ect {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.vaelic-dict-page .audio-btns {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.vaelic-dict-page .play-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg-deep);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.vaelic-dict-page .play-btn:hover {
+  border-color: rgba(201, 169, 98, 0.35);
+  color: var(--gold);
+  background: rgba(201, 169, 98, 0.06);
+}
+.vaelic-dict-page .play-btn.playing {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201, 169, 98, 0.1);
+}
+.vaelic-dict-page .play-btn.playing .btn-icon {
+  animation: vaelic-spin 0.6s linear infinite;
+}
+.vaelic-dict-page .btn-icon {
+  font-size: 0.55rem;
+  line-height: 1;
+}
+@keyframes vaelic-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.vaelic-dict-page .epos {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+.vaelic-dict-page .em {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.94rem;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+.vaelic-dict-page .eex {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  border-left: 2px solid var(--border);
+  padding-left: 0.6rem;
+  margin-top: 0.25rem;
+}
+.vaelic-dict-page .eex span {
+  display: block;
+  color: var(--gold-dim);
+  font-style: normal;
+  font-size: 0.72rem;
+}
+.vaelic-dict-page .en2 {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.vaelic-dict-page .c-sharp {
+  color: var(--sharp);
+}
+.vaelic-dict-page .c-soft {
+  color: var(--soft);
+}
+.vaelic-dict-page .c-hard {
+  color: var(--hard);
+}
+.vaelic-dict-page .c-flow {
+  color: var(--flow);
+}
+.vaelic-dict-page .c-neutral {
+  color: var(--neu);
+}
+.vaelic-dict-page .b-sharp {
+  color: var(--sharp);
+  border-color: rgba(200, 64, 64, 0.35);
+  background: rgba(200, 64, 64, 0.08);
+}
+.vaelic-dict-page .b-soft {
+  color: var(--soft);
+  border-color: rgba(74, 152, 112, 0.35);
+  background: rgba(74, 152, 112, 0.08);
+}
+.vaelic-dict-page .b-hard {
+  color: var(--hard);
+  border-color: rgba(64, 112, 200, 0.35);
+  background: rgba(64, 112, 200, 0.08);
+}
+.vaelic-dict-page .b-flow {
+  color: var(--flow);
+  border-color: rgba(136, 80, 200, 0.35);
+  background: rgba(136, 80, 200, 0.08);
+}
+.vaelic-dict-page .b-neutral {
+  color: var(--neu);
+  border-color: rgba(136, 136, 136, 0.28);
+  background: rgba(136, 136, 136, 0.06);
+}
+
+.vaelic-dict-page .es {
+  text-align: center;
+  padding: 3rem 1.25rem;
+  display: none;
+}
+.vaelic-dict-page .es.show {
+  display: block;
+}
+.vaelic-dict-page .es-t {
+  font-family: Cinzel, serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.35rem;
+}
+.vaelic-dict-page .es-s {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.vaelic-dict-page .tts-status {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.14em;
+  padding: 0.4rem 0.75rem;
+  background: rgba(201, 169, 98, 0.08);
+  border: 1px solid rgba(201, 169, 98, 0.22);
+  border-radius: 4px;
+  color: var(--gold-dim);
+  margin-left: auto;
+}

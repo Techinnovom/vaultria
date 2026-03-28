@@ -1,0 +1,615 @@
+/* Vaultrian Criminal Code (Codex Vol. IV) — scoped to site shell */
+
+.wrap.cc-wrap {
+  max-width: min(1120px, 100%);
+  width: 100%;
+}
+
+.criminal-code-page {
+  --ink: var(--bg-deep);
+  --s1: var(--bg-panel);
+  --s2: var(--bg-elevated);
+  --gold-d: rgba(201, 169, 98, 0.28);
+  --gold-l: #e8c97a;
+  --tx: var(--text);
+  --tx2: var(--text-muted);
+  --tx3: rgba(154, 149, 138, 0.55);
+  --rule: rgba(201, 169, 98, 0.12);
+  --rule2: rgba(201, 169, 98, 0.08);
+  --c0: #8b1a1a;
+  --c0l: rgba(139, 26, 26, 0.18);
+  --c0b: rgba(139, 26, 26, 0.5);
+  --c1: #c03a3a;
+  --c1l: rgba(192, 58, 58, 0.12);
+  --c1b: rgba(192, 58, 58, 0.4);
+  --c2: #b87c18;
+  --c2l: rgba(184, 124, 24, 0.1);
+  --c2b: rgba(184, 124, 24, 0.35);
+  --c3: #2a7848;
+  --c3l: rgba(42, 120, 72, 0.1);
+  --c3b: rgba(42, 120, 72, 0.3);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--tx);
+}
+
+.criminal-code-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.criminal-code-page *,
+.criminal-code-page *::before,
+.criminal-code-page *::after {
+  box-sizing: border-box;
+}
+
+.criminal-code-page .shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+
+.criminal-code-page .sb {
+  position: sticky;
+  top: 0.75rem;
+  align-self: start;
+  width: 240px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  flex-shrink: 0;
+  background: var(--s1);
+  border: 1px solid var(--rule2);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.criminal-code-page .sb::-webkit-scrollbar {
+  width: 3px;
+}
+.criminal-code-page .sb::-webkit-scrollbar-thumb {
+  background: var(--rule);
+}
+
+.criminal-code-page .sb-hd {
+  padding: 1.25rem 1rem 0.85rem;
+  border-bottom: 1px solid var(--rule2);
+}
+.criminal-code-page .sb-hd > svg {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+}
+.criminal-code-page .sb-hd > svg path {
+  stroke: currentColor;
+}
+.criminal-code-page .sb-title {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+.criminal-code-page .sb-sub {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.18em;
+  color: var(--tx3);
+  text-transform: uppercase;
+}
+.criminal-code-page .sb-nav {
+  padding: 0.5rem 0;
+  flex: 1;
+}
+.criminal-code-page .sb-cat {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.36rem;
+  letter-spacing: 0.22em;
+  color: var(--tx3);
+  text-transform: uppercase;
+  padding: 0.45rem 1rem 0.2rem;
+  margin-top: 0.2rem;
+}
+.criminal-code-page .sb-a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.35rem 1rem;
+  text-decoration: none;
+  transition: 0.15s;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  color: inherit;
+}
+.criminal-code-page .sb-a:hover {
+  background: rgba(201, 169, 98, 0.06);
+  border-left-color: var(--gold-d);
+}
+.criminal-code-page .sb-a.on {
+  background: rgba(201, 169, 98, 0.08);
+  border-left-color: var(--gold);
+}
+.criminal-code-page .sb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  flex-shrink: 0;
+  background: var(--gold-d);
+}
+.criminal-code-page .sb-lbl {
+  font-family: Cinzel, serif;
+  font-size: 0.58rem;
+  color: var(--tx2);
+  letter-spacing: 0.03em;
+}
+.criminal-code-page .sb-a.on .sb-lbl {
+  color: var(--gold);
+}
+.criminal-code-page .sb-a:hover .sb-lbl {
+  color: var(--tx);
+}
+.criminal-code-page .sb-ft {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--rule2);
+}
+.criminal-code-page .sb-motto {
+  font-family: Cinzel, serif;
+  font-style: italic;
+  font-size: 0.54rem;
+  color: var(--tx3);
+  line-height: 1.5;
+}
+
+.criminal-code-page .main {
+  margin-left: 0;
+  min-width: 0;
+}
+
+.criminal-code-page .hero {
+  position: relative;
+  padding: 2.5rem 2rem 2rem;
+  border-bottom: 1px solid var(--rule2);
+  overflow: hidden;
+}
+.criminal-code-page .hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle at top right, rgba(139, 26, 26, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.criminal-code-page .h-vol {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.22em;
+  color: var(--tx3);
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+.criminal-code-page .h-title {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+.criminal-code-page .h-sub {
+  font-size: 1.05rem;
+  color: var(--tx2);
+  max-width: 540px;
+  line-height: 1.78;
+  margin-bottom: 1.25rem;
+}
+.criminal-code-page .h-tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.criminal-code-page .tag {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border: 1px solid var(--rule);
+  color: var(--tx3);
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.criminal-code-page .tag.c0 {
+  border-color: var(--c0b);
+  color: var(--c0b);
+}
+.criminal-code-page .tag.c1 {
+  border-color: var(--c1b);
+  color: var(--c1b);
+}
+.criminal-code-page .tag.c2 {
+  border-color: var(--c2b);
+  color: var(--c2b);
+}
+.criminal-code-page .tag.c3 {
+  border-color: var(--c3b);
+  color: var(--c3b);
+}
+
+.criminal-code-page .class-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 0;
+}
+.criminal-code-page .cs {
+  padding: 12px 14px;
+  border: 1px solid;
+  border-radius: 4px;
+}
+.criminal-code-page .cs-num {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+.criminal-code-page .cs-name {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.criminal-code-page .cs-desc {
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+.criminal-code-page .cs.c0 {
+  border-color: var(--c0b);
+  background: var(--c0l);
+  color: var(--c0);
+}
+.criminal-code-page .cs.c1 {
+  border-color: var(--c1b);
+  background: var(--c1l);
+  color: var(--c1);
+}
+.criminal-code-page .cs.c2 {
+  border-color: var(--c2b);
+  background: var(--c2l);
+  color: var(--c2);
+}
+.criminal-code-page .cs.c3 {
+  border-color: var(--c3b);
+  background: var(--c3l);
+  color: var(--c3);
+}
+.criminal-code-page .cs-desc {
+  color: var(--tx2);
+}
+
+.criminal-code-page .content {
+  max-width: 860px;
+  padding: 0 2rem 4rem;
+}
+
+.criminal-code-page .section {
+  padding-top: 2.75rem;
+  border-bottom: 1px solid var(--rule2);
+  padding-bottom: 2.5rem;
+  scroll-margin-top: 1.25rem;
+}
+.criminal-code-page .section:last-child {
+  border-bottom: none;
+}
+.criminal-code-page .sec-hd {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 1.5rem;
+}
+.criminal-code-page .sec-ico {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  background: var(--s2);
+  margin-top: 2px;
+  border-radius: 4px;
+}
+.criminal-code-page .sec-tw {
+  flex: 1;
+}
+.criminal-code-page .sec-n {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.36rem;
+  letter-spacing: 0.22em;
+  color: var(--tx3);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.criminal-code-page .sec-t {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+.criminal-code-page .sec-v {
+  font-family: Cinzel, serif;
+  font-style: italic;
+  font-size: 0.68rem;
+  color: var(--tx3);
+  letter-spacing: 0.05em;
+}
+.criminal-code-page .sec-intro {
+  font-size: 0.96rem;
+  color: var(--tx2);
+  line-height: 1.78;
+  margin-bottom: 1.35rem;
+}
+
+.criminal-code-page .cls-block {
+  margin-bottom: 1.25rem;
+  border: 1px solid;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.criminal-code-page .cls-block.c0 {
+  border-color: rgba(139, 26, 26, 0.3);
+}
+.criminal-code-page .cls-block.c1 {
+  border-color: rgba(192, 58, 58, 0.22);
+}
+.criminal-code-page .cls-block.c2 {
+  border-color: rgba(184, 124, 24, 0.18);
+}
+.criminal-code-page .cls-block.c3 {
+  border-color: rgba(42, 120, 72, 0.18);
+}
+.criminal-code-page .cls-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid;
+  flex-wrap: wrap;
+}
+.criminal-code-page .cls-block.c0 .cls-hd {
+  background: rgba(139, 26, 26, 0.12);
+  border-color: rgba(139, 26, 26, 0.2);
+}
+.criminal-code-page .cls-block.c1 .cls-hd {
+  background: rgba(192, 58, 58, 0.07);
+  border-color: rgba(192, 58, 58, 0.12);
+}
+.criminal-code-page .cls-block.c2 .cls-hd {
+  background: rgba(184, 124, 24, 0.07);
+  border-color: rgba(184, 124, 24, 0.12);
+}
+.criminal-code-page .cls-block.c3 .cls-hd {
+  background: rgba(42, 120, 72, 0.06);
+  border-color: rgba(42, 120, 72, 0.1);
+}
+.criminal-code-page .cls-badge {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border: 1px solid;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+.criminal-code-page .c0 .cls-badge {
+  color: var(--c0);
+  border-color: var(--c0b);
+}
+.criminal-code-page .c1 .cls-badge {
+  color: var(--c1);
+  border-color: var(--c1b);
+}
+.criminal-code-page .c2 .cls-badge {
+  color: var(--c2);
+  border-color: var(--c2b);
+}
+.criminal-code-page .c3 .cls-badge {
+  color: var(--c3);
+  border-color: var(--c3b);
+}
+.criminal-code-page .cls-label {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.4rem;
+  letter-spacing: 0.14em;
+  color: var(--tx3);
+  text-transform: uppercase;
+}
+.criminal-code-page .cls-sanction {
+  margin-left: auto;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.1em;
+  color: var(--tx3);
+  text-transform: uppercase;
+  text-align: right;
+  max-width: 200px;
+  line-height: 1.4;
+}
+.criminal-code-page .cls-body {
+  padding: 12px 14px;
+}
+.criminal-code-page .offense {
+  display: flex;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--rule2);
+}
+.criminal-code-page .offense:last-child {
+  border-bottom: none;
+}
+.criminal-code-page .off-art {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.08em;
+  color: var(--tx3);
+  flex-shrink: 0;
+  width: 56px;
+  padding-top: 3px;
+}
+.criminal-code-page .off-text {
+  font-size: 0.92rem;
+  color: var(--tx2);
+  line-height: 1.6;
+  flex: 1;
+}
+.criminal-code-page .off-text strong {
+  color: var(--tx);
+  font-weight: 600;
+}
+
+.criminal-code-page .pun-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 1.75rem;
+}
+.criminal-code-page .pun-col {
+  border: 1px solid;
+  padding: 14px;
+  border-radius: 4px;
+}
+.criminal-code-page .pun-col.c0 {
+  border-color: var(--c0b);
+}
+.criminal-code-page .pun-col.c1 {
+  border-color: var(--c1b);
+}
+.criminal-code-page .pun-col.c2 {
+  border-color: var(--c2b);
+}
+.criminal-code-page .pun-col.c3 {
+  border-color: var(--c3b);
+}
+.criminal-code-page .pun-hd {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  margin-bottom: 8px;
+}
+.criminal-code-page .pun-col.c0 .pun-hd {
+  color: var(--c0);
+}
+.criminal-code-page .pun-col.c1 .pun-hd {
+  color: var(--c1);
+}
+.criminal-code-page .pun-col.c2 .pun-hd {
+  color: var(--c2);
+}
+.criminal-code-page .pun-col.c3 .pun-hd {
+  color: var(--c3);
+}
+.criminal-code-page .pun-item {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.04em;
+  color: var(--tx3);
+  line-height: 1.65;
+  padding: 2px 0;
+  border-bottom: 1px solid var(--rule2);
+}
+.criminal-code-page .pun-item:last-child {
+  border-bottom: none;
+}
+
+.criminal-code-page .note {
+  margin: 14px 0;
+  padding: 12px 16px;
+  border: 1px solid var(--rule);
+  background: rgba(201, 169, 98, 0.04);
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.04em;
+  color: var(--tx3);
+  line-height: 1.7;
+  border-radius: 4px;
+}
+.criminal-code-page .note-l {
+  font-size: 0.36rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.criminal-code-page .note.warn {
+  border-color: rgba(139, 26, 26, 0.25);
+  background: rgba(139, 26, 26, 0.06);
+  color: rgba(208, 180, 180, 0.85);
+}
+.criminal-code-page .note.warn .note-l {
+  color: rgba(139, 26, 26, 0.65);
+}
+
+.criminal-code-page .dv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1.75rem 0;
+}
+.criminal-code-page .dv::before,
+.criminal-code-page .dv::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule2);
+}
+.criminal-code-page .dv-m {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.38rem;
+  letter-spacing: 0.18em;
+  color: var(--tx3);
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .criminal-code-page .shell {
+    grid-template-columns: 1fr;
+  }
+  .criminal-code-page .sb {
+    position: relative;
+    top: auto;
+    max-height: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .criminal-code-page .sb {
+    display: none;
+  }
+  .criminal-code-page .hero,
+  .criminal-code-page .content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .criminal-code-page .class-strip,
+  .criminal-code-page .pun-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .criminal-code-page .cls-sanction {
+    display: none;
+  }
+}

@@ -1,0 +1,208 @@
+/* Siven Healthcare System - scoped to site shell */
+.wrap.siven-wrap {
+  max-width: min(1120px, 100%);
+  width: 100%;
+}
+
+.siven-healthcare-page {
+  --ink: var(--bg-deep);
+  --s1: var(--bg-panel);
+  --s2: var(--bg-elevated);
+  --gold-d: rgba(201, 169, 98, 0.28);
+  --gold-l: #e8c97a;
+  --tx: var(--text);
+  --tx2: var(--text-muted);
+  --tx3: rgba(154, 149, 138, 0.55);
+  --rule: rgba(201, 169, 98, 0.12);
+  --rule2: rgba(201, 169, 98, 0.08);
+  --siv: #2a7848;
+  --sivl: rgba(42, 120, 72, 0.12);
+  --sivb: rgba(42, 120, 72, 0.35);
+  --free: #2a7848;
+  --paid: #b87c18;
+  --priv: #4a78c8;
+  --red: #c03a3a;
+  --redb: rgba(192, 58, 58, 0.3);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--tx);
+}
+
+.siven-healthcare-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.siven-healthcare-page *,
+.siven-healthcare-page *::before,
+.siven-healthcare-page *::after {
+  box-sizing: border-box;
+}
+
+
+.siven-healthcare-page .shell {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+
+.siven-healthcare-page .sb {
+  position: sticky;
+  top: 0.75rem;
+  align-self: start;
+  width: 232px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  flex-shrink: 0;
+  left: auto;
+  height: auto;
+  min-height: 0;
+  background: var(--s1);
+  border: 1px solid var(--rule2);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.siven-healthcare-page .main {
+  margin-left: 0;
+  min-width: 0;
+}
+
+
+
+.siven-healthcare-page .sb::-webkit-scrollbar{width:3px}
+.siven-healthcare-page .sb::-webkit-scrollbar-thumb{background:var(--rule)}
+.siven-healthcare-page .sb-hd{padding:24px 18px 16px;border-bottom:1px solid var(--rule2)}
+.siven-healthcare-page .sb-t{font-family:'Cinzel',serif;font-weight:700;font-size:.68rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;line-height:1.4;margin-bottom:2px}
+.siven-healthcare-page .sb-s{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+.siven-healthcare-page .sb-nav{padding:8px 0;flex:1}
+.siven-healthcare-page .sb-cat{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;padding:7px 16px 3px;margin-top:3px}
+.siven-healthcare-page .sb-a{display:flex;color:inherit;align-items:center;gap:7px;padding:5px 16px;text-decoration:none;transition:.15s;cursor:pointer;border-left:2px solid transparent}
+.siven-healthcare-page .sb-a:hover{background:rgba(201,168,76,.04);border-left-color:var(--gold-d)}
+.siven-healthcare-page .sb-a.on{background:rgba(201,168,76,.06);border-left-color:var(--gold)}
+.siven-healthcare-page .sb-pip{width:8px;height:8px;border-radius:1px;flex-shrink:0}
+.siven-healthcare-page .sb-lbl{font-family:'Cinzel',serif;font-size:.58rem;color:var(--tx2);letter-spacing:.03em}
+.siven-healthcare-page .sb-a.on .sb-lbl{color:var(--gold)}
+.siven-healthcare-page .sb-a:hover .sb-lbl{color:var(--tx)}
+.siven-healthcare-page .sb-ft{padding:12px 16px;border-top:1px solid var(--rule2)}
+.siven-healthcare-page .sb-mo{font-family:'Cinzel',serif;font-style:italic;font-size:.54rem;color:var(--tx3);line-height:1.5}
+
+
+.siven-healthcare-page .hero{position:relative;padding:64px 56px 48px;border-bottom:1px solid var(--rule2);overflow:hidden}
+.siven-healthcare-page .hero::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;
+  background:radial-gradient(circle at top right,rgba(42,120,72,.06) 0%,transparent 65%);pointer-events:none}
+.siven-healthcare-page .h-vol{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.3em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.siven-healthcare-page .h-title{font-family:'Cinzel',serif;font-weight:700;font-size:2rem;color:var(--gold);letter-spacing:.04em;line-height:1.15;margin-bottom:6px}
+.siven-healthcare-page .h-sub{font-size:1.08rem;color:var(--tx2);max-width:560px;line-height:1.78;margin-bottom:24px}
+.siven-healthcare-page .h-tags{display:flex;gap:7px;flex-wrap:wrap}
+.siven-healthcare-page .tag{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;padding:3px 8px;border:1px solid var(--rule);color:var(--tx3);text-transform:uppercase}
+.siven-healthcare-page .tag.g{border-color:rgba(42,120,72,.35);color:rgba(42,120,72,.7)}
+.siven-healthcare-page .tag.a{border-color:rgba(184,124,24,.35);color:rgba(184,124,24,.7)}
+.siven-healthcare-page .tag.b{border-color:rgba(74,120,200,.35);color:rgba(74,120,200,.7)}
+
+
+.siven-healthcare-page .content{max-width:860px;padding:0 56px 80px}
+
+
+.siven-healthcare-page .section{padding-top:52px;border-bottom:1px solid var(--rule2);padding-bottom:40px;scroll-margin-top:20px}
+.siven-healthcare-page .section:last-child{border-bottom:none}
+.siven-healthcare-page .sec-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.siven-healthcare-page .sec-ico{width:42px;height:42px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;background:var(--s2);margin-top:2px}
+.siven-healthcare-page .sec-tw{flex:1}
+.siven-healthcare-page .sec-n{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;margin-bottom:2px}
+.siven-healthcare-page .sec-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.3rem;color:var(--gold);letter-spacing:.03em;line-height:1.2;margin-bottom:3px}
+.siven-healthcare-page .sec-v{font-family:'Cinzel',serif;font-style:italic;font-size:.68rem;color:var(--tx3);letter-spacing:.05em}
+.siven-healthcare-page .sec-intro{font-size:.96rem;color:var(--tx2);line-height:1.78;margin-bottom:20px}
+
+
+.siven-healthcare-page .inst-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.siven-healthcare-page .inst-card{padding:14px 16px;border:1px solid var(--sivb);background:var(--sivl)}
+.siven-healthcare-page .ic-name{font-family:'Cinzel',serif;font-weight:600;font-size:.85rem;color:var(--siv);margin-bottom:2px}
+.siven-healthcare-page .ic-vae{font-family:'Cinzel',serif;font-style:italic;font-size:.66rem;color:rgba(42,120,72,.5);margin-bottom:6px}
+.siven-healthcare-page .ic-desc{font-size:.88rem;color:var(--tx2);line-height:1.6}
+
+
+.siven-healthcare-page .role-table{width:100%;border-collapse:collapse;margin:14px 0}
+.siven-healthcare-page .role-table th{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.16em;color:var(--tx3);text-transform:uppercase;padding:6px 10px;text-align:left;border-bottom:1px solid var(--rule)}
+.siven-healthcare-page .role-table td{padding:7px 10px;font-size:.9rem;color:var(--tx2);border-bottom:1px solid var(--rule2);line-height:1.5}
+.siven-healthcare-page .role-table td:first-child{font-family:'Cinzel',serif;font-size:.82rem;color:var(--siv);font-weight:600;white-space:nowrap}
+.siven-healthcare-page .role-table tr:last-child td{border-bottom:none}
+
+
+.siven-healthcare-page .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.siven-healthcare-page .access-col{border:1px solid;padding:16px 18px}
+.siven-healthcare-page .access-col.free{border-color:rgba(42,120,72,.3);background:rgba(42,120,72,.07)}
+.siven-healthcare-page .access-col.paid{border-color:rgba(184,124,24,.3);background:rgba(184,124,24,.06)}
+.siven-healthcare-page .ac-hd{font-family:'Cinzel',serif;font-weight:700;font-size:.82rem;margin-bottom:10px}
+.siven-healthcare-page .free .ac-hd{color:var(--free)}
+.siven-healthcare-page .paid .ac-hd{color:var(--paid)}
+.siven-healthcare-page .ac-item{display:flex;gap:8px;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.88rem;color:var(--tx2);line-height:1.5}
+.siven-healthcare-page .ac-item:last-child{border-bottom:none}
+.siven-healthcare-page .ac-dot{flex-shrink:0;margin-top:6px;width:5px;height:5px;border-radius:50%}
+.siven-healthcare-page .free .ac-dot{background:var(--free)}
+.siven-healthcare-page .paid .ac-dot{background:var(--paid)}
+
+
+.siven-healthcare-page .priv-block{margin:16px 0;border:1px solid var(--rule);background:var(--s2);padding:18px 20px}
+.siven-healthcare-page .pb-title{font-family:'Cinzel',serif;font-weight:600;font-size:.85rem;color:var(--gold);margin-bottom:12px}
+.siven-healthcare-page .pb-row{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--rule2);font-size:.9rem}
+.siven-healthcare-page .pb-row:last-child{border-bottom:none}
+.siven-healthcare-page .pb-who{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.08em;color:var(--tx3);flex-shrink:0;width:130px;padding-top:3px;text-transform:uppercase}
+.siven-healthcare-page .pb-access{color:var(--tx2);flex:1;line-height:1.55}
+.siven-healthcare-page .pb-access.yes{color:var(--free)}
+.siven-healthcare-page .pb-access.no{color:rgba(192,58,58,.6)}
+
+
+.siven-healthcare-page .triage{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.siven-healthcare-page .tr-card{padding:12px 14px;border:1px solid}
+.siven-healthcare-page .tr-card.vel{border-color:rgba(42,120,72,.3);background:rgba(42,120,72,.08)}
+.siven-healthcare-page .tr-card.kadir{border-color:rgba(184,124,24,.3);background:rgba(184,124,24,.07)}
+.siven-healthcare-page .tr-card.morven{border-color:rgba(192,58,58,.3);background:rgba(192,58,58,.07)}
+.siven-healthcare-page .tr-name{font-family:'Cinzel',serif;font-weight:700;font-size:.85rem;margin-bottom:2px}
+.siven-healthcare-page .vel .tr-name{color:var(--free)}
+.siven-healthcare-page .kadir .tr-name{color:var(--paid)}
+.siven-healthcare-page .morven .tr-name{color:var(--red)}
+.siven-healthcare-page .tr-eng{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;margin-bottom:6px;opacity:.5;text-transform:uppercase}
+.siven-healthcare-page .vel .tr-eng{color:var(--free)}
+.siven-healthcare-page .kadir .tr-eng{color:var(--paid)}
+.siven-healthcare-page .morven .tr-eng{color:var(--red)}
+.siven-healthcare-page .tr-desc{font-size:.85rem;color:var(--tx2);line-height:1.55}
+
+
+.siven-healthcare-page .note{margin:14px 0;padding:12px 16px;border:1px solid var(--rule);background:rgba(201,168,76,.025);font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.04em;color:var(--tx3);line-height:1.7}
+.siven-healthcare-page .note-l{font-size:.36rem;letter-spacing:.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px}
+.siven-healthcare-page .note.warn{border-color:rgba(192,58,58,.2);background:rgba(192,58,58,.03)}
+.siven-healthcare-page .note.warn .note-l{color:rgba(192,58,58,.4)}
+.siven-healthcare-page .note.green{border-color:rgba(42,120,72,.2);background:rgba(42,120,72,.04)}
+.siven-healthcare-page .note.green .note-l{color:rgba(42,120,72,.5)}
+
+
+.siven-healthcare-page .steps{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.siven-healthcare-page .step{display:flex;gap:14px}
+.siven-healthcare-page .step-n{width:24px;height:24px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:.44rem;color:var(--gold-d);flex-shrink:0;margin-top:2px}
+.siven-healthcare-page .step-b{flex:1}
+.siven-healthcare-page .step-t{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);margin-bottom:2px}
+.siven-healthcare-page .step-d{font-size:.9rem;color:var(--tx2);line-height:1.65}
+
+
+.siven-healthcare-page .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.siven-healthcare-page .gi{padding:14px 16px;background:var(--s1);border:1px solid var(--rule2)}
+.siven-healthcare-page .gi-l{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase;margin-bottom:4px}
+.siven-healthcare-page .gi-t{font-size:.88rem;color:var(--tx2);line-height:1.65}
+
+
+.siven-healthcare-page .directive{margin:16px 0;padding:20px 22px;border:1px solid var(--rule);background:var(--s2)}
+.siven-healthcare-page .dir-t{font-family:'Cinzel',serif;font-weight:600;font-size:.9rem;color:var(--gold);margin-bottom:10px}
+.siven-healthcare-page .dir-items{display:flex;flex-direction:column;gap:6px}
+.siven-healthcare-page .dir-item{display:flex;gap:10px;font-size:.9rem;color:var(--tx2);line-height:1.6}
+.siven-healthcare-page .dir-label{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;color:var(--tx3);flex-shrink:0;width:110px;padding-top:3px;text-transform:uppercase}
+
+
+.siven-healthcare-page .dv{display:flex;align-items:center;gap:10px;margin:26px 0}
+.siven-healthcare-page .dv::before, .siven-healthcare-page .dv::after{content:'';flex:1;height:1px;background:var(--rule2)}
+.siven-healthcare-page .dv-m{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+
+@media(max-width:680px){.sb{display:none}.main{margin-left:0}.hero,.content{padding-left:20px;padding-right:20px}.inst-grid,.access-grid,.triage,.g2{grid-template-columns:1fr}}

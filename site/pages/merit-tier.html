@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merit Tier System — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/merit-tier.css" />
+</head>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap mt-wrap">
+        <main id="main-content" class="merit-tier-page">
+          <p class="tier-kicker"><a href="people.html">People</a> · <a href="citizenship.html">Citizenship</a> · Civic record</p>
+          <p class="zone-intro">Three merit tiers, eight earning categories, and a point system assessed at the Veloran and every two years — private on the CID, consequential for access and opportunity.</p>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<nav class="sb">
+  <div class="sb-hd">
+    <svg width="30" height="35" viewBox="0 0 88 102" fill="none" style="margin-bottom:10px">
+      <path d="M44 2L86 14L86 54C86 76 67 92 44 100C21 92 2 76 2 54L2 14Z" fill="#080604" stroke="rgba(201,168,76,0.38)" stroke-width="2"/>
+      <polyline points="13,51 23,51 27,38 31,64 35,43 38,57 43,51 49,51 53,38 57,57 61,51 75,51" stroke="#CC2020" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="sb-t">Merit Tier System</div>
+    <div class="sb-s">Civic Codex · Year 1</div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-cat">Overview</div>
+    <a class="sb-a on" href="#overview" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">Tiers & Thresholds</span></a>
+    <a class="sb-a" href="#veloran" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">Veloran Assessment</span></a>
+    <div class="sb-cat">Earning Points</div>
+    <a class="sb-a" href="#earning" onclick="sa(this)"><div class="sb-pip" style="background:var(--t1c)"></div><span class="sb-lbl">8 Earning Categories</span></a>
+    <a class="sb-a" href="#deductions" onclick="sa(this)"><div class="sb-pip" style="background:var(--red)"></div><span class="sb-lbl">Deductions</span></a>
+    <a class="sb-a" href="#reviews" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">Review Schedule</span></a>
+    <div class="sb-cat">Tier Details</div>
+    <a class="sb-a" href="#t1" onclick="sa(this)"><div class="sb-pip" style="background:var(--t1c)"></div><span class="sb-lbl">T1 — Vel Tarin</span></a>
+    <a class="sb-a" href="#t2" onclick="sa(this)"><div class="sb-pip" style="background:var(--t2c)"></div><span class="sb-lbl">T2 — Vel Kadir</span></a>
+    <a class="sb-a" href="#t3" onclick="sa(this)"><div class="sb-pip" style="background:var(--t3c)"></div><span class="sb-lbl">T3 — Vel Sorex</span></a>
+    <div class="sb-cat">Reference</div>
+    <a class="sb-a" href="#tracker" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">Point Calculator</span></a>
+    <a class="sb-a" href="#journeys" onclick="sa(this)"><div class="sb-pip" style="background:var(--gold-d)"></div><span class="sb-lbl">Citizen Journeys</span></a>
+  </div>
+  <div class="sb-ft"><div class="sb-mo">"Kiratvel navol" —<br>Truth is permanent</div></div>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+<div class="hero">
+  <div class="h-vol">Civic Codex — The Sovereign State of Vaultria</div>
+  <h1 class="h-title">The Merit Tier System</h1>
+  <p class="h-sub">Merit in Vaultria is not rank. It is record. Three tiers, eight earning categories, and a point system that reflects the full picture of a citizen's contribution — including recovery from failure. Assessed at the Veloran. Revisable every two years. Private, but consequential.</p>
+
+  <div class="tier-cards">
+    <div class="tc t1">
+      <div class="tc-num">Tier 1</div>
+      <div class="tc-name">Vel Tarin</div>
+      <div class="tc-vae">"The Learning"</div>
+      <div class="tc-range">0 – 499 points</div>
+      <div class="tc-desc">Entry level. Most citizens begin here. Standard civic access, standard contribution requirement. The foundation from which all advancement begins.</div>
+    </div>
+    <div class="tc t2">
+      <div class="tc-num">Tier 2</div>
+      <div class="tc-name">Vel Kadir</div>
+      <div class="tc-vae">"The Knowing"</div>
+      <div class="tc-range">500 – 1,499 points</div>
+      <div class="tc-desc">Established citizen. Broader access, higher income ceiling, leadership roles available. Achievable through consistent contribution over time — or exceptional early performance.</div>
+    </div>
+    <div class="tc t3">
+      <div class="tc-num">Tier 3</div>
+      <div class="tc-name">Vel Sorex</div>
+      <div class="tc-vae">"The Recorded"</div>
+      <div class="tc-range">1,500+ points</div>
+      <div class="tc-desc">Distinguished citizen. Full civic access, senior domain leadership, Velisar district eligibility. Requires sustained long-term contribution across multiple categories.</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="sec-hd">
+      <div class="sec-ico">◈</div>
+      <div class="sec-tw">
+        <div class="sec-n">Overview</div>
+        <h2 class="sec-t">Tiers, Thresholds & Principles</h2>
+        <div class="sec-v">Vel tarin kadir sorex — "From learning to knowing to being recorded"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">The Merit Tier System is Vaultria's framework for recognising civic contribution and allocating commensurate access and opportunity. It is not a class system. A T1 citizen and a T3 citizen are equally citizens — they hold the same fundamental rights, the same dignity, and the same protection under the Criminal Code. What differs is access to certain roles, resources, and privileges that the state considers proportional to demonstrated contribution.</p>
+
+    <div class="note">
+      <div class="note-l">Privacy Principle</div>
+      A citizen's Merit Tier and point total are never publicly disclosed. They appear on the citizen's own CID record and are accessible to the Civic Board and High Tribunal only when relevant to a proceeding. Asking another citizen their tier without invitation is considered one of the stronger social taboos in Vaultrian life. Sharing your own tier is permitted.
+    </div>
+
+    <p style="color:var(--tx2);font-size:.96rem;line-height:1.78;margin-bottom:14px">The system operates on a point accumulation model across eight earning categories. Points are permanent unless deducted by a violation or decay through inactivity. The annual assessment cycle does not reset points — it adds to them. A citizen who has worked consistently for twenty years carries twenty years of accumulated record.</p>
+
+    <p style="color:var(--tx2);font-size:.96rem;line-height:1.78">What makes the Vaultrian system distinct: <strong>recovery is built in.</strong> A Class II conviction costs 100 points. Five years of consistent contribution earns that back and more. The system is not designed to trap citizens — it is designed to reflect them accurately at any given moment.</p>
+
+    <div class="dv"><span class="dv-m">Thresholds</span></div>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">T1 → T2 threshold</div>
+        <div class="gi-t">500 points. Achievable for a dedicated citizen in 6–10 years from a typical Veloran entry of 150–300 points. Faster for citizens who enter with higher Veloran scores or pursue education aggressively.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">T2 → T3 threshold</div>
+        <div class="gi-t">1,500 points. Requires sustained multi-category contribution over a significant period. The average T2 citizen takes 12–20 additional years to reach T3. Some never do. This is acceptable.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Demotion</div>
+        <div class="gi-t">If a citizen's points fall below their current tier threshold — through violations, skill decay, or contribution failure — a Tier Review is triggered. Demotion is not automatic; the tribunal reviews circumstances before acting.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Tier disclosure in professional context</div>
+        <div class="gi-t">Employers in restricted domains may request a citizen's tier level (not their point total) as part of a role application. This is the only permitted professional disclosure and requires the citizen's consent.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VELORAN ASSESSMENT -->
+  <section class="section" id="veloran">
+    <div class="sec-hd">
+      <div class="sec-ico">⚔</div>
+      <div class="sec-tw">
+        <div class="sec-n">Initial Assessment</div>
+        <h2 class="sec-t">The Veloran Assessment</h2>
+        <div class="sec-v">Vel narovel tarin — "The first record of knowing"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">At the Veloran ceremony on a citizen's 18th birthday, a Merit Assessment is conducted alongside the formal citizenship declaration. This assessment reviews everything the citizen has documented up to that point and assigns their opening point total. Not every citizen enters the system at the same level — and Vaultria considers this correct. A citizen who has spent years building skills, serving their community, and maintaining a clean record before their Veloran should enter the system ahead of one who has not.</p>
+
+    <div class="a-steps">
+      <div class="a-step">
+        <div class="a-num">01</div>
+        <div class="a-body">
+          <div class="a-title">Tarin Record Review</div>
+          <div class="a-text">The citizen's complete Tarin schooling record is assessed — academic performance, attendance, documented activities, and any distinctions or commendations received from teachers or sector officials. <strong>0–100 points.</strong></div>
+        </div>
+      </div>
+      <div class="a-step">
+        <div class="a-num">02</div>
+        <div class="a-body">
+          <div class="a-title">Documented Skills</div>
+          <div class="a-text">Any certified skills acquired before the Veloran are counted at their standard values. Tier A skills earned before 18 count in full. A citizen who completed a Tier B skill certification at age 16 receives 30 points at their Veloran, as they would at any other assessment.</div>
+        </div>
+      </div>
+      <div class="a-step">
+        <div class="a-num">03</div>
+        <div class="a-body">
+          <div class="a-title">Pre-Citizenship Service</div>
+          <div class="a-text">Documented volunteering, community service, and civic participation before the Veloran is assessed at the standard rates. Hours must be registered in the sector record to be counted — informal service without documentation cannot be assessed.</div>
+        </div>
+      </div>
+      <div class="a-step">
+        <div class="a-num">04</div>
+        <div class="a-body">
+          <div class="a-title">Conduct Record</div>
+          <div class="a-text">A clean conduct record before the Veloran contributes <strong>up to 75 points,</strong> scaled by years of clean record. A citizen who has maintained a spotless record since their first Tarin year receives the maximum. Any Civic Notices issued and unresolved reduce this.</div>
+        </div>
+      </div>
+      <div class="a-step">
+        <div class="a-num">05</div>
+        <div class="a-body">
+          <div class="a-title">Commendations</div>
+          <div class="a-text">Any commendations received before the Veloran — from teachers, sector officials, or community leaders — count at their standard point values. These are among the rarest Veloran contributions and have significant impact.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:18px">
+      <div class="gi">
+        <div class="gi-l">Typical Veloran range</div>
+        <div class="gi-t">100–350 points. Most citizens enter at T1. This is expected and not a failure. T1 is where Vaultrian life begins for the majority of citizens.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">T2 entry at Veloran</div>
+        <div class="gi-t">Requires 500+ points. Achievable with strong Tarin record, multiple certifications, significant volunteering, and a clean record — but uncommon. Fewer than 12% of citizens enter at T2.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">T3 entry at Veloran</div>
+        <div class="gi-t">Requires 1,500+ points — theoretically possible (maximum achievable is ~800) only in exceptional circumstances. In practice, T3 entry at Veloran has never been recorded.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">First-generation citizens</div>
+        <div class="gi-t">Citizens who immigrate and receive citizenship after age 18 undergo an initial assessment at their citizenship grant date. Their pre-Vaultrian record is assessed by the Civic Board and translated to an equivalent point total under Vaultrian criteria.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EARNING -->
+  <section class="section" id="earning">
+    <div class="sec-hd">
+      <div class="sec-ico">⬡</div>
+      <div class="sec-tw">
+        <div class="sec-n">Point Earning</div>
+        <h2 class="sec-t">The 8 Earning Categories</h2>
+        <div class="sec-v">Vel kadir narovel — "What the record counts"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Merit Points accumulate across eight categories. No single category dominates — a citizen who maxes civic contribution hours but does nothing else will advance slowly. Breadth of contribution advances faster than depth in any one area. Annual caps on certain categories prevent gaming the system through artificial activity spikes.</p>
+
+    <!-- CAT 1 -->
+    <div class="earn-cat">
+      <div class="earn-hd">
+        <span class="earn-num">01</span>
+        <span class="earn-name">Civic Contribution Hours</span>
+        <span class="earn-cap">Max 80 pts/year</span>
+      </div>
+      <div class="earn-body">
+        <div class="earn-row"><span class="earn-label">Minimum annual hours (200 hrs — standard civic duty)</span><span class="earn-pts">20 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label">Hours above minimum</span><span class="earn-pts">1 pt / 5 hrs</span></div>
+        <div class="earn-row"><span class="earn-label"><strong>Note:</strong> Minimum hours keep a citizen stable — they do not advance a citizen. Advancement requires hours above the minimum consistently.</span><span class="earn-pts">—</span></div>
+      </div>
+    </div>
+
+    <!-- CAT 2 -->
+    <div class="earn-cat">
+      <div class="earn-hd">
+        <span class="earn-num">02</span>
+        <span class="earn-name">Skills & Qualifications</span>
+        <span class="earn-cap">No annual cap — permanent</span>
+      </div>
+      <div class="earn-body">
+        <div class="earn-row"><span class="earn-label">Tier A — Basic certified skill</span><span class="earn-pts">15 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Tier B — Intermediate certified skill</span><span class="earn-pts">30 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Tier C — Advanced / specialist certified skill</span><span class="earn-pts">60 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Professional domain licence</span><span class="earn-pts">50 pts</span></div>
+        <div class="earn-row"><span class="earn-label"><strong>Skill decay:</strong> Skills not practised or renewed for 5 years lose half their point value. Full value restored upon renewal.</span><span class="earn-pts bonus">−50%</span></div>
+      </div>
+    </div>
+
+    <!-- CAT 3 -->
+    <div class="earn-cat">
+      <div class="earn-hd">
+        <span class="earn-num">03</span>
+        <span class="earn-name">Community Service & Volunteering</span>
+        <span class="earn-cap">Max 60 pts/year</span>
+      </div>
+      <div class="earn-body">
+        <div class="earn-row"><span class="earn-label">Standard registered volunteering</span><span class="earn-pts">1 pt / 8 hrs</span></div>
+        <div class="earn-row"><span class="earn-label">Civic emergency response volunteering</span><span class="earn-pts">1 pt / 4 hrs</span></div>
+        <div class="earn-row"><span class="earn-label">Mentoring a T1 citizen who advances to T2</span><span class="earn-pts">25 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Leading a community initiative (sector-assessed, 20–50 range)</span><span class="earn-pts">20–50 pts</span></div>
+      </div>
+    </div>
+
+    <!-- CAT 4 -->
+    <div class="earn-cat">
+      <div class="earn-hd">
+        <span class="earn-num">04</span>
+        <span class="earn-name">Employment & Work Output</span>
+        <span class="earn-cap">Max 75 pts/year</span>
+      </div>
+      <div class="earn-body">
+        <div class="earn-row"><span class="earn-label">Registered employment (any domain, base annual)</span><span class="earn-pts">20 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label">Registered self-employment — Nara Birek (base annual)</span><span class="earn-pts">20 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label">Working in a restricted or high-need domain (bonus)</span><span class="earn-pts">+15 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label">Outstanding work commendation from registered employer</span><span class="earn-pts">30 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Perfect contribution record — no missed periods in year</span><span class="earn-pts">+10 pts/yr</span></div>
+      </div>
+    </div>
+
+    <!-- CAT 5 -->
+    <div class="earn-cat">
+      <div class="earn-hd">
+        <span class="earn-num">05</span>
+        <span class="earn-name">Education & Continuous Learning</span>
+        <span class="earn-cap">Max 100 pts/year</span>
+      </div>
+      <div class="earn-body">
+        <div class="earn-row"><span class="earn-label">Completing an accredited course</span><span class="earn-pts">20 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Completing a degree or advanced programme</span><span class="earn-pts">80 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Self-directed learning (documented, assessed by sector)</span><span class="earn-pts">10 pts/module</span></div>
+        <div class="earn-row"><span class="earn-label">Teaching or leading an educational session (registered)</span><span class="earn-pts">15 pts/session</span></div>
+        <div class="earn-row"><span class="earn-label">Publishing knowledge — research, guides, civic documents (25–75 range)</span><span class="earn-pts">25–75 pts</span></div>
+      </div>
+    </div>
+
+    <!-- CAT 6 -->
+    <div class="earn-cat">
+      <div class="earn-hd">
+        <span class="earn-num">06</span>
+        <span class="earn-name">Clean Civic Record</span>
+        <span class="earn-cap">Ongoing — bonus milestones</span>
+      </div>
+      <div class="earn-body">
+        <div class="earn-row"><span class="earn-label">Full year with zero violations of any class</span><span class="earn-pts">15 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label">Five consecutive clean years — milestone bonus</span><span class="earn-pts bonus">+50 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Ten consecutive clean years — milestone bonus</span><span class="earn-pts bonus">+120 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Class III conviction — annual bonus lost only</span><span class="earn-pts neg">−0 pts (bonus lost)</span></div>
+        <div class="earn-row"><span class="earn-label">Class II conviction — bonus lost + deduction</span><span class="earn-pts neg">−100 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Class I conviction — bonus lost + major deduction + Tier Review</span><span class="earn-pts neg">−300 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Class 0 conviction — <strong>Permanent T1 floor.</strong> Points frozen. Advancement suspended indefinitely.</span><span class="earn-pts neg">Floor set</span></div>
+      </div>
+    </div>
+
+    <!-- CAT 7 -->
+    <div class="earn-cat">
+      <div class="earn-hd">
+        <span class="earn-num">07</span>
+        <span class="earn-name">Commendations</span>
+        <span class="earn-cap">Max 3 per year claimable</span>
+      </div>
+      <div class="earn-body">
+        <div class="earn-row"><span class="earn-label">Community commendation — peer-nominated, sector-verified</span><span class="earn-pts">20 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Official Civic Board commendation</span><span class="earn-pts">40 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Core Council recognition</span><span class="earn-pts">100 pts</span></div>
+        <div class="earn-row"><span class="earn-label">Whistleblower protection commendation</span><span class="earn-pts">50 pts</span></div>
+        <div class="earn-row"><span class="earn-label"><strong>Cap:</strong> Maximum 3 commendations claimable per year regardless of how many are received. Excess commendations carry over to the following year.</span><span class="earn-pts">—</span></div>
+      </div>
+    </div>
+
+    <!-- CAT 8 -->
+    <div class="earn-cat">
+      <div class="earn-hd">
+        <span class="earn-num">08</span>
+        <span class="earn-name">Length of Citizenship</span>
+        <span class="earn-cap">Max 20% of total score</span>
+      </div>
+      <div class="earn-body">
+        <div class="earn-row"><span class="earn-label">Years 1–5 of citizenship</span><span class="earn-pts">0 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label">Years 6–10 of citizenship</span><span class="earn-pts">5 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label">Years 11–20 of citizenship</span><span class="earn-pts">8 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label">Years 21+ of citizenship</span><span class="earn-pts">10 pts/yr</span></div>
+        <div class="earn-row"><span class="earn-label"><strong>Hard cap:</strong> This category can never exceed 20% of a citizen's total score. Longevity supplements contribution but cannot replace it.</span><span class="earn-pts">—</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEDUCTIONS -->
+  <section class="section" id="deductions">
+    <div class="sec-hd">
+      <div class="sec-ico">▼</div>
+      <div class="sec-tw">
+        <div class="sec-n">Point Deductions</div>
+        <h2 class="sec-t">Deductions & Penalties</h2>
+        <div class="sec-v">Vel morven kadir — "The record of what was lost"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Points can be lost through criminal violations, civic contribution failures, and skill inactivity. Deductions are applied automatically where the trigger is unambiguous (conviction, missed contribution period) and by tribunal assessment where circumstances require review. No deduction can take a citizen below zero points.</p>
+
+    <table class="ded-table">
+      <tr><th>Cause</th><th>Effect</th><th>Deduction</th></tr>
+      <tr><td>Class III criminal conviction</td><td>Annual clean record bonus lost</td><td>−25 pts + bonus lost</td></tr>
+      <tr><td>Class II criminal conviction</td><td>Major deduction + annual bonus lost</td><td>−100 pts</td></tr>
+      <tr><td>Class I criminal conviction</td><td>Major deduction + Tier Review + Permanent T1 floor</td><td>−300 pts</td></tr>
+      <tr><td>Class 0 criminal conviction</td><td>Points frozen permanently at current total. T1 floor set. No advancement possible.</td><td>Freeze</td></tr>
+      <tr><td>First missed civic contribution period</td><td>Warning deduction</td><td>−10 pts</td></tr>
+      <tr><td>Three or more missed contribution periods</td><td>Deduction + Tier Review triggered</td><td>−30 pts</td></tr>
+      <tr><td>Skill not practised or renewed in 5 years</td><td>Skill point value halved — restored on renewal</td><td>−50% of skill pts</td></tr>
+      <tr><td>Failing to update qualification after domain change</td><td>Professional licence points suspended until updated</td><td>−50 pts suspended</td></tr>
+    </table>
+
+    <div class="note">
+      <div class="note-l">Recovery Note</div>
+      No deduction except the Class 0 freeze is permanent. A citizen who loses 100 points to a Class II conviction and subsequently maintains a perfect record, completes education, and earns commendations will recover those points within 3–5 years. The system is designed to reflect the citizen accurately at the present moment — not to permanently record their worst moment.
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="reviews">
+    <div class="sec-hd">
+      <div class="sec-ico">◇</div>
+      <div class="sec-tw">
+        <div class="sec-n">Assessment Schedule</div>
+        <h2 class="sec-t">Review Schedule & Process</h2>
+        <div class="sec-v">Vel narovel tarin — "When the record is read again"</div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="gi">
+        <div class="gi-l">Routine Assessment</div>
+        <div class="gi-t">Every 2 years, automatically. The citizen receives a notification 30 days in advance. Attendance is not required — the system calculates from records. Citizens may submit supplementary documentation within the 30-day window.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Triggered Assessment</div>
+        <div class="gi-t">Automatically triggered after any criminal conviction, after receiving a Core Council commendation, or after a major qualification change (new degree, domain licence). The citizen is notified within 7 days of the trigger event.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Citizen-Requested Assessment</div>
+        <div class="gi-t">A citizen may request a reassessment once per calendar year if they believe their record is materially incorrect or does not reflect significant recent activity. No reason is required. The request cannot be denied.</div>
+      </div>
+      <div class="gi">
+        <div class="gi-l">Tier Review</div>
+        <div class="gi-t">Triggered when a citizen's points fall below their current tier threshold, or when a Class I conviction occurs. The tribunal reviews circumstances before any demotion is applied. A citizen may present their case at this review.</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="note-l">Discretion at Review</div>
+      Automatic calculations provide the point total. The Civic Board Assessor reviews context — a citizen who lost points due to a serious illness that prevented civic contribution is treated differently to one who simply did not contribute. Documented exceptional circumstances may result in a partial waiver of deductions. This is rare and must be formally justified in the assessment record.
+    </div>
+  </section>
+
+  <!-- T1 DETAIL -->
+  <section class="section" id="t1">
+    <div class="sec-hd">
+      <div class="sec-ico" style="border-color:var(--t1b)">🌱</div>
+      <div class="sec-tw">
+        <div class="sec-n">Tier 1 — 0 to 499 Points</div>
+        <h2 class="sec-t" style="color:var(--t1c)">Vel Tarin — The Learning</h2>
+        <div class="sec-v">The entry tier. Where Vaultrian life begins.</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Vel Tarin is not a lesser tier — it is the correct starting place for the majority of citizens and a legitimate long-term tier for those whose life circumstances make advancement difficult or who choose not to pursue it. The standard Vaultrian life is a T1 life. All fundamental rights are fully intact at T1.</p>
+
+    <div class="tier-detail t1">
+      <div class="td-hd">
+        <span class="td-badge">T1</span>
+        <span class="td-title">Vel Tarin — Full Privilege List</span>
+        <span class="td-range">0 – 499 points</span>
+      </div>
+      <div class="td-body">
+        <div class="td-row"><span class="td-lbl">Zone Access</span><span class="td-val">All civilian and standard civic zones. Infrastructure zones with registered purpose. No access to Tier I restricted areas or above without specific clearance.</span></div>
+        <div class="td-row"><span class="td-lbl">VYR Income Ceiling</span><span class="td-val">Standard band for the employment domain. Set annually by the Civic Board based on domain and zone. <strong>No ceiling on savings — only on annual income from civic employment.</strong></span></div>
+        <div class="td-row"><span class="td-lbl">Housing</span><span class="td-val">Standard allocation queue within home zone. Priority order: family need, tenure, then T1 general queue.</span></div>
+        <div class="td-row"><span class="td-lbl">Domain Access</span><span class="td-val">All general employment domains. Cannot hold mid-level or senior leadership roles in restricted civic domains (healthcare, education, justice, AI systems). Can work within these domains in non-leadership roles.</span></div>
+        <div class="td-row"><span class="td-lbl">Sponsorship</span><span class="td-val">T1 citizens cannot sponsor new citizens for Vaultrian citizenship.</span></div>
+        <div class="td-row"><span class="td-lbl">Kael Days</span><span class="td-val"><strong>1 per month.</strong> Standard allocation. The minimum civic entitlement to unstructured personal time.</span></div>
+        <div class="td-row"><span class="td-lbl">Civic Assembly</span><span class="td-val">Observer status. May attend proceedings and submit written observations. Cannot vote on Assembly matters.</span></div>
+        <div class="td-row"><span class="td-lbl">Civic Contribution Req.</span><span class="td-val">200 hours per year — standard requirement. No additional obligation above this at T1.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- T2 DETAIL -->
+  <section class="section" id="t2">
+    <div class="sec-hd">
+      <div class="sec-ico" style="border-color:var(--t2b)">⬢</div>
+      <div class="sec-tw">
+        <div class="sec-n">Tier 2 — 500 to 1,499 Points</div>
+        <h2 class="sec-t" style="color:var(--t2c)">Vel Kadir — The Knowing</h2>
+        <div class="sec-v">The established tier. Broader access earned through sustained contribution.</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Vel Kadir represents a citizen who has built a substantial civic record — through employment, skills, service, and consistent contribution over time. The unlocks at T2 are meaningful and practical: more free time, more earning potential, leadership access, and the ability to bring new citizens into Vaultria. T2 is where most ambitious citizens aim as their first significant milestone.</p>
+
+    <div class="tier-detail t2">
+      <div class="td-hd">
+        <span class="td-badge">T2</span>
+        <span class="td-title">Vel Kadir — Full Privilege List</span>
+        <span class="td-range">500 – 1,499 points</span>
+      </div>
+      <div class="td-body">
+        <div class="td-row"><span class="td-lbl">Zone Access</span><span class="td-val">All civilian and infrastructure zones. <strong>Tier I restricted areas with advance notification</strong> — no special clearance needed, only registration of purpose before entry.</span></div>
+        <div class="td-row"><span class="td-lbl">VYR Income Ceiling</span><span class="td-val"><strong>+25% above T1 ceiling</strong> for the same employment domain. Applicable to all registered employment including self-employment.</span></div>
+        <div class="td-row"><span class="td-lbl">Housing</span><span class="td-val"><strong>Priority queue</strong> ahead of all T1 applicants in the same zone. In practice this typically reduces wait time for housing allocation by 40–60%.</span></div>
+        <div class="td-row"><span class="td-lbl">Domain Access</span><span class="td-val"><strong>Mid-level leadership roles</strong> in Healthcare (Siven), Education (Tarin), Transport (FlowNet). Eligible to apply for Civic Board positions. Eligible for sector mediator certification.</span></div>
+        <div class="td-row"><span class="td-lbl">Sponsorship</span><span class="td-val"><strong>May sponsor 1 new citizen every 3 years.</strong> The sponsor takes civic responsibility for the sponsored citizen's integration period (first 2 years of citizenship). This is a significant commitment and is not taken lightly.</span></div>
+        <div class="td-row"><span class="td-lbl">Kael Days</span><span class="td-val"><strong>2 per month</strong> — one additional Kael Day above the T1 standard. In practice this represents 12 extra full personal days per year.</span></div>
+        <div class="td-row"><span class="td-lbl">Civic Assembly</span><span class="td-val"><strong>Full voting member.</strong> May speak, vote, and submit formal motions to the Civic Assembly proceedings.</span></div>
+        <div class="td-row"><span class="td-lbl">Civic Contribution Req.</span><span class="td-val">220 hours per year — 20 hours above T1 minimum. This reflects the expectation that T2 citizens give somewhat more to the system that gives them somewhat more.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- T3 DETAIL -->
+  <section class="section" id="t3">
+    <div class="sec-hd">
+      <div class="sec-ico" style="border-color:var(--t3b)">◈</div>
+      <div class="sec-tw">
+        <div class="sec-n">Tier 3 — 1,500+ Points</div>
+        <h2 class="sec-t" style="color:var(--t3c)">Vel Sorex — The Recorded</h2>
+        <div class="sec-v">The distinguished tier. A life built entirely in contribution to Vaultria.</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">Vel Sorex cannot be rushed. It represents a citizen whose entire life record — across skills, service, employment, education, and conduct — is exceptional by any measure. Most citizens who reach T3 do so in their late thirties at earliest and more commonly in their forties or fifties. It is not a young person's tier in most cases. What it unlocks reflects that: the most senior roles, the most significant access, the most personal freedom.</p>
+
+    <div class="tier-detail t3">
+      <div class="td-hd">
+        <span class="td-badge">T3</span>
+        <span class="td-title">Vel Sorex — Full Privilege List</span>
+        <span class="td-range">1,500+ points</span>
+      </div>
+      <div class="td-body">
+        <div class="td-row"><span class="td-lbl">Zone Access</span><span class="td-val">All zones. <strong>Tier II restricted areas accessible via clearance request</strong> (typically approved within 48 hours for documented purpose). Automatic Morvex border access for approved civic purposes — no advance notification required.</span></div>
+        <div class="td-row"><span class="td-lbl">VYR Income Ceiling</span><span class="td-val"><strong>+50% above T1 ceiling</strong> for the same domain. Eligible for the highest income band in any civic employment domain. Senior civic leadership positions are available only to T3 citizens.</span></div>
+        <div class="td-row"><span class="td-lbl">Housing</span><span class="td-val"><strong>First-priority queue</strong> in any zone. Eligible to apply for Velisar district residential units in Velora — the most sought-after housing in Vaultria. Applications accepted; allocation is not guaranteed but priority is absolute.</span></div>
+        <div class="td-row"><span class="td-lbl">Domain Access</span><span class="td-val"><strong>Senior leadership in all civic domains.</strong> Eligible for Core Council advisory positions. Eligible to head a Velumex Research institution. Eligible for Chief Tribunal Registrar appointment. The highest civic roles in Vaultria are T3-gated.</span></div>
+        <div class="td-row"><span class="td-lbl">Sponsorship</span><span class="td-val"><strong>May sponsor 1 new citizen per year.</strong> The most significant sponsorship capacity in the system. T3 sponsors are trusted with the integration of citizens at a rate that reflects their demonstrated civic commitment.</span></div>
+        <div class="td-row"><span class="td-lbl">Kael Days</span><span class="td-val"><strong>3 per month</strong> — two additional Kael Days above the T1 standard. 24 extra personal days per year. The most personal freedom any Vaultrian tier provides.</span></div>
+        <div class="td-row"><span class="td-lbl">Civic Assembly</span><span class="td-val"><strong>Senior member.</strong> Eligible to chair Assembly proceedings. Eligible to propose constitutional review motions. The highest civic participation available outside the Vaultcil itself.</span></div>
+        <div class="td-row"><span class="td-lbl">Civic Contribution Req.</span><span class="td-val">250 hours per year — 50 hours above T1 minimum. The highest contribution requirement — balanced by the highest privileges. T3 citizens give the most. They receive the most.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section" id="tracker">
+    <div class="sec-hd">
+      <div class="sec-ico">⚖</div>
+      <div class="sec-tw">
+        <div class="sec-n">Interactive Reference</div>
+        <h2 class="sec-t">Point Calculator</h2>
+        <div class="sec-v">Estimate your annual point accumulation</div>
+      </div>
+    </div>
+
+    <div class="tracker">
+      <div class="tr-title">Annual Merit Point Estimator</div>
+      <div class="tr-grid">
+        <div class="tr-field"><label class="tr-lbl">Civic contribution hours (above 200 min)</label><input class="tr-input" id="ci-hours" type="number" min="0" max="400" value="0" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Tier A skills earned this year</label><input class="tr-input" id="ci-ska" type="number" min="0" max="10" value="0" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Tier B skills earned this year</label><input class="tr-input" id="ci-skb" type="number" min="0" max="5" value="0" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Tier C skills / licences earned this year</label><input class="tr-input" id="ci-skc" type="number" min="0" max="3" value="0" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Volunteering hours (above civic minimum)</label><input class="tr-input" id="ci-vol" type="number" min="0" max="500" value="0" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Registered employment (1=yes, 0=no)</label><input class="tr-input" id="ci-emp" type="number" min="0" max="1" value="1" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Education: courses completed</label><input class="tr-input" id="ci-edu" type="number" min="0" max="10" value="0" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Commendations received (max 3 claimable)</label><input class="tr-input" id="ci-com" type="number" min="0" max="3" value="0" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Clean record this year? (1=yes, 0=no)</label><input class="tr-input" id="ci-clean" type="number" min="0" max="1" value="1" oninput="calc()"></div>
+        <div class="tr-field"><label class="tr-lbl">Years of citizenship (for longevity)</label><input class="tr-input" id="ci-yrs" type="number" min="0" max="60" value="5" oninput="calc()"></div>
+      </div>
+      <div class="tr-result">
+        <div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase;margin-bottom:3px">Annual Points Earned</div>
+          <div class="tr-total" id="calc-total">0</div>
+        </div>
+        <div style="flex:1">
+          <div class="tr-tier" id="calc-tier">—</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:.38rem;color:var(--tx3);margin-top:3px;margin-bottom:8px" id="calc-note"></div>
+          <div class="tr-bar-wrap"><div class="tr-bar" id="calc-bar" style="width:0%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEYS -->
+  <section class="section" id="journeys">
+    <div class="sec-hd">
+      <div class="sec-ico">◉</div>
+      <div class="sec-tw">
+        <div class="sec-n">Citizen Reference</div>
+        <h2 class="sec-t">Three Citizen Journeys</h2>
+        <div class="sec-v">Vel tarin kadir — "How the knowing grows"</div>
+      </div>
+    </div>
+
+    <p class="sec-intro">These are illustrative paths through the Merit system — not prescriptive. Every citizen's record is their own. These examples show how different life choices produce different trajectories, and why the system is designed with recovery as a built-in feature.</p>
+
+    <div class="journey">
+      <div class="j-name">Citizen A — The Standard Path</div>
+      <div class="j-tag">T1 → T2 in approximately 8 years</div>
+      <div class="j-steps">
+        <div class="j-step"><span class="j-yr">Veloran</span><span style="flex:1">Average Tarin record, one Tier A skill, some volunteering, clean conduct. Enters at <strong>220 points — T1.</strong></span><span class="j-pts">220 pts</span></div>
+        <div class="j-step"><span class="j-yr">Yr 1–2</span><span style="flex:1">Registered employment (40 pts), civic hours at standard (40 pts), clean record bonus (30 pts).</span><span class="j-pts">+110 pts</span></div>
+        <div class="j-step"><span class="j-yr">Yr 3</span><span style="flex:1">Completes a Tier B skill certification — carpentry, civic mediation, healthcare first response.</span><span class="j-pts">+30 pts</span></div>
+        <div class="j-step"><span class="j-yr">Yr 4–6</span><span style="flex:1">Consistent employment and civic hours. Completes one accredited course. Increases volunteering.</span><span class="j-pts">+150 pts</span></div>
+        <div class="j-step"><span class="j-yr">Yr 7</span><span style="flex:1">Receives community commendation for leading neighbourhood Vel Sora initiative. Hits 5-year clean record milestone.</span><span class="j-pts">+70 pts</span></div>
+      </div>
+      <div class="j-result">Total at Year 8: ~580 points → T2 ✓</div>
+      <div class="j-note">T2 achieved through consistency, not exceptional performance. This is the intended standard path — steady, sustainable, rewarding.</div>
+    </div>
+
+    <div class="journey">
+      <div class="j-name">Citizen B — The Early Achiever</div>
+      <div class="j-tag">Enters T2 directly at Veloran</div>
+      <div class="j-steps">
+        <div class="j-step"><span class="j-yr">Pre-18</span><span style="flex:1">Tarin distinction award (95 pts). Two Tier A skill certifications (30 pts). 400 hours documented volunteering including emergency response (50 pts). Perfect conduct record (75 pts). One sector commendation (20 pts).</span><span class="j-pts">270 pts</span></div>
+        <div class="j-step"><span class="j-yr">Veloran</span><span style="flex:1">Total assessed at <strong>550 points → T2 placement at age 18.</strong> Uncommon. Fewer than 12% of citizens enter at this level.</span><span class="j-pts">550 pts</span></div>
+      </div>
+      <div class="j-result">Enters Vaultrian adult life with immediate access to leadership roles, +25% income ceiling, and Civic Assembly voting rights.</div>
+      <div class="j-note">This citizen will likely reach T3 in their mid-thirties if they maintain the same trajectory. Their early record is genuine — not manufactured. The system recognises this.</div>
+    </div>
+
+    <div class="journey">
+      <div class="j-name">Citizen C — The Recovery Path</div>
+      <div class="j-tag">Setback at 25. T2 still achieved by 32.</div>
+      <div class="j-steps">
+        <div class="j-step"><span class="j-yr">Veloran</span><span style="flex:1">Average record. Enters at 280 points — T1.</span><span class="j-pts">280 pts</span></div>
+        <div class="j-step"><span class="j-yr">Yr 1–5</span><span style="flex:1">Standard employment and civic hours. Accumulates steadily. At age 23: approximately 420 points.</span><span class="j-pts">+140 pts</span></div>
+        <div class="j-step"><span class="j-yr">Age 25</span><span style="flex:1">Class II conviction — civic fraud, below threshold, resolved by tribunal. Record deduction applied.</span><span class="j-pts">−100 pts</span></div>
+        <div class="j-step"><span class="j-yr">Age 25–27</span><span style="flex:1">Vel Sena mediation completed. Civic record clean. Returns to employment. Commits to education — begins accredited course.</span><span class="j-pts">+80 pts</span></div>
+        <div class="j-step"><span class="j-yr">Age 28–30</span><span style="flex:1">Completes degree (80 pts). Earns Tier B skill. Volunteering above minimum. Clean record bonuses resume.</span><span class="j-pts">+160 pts</span></div>
+        <div class="j-step"><span class="j-yr">Age 31</span><span style="flex:1">Community commendation for mentoring programme. Hits enough for T2 review request.</span><span class="j-pts">+20 pts</span></div>
+      </div>
+      <div class="j-result">Total at age 32: ~540 points → T2 ✓</div>
+      <div class="j-note">T2 is not closed to someone who made a mistake. It is harder. It took longer. It is possible. The system is built to reflect who a citizen is now — not only what they did at their worst.</div>
+    </div>
+  </section>
+
+</div><!-- /content -->
+</div>
+</div><!-- /shell -->
+        </main>
+
+        <footer>
+          <p>The Sovereign State of VAULTRIA — a living document.</p>
+          <p class="latin">Merit Tier System · <code>site/pages/merit-tier.html</code></p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/merit-tier.js" defer></script>
+</body>
+</html>

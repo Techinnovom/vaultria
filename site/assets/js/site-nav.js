@@ -16,7 +16,11 @@
     if (seg === "index.html" || seg === "") {
       return "home";
     }
-    return seg.replace(/\.html$/i, "");
+    var base = seg.replace(/\.html$/i, "");
+    if (/^vaelic-learning-song-\d{2}$/.test(base)) {
+      return "vaelic-learning-songs";
+    }
+    return base;
   }
 
   var GROUPS = [
@@ -29,6 +33,10 @@
       items: [
         { id: "doctrine", title: "Doctrine" },
         { id: "codex", title: "Codex" },
+        { id: "private-property-law", title: "Private property law" },
+        { id: "business-law", title: "Business law" },
+        { id: "criminal-code", title: "Criminal code (Vol. IV)" },
+        { id: "family-law", title: "Family law (Vol. V)" },
         { id: "government", title: "Government" },
         { id: "authority", title: "Authority" },
         { id: "power", title: "Power" },
@@ -44,6 +52,8 @@
       items: [
         { id: "territory", title: "Territory" },
         { id: "territory-map", title: "Territory map" },
+        { id: "national-map", title: "National map" },
+        { id: "zone-atlas", title: "Zone atlas" },
         { id: "symbols", title: "Symbols" },
       ],
     },
@@ -52,15 +62,21 @@
       items: [
         { id: "people", title: "People" },
         { id: "citizenship", title: "Citizenship application" },
+        { id: "merit-tier", title: "Merit tier system" },
         { id: "identity", title: "Identity & visa" },
         { id: "device", title: "V-ID demo" },
         { id: "economy", title: "Economy" },
         { id: "currency", title: "Currency" },
+        { id: "vyr-banking", title: "VYR banking" },
       ],
     },
     {
       label: "Vaelic",
-      items: [{ id: "vaelic", title: "Language reference" }],
+      items: [
+        { id: "vaelic", title: "Language reference" },
+        { id: "vaelic-dictionary", title: "Dictionary" },
+        { id: "vaelic-learning-songs", title: "Learning songs" },
+      ],
     },
     {
       label: "Military",
@@ -85,6 +101,8 @@
       label: "Operations",
       items: [
         { id: "education", title: "Education" },
+        { id: "flownet-rail", title: "FlowNet Rail" },
+        { id: "siven-healthcare", title: "Siven healthcare" },
         { id: "culture", title: "Culture" },
         { id: "holidays", title: "Holidays" },
         { id: "serokav", title: "Serokav" },

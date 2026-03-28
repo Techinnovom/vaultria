@@ -1,0 +1,236 @@
+/* Merit Tier System — scoped to site shell */
+.wrap.mt-wrap {
+  max-width: min(1120px, 100%);
+  width: 100%;
+}
+
+.merit-tier-page {
+  --ink: var(--bg-deep);
+  --s1: var(--bg-panel);
+  --s2: var(--bg-elevated);
+  --gold-d: rgba(201, 169, 98, 0.28);
+  --gold-l: #e8c97a;
+  --tx: var(--text);
+  --tx2: var(--text-muted);
+  --tx3: rgba(154, 149, 138, 0.55);
+  --rule: rgba(201, 169, 98, 0.12);
+  --rule2: rgba(201, 169, 98, 0.08);
+  --t1c: #2a7848;
+  --t1l: rgba(42, 120, 72, 0.12);
+  --t1b: rgba(42, 120, 72, 0.35);
+  --t2c: #b87c18;
+  --t2l: rgba(184, 124, 24, 0.12);
+  --t2b: rgba(184, 124, 24, 0.38);
+  --t3c: #c9a84c;
+  --t3l: rgba(201, 168, 76, 0.1);
+  --t3b: rgba(201, 168, 76, 0.45);
+  --red: #c03a3a;
+  --redb: rgba(192, 58, 58, 0.35);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--tx);
+}
+
+.merit-tier-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.merit-tier-page *,
+.merit-tier-page *::before,
+.merit-tier-page *::after {
+  box-sizing: border-box;
+}
+
+
+.merit-tier-page .shell {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+
+.merit-tier-page .sb {
+  position: sticky;
+  top: 0.75rem;
+  align-self: start;
+  width: 232px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  flex-shrink: 0;
+  left: auto;
+  height: auto;
+  min-height: 0;
+  background: var(--s1);
+  border: 1px solid var(--rule2);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.merit-tier-page .main {
+  margin-left: 0;
+  min-width: 0;
+}
+
+
+
+.merit-tier-page .sb::-webkit-scrollbar{width:3px}
+.merit-tier-page .sb::-webkit-scrollbar-thumb{background:var(--rule)}
+.merit-tier-page .sb-hd{padding:24px 18px 16px;border-bottom:1px solid var(--rule2)}
+.merit-tier-page .sb-t{font-family:'Cinzel',serif;font-weight:700;font-size:.68rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;line-height:1.4;margin-bottom:2px}
+.merit-tier-page .sb-s{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+.merit-tier-page .sb-nav{padding:8px 0;flex:1}
+.merit-tier-page .sb-cat{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;padding:7px 16px 3px;margin-top:3px}
+.merit-tier-page .sb-a{display:flex;align-items:center;gap:7px;padding:5px 16px;text-decoration:none;transition:.15s;cursor:pointer;border-left:2px solid transparent;color:inherit}
+.merit-tier-page .sb-a:hover{background:rgba(201,168,76,.04);border-left-color:var(--gold-d)}
+.merit-tier-page .sb-a.on{background:rgba(201,168,76,.06);border-left-color:var(--gold)}
+.merit-tier-page .sb-pip{width:8px;height:8px;border-radius:1px;flex-shrink:0}
+.merit-tier-page .sb-lbl{font-family:'Cinzel',serif;font-size:.58rem;color:var(--tx2);letter-spacing:.03em}
+.merit-tier-page .sb-a.on .sb-lbl{color:var(--gold)}
+.merit-tier-page .sb-a:hover .sb-lbl{color:var(--tx)}
+.merit-tier-page .sb-ft{padding:12px 16px;border-top:1px solid var(--rule2)}
+.merit-tier-page .sb-mo{font-family:'Cinzel',serif;font-style:italic;font-size:.54rem;color:var(--tx3);line-height:1.5}
+
+
+.merit-tier-page .hero{position:relative;padding:64px 56px 0;border-bottom:1px solid var(--rule2);overflow:hidden}
+.merit-tier-page .hero::before{content:'';position:absolute;top:0;right:0;width:420px;height:420px;
+  background:radial-gradient(circle at top right,rgba(201,168,76,.05) 0%,transparent 65%);pointer-events:none}
+.merit-tier-page .h-vol{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.3em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.merit-tier-page .h-title{font-family:'Cinzel',serif;font-weight:700;font-size:2rem;color:var(--gold);letter-spacing:.04em;line-height:1.15;margin-bottom:6px}
+.merit-tier-page .h-sub{font-size:1.08rem;color:var(--tx2);max-width:560px;line-height:1.78;margin-bottom:24px}
+
+
+.merit-tier-page .tier-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule2)}
+.merit-tier-page .tc{padding:22px 20px;border-right:1px solid var(--rule2)}
+.merit-tier-page .tc:last-child{border-right:none}
+.merit-tier-page .tc-num{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
+.merit-tier-page .tc-name{font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem;margin-bottom:2px}
+.merit-tier-page .tc-vae{font-family:'Cinzel',serif;font-style:italic;font-size:.68rem;margin-bottom:8px;opacity:.6}
+.merit-tier-page .tc-range{font-family:'Share Tech Mono',monospace;font-size:.44rem;letter-spacing:.1em;padding:3px 8px;border:1px solid;display:inline-block;margin-bottom:8px}
+.merit-tier-page .tc-desc{font-size:.88rem;line-height:1.6}
+.merit-tier-page .tc.t1 .tc-num, .merit-tier-page .tc.t1 .tc-name, .merit-tier-page .tc.t1 .tc-vae{color:var(--t1c)}
+.merit-tier-page .tc.t2 .tc-num, .merit-tier-page .tc.t2 .tc-name, .merit-tier-page .tc.t2 .tc-vae{color:var(--t2c)}
+.merit-tier-page .tc.t3 .tc-num, .merit-tier-page .tc.t3 .tc-name, .merit-tier-page .tc.t3 .tc-vae{color:var(--t3c)}
+.merit-tier-page .tc.t1 .tc-range{color:var(--t1c);border-color:var(--t1b)}
+.merit-tier-page .tc.t2 .tc-range{color:var(--t2c);border-color:var(--t2b)}
+.merit-tier-page .tc.t3 .tc-range{color:var(--t3c);border-color:var(--t3b)}
+.merit-tier-page .tc-desc{color:var(--tx2)}
+.merit-tier-page .tc.t1{background:var(--t1l)}
+.merit-tier-page .tc.t2{background:var(--t2l)}
+.merit-tier-page .tc.t3{background:var(--t3l)}
+
+
+.merit-tier-page .content{max-width:860px;padding:0 56px 80px}
+
+
+.merit-tier-page .section{padding-top:52px;border-bottom:1px solid var(--rule2);padding-bottom:40px;scroll-margin-top:20px}
+.merit-tier-page .section:last-child{border-bottom:none}
+.merit-tier-page .sec-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.merit-tier-page .sec-ico{width:42px;height:42px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;background:var(--s2);margin-top:2px}
+.merit-tier-page .sec-tw{flex:1}
+.merit-tier-page .sec-n{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;margin-bottom:2px}
+.merit-tier-page .sec-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.3rem;color:var(--gold);letter-spacing:.03em;line-height:1.2;margin-bottom:3px}
+.merit-tier-page .sec-v{font-family:'Cinzel',serif;font-style:italic;font-size:.68rem;color:var(--tx3);letter-spacing:.05em}
+.merit-tier-page .sec-intro{font-size:.96rem;color:var(--tx2);line-height:1.78;margin-bottom:20px}
+
+
+.merit-tier-page .earn-cat{margin-bottom:18px;border:1px solid var(--rule2);background:var(--s2)}
+.merit-tier-page .earn-hd{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule2);background:rgba(201,168,76,.03)}
+.merit-tier-page .earn-num{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.12em;color:var(--gold-d);flex-shrink:0;width:22px}
+.merit-tier-page .earn-name{font-family:'Cinzel',serif;font-weight:600;font-size:.82rem;color:var(--gold);flex:1}
+.merit-tier-page .earn-cap{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.08em;color:var(--tx3);text-transform:uppercase}
+.merit-tier-page .earn-body{padding:12px 14px}
+.merit-tier-page .earn-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:4px 0;border-bottom:1px solid var(--rule2)}
+.merit-tier-page .earn-row:last-child{border-bottom:none}
+.merit-tier-page .earn-label{font-size:.9rem;color:var(--tx2);flex:1;line-height:1.5}
+.merit-tier-page .earn-label strong{color:var(--tx);font-weight:600}
+.merit-tier-page .earn-pts{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.08em;color:var(--gold);flex-shrink:0;text-align:right}
+.merit-tier-page .earn-pts.neg{color:var(--red)}
+.merit-tier-page .earn-pts.bonus{color:var(--t2c)}
+
+
+.merit-tier-page .tier-detail{margin-bottom:22px;border:1px solid}
+.merit-tier-page .tier-detail.t1{border-color:var(--t1b)}
+.merit-tier-page .tier-detail.t2{border-color:var(--t2b)}
+.merit-tier-page .tier-detail.t3{border-color:var(--t3b)}
+.merit-tier-page .td-hd{padding:14px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid}
+.merit-tier-page .tier-detail.t1 .td-hd{background:var(--t1l);border-color:rgba(42,120,72,.2)}
+.merit-tier-page .tier-detail.t2 .td-hd{background:var(--t2l);border-color:rgba(184,124,24,.2)}
+.merit-tier-page .tier-detail.t3 .td-hd{background:var(--t3l);border-color:rgba(201,168,76,.18)}
+.merit-tier-page .td-badge{font-family:'Cinzel',serif;font-weight:700;font-size:.8rem;letter-spacing:.06em;padding:3px 10px;border:1px solid}
+.merit-tier-page .t1 .td-badge{color:var(--t1c);border-color:var(--t1b)}
+.merit-tier-page .t2 .td-badge{color:var(--t2c);border-color:var(--t2b)}
+.merit-tier-page .t3 .td-badge{color:var(--t3c);border-color:var(--t3b)}
+.merit-tier-page .td-title{font-family:'Cinzel',serif;font-weight:600;font-size:.88rem;flex:1}
+.merit-tier-page .t1 .td-title{color:var(--t1c)}
+.merit-tier-page .t2 .td-title{color:var(--t2c)}
+.merit-tier-page .t3 .td-title{color:var(--t3c)}
+.merit-tier-page .td-range{font-family:'Share Tech Mono',monospace;font-size:.4rem;letter-spacing:.1em;color:var(--tx3)}
+.merit-tier-page .td-body{padding:14px 16px}
+.merit-tier-page .td-row{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--rule2)}
+.merit-tier-page .td-row:last-child{border-bottom:none}
+.merit-tier-page .td-lbl{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.12em;color:var(--tx3);text-transform:uppercase;flex-shrink:0;width:130px;padding-top:3px}
+.merit-tier-page .td-val{font-size:.9rem;color:var(--tx2);line-height:1.6;flex:1}
+.merit-tier-page .td-val strong{color:var(--tx);font-weight:600}
+
+
+.merit-tier-page .ded-table{width:100%;border-collapse:collapse;margin:14px 0}
+.merit-tier-page .ded-table th{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase;padding:6px 10px;text-align:left;border-bottom:1px solid var(--rule)}
+.merit-tier-page .ded-table td{padding:7px 10px;font-size:.9rem;color:var(--tx2);border-bottom:1px solid var(--rule2);line-height:1.5}
+.merit-tier-page .ded-table td:last-child{font-family:'Share Tech Mono',monospace;font-size:.42rem;color:var(--red);text-align:right}
+.merit-tier-page .ded-table tr:last-child td{border-bottom:none}
+
+
+.merit-tier-page .journey{margin-bottom:18px;padding:20px 22px;border:1px solid var(--rule);background:var(--s2);position:relative}
+.merit-tier-page .j-name{font-family:'Cinzel',serif;font-weight:600;font-size:.92rem;color:var(--gold);margin-bottom:2px}
+.merit-tier-page .j-tag{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.merit-tier-page .j-steps{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.merit-tier-page .j-step{display:flex;gap:10px;font-size:.88rem;color:var(--tx2);line-height:1.6}
+.merit-tier-page .j-yr{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.08em;color:var(--tx3);flex-shrink:0;width:52px;padding-top:3px}
+.merit-tier-page .j-pts{font-family:'Share Tech Mono',monospace;font-size:.4rem;color:var(--gold);flex-shrink:0;width:56px;text-align:right;padding-top:3px}
+.merit-tier-page .j-result{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.1em;padding:6px 10px;border:1px solid var(--rule);color:var(--gold-d);margin-top:6px;display:inline-block}
+.merit-tier-page .j-note{font-family:'Crimson Pro',serif;font-style:italic;font-size:.88rem;color:var(--tx3);margin-top:8px;line-height:1.6}
+
+
+.merit-tier-page .a-steps{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.merit-tier-page .a-step{display:flex;gap:14px}
+.merit-tier-page .a-num{width:24px;height:24px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:.44rem;color:var(--gold-d);flex-shrink:0;margin-top:2px}
+.merit-tier-page .a-body{flex:1}
+.merit-tier-page .a-title{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold);margin-bottom:2px}
+.merit-tier-page .a-text{font-size:.9rem;color:var(--tx2);line-height:1.65}
+
+
+.merit-tier-page .note{margin:14px 0;padding:12px 16px;border:1px solid var(--rule);background:rgba(201,168,76,.025);font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.04em;color:var(--tx3);line-height:1.7}
+.merit-tier-page .note-l{font-size:.36rem;letter-spacing:.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px}
+
+
+.merit-tier-page .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.merit-tier-page .gi{padding:14px 16px;background:var(--s1);border:1px solid var(--rule2)}
+.merit-tier-page .gi-l{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase;margin-bottom:4px}
+.merit-tier-page .gi-t{font-size:.88rem;color:var(--tx2);line-height:1.65}
+
+
+.merit-tier-page .dv{display:flex;align-items:center;gap:10px;margin:26px 0}
+.merit-tier-page .dv::before, .merit-tier-page .dv::after{content:'';flex:1;height:1px;background:var(--rule2)}
+.merit-tier-page .dv-m{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+
+
+.merit-tier-page .tracker{background:var(--s2);border:1px solid var(--rule);padding:20px 22px;margin:20px 0}
+.merit-tier-page .tr-title{font-family:'Cinzel',serif;font-weight:600;font-size:.9rem;color:var(--gold);margin-bottom:14px}
+.merit-tier-page .tr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.merit-tier-page .tr-field{display:flex;flex-direction:column;gap:4px}
+.merit-tier-page .tr-lbl{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase}
+.merit-tier-page .tr-input{background:var(--s1);border:1px solid var(--rule);padding:6px 10px;color:var(--tx);font-family:'Share Tech Mono',monospace;font-size:.52rem;width:100%;outline:none}
+.merit-tier-page .tr-input:focus{border-color:var(--gold-d)}
+.merit-tier-page .tr-result{display:flex;align-items:center;gap:16px;padding:14px 16px;border:1px solid var(--rule);background:rgba(201,168,76,.03)}
+.merit-tier-page .tr-total{font-family:'Cinzel',serif;font-size:1.6rem;color:var(--gold);font-weight:700}
+.merit-tier-page .tr-tier{font-family:'Share Tech Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase}
+.merit-tier-page .tr-tier.t1{color:var(--t1c)}
+.merit-tier-page .tr-tier.t2{color:var(--t2c)}
+.merit-tier-page .tr-tier.t3{color:var(--t3c)}
+.merit-tier-page .tr-bar-wrap{flex:1;height:8px;background:rgba(201,168,76,.08);border-radius:1px;overflow:hidden}
+.merit-tier-page .tr-bar{height:100%;border-radius:1px;transition:width .4s ease,background .3s}
+
+@media(max-width:680px){.sb{display:none}.main{margin-left:0}.hero,.content{padding-left:20px;padding-right:20px}.tier-cards{grid-template-columns:1fr}.tr-grid{grid-template-columns:1fr}.g2{grid-template-columns:1fr}}

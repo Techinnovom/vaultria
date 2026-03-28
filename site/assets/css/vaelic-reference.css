@@ -17,6 +17,23 @@
   color: var(--gold);
 }
 
+.vaelic-ref-page .vr-mh-related {
+  font-family: Cinzel, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.65rem;
+  color: var(--text-muted);
+}
+
+.vaelic-ref-page .vr-mh-related a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.vaelic-ref-page .vr-mh-related a:hover {
+  text-decoration: underline;
+}
+
 .vaelic-ref-meta {
   font-family: Cinzel, serif;
   font-size: 0.68rem;

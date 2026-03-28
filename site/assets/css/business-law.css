@@ -1,0 +1,274 @@
+.business-law-page {
+  --bl-rule: var(--border);
+}
+
+.business-law-page .bl-cover {
+  margin-top: 1rem;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bg-elevated) 70%, transparent),
+    transparent
+  );
+}
+
+.business-law-page .bl-pre,
+.business-law-page .bl-meta-item {
+  font-family: "Share Tech Mono", monospace;
+  text-transform: uppercase;
+}
+
+.business-law-page .bl-pre {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-dim);
+}
+
+.business-law-page .bl-title {
+  margin-top: 0.55rem;
+  font-family: Cinzel, serif;
+  color: var(--gold);
+  font-size: clamp(1.35rem, 3.6vw, 2.1rem);
+}
+
+.business-law-page .bl-vae {
+  margin-top: 0.3rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.business-law-page .bl-meta {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.business-law-page .bl-meta-item {
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+.business-law-page .bl-nav {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.business-law-page .bl-link {
+  display: inline-block;
+  border: 1px solid var(--bl-rule);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.business-law-page .bl-link:hover,
+.business-law-page .bl-link.on {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.business-law-page .chapter {
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.business-law-page .chapter.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.business-law-page .ch-header {
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--bl-rule);
+}
+
+.business-law-page .ch-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+}
+
+.business-law-page .ch-title-vae {
+  margin-top: 0.42rem;
+  font-family: Cinzel, serif;
+  color: var(--gold);
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+}
+
+.business-law-page .ch-title-eng {
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.business-law-page .ch-desc {
+  margin-top: 0.45rem;
+  color: var(--text-muted);
+}
+
+.business-law-page .article + .article {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--bl-rule);
+}
+
+.business-law-page .art-head {
+  display: flex;
+  gap: 0.55rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.business-law-page .art-code {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+.business-law-page .art-title {
+  font-family: Cinzel, serif;
+}
+
+.business-law-page .art-eng,
+.business-law-page .art-vae {
+  margin-top: 0.35rem;
+}
+
+.business-law-page .art-clauses {
+  margin-top: 0.45rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.business-law-page .art-clause {
+  padding-left: 0.85rem;
+  position: relative;
+  color: var(--text-muted);
+}
+
+.business-law-page .art-clause::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.42rem;
+  border-top: 1px solid var(--gold-dim);
+}
+
+.business-law-page .notice,
+.business-law-page .penalty,
+.business-law-page .closure-warning,
+.business-law-page .lt-scope {
+  margin-top: 0.6rem;
+  border: 1px solid var(--bl-rule);
+  background: var(--bg-elevated);
+  border-radius: 4px;
+  padding: 0.7rem 0.8rem;
+}
+
+.business-law-page .penalty,
+.business-law-page .closure-warning {
+  border-left: 3px solid rgba(204, 32, 32, 0.5);
+}
+
+.business-law-page .notice-label,
+.business-law-page .pen-label,
+.business-law-page .cw-label,
+.business-law-page .lt-scope-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.business-law-page .pen-label,
+.business-law-page .cw-label {
+  color: #cf5f5f;
+}
+
+.business-law-page .notice-text,
+.business-law-page .pen-text,
+.business-law-page .cw-text,
+.business-law-page .lt-scope-text {
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+}
+
+.business-law-page .law-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.business-law-page .law-table th,
+.business-law-page .law-table td {
+  border: 1px solid var(--bl-rule);
+  padding: 0.45rem 0.55rem;
+  vertical-align: top;
+}
+
+.business-law-page .law-table th {
+  background: var(--bg-elevated);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.62rem;
+  color: var(--gold-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.business-law-page .biz-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.business-law-page .biz-type {
+  background: var(--bg-elevated);
+  border: 1px solid var(--bl-rule);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 0.75rem;
+}
+
+.business-law-page .bt-name {
+  font-family: Cinzel, serif;
+  color: var(--gold);
+}
+
+.business-law-page .bt-vae {
+  margin-top: 0.15rem;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.business-law-page .bt-desc {
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}

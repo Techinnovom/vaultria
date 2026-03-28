@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vaelic Dictionary — VAULTRIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/vaelic-dictionary.css" />
+</head>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap vaelic-dict-wrap">
+        <main id="main-content" class="vaelic-dict-page">
+          <p class="tier-kicker"><a href="vaelic.html">Vaelic</a> · Dictionary · <a href="vaelic-learning-songs.html">Learning songs</a></p>
+          <h1 class="page-title">Vaelic dictionary</h1>
+          <p class="zone-intro">
+            Search the official Vaelic–English lexicon with phonetic classes, examples, and browser speech playback. Toggle translation direction and filter by class. Syllable <strong>bi-</strong> is pronounced like English <em>be</em>, not <em>bye</em> (see the language reference, alphabet).
+          </p>
+          <p class="vaelic-dict-meta" id="statLine">Loading…</p>
+
+          <section class="card vaelic-dict-card" aria-label="Dictionary entries">
+            <div class="controls">
+              <div class="sw">
+                <div class="si-icon" aria-hidden="true">⌕</div>
+                <input type="text" id="searchInput" placeholder="Search Vaelic or English…" autocomplete="off" spellcheck="false" />
+              </div>
+              <div class="dtg">
+                <button type="button" class="db active" data-dir="v-e">Vaelic→EN</button>
+                <button type="button" class="db" data-dir="e-v">EN→Vaelic</button>
+              </div>
+              <div class="flt">
+                <button type="button" class="fb active" data-f="all">All</button>
+                <button type="button" class="fb" data-f="sharp">Sharp</button>
+                <button type="button" class="fb" data-f="soft">Soft</button>
+                <button type="button" class="fb" data-f="hard">Hard</button>
+                <button type="button" class="fb" data-f="flow">Flow</button>
+                <button type="button" class="fb" data-f="neutral">Neutral</button>
+              </div>
+            </div>
+
+            <div class="audio-bar">
+              <div class="ab-label">Playback speed</div>
+              <div class="speed-btns">
+                <button type="button" class="spd" data-rate="0.6">Slow</button>
+                <button type="button" class="spd active" data-rate="1.0">Normal</button>
+                <button type="button" class="spd" data-rate="1.4">Fast</button>
+              </div>
+              <div class="tts-status" id="ttsStatus">▶ Audio ready</div>
+            </div>
+
+            <div class="rb">
+              <span id="rb">— entries</span>
+              <span id="rb2" class="vaelic-dict-rb2"></span>
+            </div>
+
+            <div class="layout">
+              <div class="sb" id="sidebar"></div>
+              <div class="ec" id="ec">
+                <div class="es" id="es">
+                  <div class="es-t">No results</div>
+                  <div class="es-s">Try a different term</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer>
+          <p>The Sovereign State of VAULTRIA — a living document.</p>
+          <p class="latin">Vaelic Dictionary · <code>site/pages/vaelic-dictionary.html</code></p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/data/vaelic-dictionary-data.js"></script>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
+  <script src="../assets/js/vaelic-dictionary.js" defer></script>
+</body>
+</html>

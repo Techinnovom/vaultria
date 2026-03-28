@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaelic Learning Songs — Official Vaultrian Language Programme</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06050A;--s1:#0E0C12;--s2:#131118;--s3:#191620;
+  --gold:#C9A84C;--gd:rgba(201,168,76,0.2);--gl:#E8C97A;
+  --tx:#D0C6B4;--tx2:rgba(208,198,180,0.55);--tx3:rgba(208,198,180,0.25);
+  --rule:rgba(201,168,76,0.06);--rule2:rgba(201,168,76,0.04);
+  --green:#3A8F5A;--blue:#3A6FAF;--orange:#C87828;--purple:#7A4FAF;
+  --red:#AF3A3A;--teal:#3A8F8F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--tx);font-family:'Crimson Pro',serif;font-size:1rem;line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:rgba(201,168,76,.12)}
+
+/* HERO */
+.hero{padding:60px 40px 48px;text-align:center;border-bottom:1px solid var(--rule);background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.04) 0%,transparent 60%)}
+.hero-pre{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.38em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.hero-title{font-family:'Cinzel',serif;font-weight:900;font-size:2.2rem;color:var(--gold);letter-spacing:.06em;line-height:1.1;margin-bottom:8px}
+.hero-sub{font-size:.96rem;color:var(--tx2);max-width:560px;margin:0 auto 22px;line-height:1.8}
+.hero-note{font-family:'Share Tech Mono',monospace;font-size:.4rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase;background:var(--s2);display:inline-block;padding:4px 14px;border:1px solid var(--rule)}
+
+/* TOC */
+.toc{max-width:760px;margin:0 auto;padding:40px 40px 0}
+.toc-t{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.28em;color:var(--tx3);text-transform:uppercase;margin-bottom:14px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.toc-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--s2);border:1px solid var(--rule2);text-decoration:none;transition:.12s}
+.toc-item:hover{border-color:var(--gd)}
+.toc-num{font-family:'Share Tech Mono',monospace;font-size:.34rem;letter-spacing:.12em;color:var(--tx3);flex-shrink:0;width:22px}
+.toc-name{font-family:'Cinzel',serif;font-size:.62rem;color:var(--tx2);letter-spacing:.04em}
+.toc-item:hover .toc-name{color:var(--gold)}
+.toc-tag{font-family:'Share Tech Mono',monospace;font-size:.3rem;letter-spacing:.1em;color:var(--tx3);text-transform:uppercase;margin-left:auto}
+
+/* SONGS CONTAINER */
+.songs{max-width:900px;margin:0 auto;padding:0 40px 80px}
+
+/* SONG CARD */
+.song{margin-top:52px;padding-top:32px;border-top:1px solid var(--rule);scroll-margin-top:20px}
+.song-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+.song-num{font-family:'Share Tech Mono',monospace;font-size:.34rem;letter-spacing:.16em;color:var(--tx3);text-transform:uppercase;padding-top:6px;width:28px;flex-shrink:0}
+.song-hd-main{flex:1}
+.song-cat{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px}
+.song-title{font-family:'Cinzel',serif;font-weight:700;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;line-height:1.1;margin-bottom:4px}
+.song-subtitle{font-style:italic;color:var(--tx3);font-size:.88rem}
+.song-meta{display:flex;gap:12px;margin-top:6px;flex-wrap:wrap}
+.song-tag{font-family:'Share Tech Mono',monospace;font-size:.33rem;letter-spacing:.12em;color:var(--tx3);text-transform:uppercase;background:var(--s2);padding:2px 8px;border:1px solid var(--rule2)}
+
+/* TUNE GUIDE */
+.tune{background:var(--s2);border:1px solid var(--rule2);border-left:3px solid var(--gd);padding:12px 16px;margin-bottom:18px;font-size:.86rem;color:var(--tx2);line-height:1.7}
+.tune strong{color:var(--tx);font-family:'Share Tech Mono',monospace;font-size:.78rem;letter-spacing:.06em}
+
+/* VERSE */
+.verse{margin-bottom:20px}
+.verse-label{font-family:'Share Tech Mono',monospace;font-size:.33rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;margin-bottom:8px}
+
+/* LINES */
+.lines{display:flex;flex-direction:column;gap:0}
+.line{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid var(--rule2)}
+.line:last-child{border-bottom:none}
+.line-v{font-family:'Cinzel',serif;font-size:.9rem;color:var(--gl);padding:6px 10px 6px 0;line-height:1.5;letter-spacing:.04em;font-weight:600}
+.line-p{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--tx3);padding:7px 10px;line-height:1.6;letter-spacing:.06em}
+.line-e{font-size:.88rem;color:var(--tx2);padding:6px 0;line-height:1.5;font-style:italic}
+
+/* CHORUS/HOOK */
+.chorus{background:var(--s1);border:1px solid;padding:14px 16px;margin:14px 0}
+.chorus .line{background:transparent}
+.chorus .line-v{color:var(--gold)}
+
+/* VOCAB BOX */
+.vocab-box{background:var(--s2);border:1px solid var(--rule2);padding:14px 16px;margin-top:16px}
+.vocab-title{font-family:'Share Tech Mono',monospace;font-size:.34rem;letter-spacing:.2em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px}
+.vocab-item{display:flex;flex-direction:column;gap:1px;padding:6px 8px;background:var(--s1);border:1px solid var(--rule2)}
+.vi-v{font-family:'Cinzel',serif;font-size:.74rem;color:var(--gl);font-weight:600;letter-spacing:.04em}
+.vi-p{font-family:'Share Tech Mono',monospace;font-size:.32rem;color:var(--tx3);letter-spacing:.08em}
+.vi-e{font-size:.8rem;color:var(--tx2)}
+
+/* LINE HEADERS */
+.lh{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:4px}
+.lh-c{font-family:'Share Tech Mono',monospace;font-size:.31rem;letter-spacing:.2em;color:var(--tx3);text-transform:uppercase;padding:0 10px 0 0}
+.lh-c:nth-child(2){padding-left:10px}
+
+/* COLOR for song categories */
+.cat-alphabet{color:var(--orange)}
+.cat-numbers{color:var(--green)}
+.cat-colors{color:var(--purple)}
+.cat-greetings{color:var(--blue)}
+.cat-body{color:var(--red)}
+.cat-time{color:var(--teal)}
+.cat-feelings{color:var(--purple)}
+.cat-places{color:var(--green)}
+.cat-actions{color:var(--orange)}
+.cat-nature{color:var(--teal)}
+
+.chorus.cat-alphabet{border-color:rgba(200,120,40,.3);background:rgba(200,120,40,.04)}
+.chorus.cat-numbers{border-color:rgba(58,143,90,.3);background:rgba(58,143,90,.04)}
+.chorus.cat-colors{border-color:rgba(122,79,175,.3);background:rgba(122,79,175,.04)}
+.chorus.cat-greetings{border-color:rgba(58,111,175,.3);background:rgba(58,111,175,.04)}
+.chorus.cat-body{border-color:rgba(175,58,58,.3);background:rgba(175,58,58,.04)}
+.chorus.cat-time{border-color:rgba(58,143,143,.3);background:rgba(58,143,143,.04)}
+.chorus.cat-feelings{border-color:rgba(122,79,175,.3);background:rgba(122,79,175,.04)}
+.chorus.cat-places{border-color:rgba(58,143,90,.3);background:rgba(58,143,90,.04)}
+.chorus.cat-actions{border-color:rgba(200,120,40,.3);background:rgba(200,120,40,.04)}
+.chorus.cat-nature{border-color:rgba(58,143,143,.3);background:rgba(58,143,143,.04)}
+
+/* SING-ALONG note */
+.sing-note{font-family:'Cinzel',serif;font-style:italic;font-size:.78rem;color:var(--tx3);text-align:center;padding:8px 0;margin-top:4px}
+
+@media(max-width:640px){
+  .hero{padding:40px 20px 32px}
+  .songs,.toc{padding-left:20px;padding-right:20px}
+  .line,.lh{grid-template-columns:1fr;gap:4px}
+  .lh-c{display:none}
+  .line-p{padding-left:0;color:var(--tx3)}
+  .line-e{font-style:normal;color:var(--tx2)}
+  .toc-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-pre">The Sovereign State of Vaultria</div>
+  <h1 class="hero-title">Vaelic Learning Songs</h1>
+  <p class="hero-sub">Ten songs to learn the Vaelic language. Each song teaches one topic — every line shows the Vaelic text, pronunciation guide, and English meaning side by side. Sing along. Repeat. Learn.</p>
+  <div class="hero-note">Stress falls on the CAPITALISED syllable — always first</div>
+</div>
+
+<div class="toc">
+  <div class="toc-t">All Songs</div>
+  <div class="toc-grid">
+    <a class="toc-item" href="#song01"><span class="toc-num">01</span><span class="toc-name">The Alphabet Song</span><span class="toc-tag">18 letters</span></a>
+    <a class="toc-item" href="#song02"><span class="toc-num">02</span><span class="toc-name">Count With Me</span><span class="toc-tag">Numbers 1–10</span></a>
+    <a class="toc-item" href="#song03"><span class="toc-num">03</span><span class="toc-name">The Colour Song</span><span class="toc-tag">10 colors</span></a>
+    <a class="toc-item" href="#song04"><span class="toc-num">04</span><span class="toc-name">Hello & Goodbye</span><span class="toc-tag">Greetings</span></a>
+    <a class="toc-item" href="#song05"><span class="toc-num">05</span><span class="toc-name">Parts of the Body</span><span class="toc-tag">Body words</span></a>
+    <a class="toc-item" href="#song06"><span class="toc-num">06</span><span class="toc-name">The Day Song</span><span class="toc-tag">Time & Days</span></a>
+    <a class="toc-item" href="#song07"><span class="toc-num">07</span><span class="toc-name">How Do You Feel?</span><span class="toc-tag">Emotions</span></a>
+    <a class="toc-item" href="#song08"><span class="toc-num">08</span><span class="toc-name">My World</span><span class="toc-tag">Places</span></a>
+    <a class="toc-item" href="#song09"><span class="toc-num">09</span><span class="toc-name">Action Song</span><span class="toc-tag">Verbs</span></a>
+    <a class="toc-item" href="#song10"><span class="toc-num">10</span><span class="toc-name">Sky, Earth, Water</span><span class="toc-tag">Nature</span></a>
+  </div>
+</div>
+
+<div class="songs">
+
+<div class="song" id="song01">
+  <div class="song-hd">
+    <div class="song-num">01</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-alphabet">Alphabet</div>
+      <div class="song-title">Laret Neral — The Alphabet Song</div>
+      <div class="song-subtitle">The Language Foundation</div>
+      <div class="song-meta">
+        <span class="song-tag">18 letters</span>
+        <span class="song-tag">Tune: Slow, clear, one note per letter</span>
+        <span class="song-tag">Level: Beginner</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> Sing each letter name clearly and slowly, one beat each. For the vowel verse, hold each vowel for 2 beats. The chorus repeats after each verse — it anchors every letter in the word "Vaelic." Clap on each bolded syllable.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Vowels (5 letters)</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">A — ah, ah, A!</div><div class="line-p">AH — ah, ah, AH!</div><div class="line-e">like "father"</div></div>
+      <div class="line"><div class="line-v">E — eh, eh, E!</div><div class="line-p">EH — eh, eh, EH!</div><div class="line-e">like "bed"</div></div>
+      <div class="line"><div class="line-v">I — ee, ee, I!</div><div class="line-p">EE — ee, ee, EE!</div><div class="line-e">like "machine"</div></div>
+      <div class="line"><div class="line-v">O — oh, oh, O!</div><div class="line-p">OH — oh, oh, OH!</div><div class="line-e">like "go"</div></div>
+      <div class="line"><div class="line-v">U — oo, oo, U!</div><div class="line-p">OO — oo, oo, OO!</div><div class="line-e">like "rule"</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-alphabet">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Laret Vaelic — kala!</div><div class="line-p">LA-ret VAY-lik — KA-la!</div><div class="line-e">The Vaelic language — beautiful!</div></div>
+      <div class="line"><div class="line-v">Teri mina neral.</div><div class="line-p">TE-ri MI-na NE-ral.</div><div class="line-e">I learn the foundation.</div></div>
+      <div class="line"><div class="line-v">Kirat — kirat — kirat!</div><div class="line-p">KI-rat — KI-rat — KI-rat!</div><div class="line-e">Clear — clear — clear!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Sharp Consonants (K T D Z R)</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">K — kat, kat, K!</div><div class="line-p">K — KAT, KAT, K!</div><div class="line-e">hard k — "kat" means stop!</div></div>
+      <div class="line"><div class="line-v">T — tova, tova, T!</div><div class="line-p">T — TO-va, TO-va, T!</div><div class="line-e">sharp t — "tova" means leader</div></div>
+      <div class="line"><div class="line-v">D — doro, doro, D!</div><div class="line-p">D — DO-ro, DO-ro, D!</div><div class="line-e">clean d — "doro" means go</div></div>
+      <div class="line"><div class="line-v">Z — zari, zari, Z!</div><div class="line-p">Z — ZA-ri, ZA-ri, Z!</div><div class="line-e">buzzing z — "zari" means know</div></div>
+      <div class="line"><div class="line-v">R — rena, rena, R!</div><div class="line-p">R — RE-na, RE-na, R!</div><div class="line-e">light roll — "rena" means friend</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-alphabet">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Laret Vaelic — kala!</div><div class="line-p">LA-ret VAY-lik — KA-la!</div><div class="line-e">The Vaelic language — beautiful!</div></div>
+      <div class="line"><div class="line-v">Teri mina neral.</div><div class="line-p">TE-ri MI-na NE-ral.</div><div class="line-e">I learn the foundation.</div></div>
+      <div class="line"><div class="line-v">Kirat — kirat — kirat!</div><div class="line-p">KI-rat — KI-rat — KI-rat!</div><div class="line-e">Clear — clear — clear!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — Soft Consonants (N M L)</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">N — nara, nara, N!</div><div class="line-p">N — NA-ra, NA-ra, N!</div><div class="line-e">nasal n — "nara" means person</div></div>
+      <div class="line"><div class="line-v">M — mina, mina, M!</div><div class="line-p">M — MI-na, MI-na, M!</div><div class="line-e">nasal m — "mina" means I / me</div></div>
+      <div class="line"><div class="line-v">L — lori, lori, L!</div><div class="line-p">L — LO-ri, LO-ri, L!</div><div class="line-e">clear l — "lori" means child</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 4 — Hard/Flow Consonants (V P B S G)</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">V — varo, varo, V!</div><div class="line-p">V — VA-ro, VA-ro, V!</div><div class="line-e">strong v — "varo" means citizen</div></div>
+      <div class="line"><div class="line-v">P — pavi, pavi, P!</div><div class="line-p">P — PA-vi, PA-vi, P!</div><div class="line-e">sharp p — "pavi" means use/operate</div></div>
+      <div class="line"><div class="line-v">B — birek, birek, B!</div><div class="line-p">B — BI-rek, BI-rek, B!</div><div class="line-e">clean b — "birek" means build</div></div>
+      <div class="line"><div class="line-v">S — savi, savi, S!</div><div class="line-p">S — SA-vi, SA-vi, S!</div><div class="line-e">sharp s — "savi" means understand</div></div>
+      <div class="line"><div class="line-v">G — g is hard only!</div><div class="line-p">G — always hard, never soft</div><div class="line-e">like "go," never like "gem"</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-alphabet">
+    <div class="verse-label">Final Chorus — All Together</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">A E I O U —</div><div class="line-p">AH EH EE OH OO —</div><div class="line-e">the five vowels</div></div>
+      <div class="line"><div class="line-v">K T D Z R N M L V P B S G!</div><div class="line-p">K T D Z R N M L V P B S G!</div><div class="line-e">thirteen consonants</div></div>
+      <div class="line"><div class="line-v">Onek seno — mina teri Vaelic!</div><div class="line-p">O-nek SE-no — MI-na TE-ri VAY-lik!</div><div class="line-e">One day — I will learn Vaelic!</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Every letter is always pronounced the same way — what you see is what you say ♩</div>
+</div>
+
+<div class="song" id="song02">
+  <div class="song-hd">
+    <div class="song-num">02</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-numbers">Numbers</div>
+      <div class="song-title">Teri Nekval — Count With Me</div>
+      <div class="song-subtitle">Numbers 0 through 10, then bigger</div>
+      <div class="song-meta">
+        <span class="song-tag">Numbers 0–10 + 20, 100</span>
+        <span class="song-tag">Tune: Rhythmic counting beat</span>
+        <span class="song-tag">Level: Beginner</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> Each number line is one strong beat. Clap on the number, then say the meaning. The chorus is call-and-response — leader sings the question, everyone sings the answer. Stamp your foot on every -nek ending.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Zero to Five</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Nonekval — nothing at all!</div><div class="line-p">NO-nek-val — nothing at all!</div><div class="line-e">Zero — nothing at all!</div></div>
+      <div class="line"><div class="line-v">Onek — onek — one!</div><div class="line-p">O-nek — O-nek — one!</div><div class="line-e">One — one — one!</div></div>
+      <div class="line"><div class="line-v">Donek — donek — two!</div><div class="line-p">DO-nek — DO-nek — two!</div><div class="line-e">Two — two — two!</div></div>
+      <div class="line"><div class="line-v">Trenek — trenek — three!</div><div class="line-p">TRE-nek — TRE-nek — three!</div><div class="line-e">Three — three — three!</div></div>
+      <div class="line"><div class="line-v">Kanek — kanek — four!</div><div class="line-p">KA-nek — KA-nek — four!</div><div class="line-e">Four — four — four!</div></div>
+      <div class="line"><div class="line-v">Senek — senek — five!</div><div class="line-p">SE-nek — SE-nek — five!</div><div class="line-e">Five — five — five!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-numbers">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Nektera? — Ke nektera?</div><div class="line-p">nek-TE-ra? — KE nek-TE-ra?</div><div class="line-e">How many? — How many?</div></div>
+      <div class="line"><div class="line-v">Teri mina teri ven —</div><div class="line-p">TE-ri MI-na TE-ri VEN —</div><div class="line-e">I teach, you learn —</div></div>
+      <div class="line"><div class="line-v">Nekval ka deknek!</div><div class="line-p">NEK-val KA DEK-nek!</div><div class="line-e">From zero to ten!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Six to Ten</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Venek — venek — six!</div><div class="line-p">VE-nek — VE-nek — six!</div><div class="line-e">Six — six — six!</div></div>
+      <div class="line"><div class="line-v">Lovnek — lovnek — seven!</div><div class="line-p">LOV-nek — LOV-nek — seven!</div><div class="line-e">Seven — seven — seven!</div></div>
+      <div class="line"><div class="line-v">Bornek — bornek — eight!</div><div class="line-p">BOR-nek — BOR-nek — eight!</div><div class="line-e">Eight — eight — eight!</div></div>
+      <div class="line"><div class="line-v">Nevnek — nevnek — nine!</div><div class="line-p">NEV-nek — NEV-nek — nine!</div><div class="line-e">Nine — nine — nine!</div></div>
+      <div class="line"><div class="line-v">Deknek! Deknek! TEN!</div><div class="line-p">DEK-nek! DEK-nek! TEN!</div><div class="line-e">Ten! Ten! Ten!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — Bigger Numbers</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Donekdeknek — twenty varo!</div><div class="line-p">do-nek-DEK-nek — twenty VA-ro!</div><div class="line-e">Twenty — twenty citizens!</div></div>
+      <div class="line"><div class="line-v">Onekborneknod — one hundred!</div><div class="line-p">o-nek-BOR-nek-NOD — one hundred!</div><div class="line-e">One hundred — a hundred!</div></div>
+      <div class="line"><div class="line-v">Nektora nara lo nod!</div><div class="line-p">nek-TO-ra NA-ra LO NOD!</div><div class="line-e">Many people in the city!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-numbers">
+    <div class="verse-label">Final Chorus — Count Fast!</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Onek, donek, trenek, kanek!</div><div class="line-p">O-nek, DO-nek, TRE-nek, KA-nek!</div><div class="line-e">One, two, three, four!</div></div>
+      <div class="line"><div class="line-v">Senek, venek, lovnek, bornek!</div><div class="line-p">SE-nek, VE-nek, LOV-nek, BOR-nek!</div><div class="line-e">Five, six, seven, eight!</div></div>
+      <div class="line"><div class="line-v">Nevnek, deknek — mina zari!</div><div class="line-p">NEV-nek, DEK-nek — MI-na ZA-ri!</div><div class="line-e">Nine, ten — I know it!</div></div>
+    </div>
+  </div>
+
+  <div class="vocab-box">
+    <div class="vocab-title">Numbers Vocabulary</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vi-v">Nonekval</div><div class="vi-p">NO-nek-val</div><div class="vi-e">zero (0)</div></div>
+      <div class="vocab-item"><div class="vi-v">Onek</div><div class="vi-p">O-nek</div><div class="vi-e">one (1)</div></div>
+      <div class="vocab-item"><div class="vi-v">Donek</div><div class="vi-p">DO-nek</div><div class="vi-e">two (2)</div></div>
+      <div class="vocab-item"><div class="vi-v">Trenek</div><div class="vi-p">TRE-nek</div><div class="vi-e">three (3)</div></div>
+      <div class="vocab-item"><div class="vi-v">Kanek</div><div class="vi-p">KA-nek</div><div class="vi-e">four (4)</div></div>
+      <div class="vocab-item"><div class="vi-v">Senek</div><div class="vi-p">SE-nek</div><div class="vi-e">five (5)</div></div>
+      <div class="vocab-item"><div class="vi-v">Venek</div><div class="vi-p">VE-nek</div><div class="vi-e">six (6)</div></div>
+      <div class="vocab-item"><div class="vi-v">Lovnek</div><div class="vi-p">LOV-nek</div><div class="vi-e">seven (7)</div></div>
+      <div class="vocab-item"><div class="vi-v">Bornek</div><div class="vi-p">BOR-nek</div><div class="vi-e">eight (8)</div></div>
+      <div class="vocab-item"><div class="vi-v">Nevnek</div><div class="vi-p">NEV-nek</div><div class="vi-e">nine (9)</div></div>
+      <div class="vocab-item"><div class="vi-v">Deknek</div><div class="vi-p">DEK-nek</div><div class="vi-e">ten (10)</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Every number ends in -nek — once you hear it, you'll never forget it ♩</div>
+</div>
+
+<div class="song" id="song03">
+  <div class="song-hd">
+    <div class="song-num">03</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-colors">Colors</div>
+      <div class="song-title">Neral Senokal — The Colour Song</div>
+      <div class="song-subtitle">Colors derived from nature's Vaelic roots</div>
+      <div class="song-meta">
+        <span class="song-tag">10 colors</span>
+        <span class="song-tag">Tune: Bright, one color per phrase</span>
+        <span class="song-tag">Level: Beginner</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> Each color comes from a Vaelic nature word — sing the color, then its root meaning. The pattern is: COLOR — "that means" — THE THING IT COMES FROM. Colors all end in -al or -alk, which marks them as descriptors.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Fire, Sky, Sun</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Torakal — torakal — red!</div><div class="line-p">to-RAK-al — to-RAK-al — red!</div><div class="line-e">Red — from Torak — fire!</div></div>
+      <div class="line"><div class="line-v">Torak nera — torakal seket!</div><div class="line-p">TO-rak NE-ra — to-RAK-al SE-ket!</div><div class="line-e">Fire exists — red district!</div></div>
+      <div class="line"><div class="line-v">Velokal — velokal — blue!</div><div class="line-p">ve-LOK-al — ve-LOK-al — blue!</div><div class="line-e">Blue — from Velon — sky!</div></div>
+      <div class="line"><div class="line-v">Velon nera — velokal valek!</div><div class="line-p">VE-lon NE-ra — ve-LOK-al VA-lek!</div><div class="line-e">Sky exists — blue water!</div></div>
+      <div class="line"><div class="line-v">Senokal — senokal — gold!</div><div class="line-p">se-NOK-al — se-NOK-al — gold!</div><div class="line-e">Gold/Yellow — from Senoval — light!</div></div>
+      <div class="line"><div class="line-v">Senoval nera — senokal mira!</div><div class="line-p">se-NO-val NE-ra — se-NOK-al MI-ra!</div><div class="line-e">Light exists — golden moment!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-colors">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kena senokal ven? — Kena torakal?</div><div class="line-p">KE-na se-NOK-al VEN? — KE-na to-RAK-al?</div><div class="line-e">What is your color? — What color?</div></div>
+      <div class="line"><div class="line-v">Narat Vaultria — senokal!</div><div class="line-p">NA-rat vaul-TRI-a — se-NOK-al!</div><div class="line-e">The soul of Vaultria — is golden!</div></div>
+      <div class="line"><div class="line-v">Kirat navol — senokal!</div><div class="line-p">KI-rat NA-vol — se-NOK-al!</div><div class="line-e">Truth is permanent — golden!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Forest, Earth, Night, Light</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Lorunal — lorunal — green!</div><div class="line-p">lo-RUN-al — lo-RUN-al — green!</div><div class="line-e">Green — from Lorunak — forest!</div></div>
+      <div class="line"><div class="line-v">Lorunak nera — lorunal meto!</div><div class="line-p">lo-RU-nak NE-ra — lo-RUN-al ME-to!</div><div class="line-e">Forest exists — green home!</div></div>
+      <div class="line"><div class="line-v">Deronkal — deronkal — brown!</div><div class="line-p">de-RON-kal — de-RON-kal — brown!</div><div class="line-e">Brown — from Deronak — earth!</div></div>
+      <div class="line"><div class="line-v">Deronak nera — deronkal taro!</div><div class="line-p">de-RO-nak NE-ra — de-RON-kal TA-ro!</div><div class="line-e">Earth exists — brown path!</div></div>
+      <div class="line"><div class="line-v">Lunokval — lunokval — black!</div><div class="line-p">lu-NOK-val — lu-NOK-val — black!</div><div class="line-e">Black — from Lunok — night!</div></div>
+      <div class="line"><div class="line-v">Senovalk — senovalk — white!</div><div class="line-p">se-NOV-alk — se-NOV-alk — white!</div><div class="line-e">White — from Senoval — bright light!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — Water, Deep Fire, Blood-red</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Valeksal — valeksal — grey!</div><div class="line-p">va-LEK-sal — va-LEK-sal — grey!</div><div class="line-e">Grey — from Valek — water!</div></div>
+      <div class="line"><div class="line-v">Torakvel — torakvel — orange!</div><div class="line-p">to-RAK-vel — to-RAK-vel — orange!</div><div class="line-e">Orange — Torak + vel — greater fire!</div></div>
+      <div class="line"><div class="line-v">Biranal — biranal — crimson!</div><div class="line-p">bi-RAN-al — bi-RAN-al — crimson!</div><div class="line-e">Crimson — from Biratnel — blood!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-colors">
+    <div class="verse-label">Final Chorus — All Colors</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Torakal, velokal, senokal!</div><div class="line-p">to-RAK-al, ve-LOK-al, se-NOK-al!</div><div class="line-e">Red, blue, gold!</div></div>
+      <div class="line"><div class="line-v">Lorunal, deronkal, lunokval!</div><div class="line-p">lo-RUN-al, de-RON-kal, lu-NOK-val!</div><div class="line-e">Green, brown, black!</div></div>
+      <div class="line"><div class="line-v">Senovalk — senokal — Vaultria!</div><div class="line-p">se-NOV-alk — se-NOK-al — vaul-TRI-a!</div><div class="line-e">White — gold — Vaultria!</div></div>
+    </div>
+  </div>
+
+  <div class="vocab-box">
+    <div class="vocab-title">Colors & Their Roots</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vi-v">Torakal</div><div class="vi-p">to-RAK-al</div><div class="vi-e">red (from fire)</div></div>
+      <div class="vocab-item"><div class="vi-v">Velokal</div><div class="vi-p">ve-LOK-al</div><div class="vi-e">blue (from sky)</div></div>
+      <div class="vocab-item"><div class="vi-v">Senokal</div><div class="vi-p">se-NOK-al</div><div class="vi-e">gold/yellow (from light)</div></div>
+      <div class="vocab-item"><div class="vi-v">Lorunal</div><div class="vi-p">lo-RUN-al</div><div class="vi-e">green (from forest)</div></div>
+      <div class="vocab-item"><div class="vi-v">Deronkal</div><div class="vi-p">de-RON-kal</div><div class="vi-e">brown (from earth)</div></div>
+      <div class="vocab-item"><div class="vi-v">Lunokval</div><div class="vi-p">lu-NOK-val</div><div class="vi-e">black (from night)</div></div>
+      <div class="vocab-item"><div class="vi-v">Senovalk</div><div class="vi-p">se-NOV-alk</div><div class="vi-e">white (from bright light)</div></div>
+      <div class="vocab-item"><div class="vi-v">Valeksal</div><div class="vi-p">va-LEK-sal</div><div class="vi-e">grey (from water)</div></div>
+      <div class="vocab-item"><div class="vi-v">Torakvel</div><div class="vi-p">to-RAK-vel</div><div class="vi-e">orange (greater fire)</div></div>
+      <div class="vocab-item"><div class="vi-v">Biranal</div><div class="vi-p">bi-RAN-al</div><div class="vi-e">crimson (from blood)</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Every color ends in -al or -alk — color words are always descriptors ♩</div>
+</div>
+
+<div class="song" id="song04">
+  <div class="song-hd">
+    <div class="song-num">04</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-greetings">Greetings</div>
+      <div class="song-title">Kavi Nera — Hello Right Now</div>
+      <div class="song-subtitle">Greetings, farewells & everyday phrases</div>
+      <div class="song-meta">
+        <span class="song-tag">Greetings & Farewells</span>
+        <span class="song-tag">Tune: Warm, conversational rhythm</span>
+        <span class="song-tag">Level: Beginner</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> This song is call-and-response. The first line is the greeting; the second line is the reply. Sing with a partner if possible — one sings the call, one sings the response. The chorus is sung together.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Meeting Someone</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kala nera, nara!</div><div class="line-p">KA-la NE-ra, NA-ra!</div><div class="line-e">Good now, person! (Hello!)</div></div>
+      <div class="line"><div class="line-v">Kala nera, rena!</div><div class="line-p">KA-la NE-ra, RE-na!</div><div class="line-e">Good now, friend! (Hello to you too!)</div></div>
+      <div class="line"><div class="line-v">Ke kala ven nera?</div><div class="line-p">KE KA-la VEN NE-ra?</div><div class="line-e">Are you well right now?</div></div>
+      <div class="line"><div class="line-v">Kala mina — kala morat!</div><div class="line-p">KA-la MI-na — KA-la MO-rat!</div><div class="line-e">I am well — very well!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-greetings">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kala nera — kala navol!</div><div class="line-p">KA-la NE-ra — KA-la NA-vol!</div><div class="line-e">Good now — good always!</div></div>
+      <div class="line"><div class="line-v">Mina varo, ven varo!</div><div class="line-p">MI-na VA-ro, VEN VA-ro!</div><div class="line-e">I am a citizen, you are a citizen!</div></div>
+      <div class="line"><div class="line-v">Sena — sena — kala sena!</div><div class="line-p">SE-na — SE-na — KA-la SE-na!</div><div class="line-e">We — we — good we!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Morning & Night</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kala senomira, varo!</div><div class="line-p">KA-la se-no-MI-ra, VA-ro!</div><div class="line-e">Good dawn, citizen! (Good morning!)</div></div>
+      <div class="line"><div class="line-v">Senomira kala — mina selora!</div><div class="line-p">se-no-MI-ra KA-la — MI-na se-LO-ra!</div><div class="line-e">Good morning — I have arrived!</div></div>
+      <div class="line"><div class="line-v">Kala lunomira, rena!</div><div class="line-p">KA-la lu-no-MI-ra, RE-na!</div><div class="line-e">Good dusk, friend! (Good evening!)</div></div>
+      <div class="line"><div class="line-v">Lunomira kala — teri seno!</div><div class="line-p">lu-no-MI-ra KA-la — TE-ri SE-no!</div><div class="line-e">Good evening — good day of learning!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — Thank You & Goodbye</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kalanek, rena — kalanek!</div><div class="line-p">ka-LA-nek, RE-na — ka-LA-nek!</div><div class="line-e">Thank you, friend — thank you!</div></div>
+      <div class="line"><div class="line-v">Kalanek na moravel!</div><div class="line-p">ka-LA-nek NA mo-RA-vel!</div><div class="line-e">Gratitude and love!</div></div>
+      <div class="line"><div class="line-v">Doro kala, nara mina.</div><div class="line-p">DO-ro KA-la, NA-ra MI-na.</div><div class="line-e">Go well, my person. (Goodbye.)</div></div>
+      <div class="line"><div class="line-v">Dorokat kala — navol.</div><div class="line-p">do-ro-KAT KA-la — NA-vol.</div><div class="line-e">Return well — always.</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-greetings">
+    <div class="verse-label">Final Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kavi mina ka ven — kavi!</div><div class="line-p">KA-vi MI-na KA VEN — KA-vi!</div><div class="line-e">I speak to you — speak!</div></div>
+      <div class="line"><div class="line-v">Lavi ven ka mina — lavi!</div><div class="line-p">LA-vi VEN KA MI-na — LA-vi!</div><div class="line-e">You listen to me — listen!</div></div>
+      <div class="line"><div class="line-v">Sena — kala navol!</div><div class="line-p">SE-na — KA-la NA-vol!</div><div class="line-e">We — are good always!</div></div>
+    </div>
+  </div>
+
+  <div class="vocab-box">
+    <div class="vocab-title">Key Greetings Phrases</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vi-v">Kala nera</div><div class="vi-p">KA-la NE-ra</div><div class="vi-e">Hello (good now)</div></div>
+      <div class="vocab-item"><div class="vi-v">Ke kala ven?</div><div class="vi-p">KE KA-la VEN?</div><div class="vi-e">Are you well?</div></div>
+      <div class="vocab-item"><div class="vi-v">Kala mina</div><div class="vi-p">KA-la MI-na</div><div class="vi-e">I am well</div></div>
+      <div class="vocab-item"><div class="vi-v">Kalanek</div><div class="vi-p">ka-LA-nek</div><div class="vi-e">Thank you (gratitude)</div></div>
+      <div class="vocab-item"><div class="vi-v">Doro kala</div><div class="vi-p">DO-ro KA-la</div><div class="vi-e">Goodbye (go well)</div></div>
+      <div class="vocab-item"><div class="vi-v">Dorokat kala</div><div class="vi-p">do-ro-KAT KA-la</div><div class="vi-e">Come back well</div></div>
+      <div class="vocab-item"><div class="vi-v">Kala senomira</div><div class="vi-p">KA-la se-no-MI-ra</div><div class="vi-e">Good morning</div></div>
+      <div class="vocab-item"><div class="vi-v">Kala lunomira</div><div class="vi-p">KA-la lu-no-MI-ra</div><div class="vi-e">Good evening</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ "Kala nera" — good now — is the universal Vaultrian greeting ♩</div>
+</div>
+
+<div class="song" id="song05">
+  <div class="song-hd">
+    <div class="song-num">05</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-body">Body</div>
+      <div class="song-title">Narat Mina — My Body</div>
+      <div class="song-subtitle">Parts of the body — touch and sing</div>
+      <div class="song-meta">
+        <span class="song-tag">Body parts</span>
+        <span class="song-tag">Tune: Touch each part as you sing it</span>
+        <span class="song-tag">Level: Beginner</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> Touch the body part as you sing each line. This is a movement song — it works for children and adults. The chorus is call-and-response: "Kena?" (What is it?) → sing the word back. Slow the tempo down so hands can follow.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Head, Ears, Eyes</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kavet — kavet — my head!</div><div class="line-p">KA-vet — KA-vet — my head!</div><div class="line-e">Kavet — touch your head!</div></div>
+      <div class="line"><div class="line-v">Kavet mina — onek kavet!</div><div class="line-p">KA-vet MI-na — O-nek KA-vet!</div><div class="line-e">My head — one head!</div></div>
+      <div class="line"><div class="line-v">Lavet — lavet — my ears!</div><div class="line-p">LA-vet — LA-vet — my ears!</div><div class="line-e">Lavet — touch your ears!</div></div>
+      <div class="line"><div class="line-v">Lavet mina — donek lavet!</div><div class="line-p">LA-vet MI-na — DO-nek LA-vet!</div><div class="line-e">My ears — two ears!</div></div>
+      <div class="line"><div class="line-v">Rivatek — rivatek — my eyes!</div><div class="line-p">ri-VA-tek — ri-VA-tek — my eyes!</div><div class="line-e">Rivatek — touch your eyes!</div></div>
+      <div class="line"><div class="line-v">Rivatek mina — donek rivatek!</div><div class="line-p">ri-VA-tek MI-na — DO-nek ri-VA-tek!</div><div class="line-e">My eyes — two eyes!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-body">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Narat mina — kala narat!</div><div class="line-p">NA-rat MI-na — KA-la NA-rat!</div><div class="line-e">My body — good body!</div></div>
+      <div class="line"><div class="line-v">Riva — lavi — kavi — nemi!</div><div class="line-p">RI-va — LA-vi — KA-vi — NE-mi!</div><div class="line-e">See — hear — speak — think!</div></div>
+      <div class="line"><div class="line-v">Narat mina nera kala!</div><div class="line-p">NA-rat MI-na NE-ra KA-la!</div><div class="line-e">My body is good right now!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Mouth, Hands, Feet</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kavitono — kavitono — mouth!</div><div class="line-p">ka-vi-TO-no — ka-vi-TO-no — mouth!</div><div class="line-e">Kavitono — touch your mouth!</div></div>
+      <div class="line"><div class="line-v">Kavitono mina — kavi kavi!</div><div class="line-p">ka-vi-TO-no MI-na — KA-vi KA-vi!</div><div class="line-e">My mouth — speak speak!</div></div>
+      <div class="line"><div class="line-v">Tonel — tonel — my hands!</div><div class="line-p">TO-nel — TO-nel — my hands!</div><div class="line-e">Tonel — hold out your hands!</div></div>
+      <div class="line"><div class="line-v">Tonel mina — donek tonel!</div><div class="line-p">TO-nel MI-na — DO-nek TO-nel!</div><div class="line-e">My hands — two hands!</div></div>
+      <div class="line"><div class="line-v">Varnak — varnak — my feet!</div><div class="line-p">VAR-nak — VAR-nak — my feet!</div><div class="line-e">Varnak — stamp your feet!</div></div>
+      <div class="line"><div class="line-v">Varnak mina — donek varnak!</div><div class="line-p">VAR-nak MI-na — DO-nek VAR-nak!</div><div class="line-e">My feet — two feet!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — Heart, Blood, Breath</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Moratek — moratek — heart!</div><div class="line-p">mo-RA-tek — mo-RA-tek — heart!</div><div class="line-e">Moratek — hand on your heart!</div></div>
+      <div class="line"><div class="line-v">Moratek mina — moravel nera!</div><div class="line-p">mo-RA-tek MI-na — mo-RA-vel NE-ra!</div><div class="line-e">My heart — love right now!</div></div>
+      <div class="line"><div class="line-v">Navokel — navokel — breath!</div><div class="line-p">na-VOK-el — na-VOK-el — breath!</div><div class="line-e">Navokel — breathe in, breathe out!</div></div>
+      <div class="line"><div class="line-v">Navokel mina — kala nerat!</div><div class="line-p">na-VOK-el MI-na — KA-la NE-rat!</div><div class="line-e">My breath — feels good!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-body">
+    <div class="verse-label">Final Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kavet, lavet, rivatek!</div><div class="line-p">KA-vet, LA-vet, ri-VA-tek!</div><div class="line-e">Head, ears, eyes!</div></div>
+      <div class="line"><div class="line-v">Kavitono, tonel, varnak!</div><div class="line-p">ka-vi-TO-no, TO-nel, VAR-nak!</div><div class="line-e">Mouth, hands, feet!</div></div>
+      <div class="line"><div class="line-v">Moratek na navokel — narat!</div><div class="line-p">mo-RA-tek NA na-VOK-el — NA-rat!</div><div class="line-e">Heart and breath — body!</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Touch each body part as you sing — muscle memory builds vocabulary faster ♩</div>
+</div>
+
+<div class="song" id="song06">
+  <div class="song-hd">
+    <div class="song-num">06</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-time">Time</div>
+      <div class="song-title">Tera Seno — The Day Song</div>
+      <div class="song-subtitle">Time words, days, and the flow of the day</div>
+      <div class="song-meta">
+        <span class="song-tag">Time & Days</span>
+        <span class="song-tag">Tune: Slow flowing rhythm, like time moving</span>
+        <span class="song-tag">Level: Intermediate</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> This song flows forward like time — each verse moves through part of the day. The tense prefixes (Da- = past, Va- = future) are introduced in the bridge. Sing slowly and let each time word settle before moving to the next.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — The Shape of a Day</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Senomira — the day begins!</div><div class="line-p">se-no-MI-ra — the day begins!</div><div class="line-e">Dawn — the day begins!</div></div>
+      <div class="line"><div class="line-v">Miraseno — the sun is high!</div><div class="line-p">mi-ra-SE-no — the sun is high!</div><div class="line-e">Noon — the sun is high!</div></div>
+      <div class="line"><div class="line-v">Seno — seno — one full day!</div><div class="line-p">SE-no — SE-no — one full day!</div><div class="line-e">Day — day — one full day!</div></div>
+      <div class="line"><div class="line-v">Lunomira — the day goes now!</div><div class="line-p">lu-no-MI-ra — the day goes now!</div><div class="line-e">Dusk — the day goes now!</div></div>
+      <div class="line"><div class="line-v">Lunok — lunok — the night comes!</div><div class="line-p">LU-nok — LU-nok — the night comes!</div><div class="line-e">Night — night — the night comes!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-time">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Nera — dava — varun!</div><div class="line-p">NE-ra — DA-va — VA-run!</div><div class="line-e">Now — past — future!</div></div>
+      <div class="line"><div class="line-v">Tera doro — navol doro!</div><div class="line-p">TE-ra DO-ro — NA-vol DO-ro!</div><div class="line-e">Time goes — always goes!</div></div>
+      <div class="line"><div class="line-v">Kiratvel navol — tera navol!</div><div class="line-p">ki-rat-VEL NA-vol — TE-ra NA-vol!</div><div class="line-e">Truth is permanent — time is permanent!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Now, Soon, Later</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Nera — right now, this moment!</div><div class="line-p">NE-ra — right now, this moment!</div><div class="line-e">Now — right now!</div></div>
+      <div class="line"><div class="line-v">Mira — mira — just a moment!</div><div class="line-p">MI-ra — MI-ra — just a moment!</div><div class="line-e">Moment — just a moment!</div></div>
+      <div class="line"><div class="line-v">Kenu — kenu — coming soon!</div><div class="line-p">KE-nu — KE-nu — coming soon!</div><div class="line-e">Soon — coming soon!</div></div>
+      <div class="line"><div class="line-v">Leru — leru — a little later!</div><div class="line-p">LE-ru — LE-ru — a little later!</div><div class="line-e">Later — a little later!</div></div>
+      <div class="line"><div class="line-v">Navol — navol — always, always!</div><div class="line-p">NA-vol — NA-vol — always, always!</div><div class="line-e">Always — always, always!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Bridge — Tense Prefixes (key grammar!)</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Da-doro mina — I already went!</div><div class="line-p">DA-do-ro MI-na — I already went!</div><div class="line-e">Da- = PAST — I went!</div></div>
+      <div class="line"><div class="line-v">Doro mina — I go right now!</div><div class="line-p">DO-ro MI-na — I go right now!</div><div class="line-e">(no prefix) = PRESENT — I go!</div></div>
+      <div class="line"><div class="line-v">Va-doro mina — I will go soon!</div><div class="line-p">VA-do-ro MI-na — I will go soon!</div><div class="line-e">Va- = FUTURE — I will go!</div></div>
+      <div class="line"><div class="line-v">Ta-doro mina — I have arrived!</div><div class="line-p">TA-do-ro MI-na — I have arrived!</div><div class="line-e">Ta- = COMPLETED — done!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-time">
+    <div class="verse-label">Final Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Davaseno — yesterday is gone!</div><div class="line-p">da-va-SE-no — yesterday is gone!</div><div class="line-e">Yesterday — yesterday is gone!</div></div>
+      <div class="line"><div class="line-v">Nera — nera — today is here!</div><div class="line-p">NE-ra — NE-ra — today is here!</div><div class="line-e">Now — now — today is here!</div></div>
+      <div class="line"><div class="line-v">Varunseno — tomorrow comes!</div><div class="line-p">va-run-SE-no — tomorrow comes!</div><div class="line-e">Tomorrow — tomorrow comes!</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Da- past · (none) present · Va- future · Ta- completed — four prefixes, all time ♩</div>
+</div>
+
+<div class="song" id="song07">
+  <div class="song-hd">
+    <div class="song-num">07</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-feelings">Emotions</div>
+      <div class="song-title">Ke Kala Ven? — How Do You Feel?</div>
+      <div class="song-subtitle">Emotions, feelings, and inner states</div>
+      <div class="song-meta">
+        <span class="song-tag">Emotions</span>
+        <span class="song-tag">Tune: Expressive, change tone with each emotion</span>
+        <span class="song-tag">Level: Intermediate</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> Change your voice for each emotion — bright for happiness, low for fear, warm for love. This song teaches the emotion AND the pattern "Mina [emotion] nera" (I feel [emotion] right now). That pattern works for every emotion in Vaelic.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Joy, Fear, Love</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kalemi — kalemi — joy!</div><div class="line-p">ka-LE-mi — ka-LE-mi — joy!</div><div class="line-e">Happiness — joy!</div></div>
+      <div class="line"><div class="line-v">Mina kalemi nera — kala!</div><div class="line-p">MI-na ka-LE-mi NE-ra — KA-la!</div><div class="line-e">I feel happy right now — good!</div></div>
+      <div class="line"><div class="line-v">Dralun — dralun — fear!</div><div class="line-p">DRA-lun — DRA-lun — fear!</div><div class="line-e">Fear — fear!</div></div>
+      <div class="line"><div class="line-v">Mina dralun — kat dralun!</div><div class="line-p">MI-na DRA-lun — KAT DRA-lun!</div><div class="line-e">I feel fear — stop fear!</div></div>
+      <div class="line"><div class="line-v">Moravel — moravel — love!</div><div class="line-p">mo-RA-vel — mo-RA-vel — love!</div><div class="line-e">Love — love!</div></div>
+      <div class="line"><div class="line-v">Mina moravel nera — navol!</div><div class="line-p">MI-na mo-RA-vel NE-ra — NA-vol!</div><div class="line-e">I feel love right now — always!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-feelings">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Ke kala ven? — Ke kala ven?</div><div class="line-p">KE KA-la VEN? — KE KA-la VEN?</div><div class="line-e">How are you? — How are you?</div></div>
+      <div class="line"><div class="line-v">Kavi mina ka ven — kavi nera!</div><div class="line-p">KA-vi MI-na KA VEN — KA-vi NE-ra!</div><div class="line-e">I speak to you — speak right now!</div></div>
+      <div class="line"><div class="line-v">Mina [kalemi/dralun/moravel] nera!</div><div class="line-p">MI-na [ka-LE-mi/DRA-lun/mo-RA-vel] NE-ra!</div><div class="line-e">I feel [joy/fear/love] right now!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Calm, Hope, Anger</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Serinal — serinal — calm!</div><div class="line-p">se-RI-nal — se-RI-nal — calm!</div><div class="line-e">Calm — peace!</div></div>
+      <div class="line"><div class="line-v">Mina serinal — sena serinal!</div><div class="line-p">MI-na se-RI-nal — SE-na se-RI-nal!</div><div class="line-e">I am calm — we are calm!</div></div>
+      <div class="line"><div class="line-v">Narivel — narivel — hope!</div><div class="line-p">na-RI-vel — na-RI-vel — hope!</div><div class="line-e">Hope — hope!</div></div>
+      <div class="line"><div class="line-v">Mina narivel varun — kala!</div><div class="line-p">MI-na na-RI-vel VA-run — KA-la!</div><div class="line-e">I feel hope for the future — good!</div></div>
+      <div class="line"><div class="line-v">Tekalon — tekalon — anger!</div><div class="line-p">te-KA-lon — te-KA-lon — anger!</div><div class="line-e">Anger — anger!</div></div>
+      <div class="line"><div class="line-v">Kat tekalon — serinal nera!</div><div class="line-p">KAT te-KA-lon — se-RI-nal NE-ra!</div><div class="line-e">Stop the anger — be calm now!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — Gratitude, Wonder, Longing</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kalanek — kalanek — gratitude!</div><div class="line-p">ka-LA-nek — ka-LA-nek — gratitude!</div><div class="line-e">Gratitude — thankfulness!</div></div>
+      <div class="line"><div class="line-v">Narivek — narivek — wonder!</div><div class="line-p">na-RI-vek — na-RI-vek — wonder!</div><div class="line-e">Wonder — awe!</div></div>
+      <div class="line"><div class="line-v">Lavimor — lavimor — longing!</div><div class="line-p">la-vi-MOR — la-vi-MOR — longing!</div><div class="line-e">Longing — missing something!</div></div>
+      <div class="line"><div class="line-v">Mina moravel — mina kalanek!</div><div class="line-p">MI-na mo-RA-vel — MI-na ka-LA-nek!</div><div class="line-e">I feel love — I feel gratitude!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-feelings">
+    <div class="verse-label">Final Chorus — All Together</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Kalemi, serinal, moravel!</div><div class="line-p">ka-LE-mi, se-RI-nal, mo-RA-vel!</div><div class="line-e">Joy, peace, love!</div></div>
+      <div class="line"><div class="line-v">Narivel — kalanek — narivek!</div><div class="line-p">na-RI-vel — ka-LA-nek — na-RI-vek!</div><div class="line-e">Hope — gratitude — wonder!</div></div>
+      <div class="line"><div class="line-v">Mina nemi — mina riva — mina kavi!</div><div class="line-p">MI-na NE-mi — MI-na RI-va — MI-na KA-vi!</div><div class="line-e">I think — I see — I speak!</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Pattern: Mina [emotion] nera = I feel [emotion] right now — works for every feeling ♩</div>
+</div>
+
+<div class="song" id="song08">
+  <div class="song-hd">
+    <div class="song-num">08</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-places">Places</div>
+      <div class="song-title">Meto Mina — My World</div>
+      <div class="song-subtitle">Places, homes, and the city around you</div>
+      <div class="song-meta">
+        <span class="song-tag">Places & Locations</span>
+        <span class="song-tag">Tune: Walking rhythm, steady beat</span>
+        <span class="song-tag">Level: Beginner–Intermediate</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> Walk the rhythm — one step per beat. Point in a direction when you sing a place word. The prepositions Lo (in/at), Ka (to/toward), De (from) are built into every verse — this song is how you learn to use them naturally.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Home, City, Path</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Meto — meto — home!</div><div class="line-p">ME-to — ME-to — home!</div><div class="line-e">Meto — home!</div></div>
+      <div class="line"><div class="line-v">Mina lo meto — kala nera!</div><div class="line-p">MI-na LO ME-to — KA-la NE-ra!</div><div class="line-e">I am at home — good right now!</div></div>
+      <div class="line"><div class="line-v">Nod — nod — the city!</div><div class="line-p">NOD — NOD — the city!</div><div class="line-e">Nod — the city!</div></div>
+      <div class="line"><div class="line-v">Doro mina ka nod — nera!</div><div class="line-p">DO-ro MI-na KA NOD — NE-ra!</div><div class="line-e">I go to the city — right now!</div></div>
+      <div class="line"><div class="line-v">Taro — taro — the path!</div><div class="line-p">TA-ro — TA-ro — the path!</div><div class="line-e">Taro — the path!</div></div>
+      <div class="line"><div class="line-v">Doro mina lo taro!</div><div class="line-p">DO-ro MI-na LO TA-ro!</div><div class="line-e">I walk on the path!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-places">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Lo zelek mina — kero mina?</div><div class="line-p">LO ZE-lek MI-na — KE-ro MI-na?</div><div class="line-e">At my place — where am I?</div></div>
+      <div class="line"><div class="line-v">Mina lo meto — mina lo nod!</div><div class="line-p">MI-na LO ME-to — MI-na LO NOD!</div><div class="line-e">I am at home — I am in the city!</div></div>
+      <div class="line"><div class="line-v">Kero ven? — Kero ven nera?</div><div class="line-p">KE-ro VEN? — KE-ro VEN NE-ra?</div><div class="line-e">Where are you? — Where are you now?</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — District, Building, Center</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Seket — seket — district!</div><div class="line-p">SE-ket — SE-ket — district!</div><div class="line-e">Seket — the district!</div></div>
+      <div class="line"><div class="line-v">Ralet — ralet — a building!</div><div class="line-p">RA-let — RA-let — a building!</div><div class="line-e">Ralet — a building!</div></div>
+      <div class="line"><div class="line-v">Dekat — dekat — the hub!</div><div class="line-p">DE-kat — DE-kat — the hub!</div><div class="line-e">Dekat — the center!</div></div>
+      <div class="line"><div class="line-v">Doro ka dekat lo nod!</div><div class="line-p">DO-ro KA DE-kat LO NOD!</div><div class="line-e">Go to the hub in the city!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — School, Market, Health</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Ravatlori — ravatlori — school!</div><div class="line-p">ra-vat-LO-ri — ra-vat-LO-ri — school!</div><div class="line-e">Ravatlori — school! (institution of children)</div></div>
+      <div class="line"><div class="line-v">Teri mina lo ravatlori!</div><div class="line-p">TE-ri MI-na LO ra-vat-LO-ri!</div><div class="line-e">I learn at school!</div></div>
+      <div class="line"><div class="line-v">Tekamorazel — the market!</div><div class="line-p">te-ka-mo-ra-ZEL — the market!</div><div class="line-e">Tekamorazel — the market!</div></div>
+      <div class="line"><div class="line-v">Doro mina ka tekamorazel!</div><div class="line-p">DO-ro MI-na KA te-ka-mo-ra-ZEL!</div><div class="line-e">I go to the market!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-places">
+    <div class="verse-label">Final Chorus — Prepositions</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Ka — toward — doro ka meto!</div><div class="line-p">KA — toward — DO-ro KA ME-to!</div><div class="line-e">Ka = to/toward — go toward home!</div></div>
+      <div class="line"><div class="line-v">Lo — at/in — mina lo nod!</div><div class="line-p">LO — at/in — MI-na LO NOD!</div><div class="line-e">Lo = in/at — I am in the city!</div></div>
+      <div class="line"><div class="line-v">De — from — selora de meto!</div><div class="line-p">DE — from — se-LO-ra DE ME-to!</div><div class="line-e">De = from — coming from home!</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Lo = in/at · Ka = to/toward · De = from — three prepositions you'll use every day ♩</div>
+</div>
+
+<div class="song" id="song09">
+  <div class="song-hd">
+    <div class="song-num">09</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-actions">Actions</div>
+      <div class="song-title">Varna Mina — The Action Song</div>
+      <div class="song-subtitle">Core verbs — do, go, speak, build, learn</div>
+      <div class="song-meta">
+        <span class="song-tag">Core Verbs</span>
+        <span class="song-tag">Tune: Active, energetic, match the action</span>
+        <span class="song-tag">Level: Intermediate</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> ACT OUT each verb as you sing it — stand up for Doro, cup your ear for Lavi, build with your hands for Birek. The Vaelic word order is VERB → SUBJECT → OBJECT. This song builds that instinct. The bridge teaches negation with No-.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Movement & Senses</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Doro! — Doro mina nera!</div><div class="line-p">DO-ro! — DO-ro MI-na NE-ra!</div><div class="line-e">Go! — I go right now!</div></div>
+      <div class="line"><div class="line-v">Selora! — Selora mina ka nod!</div><div class="line-p">se-LO-ra! — se-LO-ra MI-na KA NOD!</div><div class="line-e">Arrive! — I arrive at the city!</div></div>
+      <div class="line"><div class="line-v">Riva! — Riva mina ka ven!</div><div class="line-p">RI-va! — RI-va MI-na KA VEN!</div><div class="line-e">See! — I see you!</div></div>
+      <div class="line"><div class="line-v">Lavi! — Lavi mina ka ven!</div><div class="line-p">LA-vi! — LA-vi MI-na KA VEN!</div><div class="line-e">Listen! — I listen to you!</div></div>
+      <div class="line"><div class="line-v">Kavi! — Kavi mina ka ven!</div><div class="line-p">KA-vi! — KA-vi MI-na KA VEN!</div><div class="line-e">Speak! — I speak to you!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-actions">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Varna mina — varna mina!</div><div class="line-p">VAR-na MI-na — VAR-na MI-na!</div><div class="line-e">I move — I move!</div></div>
+      <div class="line"><div class="line-v">Riva, lavi, kavi — nemi!</div><div class="line-p">RI-va, LA-vi, KA-vi — NE-mi!</div><div class="line-e">See, hear, speak — think!</div></div>
+      <div class="line"><div class="line-v">Nara mina — birek nera!</div><div class="line-p">NA-ra MI-na — BI-rek NE-ra!</div><div class="line-e">I am a person — I build right now!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Mind & Learning</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Nemi! — Nemi mina nera!</div><div class="line-p">NE-mi! — NE-mi MI-na NE-ra!</div><div class="line-e">Think! — I think right now!</div></div>
+      <div class="line"><div class="line-v">Zari! — Zari mina Vaelic!</div><div class="line-p">ZA-ri! — ZA-ri MI-na VAY-lik!</div><div class="line-e">Know! — I know Vaelic!</div></div>
+      <div class="line"><div class="line-v">Teri! — Teri mina nera!</div><div class="line-p">TE-ri! — TE-ri MI-na NE-ra!</div><div class="line-e">Learn! — I learn right now!</div></div>
+      <div class="line"><div class="line-v">Savi! — Savi mina ka ven!</div><div class="line-p">SA-vi! — SA-vi MI-na KA VEN!</div><div class="line-e">Understand! — I understand you!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Bridge — Negation with No-</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">No-doro mina — I do not go!</div><div class="line-p">NO-do-ro MI-na — I do not go!</div><div class="line-e">No-doro = not go</div></div>
+      <div class="line"><div class="line-v">No-zari mina — I do not know!</div><div class="line-p">NO-za-ri MI-na — I do not know!</div><div class="line-e">No-zari = not know</div></div>
+      <div class="line"><div class="line-v">No-kavi mina — I do not speak!</div><div class="line-p">NO-ka-vi MI-na — I do not speak!</div><div class="line-e">No-kavi = not speak</div></div>
+      <div class="line"><div class="line-v">Teri mina — va-zari mina!</div><div class="line-p">TE-ri MI-na — VA-za-ri MI-na!</div><div class="line-e">I learn — I will know!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — Build & Give</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Birek! — Birek mina ralet!</div><div class="line-p">BI-rek! — BI-rek MI-na RA-let!</div><div class="line-e">Build! — I build a building!</div></div>
+      <div class="line"><div class="line-v">Mora! — Mora mina ka rena!</div><div class="line-p">MO-ra! — MO-ra MI-na KA RE-na!</div><div class="line-e">Give! — I give to my friend!</div></div>
+      <div class="line"><div class="line-v">Teka! — Teka mina zanek!</div><div class="line-p">TE-ka! — TE-ka MI-na ZA-nek!</div><div class="line-e">Take! — I take a resource!</div></div>
+      <div class="line"><div class="line-v">Birek sena — birek nod!</div><div class="line-p">BI-rek SE-na — BI-rek NOD!</div><div class="line-e">We build — we build a city!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-actions">
+    <div class="verse-label">Final Chorus — Word Order</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">VERB — then subject — then object!</div><div class="line-p">verb FIRST — then MI-na — then thing!</div><div class="line-e">Word order: Verb → I → Object</div></div>
+      <div class="line"><div class="line-v">Kavi mina ka ven — nera!</div><div class="line-p">KA-vi MI-na KA VEN — NE-ra!</div><div class="line-e">Speak I to you — now!</div></div>
+      <div class="line"><div class="line-v">Riva ven ka mina — navol!</div><div class="line-p">RI-va VEN KA MI-na — NA-vol!</div><div class="line-e">See you (at) me — always!</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Vaelic word order: VERB first, then who, then what — verb always leads ♩</div>
+</div>
+
+<div class="song" id="song10">
+  <div class="song-hd">
+    <div class="song-num">10</div>
+    <div class="song-hd-main">
+      <div class="song-cat cat-nature">Nature</div>
+      <div class="song-title">Velon, Deronak, Valek — Sky, Earth, Water</div>
+      <div class="song-subtitle">The natural world in Vaelic</div>
+      <div class="song-meta">
+        <span class="song-tag">Nature Words</span>
+        <span class="song-tag">Tune: Slow, elemental, breathe with it</span>
+        <span class="song-tag">Level: Intermediate</span>
+      </div>
+    </div>
+  </div>
+  <div class="tune"><strong>How to sing it:</strong> This song is meditative in pace — one phrase, one breath. Look at the sky for the first verse, feel the ground for the second, imagine water for the third. The chorus is the Vaultrian understanding that every natural word contains its own description.</div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 1 — Sky & Light</div>
+    <div class="lh"><div class="lh-c">Vaelic</div><div class="lh-c">Pronunciation</div><div class="lh-c">English</div></div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Velon — velon — the sky above!</div><div class="line-p">VE-lon — VE-lon — the sky above!</div><div class="line-e">Velon — sky!</div></div>
+      <div class="line"><div class="line-v">Senoval lo velon — kala!</div><div class="line-p">se-NO-val LO VE-lon — KA-la!</div><div class="line-e">Light in the sky — good!</div></div>
+      <div class="line"><div class="line-v">Senomira — the dawn comes!</div><div class="line-p">se-no-MI-ra — the dawn comes!</div><div class="line-e">Senomira — dawn!</div></div>
+      <div class="line"><div class="line-v">Velonek lo velon — lunomira!</div><div class="line-p">ve-LO-nek LO VE-lon — lu-no-MI-ra!</div><div class="line-e">Clouds in the sky — at dusk!</div></div>
+      <div class="line"><div class="line-v">Lunok selora — lunokval velon!</div><div class="line-p">LU-nok se-LO-ra — lu-NOK-val VE-lon!</div><div class="line-e">Night arrives — black sky!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-nature">
+    <div class="verse-label">Chorus</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Velon — deronak — valek!</div><div class="line-p">VE-lon — de-RO-nak — VA-lek!</div><div class="line-e">Sky — earth — water!</div></div>
+      <div class="line"><div class="line-v">Torak — seloval — lorunak!</div><div class="line-p">TO-rak — se-LO-val — lo-RU-nak!</div><div class="line-e">Fire — wind — forest!</div></div>
+      <div class="line"><div class="line-v">Sena lo zelek mina — nera!</div><div class="line-p">SE-na LO ZE-lek MI-na — NE-ra!</div><div class="line-e">We are in my place — right now!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2 — Earth & Forest</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Deronak — deronak — the ground!</div><div class="line-p">de-RO-nak — de-RO-nak — the ground!</div><div class="line-e">Deronak — earth/ground!</div></div>
+      <div class="line"><div class="line-v">Deronaklina — sand beneath!</div><div class="line-p">de-ro-nak-LI-na — sand beneath!</div><div class="line-e">Deronaklina — fine soil!</div></div>
+      <div class="line"><div class="line-v">Deronakmorat — the mountain!</div><div class="line-p">de-ro-nak-MO-rat — the mountain!</div><div class="line-e">Mountain — great earth!</div></div>
+      <div class="line"><div class="line-v">Lorunak — lorunak — forest!</div><div class="line-p">lo-RU-nak — lo-RU-nak — forest!</div><div class="line-e">Lorunak — forest!</div></div>
+      <div class="line"><div class="line-v">Lorunakmorat — ancient tree!</div><div class="line-p">lo-ru-nak-MO-rat — ancient tree!</div><div class="line-e">Lorunakmorat — great old tree!</div></div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3 — Water, Fire, Wind</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Valek — valek — water flows!</div><div class="line-p">VA-lek — VA-lek — water flows!</div><div class="line-e">Valek — water!</div></div>
+      <div class="line"><div class="line-v">Valekmorat — the river moves!</div><div class="line-p">va-lek-MO-rat — the river moves!</div><div class="line-e">Valekmorat — mighty river!</div></div>
+      <div class="line"><div class="line-v">Vareknel — vareknel — rain!</div><div class="line-p">va-rek-NEL — va-rek-NEL — rain!</div><div class="line-e">Vareknel — rain!</div></div>
+      <div class="line"><div class="line-v">Torak — torak — fire burns!</div><div class="line-p">TO-rak — TO-rak — fire burns!</div><div class="line-e">Torak — fire!</div></div>
+      <div class="line"><div class="line-v">Seloval — seloval — the wind!</div><div class="line-p">se-LO-val — se-LO-val — the wind!</div><div class="line-e">Seloval — wind/air!</div></div>
+      <div class="line"><div class="line-v">Selovaltorek — the great storm!</div><div class="line-p">se-lo-val-TO-rek — the great storm!</div><div class="line-e">Selovaltorek — storm!</div></div>
+    </div>
+  </div>
+
+  <div class="chorus cat-nature">
+    <div class="verse-label">Final Chorus — The Vaultrian Understanding</div>
+    <div class="lines">
+      <div class="line"><div class="line-v">Valek nera — torak nera!</div><div class="line-p">VA-lek NE-ra — TO-rak NE-ra!</div><div class="line-e">Water exists — fire exists!</div></div>
+      <div class="line"><div class="line-v">Deronak navol — velon navol!</div><div class="line-p">de-RO-nak NA-vol — VE-lon NA-vol!</div><div class="line-e">Earth is permanent — sky is permanent!</div></div>
+      <div class="line"><div class="line-v">Kiratvel navol — sena nera!</div><div class="line-p">ki-rat-VEL NA-vol — SE-na NE-ra!</div><div class="line-e">Truth is permanent — we are here now!</div></div>
+    </div>
+  </div>
+
+  <div class="vocab-box">
+    <div class="vocab-title">Core Nature Words</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vi-v">Velon</div><div class="vi-p">VE-lon</div><div class="vi-e">sky</div></div>
+      <div class="vocab-item"><div class="vi-v">Deronak</div><div class="vi-p">de-RO-nak</div><div class="vi-e">earth / ground</div></div>
+      <div class="vocab-item"><div class="vi-v">Valek</div><div class="vi-p">VA-lek</div><div class="vi-e">water</div></div>
+      <div class="vocab-item"><div class="vi-v">Torak</div><div class="vi-p">TO-rak</div><div class="vi-e">fire</div></div>
+      <div class="vocab-item"><div class="vi-v">Seloval</div><div class="vi-p">se-LO-val</div><div class="vi-e">wind / air</div></div>
+      <div class="vocab-item"><div class="vi-v">Lorunak</div><div class="vi-p">lo-RU-nak</div><div class="vi-e">forest</div></div>
+      <div class="vocab-item"><div class="vi-v">Senoval</div><div class="vi-p">se-NO-val</div><div class="vi-e">light / sunlight</div></div>
+      <div class="vocab-item"><div class="vi-v">Lunok</div><div class="vi-p">LU-nok</div><div class="vi-e">night / darkness</div></div>
+      <div class="vocab-item"><div class="vi-v">Vareknel</div><div class="vi-p">va-rek-NEL</div><div class="vi-e">rain</div></div>
+      <div class="vocab-item"><div class="vi-v">Valekmorat</div><div class="vi-p">va-lek-MO-rat</div><div class="vi-e">river (mighty water)</div></div>
+      <div class="vocab-item"><div class="vi-v">Deronakmorat</div><div class="vi-p">de-ro-nak-MO-rat</div><div class="vi-e">mountain (great earth)</div></div>
+      <div class="vocab-item"><div class="vi-v">Selovaltorek</div><div class="vi-p">se-lo-val-TO-rek</div><div class="vi-e">storm (great wind)</div></div>
+    </div>
+  </div>
+  <div class="sing-note">♩ Vaelic compounds mean what they sound like — Torak + vel = more fire = orange ♩</div>
+</div>
+
+</div><!-- /songs -->
+
+<div style="text-align:center;padding:40px 20px;border-top:1px solid rgba(201,168,76,0.06);margin-top:20px">
+  <div style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px">Kiratvel navol</div>
+  <div style="font-family:'Crimson Pro',serif;font-style:italic;font-size:.88rem;color:var(--tx3)">Truth is permanent — so is every word you now know</div>
+</div>
+
+</body>
+</html>

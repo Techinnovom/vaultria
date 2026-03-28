@@ -1,0 +1,367 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Official Documentation · Cartography Division · Year 1 Vaultrian — data layer for national map (1600×1000 canvas, origin top-left)",
+  "meta": {
+    "title": "Vaultrian National Map",
+    "subtitle": "The Sovereign State of Vaultria · Kiratvel navol",
+    "division": "Cartography Division",
+    "document": "Official Documentation",
+    "year": 1,
+    "canvas": { "width": 1600, "height": 1000 },
+    "center": { "label": "Aurex", "x": 800, "y": 500 },
+    "counts": {
+      "vaultZones": 12,
+      "nodes": 46,
+      "railLines": 9,
+      "roads": 14,
+      "airports": 4,
+      "aurexSectors": 6,
+      "aurexStreets": 16,
+      "aurexBuildings": 32
+    },
+    "extents": {
+      "west": 370,
+      "east": 1240,
+      "north": 110,
+      "south": 880,
+      "approxWidth": 870,
+      "approxHeight": 770
+    }
+  },
+  "palette": {
+    "background": "#05050A",
+    "vyrGold": "#C9A84C",
+    "goldLight": "#E8C97A",
+    "corePower": "#C03A3A",
+    "restricted": "#7A1010",
+    "civilian": "#2E6AB8",
+    "infrastructure": "#B87C18",
+    "knowledge": "#2A7848",
+    "civicRail": "#5A8AE8",
+    "knowledgeRail": "#4AAA68",
+    "restrictedRail": "#E05050",
+    "territoryTint": "rgba(20,24,40,0.4)"
+  },
+  "nationalBoundary": {
+    "vertices": [
+      [390, 310],
+      [460, 160],
+      [620, 120],
+      [800, 110],
+      [960, 125],
+      [1120, 200],
+      [1200, 340],
+      [1240, 490],
+      [1240, 620],
+      [1200, 720],
+      [1090, 850],
+      [940, 880],
+      [760, 870],
+      [600, 840],
+      [450, 760],
+      [390, 640],
+      [370, 500],
+      [390, 310]
+    ],
+    "stroke": { "color": "#C9A84C", "opacity": 0.3, "widthPx": 2, "dash": [8, 5] },
+    "fill": "rgba(20,24,40,0.4)"
+  },
+  "veloraJunctionVertices": {
+    "$comment": "V[0]–V[10] shared anchors; zone borders use exact coordinates",
+    "V": [
+      { "i": 0, "x": 800, "y": 378, "between": "Sivara ↔ Draven" },
+      { "i": 1, "x": 878, "y": 408, "between": "Draven ↔ Tarinex" },
+      { "i": 2, "x": 908, "y": 488, "between": "Tarinex ↔ Aeris" },
+      { "i": 3, "x": 892, "y": 568, "between": "Aeris ↔ Nerath" },
+      { "i": 4, "x": 832, "y": 606, "between": "Nerath ↔ Virex" },
+      { "i": 5, "x": 752, "y": 610, "between": "Virex ↔ Varex" },
+      { "i": 6, "x": 692, "y": 570, "between": "Varex ↔ Zerath" },
+      { "i": 7, "x": 668, "y": 488, "between": "Zerath ↔ Lunara" },
+      { "i": 8, "x": 700, "y": 418, "between": "Lunara ↔ Morvex" },
+      { "i": 9, "x": 734, "y": 388, "between": "Morvex ↔ Lumen" },
+      { "i": 10, "x": 766, "y": 378, "between": "Lumen ↔ Sivara" }
+    ]
+  },
+  "zoneCategories": {
+    "corePower": { "fill": "#C03A3A", "fillOpacity": [0.18, 0.2], "border": "#C03A3A", "borderStyle": "solid", "borderWidthPx": 2, "shadowWidthPx": 4 },
+    "restricted": { "fill": "#7A1010", "fillOpacity": 0.18, "border": "#7A1010", "borderStyle": "dashed", "dash": [5, 3], "borderWidthPx": 2, "shadowWidthPx": 4 },
+    "civilian": { "fill": "#2E6AB8", "fillOpacity": 0.18, "border": "#2E6AB8", "borderStyle": "solid", "borderWidthPx": 2, "shadowWidthPx": 4 },
+    "infrastructure": { "fill": "#B87C18", "fillOpacity": 0.18, "border": "#B87C18", "borderStyle": "solid", "borderWidthPx": 2, "shadowWidthPx": 4 },
+    "knowledge": { "fill": "#2A7848", "fillOpacity": 0.18, "border": "#2A7848", "borderStyle": "solid", "borderWidthPx": 2, "shadowWidthPx": 4 }
+  },
+  "zones": [
+    {
+      "id": "velora",
+      "name": "Velora",
+      "category": "corePower",
+      "subtitle": "Core Power · Capital · Centre of map",
+      "polygon": [[800, 378], [878, 408], [908, 488], [892, 568], [832, 606], [752, 610], [692, 570], [668, 488], [700, 418], [734, 388], [766, 378]],
+      "capitalNodeId": "aurex",
+      "nodes": [
+        { "id": "aurex", "name": "Aurex", "capital": true, "x": 800, "y": 500, "sectors": ["Aurelin", "Kaedron", "Velisar", "Torvex", "Nerion", "Karelth"] },
+        { "id": "kaelis", "name": "Kaelis", "capital": false, "x": 840, "y": 548, "sectors": ["Karex", "Velin", "Torin"] },
+        { "id": "vortan", "name": "Vortan", "capital": false, "x": 758, "y": 547, "sectors": ["Varex", "Tarnel", "Norex"] },
+        { "id": "delos", "name": "Delos", "capital": false, "x": 752, "y": 455, "sectors": ["Delar", "Velkor", "Sorex"] }
+      ]
+    },
+    {
+      "id": "sivara",
+      "name": "Sivara",
+      "category": "knowledge",
+      "subtitle": "Knowledge · Technology · North",
+      "polygon": [[766, 378], [800, 378], [960, 128], [800, 115], [640, 125]],
+      "capitalNodeId": "sivor",
+      "nodes": [
+        { "id": "sivor", "name": "Sivor", "capital": true, "x": 790, "y": 225, "sectors": ["Nexor", "Valex", "Torinex", "Sorex"] },
+        { "id": "nexis", "name": "Nexis", "capital": false, "x": 848, "y": 188, "sectors": ["Nexel", "Velin"] },
+        { "id": "valen", "name": "Valen", "capital": false, "x": 720, "y": 195, "sectors": ["Valekar", "Norex"] },
+        { "id": "torix", "name": "Torix", "capital": false, "x": 790, "y": 148, "sectors": ["Torinel", "Velin"] }
+      ]
+    },
+    {
+      "id": "draven",
+      "name": "Draven",
+      "category": "corePower",
+      "subtitle": "Core Power · Military · Northeast",
+      "polygon": [[800, 378], [878, 408], [1080, 400], [1200, 390], [1110, 200], [960, 128]],
+      "capitalNodeId": "drakos",
+      "nodes": [
+        { "id": "drakos", "name": "Drakos", "capital": true, "x": 1018, "y": 298, "sectors": ["Dravenor", "Karex", "Torvek", "Velkor", "Narex"] },
+        { "id": "targon", "name": "Targon", "capital": false, "x": 986, "y": 376, "sectors": ["Tarex", "Velin", "Torin"] },
+        { "id": "silex", "name": "Silex", "capital": false, "x": 1064, "y": 228, "sectors": ["Sirex", "Velkar"] },
+        { "id": "karven_d", "name": "Karven", "capital": false, "x": 1118, "y": 325, "sectors": ["Karnel", "Velex"] }
+      ]
+    },
+    {
+      "id": "tarinex",
+      "name": "Tarinex",
+      "category": "infrastructure",
+      "subtitle": "Infrastructure · Transport Hub · East-Northeast",
+      "polygon": [[878, 408], [908, 488], [1240, 490], [1235, 480], [1080, 400]],
+      "capitalNodeId": "tarinor",
+      "nodes": [
+        { "id": "tarinor", "name": "Tarinor", "capital": true, "x": 1075, "y": 443, "sectors": ["Varinex", "Kelvar", "Torlin", "Narex"] },
+        { "id": "vekar", "name": "Vekar", "capital": false, "x": 1030, "y": 468, "sectors": ["Veklin", "Norex"] },
+        { "id": "liron", "name": "Liron", "capital": false, "x": 1140, "y": 428, "sectors": ["Lirel", "Velin"] },
+        { "id": "danex", "name": "Danex", "capital": false, "x": 1180, "y": 460, "sectors": ["Danel", "Torex"] }
+      ]
+    },
+    {
+      "id": "aeris",
+      "name": "Aeris",
+      "category": "infrastructure",
+      "subtitle": "Infrastructure · Airspace · East",
+      "polygon": [[908, 488], [892, 568], [1100, 680], [1240, 620], [1240, 490]],
+      "capitalNodeId": "aeris_nod",
+      "nodes": [
+        { "id": "aeris_nod", "name": "Aeris Nod", "capital": true, "x": 1122, "y": 558, "sectors": ["Aeron", "Velair", "Torair", "Nexor"] },
+        { "id": "kelos", "name": "Kelos", "capital": false, "x": 1062, "y": 598, "sectors": ["Kelair", "Velin"] },
+        { "id": "talex", "name": "Talex", "capital": false, "x": 1162, "y": 518, "sectors": ["Talex", "Velin"] }
+      ]
+    },
+    {
+      "id": "nerath",
+      "name": "Nerath",
+      "category": "civilian",
+      "subtitle": "Civilian · Population Core · Southeast — LARGEST ZONE",
+      "polygon": [[892, 568], [832, 606], [960, 872], [1100, 810], [1100, 680]],
+      "capitalNodeId": "zerath",
+      "nodes": [
+        { "id": "zerath", "name": "Zerath", "capital": true, "x": 1008, "y": 712, "sectors": ["Velin", "Mekar", "Tarin", "Siven", "Lunin"] },
+        { "id": "tarex", "name": "Tarex", "capital": false, "x": 950, "y": 648, "sectors": ["Velin", "Tarin", "Mekar", "Siven"] },
+        { "id": "virel", "name": "Virel", "capital": false, "x": 1078, "y": 742, "sectors": ["Velin", "Torin", "Mekar"] },
+        { "id": "korex", "name": "Korex", "capital": false, "x": 962, "y": 802, "sectors": ["Velin", "Mekar", "Siven"] },
+        { "id": "lunex", "name": "Lunex", "capital": false, "x": 878, "y": 762, "sectors": ["Lunin", "Velar", "Sorex"] }
+      ]
+    },
+    {
+      "id": "virex",
+      "name": "Virex",
+      "category": "infrastructure",
+      "subtitle": "Infrastructure · Logistics · South-Southeast",
+      "polygon": [[832, 606], [752, 610], [740, 872], [960, 872]],
+      "capitalNodeId": "viron",
+      "nodes": [
+        { "id": "viron", "name": "Viron", "capital": true, "x": 858, "y": 745, "sectors": ["Kalex", "Morinex", "Serin", "Velkar"] },
+        { "id": "kalen", "name": "Kalen", "capital": false, "x": 808, "y": 698, "sectors": ["Kalor", "Torin"] },
+        { "id": "morin", "name": "Morin", "capital": false, "x": 908, "y": 808, "sectors": ["Morel", "Velkar"] },
+        { "id": "serex", "name": "Serex", "capital": false, "x": 858, "y": 845, "sectors": ["Serel", "Norex"] }
+      ]
+    },
+    {
+      "id": "varex",
+      "name": "Varex",
+      "category": "civilian",
+      "subtitle": "Civilian · Agriculture & Production · South",
+      "polygon": [[752, 610], [692, 570], [490, 740], [580, 840], [740, 872]],
+      "capitalNodeId": "varon",
+      "nodes": [
+        { "id": "varon", "name": "Varon", "capital": true, "x": 658, "y": 728, "sectors": ["Mekor", "Torex", "Varin", "Kalen", "Garel"] },
+        { "id": "mekar", "name": "Mekar", "capital": false, "x": 710, "y": 678, "sectors": ["Meklin", "Velin"] },
+        { "id": "tovin", "name": "Tovin", "capital": false, "x": 618, "y": 792, "sectors": ["Torin", "Norex"] },
+        { "id": "garin", "name": "Garin", "capital": false, "x": 558, "y": 762, "sectors": ["Garel", "Velin"] }
+      ]
+    },
+    {
+      "id": "zerath",
+      "name": "Zerath",
+      "category": "civilian",
+      "subtitle": "Civilian · Trade & Finance · Southwest",
+      "polygon": [[692, 570], [668, 488], [390, 490], [390, 650], [490, 740]],
+      "capitalNodeId": "zerex",
+      "nodes": [
+        { "id": "zerex", "name": "Zerex", "capital": true, "x": 512, "y": 598, "sectors": ["Karven", "Velix", "Torin", "Sorex", "Drax"] },
+        { "id": "karos", "name": "Karos", "capital": false, "x": 562, "y": 542, "sectors": ["Karlin", "Velin"] },
+        { "id": "drax", "name": "Drax", "capital": false, "x": 478, "y": 658, "sectors": ["Draxel", "Norex"] },
+        { "id": "velin_z", "name": "Velin", "capital": false, "x": 428, "y": 578, "sectors": ["Velar", "Sorex"] }
+      ]
+    },
+    {
+      "id": "lunara",
+      "name": "Lunara",
+      "category": "civilian",
+      "subtitle": "Civilian · Residential Expansion · West",
+      "polygon": [[668, 488], [700, 418], [480, 200], [400, 340], [390, 490]],
+      "capitalNodeId": "lunor",
+      "nodes": [
+        { "id": "lunor", "name": "Lunor", "capital": true, "x": 508, "y": 388, "sectors": ["Selinor", "Marex", "Velinor", "Taren", "Tivel"] },
+        { "id": "selin", "name": "Selin", "capital": false, "x": 562, "y": 442, "sectors": ["Selar", "Taren"] },
+        { "id": "marel", "name": "Marel", "capital": false, "x": 445, "y": 438, "sectors": ["Marex", "Lomex"] },
+        { "id": "tiven", "name": "Tiven", "capital": false, "x": 488, "y": 308, "sectors": ["Tivel", "Velin"] }
+      ]
+    },
+    {
+      "id": "morvex",
+      "name": "Morvex",
+      "category": "restricted",
+      "subtitle": "RESTRICTED — Dashed border — Northwest",
+      "restricted": true,
+      "polygon": [[700, 418], [734, 388], [640, 125], [480, 200]],
+      "border": { "dashed": true, "dash": [5, 3] },
+      "capitalNodeId": "morak",
+      "nodes": [
+        { "id": "morak", "name": "Morak", "capital": true, "x": 612, "y": 290, "sectors": ["Morven", "Zirex", "Karnel", "Velmox"] },
+        { "id": "xyron", "name": "Xyron", "capital": false, "x": 658, "y": 345, "sectors": ["Xirel", "Torvex"], "restricted": true },
+        { "id": "vexor", "name": "Vexor", "capital": false, "x": 558, "y": 318, "sectors": ["Vexel", "Norex"], "restricted": true },
+        { "id": "norex_m", "name": "Norex", "capital": false, "x": 598, "y": 198, "sectors": ["Norlin", "Velex"], "restricted": true }
+      ]
+    },
+    {
+      "id": "lumen",
+      "name": "Lumen",
+      "category": "knowledge",
+      "subtitle": "Knowledge · Education · North-Northwest",
+      "polygon": [[734, 388], [766, 378], [640, 125], [800, 115]],
+      "capitalNodeId": "lumor",
+      "nodes": [
+        { "id": "lumor", "name": "Lumor", "capital": true, "x": 718, "y": 262, "sectors": ["Tarinel", "Velumex Spire", "Sorin", "Karex", "Velin"] },
+        { "id": "taris", "name": "Taris", "capital": false, "x": 754, "y": 318, "sectors": ["Tarin", "Velin"] },
+        { "id": "velum", "name": "Velum", "capital": false, "x": 678, "y": 228, "sectors": ["Velumar", "Sorex"] },
+        { "id": "kirel", "name": "Kirel", "capital": false, "x": 716, "y": 178, "sectors": ["Kirel", "Velin"] }
+      ]
+    }
+  ],
+  "roads": [
+    { "id": "prime_vara", "name": "Prime Vara", "color": "#C9A84C", "widthPx": 3.5, "waypoints": [[800, 500], [1018, 298], [1122, 558]] },
+    { "id": "velora_sivara", "name": "Velora–Sivara", "color": "#3A8858", "widthPx": 2.8, "waypoints": [[800, 500], [790, 225]] },
+    { "id": "velora_lumen", "name": "Velora–Lumen", "color": "#3A8858", "widthPx": 2.8, "waypoints": [[800, 500], [718, 262]] },
+    { "id": "velora_nerath", "name": "Velora–Nerath", "color": "#4A80C8", "widthPx": 3, "waypoints": [[800, 500], [1008, 712]] },
+    { "id": "velora_varex", "name": "Velora–Varex", "color": "#4A80C8", "widthPx": 2.5, "waypoints": [[800, 500], [658, 728]] },
+    { "id": "velora_zerath", "name": "Velora–Zerath", "color": "#4A80C8", "widthPx": 2.5, "waypoints": [[800, 500], [512, 598]] },
+    { "id": "velora_lunara", "name": "Velora–Lunara", "color": "#4A80C8", "widthPx": 2.5, "waypoints": [[800, 500], [508, 388]] },
+    { "id": "velora_tarinex", "name": "Velora–Tarinex", "color": "#C8A020", "widthPx": 2.5, "waypoints": [[800, 500], [1075, 443]] },
+    { "id": "velora_virex", "name": "Velora–Virex", "color": "#C8A020", "widthPx": 2, "waypoints": [[800, 500], [858, 745]] },
+    { "id": "morvex_varo", "name": "Morvex Varo", "color": "#C04040", "widthPx": 1.8, "dashed": true, "dash": [5, 3], "waypoints": [[800, 500], [612, 290]] },
+    { "id": "n_ring", "name": "N Ring", "color": "#C8A020", "widthPx": 1.8, "waypoints": [[1018, 298], [1075, 443], [1122, 558]] },
+    { "id": "se_ring", "name": "SE Ring", "color": "#4A80C8", "widthPx": 1.8, "waypoints": [[1008, 712], [858, 745], [658, 728]] },
+    { "id": "sw_ring", "name": "SW Ring", "color": "#4A80C8", "widthPx": 1.8, "waypoints": [[658, 728], [512, 598], [508, 388]] },
+    { "id": "nw_ring", "name": "NW Ring", "color": "#3A8858", "widthPx": 1.8, "waypoints": [[508, 388], [718, 262], [790, 225]] }
+  ],
+  "rail": [
+    { "id": "prime_line", "name": "Prime Line", "color": "#C9A84C", "widthPx": 3.2, "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[800, 500], [1018, 298], [1122, 558], [1075, 443]] },
+    { "id": "civic_line", "name": "Civic Line", "color": "#5A8AE8", "widthPx": 2.5, "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[800, 500], [1008, 712], [858, 745], [658, 728], [512, 598], [508, 388]] },
+    { "id": "knowledge_line", "name": "Knowledge Line", "color": "#4AAA68", "widthPx": 2.5, "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[800, 500], [718, 262], [790, 225]] },
+    { "id": "industrial_line", "name": "Industrial Line", "color": "#C8A020", "widthPx": 2, "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[658, 728], [858, 745], [1008, 712], [1075, 443]] },
+    { "id": "trade_link", "name": "Trade Link", "color": "#4A78C8", "widthPx": 1.8, "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[512, 598], [1008, 712], [1075, 443]] },
+    { "id": "civic_extension", "name": "Civic Extension", "color": "#3A68C8", "widthPx": 1.8, "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[508, 388], [718, 262]] },
+    { "id": "restricted_spur", "name": "Restricted Spur", "color": "#E05050", "widthPx": 1.5, "dashed": true, "dash": [7, 4], "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[800, 500], [612, 290]] },
+    { "id": "tech_line", "name": "Tech Line", "color": "#3A9858", "widthPx": 1.8, "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[790, 225], [1018, 298], [1122, 558]] },
+    { "id": "defense_link", "name": "Defense Link", "color": "#C84040", "widthPx": 1.8, "dashed": true, "dash": [7, 4], "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[800, 500], [1018, 298]] }
+  ],
+  "airports": [
+    { "id": "aeris_nod_intl", "name": "Aeris Nod International", "type": "majorInternational", "zoneId": "aeris", "x": 1122, "y": 558, "color": "#B87C18", "notes": "Largest diamond + glow ring r≈6.5px" },
+    { "id": "kelos_aeris", "name": "Kelos Aeris", "type": "domestic", "zoneId": "aeris", "x": 1062, "y": 598, "color": "#B87C18" },
+    { "id": "talex_aeris", "name": "Talex Aeris", "type": "cargoExport", "zoneId": "aeris", "x": 1162, "y": 518, "color": "#B87C18" },
+    { "id": "riven_aeris", "name": "Riven Aeris", "type": "restricted", "zoneId": "morvex", "x": 598, "y": 198, "color": "#C03A3A", "warning": true, "notes": "Classified airstrip" }
+  ],
+  "aurex": {
+    "zoomRender": { "minLevel": 4, "maxLevel": 5, "bounds": { "xMin": 695, "xMax": 920, "yMin": 390, "yMax": 590 } },
+    "sectors": [
+      { "id": "aurelin", "name": "Aurelin", "fill": "rgba(201,168,76,0.14)", "border": "rgba(201,168,76,0.55)", "borderWidthPx": 1.5, "polygon": [[755, 440], [845, 440], [845, 490], [820, 515], [755, 515]], "contains": ["Vaultcil Chamber", "Council Chambers", "Petition Centre", "Aurex Plaza", "Naratel Fountain", "Founders Gate"] },
+      { "id": "kaedron", "name": "Kaedron", "fill": "rgba(30,70,170,0.14)", "border": "rgba(50,100,220,0.5)", "borderWidthPx": 1.5, "polygon": [[845, 440], [905, 440], [905, 500], [845, 515], [820, 515]], "contains": ["AI Core A/B/C", "Kaedron Info"] },
+      { "id": "velisar", "name": "Velisar", "fill": "rgba(90,50,170,0.14)", "border": "rgba(110,70,210,0.5)", "borderWidthPx": 1.5, "polygon": [[710, 440], [755, 440], [755, 515], [710, 515]], "contains": ["Velisar Blocks A–E", "Velisar Market", "Spring Garden"] },
+      { "id": "torvex", "name": "Torvex", "fill": "rgba(30,110,50,0.14)", "border": "rgba(50,140,70,0.5)", "borderWidthPx": 1.5, "polygon": [[845, 515], [905, 515], [905, 565], [845, 565]], "contains": ["Admin Blocks A/B", "Torvex Garden", "Doc Processing", "Language Authority"] },
+      { "id": "nerion", "name": "Nerion", "fill": "rgba(170,30,30,0.14)", "border": "rgba(210,50,50,0.5)", "borderWidthPx": 1.5, "polygon": [[755, 515], [845, 515], [845, 565], [755, 565]], "contains": ["Security HQ", "Response Centre", "Void Day Wall"] },
+      { "id": "karelth", "name": "Karelth", "fill": "rgba(170,100,20,0.14)", "border": "rgba(200,130,40,0.5)", "borderWidthPx": 1.5, "polygon": [[710, 515], [755, 515], [755, 565], [710, 565]], "contains": ["Velix Tower A/B", "VYR Exchange A/B/C", "Aegis Treasury"] }
+    ],
+    "streets": [
+      { "name": "Aurex Entry Road", "color": "#C9A84C", "widthPx": 3.5, "from": [800, 400], "to": [800, 580] },
+      { "name": "Velora Varo", "color": "#C8A020", "widthPx": 3.5, "from": [698, 500], "to": [920, 500] },
+      { "name": "Kiratvel Avenue", "color": "#A08028", "widthPx": 2.5, "from": [755, 400], "to": [755, 580] },
+      { "name": "Torvex Ring", "color": "#A08028", "widthPx": 2.5, "from": [845, 440], "to": [845, 570] },
+      { "name": "Nerion Boulevard", "color": "#8A2020", "widthPx": 2.5, "from": [698, 540], "to": [920, 540] },
+      { "name": "Karelth Way", "color": "#C87828", "widthPx": 2, "from": [698, 515], "to": [920, 515] },
+      { "name": "Plaza North Walk", "color": "#C9A84C", "widthPx": 2, "from": [755, 490], "to": [845, 490] },
+      { "name": "Command Circuit", "color": "#8A2020", "widthPx": 1.8, "from": [755, 555], "to": [845, 555] },
+      { "name": "Kaedron Circuit", "color": "#4A78C8", "widthPx": 1.8, "from": [845, 450], "to": [905, 450] },
+      { "name": "VYR Row", "color": "#C87828", "widthPx": 1.8, "from": [845, 525], "to": [905, 525] },
+      { "name": "Admin Row", "color": "#3A8848", "widthPx": 1.8, "from": [845, 540], "to": [905, 540] },
+      { "name": "Velisar Walk", "color": "#7A48C8", "widthPx": 1.5, "from": [710, 460], "to": [755, 460] },
+      { "name": "Treasury Approach", "color": "#C87828", "widthPx": 1.5, "from": [755, 515], "to": [755, 540] },
+      { "name": "Language Lane", "color": "#3A8848", "widthPx": 1.5, "from": [845, 550], "to": [905, 550] },
+      { "name": "Response Road", "color": "#8A2020", "widthPx": 1.5, "from": [800, 540], "to": [800, 572] },
+      { "name": "Kala Passage", "color": "#888888", "widthPx": 1.2, "from": [710, 480], "to": [755, 480] }
+    ],
+    "buildings": [
+      { "name": "Vaultcil Chamber", "kind": "landmark", "color": "#C9A84C", "x": 762, "y": 446, "w": 60, "h": 24 },
+      { "name": "Aurex Plaza", "kind": "plaza", "color": "rgba(201,168,76,0.05)", "x": 756, "y": 492, "w": 88, "h": 44 },
+      { "name": "Naratel Fountain", "kind": "circle", "color": "#4A8898", "x": 800, "y": 503, "r": 10 },
+      { "name": "Founders Gate", "kind": "landmark", "color": "#C9A84C", "x": 793, "y": 406, "w": 14, "h": 10 },
+      { "name": "Void Day Wall", "kind": "monument", "color": "#333333", "x": 757, "y": 537, "w": 52, "h": 6 },
+      { "name": "Aegis Treasury", "kind": "landmark", "color": "#C87828", "x": 712, "y": 519, "w": 36, "h": 22 },
+      { "name": "Aurex Central Stn", "kind": "station", "color": "#5A8AE8", "x": 754, "y": 560, "w": 30, "h": 15 },
+      { "name": "Language Authority", "kind": "civic", "color": "#3A8848", "x": 851, "y": 553, "w": 26, "h": 13 },
+      { "name": "Council Chambers", "kind": "civic", "color": "#1A1408", "x": 762, "y": 446, "w": 38, "h": 22 },
+      { "name": "Petition Centre", "kind": "civic", "color": "#1A1408", "x": 800, "y": 466, "w": 26, "h": 22 },
+      { "name": "AI Core A", "kind": "restricted", "color": "#080818", "x": 849, "y": 446, "w": 26, "h": 24 },
+      { "name": "AI Core B", "kind": "restricted", "color": "#080818", "x": 877, "y": 446, "w": 26, "h": 24 },
+      { "name": "AI Core C", "kind": "restricted", "color": "#080818", "x": 849, "y": 472, "w": 26, "h": 24 },
+      { "name": "Kaedron Info", "kind": "civic", "color": "#1A2840", "x": 851, "y": 498, "w": 24, "h": 15 },
+      { "name": "Velisar Block A", "kind": "house", "color": "#1E1030", "x": 712, "y": 446, "w": 13, "h": 11 },
+      { "name": "Velisar Block B", "kind": "house", "color": "#1E1030", "x": 727, "y": 446, "w": 13, "h": 11 },
+      { "name": "Velisar Block C", "kind": "house", "color": "#1E1030", "x": 712, "y": 459, "w": 13, "h": 11 },
+      { "name": "Velisar Block D", "kind": "house", "color": "#1E1030", "x": 727, "y": 459, "w": 13, "h": 11 },
+      { "name": "Velisar Block E", "kind": "house", "color": "#1E1030", "x": 712, "y": 472, "w": 13, "h": 11 },
+      { "name": "Velisar Market", "kind": "market", "color": "#4A2880", "x": 712, "y": 484, "w": 24, "h": 13 },
+      { "name": "Spring Garden", "kind": "circle", "color": "#1A3818", "x": 712, "y": 499, "r": 8 },
+      { "name": "Admin Block A", "kind": "civic", "color": "#101E14", "x": 848, "y": 518, "w": 30, "h": 20 },
+      { "name": "Admin Block B", "kind": "civic", "color": "#101E14", "x": 880, "y": 518, "w": 24, "h": 20 },
+      { "name": "Torvex Garden", "kind": "park", "color": "#162214", "x": 882, "y": 540, "w": 22, "h": 14 },
+      { "name": "Doc Processing", "kind": "civic", "color": "#101E14", "x": 848, "y": 550, "w": 38, "h": 14 },
+      { "name": "Security HQ", "kind": "restricted", "color": "#180808", "x": 757, "y": 542, "w": 38, "h": 26 },
+      { "name": "Response Centre", "kind": "restricted", "color": "#180808", "x": 797, "y": 542, "w": 32, "h": 26 },
+      { "name": "Velix Tower A", "kind": "business", "color": "#1E1008", "x": 712, "y": 518, "w": 18, "h": 20 },
+      { "name": "Velix Tower B", "kind": "business", "color": "#1E1008", "x": 732, "y": 518, "w": 18, "h": 20 },
+      { "name": "VYR Exchange A", "kind": "business", "color": "#C87828", "x": 848, "y": 528, "w": 13, "h": 11 },
+      { "name": "VYR Exchange B", "kind": "business", "color": "#C87828", "x": 863, "y": 528, "w": 13, "h": 11 },
+      { "name": "VYR Exchange C", "kind": "business", "color": "#C87828", "x": 878, "y": 528, "w": 13, "h": 11 }
+    ]
+  },
+  "renderHints": {
+    "backgroundGradient": { "center": "#0C1020", "edge": "#060810" },
+    "grid": { "sizeUnits": 80, "opacity": 0.03, "color": "pale blue-grey" },
+    "zoneFillOpacity": { "default": [0.18, 0.2], "hoverSelected": [0.35, 0.38] },
+    "fonts": { "titles": "Cinzel", "technical": "Share Tech Mono", "body": "Crimson Pro / Georgia" },
+    "morvex": { "label": "RESTRICTED", "borderNeverSolid": true }
+  }
+}

@@ -1,0 +1,291 @@
+/* VYR Banking - scoped to site shell */
+.wrap.vyr-wrap {
+  max-width: min(1120px, 100%);
+  width: 100%;
+}
+
+.vyr-banking-page {
+  --ink: var(--bg-deep);
+  --s1: var(--bg-panel);
+  --s2: var(--bg-elevated);
+  --gold-d: rgba(201, 169, 98, 0.28);
+  --gold-l: #e8c97a;
+  --tx: var(--text);
+  --tx2: var(--text-muted);
+  --tx3: rgba(154, 149, 138, 0.55);
+  --rule: rgba(201, 169, 98, 0.12);
+  --rule2: rgba(201, 169, 98, 0.08);
+  --green: #2a7848;
+  --greenl: rgba(42, 120, 72, 0.1);
+  --greenb: rgba(42, 120, 72, 0.32);
+  --amber: #b87c18;
+  --amberl: rgba(184, 124, 24, 0.1);
+  --amberb: rgba(184, 124, 24, 0.35);
+  --blue: #2e6ab8;
+  --bluel: rgba(46, 106, 184, 0.1);
+  --blueb: rgba(46, 106, 184, 0.32);
+  --red: #c03a3a;
+  --redl: rgba(192, 58, 58, 0.08);
+  --redb: rgba(192, 58, 58, 0.32);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--tx);
+}
+
+.vyr-banking-page .tier-kicker a {
+  color: var(--gold);
+}
+
+.vyr-banking-page *,
+.vyr-banking-page *::before,
+.vyr-banking-page *::after {
+  box-sizing: border-box;
+}
+
+
+.vyr-banking-page .shell {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+
+.vyr-banking-page .sb {
+  position: sticky;
+  top: 0.75rem;
+  align-self: start;
+  width: 232px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  flex-shrink: 0;
+  left: auto;
+  height: auto;
+  min-height: 0;
+  background: var(--s1);
+  border: 1px solid var(--rule2);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.vyr-banking-page .main {
+  margin-left: 0;
+  min-width: 0;
+}
+
+
+
+.vyr-banking-page .sb::-webkit-scrollbar{width:3px}.vyr-banking-page .sb::-webkit-scrollbar-thumb{background:var(--rule)}
+.vyr-banking-page .sb-hd{padding:24px 18px 16px;border-bottom:1px solid var(--rule2)}
+.vyr-banking-page .sb-t{font-family:'Cinzel',serif;font-weight:700;font-size:.68rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;line-height:1.4;margin-bottom:2px}
+.vyr-banking-page .sb-s{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+.vyr-banking-page .sb-nav{padding:8px 0;flex:1}
+.vyr-banking-page .sb-cat{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;padding:7px 16px 3px;margin-top:3px}
+.vyr-banking-page .sb-a{display:flex;color:inherit;align-items:center;gap:7px;padding:5px 16px;text-decoration:none;transition:.15s;cursor:pointer;border-left:2px solid transparent}
+.vyr-banking-page .sb-a:hover{background:rgba(201,168,76,.04);border-left-color:var(--gold-d)}
+.vyr-banking-page .sb-a.on{background:rgba(201,168,76,.06);border-left-color:var(--gold)}
+.vyr-banking-page .sb-pip{width:8px;height:8px;border-radius:1px;flex-shrink:0}
+.vyr-banking-page .sb-lbl{font-family:'Cinzel',serif;font-size:.58rem;color:var(--tx2);letter-spacing:.03em}
+.vyr-banking-page .sb-a.on .sb-lbl{color:var(--gold)}.vyr-banking-page .sb-a:hover .sb-lbl{color:var(--tx)}
+.vyr-banking-page .sb-ft{padding:12px 16px;border-top:1px solid var(--rule2)}
+.vyr-banking-page .sb-mo{font-family:'Cinzel',serif;font-style:italic;font-size:.54rem;color:var(--tx3);line-height:1.5}
+
+
+.vyr-banking-page .hero{position:relative;padding:64px 56px 48px;border-bottom:1px solid var(--rule2);overflow:hidden}
+.vyr-banking-page .hero::before{content:'';position:absolute;top:0;right:0;width:420px;height:420px;
+  background:radial-gradient(circle at top right,rgba(184,124,24,.05) 0%,transparent 65%);pointer-events:none}
+.vyr-banking-page .h-vol{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.3em;color:var(--tx3);text-transform:uppercase;margin-bottom:10px}
+.vyr-banking-page .h-title{font-family:'Cinzel',serif;font-weight:700;font-size:2rem;color:var(--gold);letter-spacing:.04em;line-height:1.15;margin-bottom:6px}
+.vyr-banking-page .h-sub{font-size:1.08rem;color:var(--tx2);max-width:580px;line-height:1.78;margin-bottom:22px}
+.vyr-banking-page .h-tags{display:flex;gap:7px;flex-wrap:wrap}
+.vyr-banking-page .tag{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.1em;padding:3px 8px;border:1px solid var(--rule);color:var(--tx3);text-transform:uppercase}
+.vyr-banking-page .tag.g{border-color:var(--greenb);color:var(--greenb)}
+.vyr-banking-page .tag.a{border-color:var(--amberb);color:var(--amberb)}
+.vyr-banking-page .tag.b{border-color:var(--blueb);color:var(--blueb)}
+.vyr-banking-page .tag.r{border-color:var(--redb);color:var(--redb)}
+
+
+.vyr-banking-page .content{max-width:860px;padding:0 56px 80px}
+
+
+.vyr-banking-page .section{padding-top:52px;border-bottom:1px solid var(--rule2);padding-bottom:40px;scroll-margin-top:20px}
+.vyr-banking-page .section:last-child{border-bottom:none}
+.vyr-banking-page .sec-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.vyr-banking-page .sec-ico{width:42px;height:42px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;background:var(--s2);margin-top:2px}
+.vyr-banking-page .sec-tw{flex:1}
+.vyr-banking-page .sec-n{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.22em;color:var(--tx3);text-transform:uppercase;margin-bottom:2px}
+.vyr-banking-page .sec-t{font-family:'Cinzel',serif;font-weight:700;font-size:1.3rem;color:var(--gold);letter-spacing:.03em;line-height:1.2;margin-bottom:3px}
+.vyr-banking-page .sec-v{font-family:'Cinzel',serif;font-style:italic;font-size:.68rem;color:var(--tx3);letter-spacing:.05em}
+.vyr-banking-page .sec-intro{font-size:.96rem;color:var(--tx2);line-height:1.78;margin-bottom:20px}
+
+
+.vyr-banking-page .denom-strip{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}
+.vyr-banking-page .denom{display:flex;flex-direction:column;align-items:center;padding:10px 14px;border:1px solid var(--rule);background:var(--s2);min-width:72px}
+.vyr-banking-page .denom-val{font-family:'Cinzel',serif;font-weight:700;font-size:1rem;color:var(--gold)}
+.vyr-banking-page .denom-lbl{font-family:'Share Tech Mono',monospace;font-size:.35rem;letter-spacing:.1em;color:var(--tx3);text-transform:uppercase;margin-top:2px}
+
+
+.vyr-banking-page .wallet-diagram{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule2);border:1px solid var(--rule2);margin:16px 0}
+.vyr-banking-page .wallet-tier{padding:16px 16px;background:var(--s2)}
+.vyr-banking-page .wt-name{font-family:'Cinzel',serif;font-weight:600;font-size:.8rem;margin-bottom:3px}
+.vyr-banking-page .wt-vae{font-family:'Cinzel',serif;font-style:italic;font-size:.6rem;margin-bottom:8px;opacity:.55}
+.vyr-banking-page .wt-rate{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.1em;padding:2px 7px;border:1px solid;display:inline-block;margin-bottom:8px}
+.vyr-banking-page .wt-body{font-size:.84rem;color:var(--tx2);line-height:1.6}
+.vyr-banking-page .wallet-tier.op .wt-name{color:var(--blue)}.vyr-banking-page .wallet-tier.op .wt-rate{color:var(--blue);border-color:var(--blueb)}
+.vyr-banking-page .wallet-tier.res .wt-name{color:var(--amber)}.vyr-banking-page .wallet-tier.res .wt-rate{color:var(--amber);border-color:var(--amberb)}
+.vyr-banking-page .wallet-tier.vlt .wt-name{color:var(--gold)}.vyr-banking-page .wallet-tier.vlt .wt-rate{color:var(--gold);border-color:var(--gold-d)}
+
+
+.vyr-banking-page .dtable{width:100%;border-collapse:collapse;margin:14px 0}
+.vyr-banking-page .dtable th{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase;padding:6px 10px;text-align:left;border-bottom:1px solid var(--rule)}
+.vyr-banking-page .dtable td{padding:7px 10px;font-size:.9rem;color:var(--tx2);border-bottom:1px solid var(--rule2);line-height:1.5;vertical-align:top}
+.vyr-banking-page .dtable td:first-child{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.06em;color:var(--tx3)}
+.vyr-banking-page .dtable tr:last-child td{border-bottom:none}
+.vyr-banking-page .dtable .hi{color:var(--gold);font-weight:600}
+.vyr-banking-page .dtable .warn{color:var(--red)}
+
+
+.vyr-banking-page .flag-row{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--rule2);align-items:flex-start}
+.vyr-banking-page .flag-row:last-child{border-bottom:none}
+.vyr-banking-page .flag-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.vyr-banking-page .flag-dot.auto{background:var(--red)}
+.vyr-banking-page .flag-dot.soft{background:var(--amber)}
+.vyr-banking-page .flag-txt{font-size:.9rem;color:var(--tx2);line-height:1.6;flex:1}
+.vyr-banking-page .flag-txt strong{color:var(--tx)}
+
+
+.vyr-banking-page .block{margin-bottom:18px;border:1px solid var(--rule2);background:var(--s2)}
+.vyr-banking-page .block.green{border-color:var(--greenb)}
+.vyr-banking-page .block.amber{border-color:var(--amberb)}
+.vyr-banking-page .block.blue{border-color:var(--blueb)}
+.vyr-banking-page .block.red{border-color:var(--redb)}
+.vyr-banking-page .block-hd{padding:10px 14px;border-bottom:1px solid var(--rule2);display:flex;align-items:center;gap:9px}
+.vyr-banking-page .block.green .block-hd{background:var(--greenl)}
+.vyr-banking-page .block.amber .block-hd{background:var(--amberl)}
+.vyr-banking-page .block.blue .block-hd{background:var(--bluel)}
+.vyr-banking-page .block.red .block-hd{background:var(--redl)}
+.vyr-banking-page .block-badge{font-family:'Cinzel',serif;font-weight:700;font-size:.7rem;padding:2px 8px;border:1px solid}
+.vyr-banking-page .block.green .block-badge{color:var(--green);border-color:var(--greenb)}
+.vyr-banking-page .block.amber .block-badge{color:var(--amber);border-color:var(--amberb)}
+.vyr-banking-page .block.blue .block-badge{color:var(--blue);border-color:var(--blueb)}
+.vyr-banking-page .block.red .block-badge{color:var(--red);border-color:var(--redb)}
+.vyr-banking-page .block-title{font-family:'Share Tech Mono',monospace;font-size:.4rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase}
+.vyr-banking-page .block-body{padding:12px 14px}
+.vyr-banking-page .block-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 0;border-bottom:1px solid var(--rule2)}
+.vyr-banking-page .block-row:last-child{border-bottom:none}
+.vyr-banking-page .block-label{font-size:.9rem;color:var(--tx2);flex:1;line-height:1.5}
+.vyr-banking-page .block-label strong{color:var(--tx);font-weight:600}
+.vyr-banking-page .block-val{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.06em;color:var(--gold);flex-shrink:0;text-align:right;max-width:160px;line-height:1.5}
+
+
+.vyr-banking-page .access-matrix{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule2);border:1px solid var(--rule2);margin:14px 0;font-size:.82rem}
+.vyr-banking-page .am-cell{padding:8px 10px;background:var(--s2)}
+.vyr-banking-page .am-cell.hd{background:var(--s1);font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.1em;color:var(--tx3);text-transform:uppercase}
+.vyr-banking-page .am-cell.lbl{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.06em;color:var(--tx3)}
+.vyr-banking-page .am-y{color:var(--green);font-size:.85rem}
+.vyr-banking-page .am-n{color:var(--red);font-size:.85rem}
+.vyr-banking-page .am-p{color:var(--amber);font-size:.85rem}
+
+
+.vyr-banking-page .note{margin:14px 0;padding:12px 16px;border:1px solid var(--rule);background:rgba(201,168,76,.025);font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.04em;color:var(--tx3);line-height:1.7}
+.vyr-banking-page .note-l{font-size:.36rem;letter-spacing:.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px}
+.vyr-banking-page .note.warn{border-color:var(--redb);background:var(--redl)}
+.vyr-banking-page .note.warn .note-l{color:var(--redb)}
+
+
+.vyr-banking-page .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.vyr-banking-page .gi{padding:14px 16px;background:var(--s1);border:1px solid var(--rule2)}
+.vyr-banking-page .gi-l{font-family:'Share Tech Mono',monospace;font-size:.38rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase;margin-bottom:4px}
+.vyr-banking-page .gi-t{font-size:.88rem;color:var(--tx2);line-height:1.65}
+.vyr-banking-page .gi-t strong{color:var(--tx)}
+
+
+.vyr-banking-page .bridge{border:1px solid var(--greenb);background:var(--greenl);padding:20px 22px;margin:16px 0}
+.vyr-banking-page .bridge-t{font-family:'Cinzel',serif;font-weight:700;font-size:1rem;color:var(--green);margin-bottom:4px}
+.vyr-banking-page .bridge-v{font-family:'Cinzel',serif;font-style:italic;font-size:.68rem;color:rgba(42,120,72,.5);margin-bottom:14px}
+.vyr-banking-page .bridge-body{font-size:.95rem;color:var(--tx2);line-height:1.78}
+.vyr-banking-page .bridge-body p{margin-bottom:10px}
+.vyr-banking-page .bridge-body p:last-child{margin-bottom:0}
+.vyr-banking-page .bridge-body strong{color:var(--tx)}
+
+
+.vyr-banking-page .phys-notes{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.vyr-banking-page .note-card{padding:10px 16px;border:1px solid;display:flex;flex-direction:column;align-items:center;min-width:80px}
+.vyr-banking-page .note-card .nv{font-family:'Cinzel',serif;font-weight:700;font-size:1.2rem}
+.vyr-banking-page .note-card .nl{font-family:'Share Tech Mono',monospace;font-size:.35rem;letter-spacing:.1em;color:var(--tx3);text-transform:uppercase;margin-top:2px}
+.vyr-banking-page .nc-1{border-color:rgba(42,120,72,.3);background:rgba(42,120,72,.05)}.vyr-banking-page .nc-1 .nv{color:var(--green)}
+.vyr-banking-page .nc-5{border-color:rgba(46,106,184,.3);background:rgba(46,106,184,.05)}.vyr-banking-page .nc-5 .nv{color:var(--blue)}
+.vyr-banking-page .nc-10{border-color:rgba(184,124,24,.3);background:rgba(184,124,24,.05)}.vyr-banking-page .nc-10 .nv{color:var(--amber)}
+.vyr-banking-page .nc-50{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.05)}.vyr-banking-page .nc-50 .nv{color:var(--gold)}
+.vyr-banking-page .nc-100{border-color:rgba(192,58,58,.3);background:rgba(192,58,58,.05)}.vyr-banking-page .nc-100 .nv{color:var(--red)}
+.vyr-banking-page .nc-500{border-color:rgba(120,80,200,.3);background:rgba(120,80,200,.04)}.vyr-banking-page .nc-500 .nv{color:#8A58C8}
+.vyr-banking-page .nc-coin{border-color:var(--rule);background:var(--s2)}.vyr-banking-page .nc-coin .nv{color:var(--tx3);font-size:.85rem}
+
+
+.vyr-banking-page .dv{display:flex;align-items:center;gap:10px;margin:26px 0}
+.vyr-banking-page .dv::before, .vyr-banking-page .dv::after{content:'';flex:1;height:1px;background:var(--rule2)}
+.vyr-banking-page .dv-m{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.18em;color:var(--tx3);text-transform:uppercase}
+
+
+.vyr-banking-page .sim{background:var(--s2);border:1px solid var(--rule);padding:20px 22px;margin:18px 0}
+.vyr-banking-page .sim-t{font-family:'Cinzel',serif;font-weight:600;font-size:.9rem;color:var(--gold);margin-bottom:14px}
+.vyr-banking-page .sim-balances{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.vyr-banking-page .sim-bal{border:1px solid var(--rule);padding:12px 14px}
+.vyr-banking-page .sim-bal-l{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase;margin-bottom:4px}
+.vyr-banking-page .sim-bal-v{font-family:'Cinzel',serif;font-weight:700;font-size:1.4rem;color:var(--gold)}
+.vyr-banking-page .sim-bal-s{font-family:'Share Tech Mono',monospace;font-size:.36rem;color:var(--tx3);margin-top:2px}
+.vyr-banking-page .sim-controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.vyr-banking-page .sim-field{display:flex;flex-direction:column;gap:4px}
+.vyr-banking-page .sim-lbl{font-family:'Share Tech Mono',monospace;font-size:.36rem;letter-spacing:.14em;color:var(--tx3);text-transform:uppercase}
+.vyr-banking-page .sim-input{background:var(--s1);border:1px solid var(--rule);padding:6px 10px;color:var(--tx);font-family:'Share Tech Mono',monospace;font-size:.52rem;width:100%;outline:none}
+.vyr-banking-page .sim-input:focus{border-color:var(--gold-d)}
+.vyr-banking-page .sim-select{background:var(--s1);border:1px solid var(--rule);padding:6px 10px;color:var(--tx);font-family:'Share Tech Mono',monospace;font-size:.48rem;width:100%;outline:none;cursor:pointer}
+.vyr-banking-page .sim-btn{font-family:'Share Tech Mono',monospace;font-size:.42rem;letter-spacing:.12em;padding:8px 14px;border:1px solid var(--gold-d);background:rgba(201,168,76,.06);color:var(--gold);cursor:pointer;transition:.15s;text-transform:uppercase;width:100%}
+.vyr-banking-page .sim-btn:hover{background:rgba(201,168,76,.12)}
+.vyr-banking-page .sim-log{background:var(--s1);border:1px solid var(--rule2);padding:10px 12px;max-height:120px;overflow-y:auto;font-family:'Share Tech Mono',monospace;font-size:.4rem;letter-spacing:.04em;color:var(--tx3);line-height:1.8}
+.vyr-banking-page .sim-log-entry{padding:2px 0;border-bottom:1px solid var(--rule2)}
+.vyr-banking-page .sim-log-entry:last-child{border-bottom:none}
+.vyr-banking-page .sim-log-entry.ok{color:var(--green)}
+.vyr-banking-page .sim-log-entry.warn{color:var(--amber)}
+.vyr-banking-page .sim-log-entry.err{color:var(--red)}
+
+@media (max-width: 900px) {
+  .vyr-banking-page .shell {
+    grid-template-columns: 1fr;
+  }
+  .vyr-banking-page .sb {
+    position: relative;
+    top: auto;
+    max-height: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .vyr-banking-page .sb {
+    display: none;
+  }
+  .vyr-banking-page .main {
+    margin-left: 0;
+  }
+  .vyr-banking-page .hero,
+  .vyr-banking-page .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .vyr-banking-page .wallet-diagram {
+    grid-template-columns: 1fr;
+  }
+  .vyr-banking-page .g2 {
+    grid-template-columns: 1fr;
+  }
+  .vyr-banking-page .sim-balances,
+  .vyr-banking-page .sim-controls {
+    grid-template-columns: 1fr;
+  }
+  .vyr-banking-page .access-matrix {
+    grid-template-columns: 1fr 1fr;
+  }
+}
