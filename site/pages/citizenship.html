@@ -30,7 +30,7 @@
           <p class="tier-kicker"><a href="people.html">People</a> · <a href="identity.html">Identity &amp; visa</a></p>
           <h1 class="page-title">Citizenship application</h1>
           <p class="zone-intro">
-            Multi-step registration reviewed by the Language Authority: identity, Vaelic line name, Civic Oath, merit tier, background, VYR wallet, documents, and signature. Processing time 14–21 working days.
+            Multi-step registration reviewed by the Language Authority: identity, Vaelic line name, Civic Oath, merit tier, background, VYR wallet, documents, and signature. You may apply <strong>as an individual</strong> or <strong>as a family unit</strong> (primary applicant plus named co-applicants). Processing time 14–21 working days.
           </p>
           <div class="citizenship-app">
     <div class="progress-wrap">
@@ -81,6 +81,50 @@
           <div class="step-vae">Nara Kirat — Who You Are</div>
           <div class="step-desc">Your legal identity as it exists in your country of origin. This information is verified against external records. Provide accurate information — any discrepancy will delay or void the application.</div>
           <div class="step-rule"></div>
+        </div>
+        <div class="field" id="f-app-type" style="margin-bottom:1.25rem">
+          <div class="field-label">Application type <span>*</span></div>
+          <div class="app-type-options" role="radiogroup" aria-label="Application type">
+            <label class="app-type-option selected" id="appTypeIndividualWrap">
+              <input type="radio" name="applicationType" value="individual" checked onchange="setApplicationType(this.value)" />
+              <div class="app-type-option-body">
+                <div class="ato-title">Individual</div>
+                <div class="ato-desc">Single applicant — one intake under this submission.</div>
+              </div>
+            </label>
+            <label class="app-type-option" id="appTypeFamilyWrap">
+              <input type="radio" name="applicationType" value="family" onchange="setApplicationType(this.value)" />
+              <div class="app-type-option-body">
+                <div class="ato-title">Family unit</div>
+                <div class="ato-desc">Joint application — you are the primary applicant; list every co-applicant. The Language Authority may request parallel dossiers per person.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div id="familyFieldsPanel" class="family-fields-panel" hidden>
+          <div class="form-grid">
+            <div class="field" id="f-familySize">
+              <div class="field-label">Total people in this application (including you) <span>*</span></div>
+              <select id="familySize">
+                <option value="">Select</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+              </select>
+              <div class="field-hint">Must match the number of people you list as primary + co-applicants.</div>
+              <div class="field-error-msg">Choose the total household size for this application</div>
+            </div>
+          </div>
+          <div class="field" id="f-familyList" style="margin-bottom:1rem">
+            <div class="field-label">Co-applicants <span>*</span></div>
+            <div class="field-hint">One line per person (do not repeat yourself — you are the primary applicant above): legal full name, date of birth (YYYY-MM-DD), relationship to you.</div>
+            <textarea id="familyMembersList" rows="5" placeholder="Example: Ada M. Example · 2015-03-22 · Child"></textarea>
+            <div class="field-error-msg">List each co-applicant with name, date of birth, and relationship</div>
+          </div>
         </div>
         <div class="form-grid">
           <div class="field" id="f-given">
@@ -164,6 +208,7 @@
           <div class="step-desc">Every Vaultrian citizen holds a Vaelic line name. This name is permanent — it cannot be changed after citizenship is granted and it passes to all your children. Choose carefully. Browse by category or search by meaning.</div>
           <div class="step-rule"></div>
         </div>
+        <p class="line-name-banned-note" role="note"><span class="line-name-banned-note__lbl">Banned line name</span> The Vaelic line <strong>Velsamoth</strong> is prohibited for new citizens. It is not in the Civic Register for selection, cannot be requested, and any application that names it is void under Name Law.</p>
         <div style="margin-bottom:10px">
           <div class="field-label" style="margin-bottom:8px">Search by name or meaning</div>
           <input type="text" class="name-search" id="nameSearch" placeholder="Type a name or meaning…" />

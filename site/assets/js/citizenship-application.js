@@ -2,6 +2,9 @@
 var state = {
   step: 1,
   totalSteps: 8,
+  applicationType: "individual",
+  familySize: "",
+  familyMembersList: "",
   givenName: "",
   familyName: "",
   dob: "",
@@ -100,10 +103,48 @@ var SKILLS = [
   "Administrative Operations",
 ];
 
+function setApplicationType(value) {
+  state.applicationType = value || "individual";
+  var ind = document.getElementById("appTypeIndividualWrap");
+  var fam = document.getElementById("appTypeFamilyWrap");
+  if (ind) ind.classList.toggle("selected", state.applicationType === "individual");
+  if (fam) fam.classList.toggle("selected", state.applicationType === "family");
+  var panel = document.getElementById("familyFieldsPanel");
+  if (panel) {
+    if (state.applicationType === "family") panel.removeAttribute("hidden");
+    else panel.setAttribute("hidden", "");
+  }
+  if (state.applicationType === "individual") {
+    var fs = document.getElementById("f-familySize");
+    var fl = document.getElementById("f-familyList");
+    if (fs) {
+      fs.classList.remove("error");
+      fs.classList.remove("valid");
+    }
+    if (fl) {
+      fl.classList.remove("error");
+      fl.classList.remove("valid");
+    }
+  }
+}
+
+function countCoApplicantLines(text) {
+  return text
+    .split(/\r?\n/)
+    .map(function (l) {
+      return l.trim();
+    })
+    .filter(function (l) {
+      return l.length > 0;
+    }).length;
+}
+
 window.addEventListener("DOMContentLoaded", function () {
   buildNameGrid("all", "");
   buildSkillsGrid();
   initSignatureCanvas();
+  var checked = document.querySelector('input[name="applicationType"]:checked');
+  if (checked) setApplicationType(checked.value);
 });
 
 function goToStep(n) {
@@ -164,6 +205,39 @@ function validateStep(n) {
     req("f-gender", "gender", "select");
     req("f-origin", "originCountry", "select");
     req("f-email", "email", "email");
+    var appType = (document.querySelector('input[name="applicationType"]:checked') || {}).value || "individual";
+    if (appType === "family") {
+      var fsSel = document.getElementById("familySize");
+      var fsField = document.getElementById("f-familySize");
+      var listEl = document.getElementById("familyMembersList");
+      var listField = document.getElementById("f-familyList");
+      var n = parseInt(fsSel && fsSel.value, 10);
+      var needCo = n >= 2 ? n - 1 : 0;
+      var lineCount = listEl ? countCoApplicantLines(listEl.value) : 0;
+      var fsOk = n >= 2 && n <= 8;
+      if (fsField) {
+        fsField.classList.toggle("error", !fsOk);
+        fsField.classList.toggle("valid", fsOk);
+      }
+      if (!fsOk) ok = false;
+      var listOk = fsOk && lineCount === needCo && needCo > 0;
+      if (listField) {
+        listField.classList.toggle("error", !listOk);
+        listField.classList.toggle("valid", listOk);
+      }
+      if (!listOk) {
+        ok = false;
+        if (fsOk && listEl) {
+          alert(
+            "Family application: you chose " +
+              n +
+              " people total (including you). Enter exactly " +
+              needCo +
+              " co-applicant line(s) — one per line, with legal name, date of birth (YYYY-MM-DD), and relationship."
+          );
+        }
+      }
+    }
     return ok;
   }
   if (n === 2) {
@@ -233,6 +307,12 @@ function validateStep(n) {
 
 function collectStep(n) {
   if (n === 1) {
+    var at = document.querySelector('input[name="applicationType"]:checked');
+    state.applicationType = at ? at.value : "individual";
+    state.familySize = document.getElementById("familySize") ? document.getElementById("familySize").value : "";
+    state.familyMembersList = document.getElementById("familyMembersList")
+      ? document.getElementById("familyMembersList").value.trim()
+      : "";
     state.givenName = document.getElementById("givenName").value.trim();
     state.familyName = document.getElementById("familyName").value.trim();
     state.dob = document.getElementById("dob").value;
@@ -530,12 +610,25 @@ function updateTypedSig() {
   state.typedSig = document.getElementById("typedSig").value.trim();
 }
 
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function buildAppSummary() {
   collectStep(1);
   collectStep(4);
   collectStep(6);
   var ln = state.selectedLineName ? state.selectedLineName.n : "—";
+  var appLabel =
+    state.applicationType === "family"
+      ? "Family unit (" + (state.familySize || "?") + " people)"
+      : "Individual";
   var rows = [
+    ["Application", appLabel],
     ["Full Name", (state.givenName || "—") + " · " + ln],
     ["Date of Birth", state.dob || "—"],
     ["Country of Origin", state.originCountry || "—"],
@@ -548,14 +641,21 @@ function buildAppSummary() {
       state.skills.length > 0 ? state.skills.slice(0, 3).join(", ") + (state.skills.length > 3 ? "…" : "") : "None selected",
     ],
   ];
+  if (state.applicationType === "family" && state.familyMembersList) {
+    var shortList =
+      state.familyMembersList.length > 140
+        ? state.familyMembersList.substring(0, 140) + "…"
+        : state.familyMembersList;
+    rows.splice(2, 0, ["Co-applicants", shortList.replace(/\n/g, " · ")]);
+  }
   var html = "";
   rows.forEach(function (r) {
     html +=
       '<div style="display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04)">' +
       '<span style="font-family:\'Share Tech Mono\',monospace;font-size:.46rem;letter-spacing:.16em;color:var(--text3);text-transform:uppercase">' +
-      r[0] +
+      escapeHtml(r[0]) +
       '</span><span style="font-family:\'Crimson Pro\',serif;font-size:.88rem;color:var(--text);text-align:right;max-width:60%">' +
-      r[1] +
+      escapeHtml(r[1]) +
       "</span></div>";
   });
   document.getElementById("appSummary").innerHTML = html;
@@ -563,6 +663,9 @@ function buildAppSummary() {
 
 function submitApplication() {
   if (!validateStep(8)) return;
+  collectStep(1);
+  collectStep(4);
+  collectStep(6);
   collectStep(8);
 
   var chars = "ABCDEFGHJKLMNPQRSTVWXYZ";
@@ -570,7 +673,7 @@ function submitApplication() {
   for (var i = 0; i < 4; i++) ref += chars[Math.floor(Math.random() * chars.length)];
   ref += "-";
   for (i = 0; i < 6; i++) ref += Math.floor(Math.random() * 10);
-  ref += "-2025";
+  ref += "-2026";
 
   document.getElementById("formContainer").style.display = "none";
   var pw = document.querySelector(".progress-wrap");
@@ -584,6 +687,12 @@ function submitApplication() {
 
   var ln = state.selectedLineName ? state.selectedLineName.n : "—";
   var summary = [
+    [
+      "Application type",
+      state.applicationType === "family"
+        ? "Family unit — " + (state.familySize || "—") + " people (primary + co-applicants)"
+        : "Individual",
+    ],
     ["Full Vaultrian Name", (state.givenName || "Applicant") + " · " + ln],
     ["Date of Birth", state.dob || "—"],
     ["Country of Origin", state.originCountry || "—"],
@@ -596,11 +705,44 @@ function submitApplication() {
     ["Civic Oath", "Formally accepted"],
     ["Reference", ref],
   ];
+  if (state.applicationType === "family" && state.familyMembersList) {
+    summary.splice(2, 0, [
+      "Co-applicants (primary's declaration)",
+      state.familyMembersList.length > 200
+        ? state.familyMembersList.substring(0, 200) + "…"
+        : state.familyMembersList,
+    ]);
+  }
   var html = "";
   summary.forEach(function (r) {
-    html += '<div class="cs-row"><span class="cs-key">' + r[0] + '</span><span class="cs-val">' + r[1] + "</span></div>";
+    var val = r[1];
+    if (typeof val === "string") {
+      val = escapeHtml(val).replace(/\n/g, "<br>");
+    }
+    html +=
+      '<div class="cs-row"><span class="cs-key">' +
+      escapeHtml(r[0]) +
+      '</span><span class="cs-val">' +
+      val +
+      "</span></div>";
   });
   document.getElementById("confSummary").innerHTML = html;
+
+  var cns = document.querySelector(".conf-next-steps");
+  if (cns) {
+    var extra = cns.querySelector(".cns-item--family");
+    if (extra) extra.remove();
+    if (state.applicationType === "family") {
+      var div = document.createElement("div");
+      div.className = "cns-item cns-item--family";
+      div.innerHTML =
+        '<span class="cns-num">4</span> Named co-applicants will receive supplemental intake instructions from the Language Authority; processing may run in parallel per person.';
+      cns.appendChild(div);
+      cns.querySelectorAll(".cns-item:not(.cns-item--family) .cns-num").forEach(function (el, i) {
+        el.textContent = String(i + 1);
+      });
+    }
+  }
 
   document.getElementById("confOath").innerHTML =
     '<span style="color:rgba(201,168,76,0.5);font-size:.8rem;font-style:normal">' +

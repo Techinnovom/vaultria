@@ -344,6 +344,109 @@
   margin: 12px 0 0;
 }
 
+.citizenship-app .app-type-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .citizenship-app .app-type-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.citizenship-app .app-type-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  margin: 0;
+  background: var(--input-bg);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.citizenship-app .app-type-option:hover {
+  border-color: rgba(201, 168, 76, 0.2);
+}
+
+.citizenship-app .app-type-option.selected {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.citizenship-app .app-type-option input[type="radio"] {
+  flex-shrink: 0;
+  accent-color: var(--gold);
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.citizenship-app .app-type-option-body {
+  min-width: 0;
+}
+
+.citizenship-app .ato-title {
+  font-family: Cinzel, serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+
+.citizenship-app .ato-desc {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text2);
+}
+
+.citizenship-app .family-fields-panel {
+  margin-bottom: 1.25rem;
+  padding: 14px 16px;
+  background: rgba(201, 168, 76, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  border-radius: 2px;
+}
+
+.citizenship-app .family-fields-panel[hidden] {
+  display: none !important;
+}
+
+.citizenship-app .line-name-banned-note {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--red) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--red) 28%, transparent);
+  border-radius: 2px;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.88rem;
+  font-style: normal;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.citizenship-app .line-name-banned-note__lbl {
+  display: block;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.46rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+.citizenship-app .line-name-banned-note strong {
+  color: color-mix(in srgb, var(--red) 55%, var(--text));
+  font-weight: 600;
+}
+
 /* ── FORM FIELDS ── */
 .citizenship-app .form-grid {
   display: grid;
