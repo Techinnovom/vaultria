@@ -6,15 +6,17 @@
 
   var VAELIC_DETAIL = "vaelic.html";
 
-  /* Single-lesson pages: keep prev/next + player visible while scrolling lyrics */
+  /* Single-lesson pages: keep prev/next, song title block, and player visible while scrolling lyrics */
   var nav = root.querySelector(".vls-step-nav");
   var audioFig = root.querySelector(".song-audio");
-  if (nav && audioFig && !root.querySelector(".vls-sticky-bar")) {
+  var songHd = root.querySelector(".song-hd");
+  if (nav && audioFig && songHd && !root.querySelector(".vls-sticky-bar")) {
     var bar = document.createElement("div");
     bar.className = "vls-sticky-bar";
-    bar.setAttribute("aria-label", "Lesson navigation and recording");
+    bar.setAttribute("aria-label", "Lesson navigation, title, and recording");
     nav.parentNode.insertBefore(bar, nav);
     bar.appendChild(nav);
+    bar.appendChild(songHd);
     bar.appendChild(audioFig);
   }
 

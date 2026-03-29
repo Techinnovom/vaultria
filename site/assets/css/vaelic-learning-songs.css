@@ -55,7 +55,7 @@
   margin-bottom: 6px;
 }
 
-/* Sticky lesson nav + player (DOM assembled on lesson pages by vaelic-learning-songs.js) */
+/* Sticky lesson nav + song header + player (DOM assembled on lesson pages by vaelic-learning-songs.js) */
 .vaelic-learning-songs-page .vls-sticky-bar {
   position: sticky;
   top: 0;
@@ -76,6 +76,35 @@
 
 .vaelic-learning-songs-page .vls-sticky-bar .vls-step-nav {
   margin-bottom: 0.65rem;
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .song-hd {
+  margin-bottom: 0.55rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule2);
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .song-num {
+  padding-top: 2px;
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .song-title {
+  font-size: clamp(1.05rem, 2.8vw, 1.32rem);
+  margin-bottom: 2px;
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .song-subtitle {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .song-meta {
+  margin-top: 5px;
+  gap: 6px 10px;
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .song-tag {
+  padding: 2px 6px;
 }
 
 .vaelic-learning-songs-page .vls-sticky-bar .song-audio {
@@ -133,8 +162,14 @@
 
 .vaelic-learning-songs-page .songs{max-width:900px;margin:0 auto;padding:0 40px 80px}
 
+/* First song on lesson pages: header lives in sticky bar — no duplicate top rule */
+.vaelic-learning-songs-page .songs > .song:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
 
-.vaelic-learning-songs-page .song{margin-top:52px;padding-top:32px;border-top:1px solid var(--rule);scroll-margin-top:7.5rem}
+.vaelic-learning-songs-page .song{margin-top:52px;padding-top:32px;border-top:1px solid var(--rule);scroll-margin-top:10rem}
 .vaelic-learning-songs-page .song-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
 .vaelic-learning-songs-page .song-num{font-family:'Share Tech Mono',monospace;font-size:.34rem;letter-spacing:.16em;color:var(--tx3);text-transform:uppercase;padding-top:6px;width:28px;flex-shrink:0}
 .vaelic-learning-songs-page .song-hd-main{flex:1}
