@@ -6,6 +6,18 @@
 
   var VAELIC_DETAIL = "vaelic.html";
 
+  /* Single-lesson pages: keep prev/next + player visible while scrolling lyrics */
+  var nav = root.querySelector(".vls-step-nav");
+  var audioFig = root.querySelector(".song-audio");
+  if (nav && audioFig && !root.querySelector(".vls-sticky-bar")) {
+    var bar = document.createElement("div");
+    bar.className = "vls-sticky-bar";
+    bar.setAttribute("aria-label", "Lesson navigation and recording");
+    nav.parentNode.insertBefore(bar, nav);
+    bar.appendChild(nav);
+    bar.appendChild(audioFig);
+  }
+
   function nextSongSection(songEl) {
     var el = songEl.nextElementSibling;
     while (el && !el.classList.contains("song")) {

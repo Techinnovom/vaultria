@@ -37,10 +37,6 @@
   box-sizing: border-box;
 }
 
-.vaelic-learning-songs-page .song {
-  scroll-margin-top: 5rem;
-}
-
 .vaelic-learning-songs-page .song-audio {
   margin: 0 0 14px;
 }
@@ -57,6 +53,38 @@
   text-transform: uppercase;
   color: var(--tx3);
   margin-bottom: 6px;
+}
+
+/* Sticky lesson nav + player (DOM assembled on lesson pages by vaelic-learning-songs.js) */
+.vaelic-learning-songs-page .vls-sticky-bar {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  margin: 0 0 1rem;
+  padding: 0.55rem 0 0.75rem;
+  background: color-mix(in srgb, var(--bg-deep) 94%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 959px) {
+  .vaelic-learning-songs-page .vls-sticky-bar {
+    top: 3.75rem;
+  }
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .vls-step-nav {
+  margin-bottom: 0.65rem;
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .song-audio {
+  margin-bottom: 0;
+  padding-bottom: 2px;
+}
+
+.vaelic-learning-songs-page .vls-sticky-bar .song-audio audio {
+  max-width: 100%;
 }
 
 .vaelic-learning-songs-page .vls-step-nav {
@@ -106,7 +134,7 @@
 .vaelic-learning-songs-page .songs{max-width:900px;margin:0 auto;padding:0 40px 80px}
 
 
-.vaelic-learning-songs-page .song{margin-top:52px;padding-top:32px;border-top:1px solid var(--rule);scroll-margin-top:20px}
+.vaelic-learning-songs-page .song{margin-top:52px;padding-top:32px;border-top:1px solid var(--rule);scroll-margin-top:7.5rem}
 .vaelic-learning-songs-page .song-hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
 .vaelic-learning-songs-page .song-num{font-family:'Share Tech Mono',monospace;font-size:.34rem;letter-spacing:.16em;color:var(--tx3);text-transform:uppercase;padding-top:6px;width:28px;flex-shrink:0}
 .vaelic-learning-songs-page .song-hd-main{flex:1}
