@@ -36,7 +36,11 @@
     },
     { id: "doctrine", title: "Doctrine", text: "doctrine national motto kiratvel navol truth is permanent anthem constitution" },
     { id: "codex", title: "Codex of Order", text: "codex law legal volume preamble rights zones criminal aegis prime ai emergency foreign amendments sovereignty prime custodian core council" },
-    { id: "government", title: "Government", text: "government law courts civic power structure" },
+    {
+      id: "government",
+      title: "Government",
+      text: "government law courts civic power structure velora aurex capital seat prime custodian core council codex volume I charter constitution supreme law founding",
+    },
     {
       id: "foreign-relations",
       title: "Foreign relations",
@@ -87,8 +91,17 @@
     { id: "fire", title: "Fire & Hazard", text: "fire hazard fhu suppression hazmat rescue disaster" },
     { id: "vrd", title: "VRD", text: "vrd rapid response division emergency dispatch sixty seconds" },
     { id: "elite", title: "Obsidian & Black", text: "obsidian guard black division elite covert custodian protection ghost" },
-    { id: "education", title: "Education", text: "education schools training" },
+    {
+      id: "education",
+      title: "Education",
+      text: "education schools training compulsory 5-18 free national curriculum private schools universities trade schools specialist higher institutes credit credential fees tuition",
+    },
     { id: "culture", title: "Culture", text: "culture arts society propaganda media national identity" },
+    {
+      id: "instruments",
+      title: "Vaultrian instruments",
+      text: "instruments musical codex vaultrian language authority cultural archive acoustic electronic civic private velkor naratel sorvek kavar velumex morven tarin kaelvar sivkor wind brass string percussion flute mourning naratel kit",
+    },
     { id: "holidays", title: "National Holidays", text: "holidays calendar vaultrian national holidays observances charter day founders day first coin day zone day builders day knowledge day merit review language day serokav day arts expression melat day void day fallen day error day first light harvest day long night citizen day digital day" },
     { id: "serokav", title: "Serokav — The Vaultrian Table", text: "serokav vaultrian table food index dishes filter list cuisine naratbowl narat serokav body food fonio millet stew tomato pepper sweet potato spinach recipe ingredients method mild heat household meal daily life zelek flatbread lavash narezi place bread zelek-serokav nod bakery sesame cast iron torakmora groundnut tomato dip cassava flour everyday bread kavira plate table sena pot communal torakav naratel broth soul water ceremony naratpilaf pilaf kiratsavel covenant grain zeritkat law bottom ceremonial saffron nod skewer city fire kofta charcoal street lamb sumac vatek borek pastry machine yufka filo pine nut currant doogh living water yoghurt drink mint rose narozi brew idea water pomegranate hibiscus cherry cardamom varun tea future water armudu samovar rock sugar rose petals soko brew forest water kvass ginger barberries honey fermented baklava moravel love pastry walnut pistachio honey rose syrup diamond cut revani cake kalemi revani joy cake semolina almond orange blossom lemon clotted cream" },
     { id: "serokav-naratbowl", title: "Naratbowl (Serokav)", text: "naratbowl narat serokav body food fonio millet stew grain vegetable scotch bonnet sweet potato spinach locust beans iru recipe" },

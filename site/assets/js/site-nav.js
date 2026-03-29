@@ -126,6 +126,7 @@
         { id: "flownet-rail", title: "FlowNet Rail" },
         { id: "siven-healthcare", title: "Siven healthcare" },
         { id: "culture", title: "Culture" },
+        { id: "instruments", title: "Instruments" },
         { id: "holidays", title: "Holidays" },
         { id: "serokav", title: "Serokav" },
         { id: "anthem", title: "Anthem" },

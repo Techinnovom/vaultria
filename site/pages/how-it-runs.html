@@ -1,210 +1,289 @@
 <!DOCTYPE html>
-<html lang="en" class="mi-standalone">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How VAULTRIA runs — VAULTRIA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/master-index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
 </head>
-<body class="mi-standalone">
-  <div class="mi-wrap">
-    <div class="breadcrumb"><a href="../index.html">VAULTRIA</a> · <a href="master-index.html">Master index</a> · How it runs</div>
-    <h1>How VAULTRIA runs</h1>
-    <div class="sub">Daily life in VAULTRIA — tax, transport, internet, energy, education, healthcare, housing, food, and the legal working age. What the state provides, what it charges for, and what it will never sell.</div>
+<body data-nav-depth="1">
+  <a class="visually-hidden" href="#main-content">Skip to content</a>
+  <div class="bg-vault" aria-hidden="true"></div>
+  <div class="site-shell">
+    <aside class="site-sidebar" id="site-sidebar" aria-label="Site navigation"></aside>
+    <div class="site-main">
+      <header class="site-topbar">
+        <button type="button" class="site-nav-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-sidebar">
+          <span class="site-nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">Open menu</span>
+        </button>
+        <a href="../index.html" class="site-topbar-brand">VAULTRIA</a>
+      </header>
+      <div class="wrap">
+        <main id="main-content">
+          <p class="tier-kicker"><a href="master-index.html">Master index</a> · How it runs</p>
+          <h1 class="page-title">How VAULTRIA runs</h1>
+          <p class="zone-intro">
+            Daily life in VAULTRIA — tax, transport, internet, energy, education, healthcare, housing, food, and the legal working age. What the state provides, what it charges for, and what it will never sell.
+          </p>
 
-    <div class="motto">VAULTRIA is designed so that basic life does not depend on luck, inheritance, or which family you were born into.</div>
+          <div class="card prose">
+            <blockquote>
+              <p><em>VAULTRIA is designed so that basic life does not depend on luck, inheritance, or which family you were born into.</em></p>
+            </blockquote>
+          </div>
 
-    <h2>The core principle</h2>
-    <p>Life in VAULTRIA is built on a single foundational idea: <strong>the state covers the floor, not the ceiling.</strong> Every citizen, regardless of income, contribution score, or zone, has guaranteed access to the essentials of a functioning life. Above that floor, what you earn, build, and contribute determines what more you can access. The state does not level outcomes — it eliminates the worst ones.</p>
+          <section aria-labelledby="hir-principle">
+            <h2 id="hir-principle">The core principle</h2>
+            <div class="card prose">
+              <p>
+                Life in VAULTRIA is built on a single foundational idea: <strong>the state covers the floor, not the ceiling.</strong> Every citizen, regardless of income, contribution score, or zone, has guaranteed access to the essentials of a functioning life. Above that floor, what you earn, build, and contribute determines what more you can access. The state does not level outcomes — it eliminates the worst ones.
+              </p>
+            </div>
+          </section>
 
-    <h2>Tax</h2>
-    <p>VAULTRIA operates a <strong>percentage-based income tax</strong> — the more you earn, the higher the rate you pay. There are no flat taxes, no per-head levies, and no exemptions based on citizenship tier. Every earning citizen contributes proportionally. Revenue logic sits with the <a href="economy.html" class="mi-note-link">economy</a> and <a href="currency.html" class="mi-note-link">VYR currency</a> pages; collection runs through the banking system (<a href="vyr-banking.html" class="mi-note-link">VYR banking</a>).</p>
-    <h3>Personal income tax — maximum 20%</h3>
-    <div class="table-wrap">
-      <table>
-        <tr>
-          <th>Income band (annual VYR)</th>
-          <th>Tax rate</th>
-          <th>Notes</th>
-        </tr>
-        <tr>
-          <td>0 – 12,000</td>
-          <td>0%</td>
-          <td>Below threshold — no tax</td>
-        </tr>
-        <tr>
-          <td>12,001 – 30,000</td>
-          <td>8%</td>
-          <td>Entry earning band</td>
-        </tr>
-        <tr>
-          <td>30,001 – 60,000</td>
-          <td>13%</td>
-          <td>Standard working band</td>
-        </tr>
-        <tr>
-          <td>60,001 – 120,000</td>
-          <td>17%</td>
-          <td>Above median income</td>
-        </tr>
-        <tr>
-          <td>120,001+</td>
-          <td>20%</td>
-          <td>Maximum rate — applies to all income above this level</td>
-        </tr>
-      </table>
+          <section aria-labelledby="hir-tax">
+            <h2 id="hir-tax">Tax</h2>
+            <div class="card prose">
+              <p>
+                VAULTRIA operates a <strong>percentage-based income tax</strong> — the more you earn, the higher the rate you pay. There are no flat taxes, no per-head levies, and no exemptions based on citizenship tier. Every earning citizen contributes proportionally. Revenue logic sits with the <a href="economy.html">economy</a> and <a href="currency.html">VYR currency</a> pages; collection runs through the banking system (<a href="vyr-banking.html">VYR banking</a>).
+              </p>
+            </div>
+            <h3 class="tier-kicker">Personal income tax — maximum 20%</h3>
+            <div class="card">
+              <table class="table-spec">
+                <thead>
+                  <tr>
+                    <th>Income band (annual VYR)</th>
+                    <th>Tax rate</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>0 – 12,000</td><td>0%</td><td>Below threshold — no tax</td></tr>
+                  <tr><td>12,001 – 30,000</td><td>8%</td><td>Entry earning band</td></tr>
+                  <tr><td>30,001 – 60,000</td><td>13%</td><td>Standard working band</td></tr>
+                  <tr><td>60,001 – 120,000</td><td>17%</td><td>Above median income</td></tr>
+                  <tr><td>120,001+</td><td>20%</td><td>Maximum rate — applies to all income above this level</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3 class="tier-kicker">Business tax — maximum 40%</h3>
+            <div class="card">
+              <table class="table-spec">
+                <thead>
+                  <tr>
+                    <th>Annual revenue (VYR)</th>
+                    <th>Tax rate</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>0 – 50,000</td><td>0%</td><td>Small business threshold — no tax</td></tr>
+                  <tr><td>50,001 – 200,000</td><td>10%</td><td>Small to mid business</td></tr>
+                  <tr><td>200,001 – 500,000</td><td>18%</td><td>Mid-size business</td></tr>
+                  <tr><td>500,001 – 2,000,000</td><td>28%</td><td>Large business</td></tr>
+                  <tr><td>2,000,001+</td><td>40%</td><td>Maximum rate — corporate and enterprise level</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card prose">
+              <p>
+                Personal tax is collected automatically through the VYR system — deducted at source for employed citizens, filed quarterly by the self-employed. Business tax is filed annually by registered businesses. The Custodian of Economy publishes an annual breakdown of where all tax revenue goes. This is <a href="codex.html">Charter</a>-mandated, not discretionary.
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-transport">
+            <h2 id="hir-transport">Transport</h2>
+            <h3 class="tier-kicker">FlowNet Rail — free for most citizens</h3>
+            <div class="card prose">
+              <p>
+                The <a href="flownet-rail.html">FlowNet Rail</a> network — eight lines, 41 stations, connecting all 12 zones — is <strong>free for all taxpaying households</strong>. Any citizen registered in the VYR system whose household contributes tax has unlimited access to FlowNet Rail at no additional cost. The network is funded entirely through the national tax base; fares are not the operating model.
+              </p>
+              <ul>
+                <li>Non-taxpaying households (below the threshold) access FlowNet Rail at a heavily subsidised flat rate — never excluded</li>
+                <li>Visitors and non-citizens pay standard fares</li>
+                <li>Restricted lines (defence zones, classified infrastructure) require clearance regardless of tax status</li>
+                <li>FlowNet Rail is free to all citizens on <strong><a href="holidays.html">public holidays</a></strong> — no exceptions</li>
+              </ul>
+            </div>
+            <h3 class="tier-kicker">Other transport</h3>
+            <div class="card prose">
+              <p>
+                Zone-level bus and transit systems are operated by zone authorities and are free within a citizen's home zone. Inter-zone surface transport beyond FlowNet Rail is subsidised but not free. <strong>No public transport route in VAULTRIA is operated for profit</strong> — all networks are state or zone-owned. Privatisation of public transport is constitutionally prohibited.
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-internet">
+            <h2 id="hir-internet">Internet &amp; communications</h2>
+            <h3 class="tier-kicker">The satellite network</h3>
+            <div class="card prose">
+              <p>
+                VAULTRIA operates its own <strong>state-hosted satellite communications network</strong> — not leased from a foreign provider, not operated by a private company. The satellite infrastructure is owned by the state, maintained by the Custodian of Infrastructure, and treated as sovereign infrastructure equivalent to national territory.
+              </p>
+              <p>
+                Every taxpaying household receives <strong>full satellite internet access at no charge</strong>. This is a right attached to tax contribution, not a service that can be metered, throttled commercially, or sold. The connection is the same network regardless of zone, income tier, or merit score — no tiered consumer internet packages exist. What varies is priority bandwidth allocation during peak demand, which favours emergency services and civic communications first, then residential equally.
+              </p>
+              <ul>
+                <li><strong>Privatisation of the satellite network is constitutionally prohibited</strong></li>
+                <li>The network is operated as infrastructure — like roads, not like a subscription service</li>
+                <li>Households below the tax threshold access the network through a social access programme administered by the Custodian of Citizens — no household is excluded from connectivity</li>
+                <li>VIB monitoring of the network is disclosed and governed by the Sivara Protocol — citizens know the network is observed for security, and the conditions for that observation are published (<a href="intelligence.html">Intelligence (VIB)</a>)</li>
+              </ul>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-education">
+            <h2 id="hir-education">Education</h2>
+            <div class="card prose">
+              <p>
+                <a href="education.html">Education</a> for ages <strong>5–18</strong> is <strong>free and compulsory</strong>: no tuition, no zone-based quality gaps for that compulsory band, and a single national curriculum standard for general schooling. The state funds that phase as a non-negotiable public good.
+              </p>
+              <p>
+                <strong>No privately owned school may operate for ages 5–18</strong> — no fee-paying primary or secondary parallel to the public system. From <strong>18 upward</strong>, licensed private and independent providers are allowed where national law permits: universities, higher institutes, specialist schools, trade and craft training, credit-bearing programmes, and similar post-secondary paths. They charge <strong>fees</strong> to learners — <strong>the state does not pay tuition at private institutions</strong> (registration, standards, fee caps, and access rules still apply — see the education page).
+              </p>
+              <ul>
+                <li>Ages 5–18: fully state-funded general schools only, competency-based, no exemptions from the common system</li>
+                <li>The Naratel Kit — instruments, learning materials — is provided to every child at age 5 at no cost (see <a href="citizenship-lifecycle.html">Citizenship lifecycle</a>)</li>
+                <li>Beyond 18: <strong>public and chartered</strong> routes are funded or heavily subsidised by the state; <strong>licensed private</strong> institutions charge <strong>fees</strong> — <strong>the state does not pay private tuition</strong>, though national caps keep cost from blocking entry</li>
+                <li>Adult education and retraining programmes are available to all citizens throughout their working life; they are <strong>not free</strong> — learners pay <strong>fees</strong> under the same rules as other post-18 routes (public and chartered options subsidised by the state; licensed private — you pay, the state does not cover tuition)</li>
+              </ul>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-health">
+            <h2 id="hir-health">Healthcare</h2>
+            <div class="card prose">
+              <p>
+                The <a href="siven-healthcare.html">Siven</a> network guarantees that <strong>no citizen suffers or dies from a preventable or treatable condition because they cannot pay</strong>. Emergency care, essential treatment, mental healthcare, maternal care, child health, chronic disease management, and end-of-life care are all free at the point of need.
+              </p>
+              <ul>
+                <li>Free: emergency care, essential treatment, mental health, maternal and child health, chronic disease management, end-of-life care</li>
+                <li><strong>Paid</strong> (you pay): elective procedures, specialist speed, enhanced prescriptions, dental restoration, vision correction — <strong>fees in VYR</strong> on Siven&rsquo;s income-scaled tariff. Citizens who cannot afford the fee may <strong>apply to the Custodian of Citizens</strong> for discretionary assistance (full, partial, or declined); nothing is guaranteed</li>
+                <li>Private sector: operates independently outside Siven, at citizens&rsquo; own expense and choice — state assistance applications apply to <strong>Siven billed care</strong>, not private bills</li>
+              </ul>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-energy">
+            <h2 id="hir-energy">Energy</h2>
+            <div class="card prose">
+              <p>
+                Energy — electricity, heating, and essential utilities — is provided to all households through the <strong>state energy grid, funded through taxation</strong>. Residential energy is not metered for billing purposes for standard household use. Citizens do not receive energy bills for normal consumption. The cost is absorbed into the tax system as a public utility, not a commodity.
+              </p>
+              <p>
+                <strong>Commercial, industrial, and institutional</strong> users are different: their supply is <strong>metered</strong>, and they are <strong>billed in VYR</strong> for what they use. The bill reflects <strong>two things</strong> — <strong>how much energy the site draws</strong> and <strong>which tariff band the registered organization falls into</strong> (office, retail, logistics, light manufacturing, heavy industry, high-load computing, and so on). Bands and unit rates are set nationally under the Custodian of Infrastructure, with zone authorities handling metering and collection.
+              </p>
+              <ul>
+                <li>Standard residential energy use: free, state-funded</li>
+                <li>Non-residential billing: <strong>usage × organizational tariff</strong> — same kilowatt-hours can cost different amounts depending on whether the site is, for example, a neighbourhood market hall, a freight warehouse, a textile plant, or a metals works</li>
+                <li><strong>Preferential (lower) tariffs</strong> for high civic benefit: if the state registers the site and purpose as serving the public good, the organization pays <strong>less per unit of energy</strong> than a standard commercial user with a similar load — healthcare and education are typical beneficiaries, not the only ones</li>
+                <li>Examples of bands that usually qualify (the schedule is definitive, not this list): <strong>Siven</strong> hospitals, clinics, and linked emergency facilities; <strong>public schools</strong> for the compulsory system; <strong>chartered universities and civic institutes</strong>; <strong>emergency services</strong> (dispatch, stations, vehicle charging for Kael and civil defence); <strong>public transport</strong> — rail substations and yards, bus and tram depots; <strong>public drinking-water and wastewater</strong> plants; <strong>civic food-security cold storage</strong> (e.g. tied to the Basic Provision Programme); <strong>charter-listed research</strong> laboratories. Declaring the wrong category to get a cheaper band is a serious offence</li>
+                <li>The energy grid is state-owned — <strong>privatisation is prohibited</strong></li>
+                <li>VAULTRIA runs a mix of energy sources with a national mandate to reach full renewable supply — managed by the Custodian of Infrastructure in coordination with zone energy authorities</li>
+              </ul>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-food">
+            <h2 id="hir-food">Food provision</h2>
+            <div class="card prose">
+              <p>
+                VAULTRIA does not operate a universal food provision system in daily life — citizens purchase food through normal markets. However, <strong>on national holidays and civic celebration days, communal meals (Serokavmela) are provided free to all citizens</strong> in every zone. These are organised through zone civic centres and are a cultural institution as much as a practical one — see <a href="serokav.html">Serokav</a> and <a href="holidays.html">Holidays</a>.
+              </p>
+              <p>
+                For citizens in genuine hardship — below the tax threshold and without sufficient income — the Custodian of Citizens operates a <strong>Basic Provision Programme</strong>: a weekly allocation of essential food items at no cost, registered through the <a href="citizenship-lifecycle.html">CLR</a>. This is not means-tested beyond income verification and carries no civic stigma — it is a floor, not a category.
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-housing">
+            <h2 id="hir-housing">Housing</h2>
+            <div class="card prose">
+              <p>
+                Housing in VAULTRIA runs on <strong>zone allocation, merit clearance, and paid contracts</strong> — managed by each zone authority under the Custodian of Citizens. <strong>Housing is paid for:</strong> you are <strong>billed</strong> — rent or purchase in VYR — under zone schedules (many standard allocations scale fees to documented income). This is not framed as a voluntary &ldquo;contribution&rdquo;; it is <strong>housing you pay for</strong>. What <a href="merit-tier.html">Merit tier</a> and zone clearance control is <strong>where</strong> you may legally <strong>sign a lease or complete a purchase</strong>: in <strong>tier-locked</strong> districts or stock, you <strong>cannot</strong> rent or buy <strong>at all</strong> until you meet the required tier and related rules — <strong>even if you have the VYR</strong>. Everyone retains a right not to be abandoned without shelter; the address and standard you can access sit inside the bands you are cleared for. Legal detail: <a href="private-property-law.html">Private property law</a>, <a href="family-law.html">Family law</a>.
+              </p>
+              <ul>
+                <li><strong>Tier 1 citizens</strong> — standard civic-grid and zone housing they are cleared for; <strong>pay rent or purchase</strong> like any other contract</li>
+                <li><strong>Tier 2 citizens</strong> — broader zone and stock choice, improved priority in allocation queues; still <strong>paid</strong> tenancy or ownership</li>
+                <li><strong>Tier 3 citizens</strong> — may apply for restricted stock (e.g. Velisar-class areas); <strong>clearance must exist before any landlord or seller may contract with you</strong> there</li>
+                <li><strong>Tier-locked areas:</strong> below the required merit tier, offers to rent or sell in that band are not lawful — you cannot pay your way in early; raise tier or choose cleared stock</li>
+                <li><strong>Billing:</strong> zone housing charges scale with income rules where policy applies; subsidies or civic safety-net allocation may <strong>reduce what you pay</strong>, but occupancy remains a <strong>paid</strong> registered housing record, not a gift category</li>
+                <li>No citizen can be made homeless by the state — eviction without alternative housing provision is prohibited</li>
+              </ul>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-work-age">
+            <h2 id="hir-work-age">Legal working age</h2>
+            <div class="card prose">
+              <p>
+                The minimum legal working age in VAULTRIA is <strong>16</strong>. Between 16 and 18, citizens may work in permitted categories — educational, civic, commercial — with restrictions on hours and prohibited industries (hazardous work, enforcement, military). Full working rights begin at 18 with full civic status (<a href="citizenship-lifecycle.html">Citizenship lifecycle</a>).
+              </p>
+              <p>
+                Employers hiring under-18 workers are subject to additional oversight from the Custodian of Citizens. Exploitation of under-18 workers — unpaid labour, excessive hours, hazardous conditions — is a criminal offence under the <a href="criminal-code.html">Criminal Code</a>.
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-never">
+            <h2 id="hir-never">What is never privatised</h2>
+            <div class="card prose">
+              <p>
+                Doctrine draws a hard line between services and infrastructure. The following are constitutionally protected from privatisation — they are public goods by definition, not commodities:
+              </p>
+              <ul>
+                <li>FlowNet Rail and all public transport networks</li>
+                <li>The satellite internet network</li>
+                <li>The national energy grid</li>
+                <li>The Siven healthcare network (emergency and essential care)</li>
+                <li>Compulsory general education (ages 5–18) — public system only; no private schools in that band</li>
+                <li>The water supply and sewage infrastructure</li>
+                <li>The FlowNet communications infrastructure</li>
+              </ul>
+              <p>
+                Private companies may operate in adjacent markets — private healthcare, private transport services, private energy consultancy — but they cannot own or operate the public infrastructure itself. The distinction is maintained by the Custodian of Infrastructure and enforced by the Criminal Code.
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="hir-custodians">
+            <h2 id="hir-custodians">What the custodians govern in daily life</h2>
+            <div class="card">
+              <table class="table-spec">
+                <thead>
+                  <tr>
+                    <th>Domain</th>
+                    <th>Custodian</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Tax collection, economic policy, VYR</td><td>Custodian of Economy</td></tr>
+                  <tr><td>Transport, energy, internet infrastructure</td><td>Custodian of Infrastructure</td></tr>
+                  <tr><td>Healthcare, education, housing, food provision, working-age enforcement</td><td>Custodian of Citizens</td></tr>
+                  <tr><td>FlowNet security monitoring, network threat response</td><td>Custodian of Intelligence</td></tr>
+                  <tr><td>Law enforcement, workplace crime, exploitation cases</td><td>Custodian of Order</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+
+        <footer>
+          <p>The Sovereign State of VAULTRIA — a living document.</p>
+          <p class="latin">Edit <code>site/pages/how-it-runs.html</code> · Kiratvel navol</p>
+        </footer>
+      </div>
     </div>
-    <h3>Business tax — maximum 40%</h3>
-    <div class="table-wrap">
-      <table>
-        <tr>
-          <th>Annual revenue (VYR)</th>
-          <th>Tax rate</th>
-          <th>Notes</th>
-        </tr>
-        <tr>
-          <td>0 – 50,000</td>
-          <td>0%</td>
-          <td>Small business threshold — no tax</td>
-        </tr>
-        <tr>
-          <td>50,001 – 200,000</td>
-          <td>10%</td>
-          <td>Small to mid business</td>
-        </tr>
-        <tr>
-          <td>200,001 – 500,000</td>
-          <td>18%</td>
-          <td>Mid-size business</td>
-        </tr>
-        <tr>
-          <td>500,001 – 2,000,000</td>
-          <td>28%</td>
-          <td>Large business</td>
-        </tr>
-        <tr>
-          <td>2,000,001+</td>
-          <td>40%</td>
-          <td>Maximum rate — corporate and enterprise level</td>
-        </tr>
-      </table>
-    </div>
-    <p>Personal tax is collected automatically through the VYR system — deducted at source for employed citizens, filed quarterly by the self-employed. Business tax is filed annually by registered businesses. The Custodian of Economy publishes an annual breakdown of where all tax revenue goes. This is <a href="codex.html" class="mi-note-link">Charter</a>-mandated, not discretionary.</p>
-
-    <h2>Transport</h2>
-    <h3>FlowNet Rail — free for most citizens</h3>
-    <p>The <a href="flownet-rail.html" class="mi-note-link">FlowNet Rail</a> network — eight lines, 41 stations, connecting all 12 zones — is <strong>free for all taxpaying households</strong>. Any citizen registered in the VYR system whose household contributes tax has unlimited access to FlowNet Rail at no additional cost. The network is funded entirely through the national tax base; fares are not the operating model.</p>
-    <ul>
-      <li>Non-taxpaying households (below the threshold) access FlowNet Rail at a heavily subsidised flat rate — never excluded</li>
-      <li>Visitors and non-citizens pay standard fares</li>
-      <li>Restricted lines (defence zones, classified infrastructure) require clearance regardless of tax status</li>
-      <li>FlowNet Rail is free to all citizens on <strong><a href="holidays.html" class="mi-note-link">public holidays</a></strong> — no exceptions</li>
-    </ul>
-    <h3>Other transport</h3>
-    <p>Zone-level bus and transit systems are operated by zone authorities and are free within a citizen's home zone. Inter-zone surface transport beyond FlowNet Rail is subsidised but not free. <strong>No public transport route in VAULTRIA is operated for profit</strong> — all networks are state or zone-owned. Privatisation of public transport is constitutionally prohibited.</p>
-
-    <h2>Internet &amp; communications</h2>
-    <h3>The satellite network</h3>
-    <p>VAULTRIA operates its own <strong>state-hosted satellite communications network</strong> — not leased from a foreign provider, not operated by a private company. The satellite infrastructure is owned by the state, maintained by the Custodian of Infrastructure, and treated as sovereign infrastructure equivalent to national territory.</p>
-    <p>Every taxpaying household receives <strong>full satellite internet access at no charge</strong>. This is a right attached to tax contribution, not a service that can be metered, throttled commercially, or sold. The connection is the same network regardless of zone, income tier, or merit score — no tiered consumer internet packages exist. What varies is priority bandwidth allocation during peak demand, which favours emergency services and civic communications first, then residential equally.</p>
-    <ul>
-      <li><strong>Privatisation of the satellite network is constitutionally prohibited</strong></li>
-      <li>The network is operated as infrastructure — like roads, not like a subscription service</li>
-      <li>Households below the tax threshold access the network through a social access programme administered by the Custodian of Citizens — no household is excluded from connectivity</li>
-      <li>VIB monitoring of the network is disclosed and governed by the Sivara Protocol — citizens know the network is observed for security, and the conditions for that observation are published (<a href="intelligence.html" class="mi-note-link">Intelligence (VIB)</a>)</li>
-    </ul>
-
-    <h2>Education</h2>
-    <p><a href="education.html" class="mi-note-link">Education</a> is <strong>free and compulsory from age 5 to 18</strong>. No fees, no zone-based quality disparities (all schools operate under the same national curriculum standard), no private school system that depletes the public one. The state funds education as a non-negotiable public good.</p>
-    <ul>
-      <li>Ages 5–18: fully state-funded, competency-based, no exemptions</li>
-      <li>The Naratel Kit — instruments, learning materials — is provided to every child at age 5 at no cost (see <a href="citizenship-lifecycle.html" class="mi-note-link">Citizenship lifecycle</a>)</li>
-      <li>Higher education beyond 18 is available through the VRI and zone universities; it is subsidised but not fully free — contribution-based fees apply, capped so that cost is never a barrier to entry</li>
-      <li>Adult education and retraining programmes are free and available to all citizens throughout their working life</li>
-    </ul>
-
-    <h2>Healthcare</h2>
-    <p>The <a href="siven-healthcare.html" class="mi-note-link">Siven</a> network guarantees that <strong>no citizen suffers or dies from a preventable or treatable condition because they cannot pay</strong>. Emergency care, essential treatment, mental healthcare, maternal care, child health, chronic disease management, and end-of-life care are all free at the point of need.</p>
-    <ul>
-      <li>Free: emergency care, essential treatment, mental health, maternal and child health, chronic disease management, end-of-life care</li>
-      <li>Contribution-based: elective procedures, specialist speed, enhanced prescriptions, dental restoration, vision correction</li>
-      <li>Private sector: operates independently outside Siven, at citizens' own expense and choice</li>
-    </ul>
-
-    <h2>Energy</h2>
-    <p>Energy — electricity, heating, and essential utilities — is provided to all households through the <strong>state energy grid, funded through taxation</strong>. Residential energy is not metered for billing purposes for standard household use. Citizens do not receive energy bills for normal consumption. The cost is absorbed into the tax system as a public utility, not a commodity.</p>
-    <ul>
-      <li>Standard residential energy use: free, state-funded</li>
-      <li>Commercial and industrial energy: usage-based contribution rates apply</li>
-      <li>The energy grid is state-owned — <strong>privatisation is prohibited</strong></li>
-      <li>VAULTRIA runs a mix of energy sources with a national mandate to reach full renewable supply — managed by the Custodian of Infrastructure in coordination with zone energy authorities</li>
-    </ul>
-
-    <h2>Food provision</h2>
-    <p>VAULTRIA does not operate a universal food provision system in daily life — citizens purchase food through normal markets. However, <strong>on national holidays and civic celebration days, communal meals (Serokavmela) are provided free to all citizens</strong> in every zone. These are organised through zone civic centres and are a cultural institution as much as a practical one — see <a href="serokav.html" class="mi-note-link">Serokav</a> and <a href="holidays.html" class="mi-note-link">Holidays</a>.</p>
-    <p>For citizens in genuine hardship — below the tax threshold and without sufficient income — the Custodian of Citizens operates a <strong>Basic Provision Programme</strong>: a weekly allocation of essential food items at no cost, registered through the <a href="citizenship-lifecycle.html" class="mi-note-link">CLR</a>. This is not means-tested beyond income verification and carries no civic stigma — it is a floor, not a category.</p>
-
-    <h2>Housing</h2>
-    <p>Housing in VAULTRIA operates on a <strong>zone allocation system</strong> managed by each zone authority under oversight from the Custodian of Citizens. Every citizen has a right to housing — no one is left without shelter. The quality and location of housing scales with <a href="merit-tier.html" class="mi-note-link">Merit tier</a> and Trust Vyr contribution, but a base standard is guaranteed to all. Legal detail overlaps <a href="private-property-law.html" class="mi-note-link">Private property law</a> and <a href="family-law.html" class="mi-note-link">Family law</a>.</p>
-    <ul>
-      <li><strong>Tier 1 citizens</strong> — standard zone housing, allocated by zone authority</li>
-      <li><strong>Tier 2 citizens</strong> — broader zone choice, improved standard, faster allocation</li>
-      <li><strong>Tier 3 citizens</strong> — full zone choice including Velisar-class residential areas</li>
-      <li>Citizens below the tax threshold receive housing at no cost; all others pay a zone housing contribution tied to income percentage</li>
-      <li>No citizen can be made homeless by the state — eviction without alternative housing provision is prohibited</li>
-    </ul>
-
-    <h2>Legal working age</h2>
-    <p>The minimum legal working age in VAULTRIA is <strong>16</strong>. Between 16 and 18, citizens may work in permitted categories — educational, civic, commercial — with restrictions on hours and prohibited industries (hazardous work, enforcement, military). Full working rights begin at 18 with full civic status (<a href="citizenship-lifecycle.html" class="mi-note-link">Citizenship lifecycle</a>).</p>
-    <p>Employers hiring under-18 workers are subject to additional oversight from the Custodian of Citizens. Exploitation of under-18 workers — unpaid labour, excessive hours, hazardous conditions — is a criminal offence under the <a href="criminal-code.html" class="mi-note-link">Criminal Code</a>.</p>
-
-    <h2>What is never privatised</h2>
-    <p>Doctrine draws a hard line between services and infrastructure. The following are constitutionally protected from privatisation — they are public goods by definition, not commodities:</p>
-    <ul>
-      <li>FlowNet Rail and all public transport networks</li>
-      <li>The satellite internet network</li>
-      <li>The national energy grid</li>
-      <li>The Siven healthcare network (emergency and essential care)</li>
-      <li>The education system (ages 5–18)</li>
-      <li>The water supply and sewage infrastructure</li>
-      <li>The FlowNet communications infrastructure</li>
-    </ul>
-    <p>Private companies may operate in adjacent markets — private healthcare, private transport services, private energy consultancy — but they cannot own or operate the public infrastructure itself. The distinction is maintained by the Custodian of Infrastructure and enforced by the Criminal Code.</p>
-
-    <h2>What the custodians govern in daily life</h2>
-    <div class="table-wrap">
-      <table>
-        <tr>
-          <th>Domain</th>
-          <th>Custodian</th>
-        </tr>
-        <tr>
-          <td>Tax collection, economic policy, VYR</td>
-          <td>Custodian of Economy</td>
-        </tr>
-        <tr>
-          <td>Transport, energy, internet infrastructure</td>
-          <td>Custodian of Infrastructure</td>
-        </tr>
-        <tr>
-          <td>Healthcare, education, housing, food provision, working-age enforcement</td>
-          <td>Custodian of Citizens</td>
-        </tr>
-        <tr>
-          <td>FlowNet security monitoring, network threat response</td>
-          <td>Custodian of Intelligence</td>
-        </tr>
-        <tr>
-          <td>Law enforcement, workplace crime, exploitation cases</td>
-          <td>Custodian of Order</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="ftr">The Sovereign State of VAULTRIA — a living document · Kiratvel navol</div>
   </div>
+  <div class="site-sidebar-backdrop" id="site-sidebar-backdrop" aria-hidden="true"></div>
+  <script src="../assets/js/site-nav.js" defer></script>
+  <script src="../assets/js/site-search.js" defer></script>
 </body>
 </html>
