@@ -228,7 +228,7 @@ TAIL = """
 FOOTER = """
           <footer>
             <p>The Sovereign State of VAULTRIA — a living document.</p>
-            <p class="latin">Vaultrian National Territory — full layout reference · Territory Authority · Est. 2025 · 12 zones · 38 nodes · 10 roads · 8 rail lines · 5 airports</p>
+            <p class="latin">Vaultrian National Territory — full layout reference · Territory Authority · Est. 2025 · 12 zones · 38 nodes · 10 roads · 8 rail lines · 16 air facilities (12 Kelos domestic + int'l, cargo, 2 restricted)</p>
             <p class="latin"><code>site/pages/territory.html</code></p>
           </footer>
         </main>

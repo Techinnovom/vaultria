@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "Official Documentation · Cartography Division · Year 1 Vaultrian — data layer for national map (1600×1000 canvas, origin top-left)",
+  "$comment": "Official Documentation · Cartography Division · Year 1 Vaultrian — data layer for national map (1600×1000 canvas, origin top-left). Airport panel art: site/assets/images/airports/{airport.id}.webp|.png|.jpg, or set airport.image to a filename in that folder.",
   "meta": {
     "title": "Vaultrian National Map",
     "subtitle": "The Sovereign State of Vaultria · Kiratvel navol",
@@ -14,7 +14,7 @@
       "nodes": 46,
       "railLines": 9,
       "roads": 14,
-      "airports": 4,
+      "airports": 16,
       "aurexSectors": 6,
       "aurexStreets": 16,
       "aurexBuildings": 32
@@ -289,10 +289,22 @@
     { "id": "defense_link", "name": "Defense Link", "color": "#C84040", "widthPx": 1.8, "dashed": true, "dash": [7, 4], "shadowOpacity": 0.45, "shadowExtraPx": 2, "waypoints": [[800, 500], [1018, 298]] }
   ],
   "airports": [
-    { "id": "aeris_nod_intl", "name": "Aeris Nod International", "type": "majorInternational", "zoneId": "aeris", "x": 1122, "y": 558, "color": "#B87C18", "notes": "Largest diamond + glow ring r≈6.5px" },
-    { "id": "kelos_aeris", "name": "Kelos Aeris", "type": "domestic", "zoneId": "aeris", "x": 1062, "y": 598, "color": "#B87C18" },
-    { "id": "talex_aeris", "name": "Talex Aeris", "type": "cargoExport", "zoneId": "aeris", "x": 1162, "y": 518, "color": "#B87C18" },
-    { "id": "riven_aeris", "name": "Riven Aeris", "type": "restricted", "zoneId": "morvex", "x": 598, "y": 198, "color": "#C03A3A", "warning": true, "notes": "Classified airstrip" }
+    { "id": "aeris_nod_intl", "name": "Aeris Nod International", "type": "majorInternational", "zoneId": "aeris", "x": 1122, "y": 558, "color": "#B87C18", "image": "Aeris Nod International.png", "notes": "Largest diamond + glow ring r≈6.5px" },
+    { "id": "kelos_aeris_velora", "name": "Kelos Aeris · Aurex", "type": "domestic", "zoneId": "velora", "x": 800, "y": 500, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Velora capital" },
+    { "id": "kelos_aeris_sivara", "name": "Kelos Aeris · Sivor", "type": "domestic", "zoneId": "sivara", "x": 790, "y": 225, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Sivara capital" },
+    { "id": "kelos_aeris_draven", "name": "Kelos Aeris · Drakos", "type": "domestic", "zoneId": "draven", "x": 1018, "y": 298, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Draven capital" },
+    { "id": "kelos_aeris_tarinex", "name": "Kelos Aeris · Tarinor", "type": "domestic", "zoneId": "tarinex", "x": 1075, "y": 443, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Tarinex capital" },
+    { "id": "kelos_aeris_aeris", "name": "Kelos Aeris · Kelos", "type": "domestic", "zoneId": "aeris", "x": 1062, "y": 598, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Primary domestic hub · Kelos node · Prime Line · walk from Aeris Nod International" },
+    { "id": "kelos_aeris_nerath", "name": "Kelos Aeris · Zerath", "type": "domestic", "zoneId": "nerath", "x": 1008, "y": 712, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Nerath capital" },
+    { "id": "kelos_aeris_virex", "name": "Kelos Aeris · Viron", "type": "domestic", "zoneId": "virex", "x": 858, "y": 745, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Virex capital" },
+    { "id": "kelos_aeris_varex", "name": "Kelos Aeris · Varon", "type": "domestic", "zoneId": "varex", "x": 658, "y": 728, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Varex capital" },
+    { "id": "kelos_aeris_zerath", "name": "Kelos Aeris · Zerex", "type": "domestic", "zoneId": "zerath", "x": 512, "y": 598, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Zerath Zone capital" },
+    { "id": "kelos_aeris_lunara", "name": "Kelos Aeris · Lunor", "type": "domestic", "zoneId": "lunara", "x": 508, "y": 388, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Lunara capital" },
+    { "id": "kelos_aeris_morvex", "name": "Kelos Aeris · Morak", "type": "domestic", "zoneId": "morvex", "x": 612, "y": 290, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic pad at Morvex capital · Tier clearance only · not general public" },
+    { "id": "kelos_aeris_lumen", "name": "Kelos Aeris · Lumor", "type": "domestic", "zoneId": "lumen", "x": 718, "y": 262, "color": "#B87C18", "image": "Kelos Aeris Domestic.png", "notes": "Domestic terminal at Lumen capital" },
+    { "id": "talex_aeris", "name": "Talex Aeris", "type": "cargoExport", "zoneId": "aeris", "secondaryZoneIds": ["varex"], "x": 1162, "y": 518, "color": "#B87C18", "image": "Talex Aeris Cargo Port.png", "notes": "Cargo export · Talex node · Aeris–Varex boundary (apron northeast Aeris, production feed Varex / Industrial Line)" },
+    { "id": "riven_aeris", "name": "Riven Aeris", "type": "restricted", "zoneId": "sivara", "x": 848, "y": 188, "color": "#C03A3A", "warning": true, "image": "Riven Aeris Restricted.png", "notes": "Restricted tech airstrip — Sivara" },
+    { "id": "morvex_airfield", "name": "Morvex Restricted Airstrip", "type": "restricted", "zoneId": "morvex", "x": 598, "y": 198, "color": "#C03A3A", "warning": true, "image": "Morvex Restricted Airstrip.png", "notes": "Classified Morvex access only" }
   ],
   "aurex": {
     "zoomRender": { "minLevel": 4, "maxLevel": 5, "bounds": { "xMin": 695, "xMax": 920, "yMin": 390, "yMax": 590 } },

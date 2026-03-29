@@ -26,7 +26,7 @@
       ],
       roads: ["Aeris Vara", "Velora Varo"],
       rail: ["Prime Line", "Knowledge Line"],
-      airports: [],
+      airports: ["Kelos Aeris · Aurex"],
     },
 
     draven: {
@@ -52,7 +52,7 @@
       ],
       roads: ["Draven Varo"],
       rail: ["Defense Link"],
-      airports: [],
+      airports: ["Kelos Aeris · Drakos"],
     },
 
     morvex: {
@@ -77,7 +77,7 @@
       ],
       roads: ["Morvex Varo"],
       rail: ["Restricted Line"],
-      airports: ["Restricted Airstrip"],
+      airports: ["Restricted Airstrip", "Kelos Aeris · Morak"],
     },
 
     nerath: {
@@ -104,7 +104,7 @@
       ],
       roads: ["Nerath Varo", "Civic Routes"],
       rail: ["Civic Line"],
-      airports: ["Kelos Aeris"],
+      airports: ["Kelos Aeris · Zerath"],
     },
 
     varex: {
@@ -129,7 +129,7 @@
       ],
       roads: ["Varex Varo"],
       rail: ["Industrial Line"],
-      airports: ["Talex Aeris"],
+      airports: ["Kelos Aeris · Varon", "Talex Aeris"],
     },
 
     zerath_z: {
@@ -154,7 +154,7 @@
       ],
       roads: ["Trade Varo"],
       rail: ["Trade Link"],
-      airports: [],
+      airports: ["Kelos Aeris · Zerex"],
     },
 
     lunara: {
@@ -179,7 +179,7 @@
       ],
       roads: ["Lunara Varo"],
       rail: ["Civic Extension"],
-      airports: [],
+      airports: ["Kelos Aeris · Lunor"],
     },
 
     aeris: {
@@ -203,7 +203,7 @@
       ],
       roads: ["Aeris Vara"],
       rail: ["Prime Line"],
-      airports: ["Aeris Nod (International)", "Kelos Aeris (Domestic)"],
+      airports: ["Aeris Nod (International)", "Kelos Aeris · Kelos", "Talex Aeris"],
     },
 
     tarinex: {
@@ -228,7 +228,7 @@
       ],
       roads: ["Tarinex Vara", "All-Zone Hub"],
       rail: ["Transit Hub — All Lines"],
-      airports: [],
+      airports: ["Kelos Aeris · Tarinor"],
     },
 
     virex: {
@@ -253,7 +253,7 @@
       ],
       roads: ["Virex Varo"],
       rail: ["Industrial Link"],
-      airports: ["Cargo Ports"],
+      airports: ["Kelos Aeris · Viron", "Cargo Ports"],
     },
 
     lumen: {
@@ -278,7 +278,7 @@
       ],
       roads: ["Lumen Varo"],
       rail: ["Knowledge Line"],
-      airports: [],
+      airports: ["Kelos Aeris · Lumor"],
     },
 
     sivara: {
@@ -303,7 +303,7 @@
       ],
       roads: ["Sivara Varo"],
       rail: ["Tech Line", "Knowledge Line"],
-      airports: ["Riven Aeris (Restricted)"],
+      airports: ["Kelos Aeris · Sivor", "Riven Aeris (Restricted)"],
     },
   };
 
@@ -329,14 +329,28 @@
     { n: "Defense Link", col: "#E05050", w: 1.8, pts: [508, 175, 255, 195], dash: true },
     { n: "Restricted Line", col: "#E05050", w: 1.5, pts: [192, 398, 255, 195], dash: true },
     { n: "Trade Link", col: "#5A8AE8", w: 1.8, pts: [682, 538, 718, 308, 945, 242] },
+    { n: "Civic Extension", col: "#3A68C8", w: 1.8, pts: [428, 385, 225, 568], dash: false },
+    { n: "Industrial Link", col: "#C8A020", w: 1.8, pts: [942, 412, 945, 242, 945, 578], dash: false },
   ];
 
   var APTS = [
-    { n: "Aeris Nod", sub: "International Gateway", x: 725, y: 118, major: true },
-    { n: "Kelos Aeris", sub: "Domestic", x: 652, y: 92 },
-    { n: "Talex Aeris", sub: "Cargo & Export", x: 885, y: 195 },
-    { n: "Riven Aeris", sub: "Restricted Tech", x: 882, y: 528 },
-    { n: "Restricted", sub: "Classified — Morvex", x: 192, y: 398, restricted: true },
+    { id: "aeris_nod_intl", n: "Aeris Nod", image: "Aeris Nod International.png", sub: "International Gateway", x: 725, y: 118, major: true },
+    { id: "kelos_aeris_velora", n: "Kelos Aeris · Aurex", image: "Kelos Aeris Domestic.png", sub: "Domestic · Velora capital", x: 268, y: 188 },
+    { id: "kelos_aeris_draven", n: "Kelos Aeris · Drakos", image: "Kelos Aeris Domestic.png", sub: "Domestic · Draven capital", x: 521, y: 168 },
+    { id: "kelos_aeris_morvex", n: "Kelos Aeris · Morak", image: "Kelos Aeris Domestic.png", sub: "Domestic · Morvex capital · Tier only", x: 205, y: 385 },
+    { id: "kelos_aeris_nerath", n: "Kelos Aeris · Zerath", image: "Kelos Aeris Domestic.png", sub: "Domestic · Nerath capital", x: 731, y: 298 },
+    { id: "kelos_aeris_varex", n: "Kelos Aeris · Varon", image: "Kelos Aeris Domestic.png", sub: "Domestic · Varex capital", x: 932, y: 232 },
+    { id: "kelos_aeris_zerath", n: "Kelos Aeris · Zerex", image: "Kelos Aeris Domestic.png", sub: "Domestic · Zerath Zone capital", x: 695, y: 528 },
+    { id: "kelos_aeris_lunara", n: "Kelos Aeris · Lunor", image: "Kelos Aeris Domestic.png", sub: "Domestic · Lunara capital", x: 471, y: 538 },
+    { id: "kelos_aeris_aeris", n: "Kelos Aeris · Kelos", image: "Kelos Aeris Domestic.png", sub: "Domestic hub · Aeris Zone", x: 652, y: 92 },
+    { id: "kelos_aeris_tarinex", n: "Kelos Aeris · Tarinor", image: "Kelos Aeris Domestic.png", sub: "Domestic · Tarinex capital", x: 441, y: 372 },
+    { id: "kelos_aeris_virex", n: "Kelos Aeris · Viron", image: "Kelos Aeris Domestic.png", sub: "Domestic · Virex capital", x: 928, y: 402 },
+    { id: "kelos_aeris_lumen", n: "Kelos Aeris · Lumor", image: "Kelos Aeris Domestic.png", sub: "Domestic · Lumen capital", x: 238, y: 555 },
+    { id: "kelos_aeris_sivara", n: "Kelos Aeris · Sivor", image: "Kelos Aeris Domestic.png", sub: "Domestic · Sivara capital", x: 935, y: 565 },
+    { id: "talex_aeris", n: "Talex Aeris", image: "Talex Aeris Cargo Port.png", sub: "Cargo · Aeris–Varex boundary", x: 800, y: 98 },
+    { id: "riven_aeris", n: "Riven Aeris", image: "Riven Aeris Restricted.png", sub: "Restricted Tech", x: 882, y: 528 },
+    { id: "morvex_airfield", n: "Restricted Airstrip", image: "Morvex Restricted Airstrip.png", sub: "Classified — Morvex", x: 192, y: 398, restricted: true },
+    { id: "virex_cargo_ports", n: "Cargo Ports", sub: "Logistics apron", x: 978, y: 428, major: false },
   ];
 
   var canvas = document.getElementById("tm-canvas");
@@ -791,12 +805,12 @@
       pb.appendChild(d);
     });
     sect(pb, "Roads (Varo)");
-    tags(pb, z.roads, z.col + "50", z.col);
+    lineList(pb, roadLineItems(z.roads));
     sect(pb, "FlowNet Rail");
-    tags(pb, z.rail, "rgba(201,168,76,.18)", "#C9A84C");
+    lineList(pb, railLineItems(z.rail));
     if (z.airports.length) {
       sect(pb, "Airports");
-      tags(pb, z.airports, "rgba(184,124,24,.18)", "#C8A020");
+      lineList(pb, airportLineItems(z.airports), { airport: true });
     }
   }
 
@@ -850,17 +864,185 @@
     return d;
   }
 
-  function tags(parent, arr, bc, tc) {
-    var row = document.createElement("div");
-    row.className = "tm-itags";
-    arr.forEach(function (t) {
-      var s = document.createElement("span");
-      s.className = "tm-itag";
-      s.style.cssText = "border-color:" + bc + ";color:" + tc;
-      s.textContent = t;
-      row.appendChild(s);
+  function roadLineItems(names) {
+    return (names || []).map(function (name) {
+      var r = ROADS.find(function (x) {
+        return x.n === name;
+      });
+      if (r) {
+        return { n: r.n, col: r.col, dash: !!r.dash };
+      }
+      return { n: name, col: "#5a4010", dash: false };
     });
-    parent.appendChild(row);
+  }
+
+  function railLineItems(names) {
+    return (names || []).map(function (name) {
+      var r = RAIL.find(function (x) {
+        return x.n === name;
+      });
+      if (r) {
+        return { n: r.n, col: r.col, dash: !!r.dash };
+      }
+      if (name.indexOf("Transit Hub") !== -1 || name.indexOf("All Lines") !== -1) {
+        return { n: name, col: "#C9A84C", dash: false, sub: "Interchange · all national lines" };
+      }
+      return { n: name, col: "#C9A84C", dash: false };
+    });
+  }
+
+  function airportLineItems(names) {
+    return (names || []).map(function (label) {
+      var apt = APTS.filter(function (a) {
+        return label.indexOf(a.n) !== -1;
+      }).sort(function (a, b) {
+        return b.n.length - a.n.length;
+      })[0];
+      var restricted = /restricted|classified|airstrip/i.test(label) || (apt && apt.restricted);
+      return {
+        aid: apt && apt.id ? apt.id : "",
+        image: apt && apt.image ? apt.image : "",
+        n: label,
+        col: restricted ? "#C04040" : "#C8A020",
+        sub: apt ? apt.sub : "Airport",
+        restricted: !!restricted,
+      };
+    });
+  }
+
+  var AIRPORT_IMG_BASE = "../assets/images/airports/";
+
+  function airportFileToUrl(filename) {
+    if (!filename) {
+      return "";
+    }
+    return (
+      AIRPORT_IMG_BASE +
+      filename
+        .split("/")
+        .map(function (seg) {
+          return encodeURIComponent(seg);
+        })
+        .join("/")
+    );
+  }
+
+  function airportImageUrlList(it) {
+    var out = [];
+    if (it.image) {
+      out.push(airportFileToUrl(it.image));
+      return out;
+    }
+    if (!it.aid) {
+      return out;
+    }
+    ["webp", "png", "jpg"].forEach(function (ext) {
+      out.push(airportFileToUrl(it.aid + "." + ext));
+    });
+    return out;
+  }
+
+  function appendAirportVisual(row, it) {
+    row.classList.add("tm-line-item--airport");
+    row.style.setProperty("--line-c", it.col || "#C8A020");
+    var vis = document.createElement("div");
+    vis.className = "tm-line-airport-visual";
+    var urls = airportImageUrlList(it);
+    var swFallback = document.createElement("span");
+    swFallback.className = "tm-line-swatch tm-line-swatch--airport-fallback";
+    swFallback.setAttribute("aria-hidden", "true");
+
+    if (!urls.length) {
+      vis.appendChild(swFallback);
+      row.appendChild(vis);
+      return;
+    }
+
+    var img = document.createElement("img");
+    img.className = "tm-line-airport-img";
+    img.alt = "";
+    img.loading = "lazy";
+    img.decoding = "async";
+    var u = 0;
+    img.addEventListener("error", function () {
+      u += 1;
+      if (u < urls.length) {
+        img.src = urls[u];
+      } else {
+        img.remove();
+        if (!vis.contains(swFallback)) {
+          vis.appendChild(swFallback);
+        }
+      }
+    });
+    img.src = urls[0];
+    vis.appendChild(img);
+    row.appendChild(vis);
+  }
+
+  function lineList(parent, items, opts) {
+    opts = opts || {};
+    var wrap = document.createElement("div");
+    wrap.className = "tm-line-list" + (opts.airport ? " tm-line-list--airport" : "");
+    if (!items || !items.length) {
+      var empty = document.createElement("p");
+      empty.className = "tm-line-empty";
+      empty.textContent = "None in this zone.";
+      wrap.appendChild(empty);
+      parent.appendChild(wrap);
+      return;
+    }
+    var sorted = items.slice().sort(function (a, b) {
+      return a.n.localeCompare(b.n);
+    });
+    sorted.forEach(function (it) {
+      var row = document.createElement("div");
+      row.className = "tm-line-item";
+      if (it.dash) {
+        row.classList.add("tm-line-item--dashed");
+      }
+      if (it.restricted) {
+        row.classList.add("tm-line-item--restricted");
+      }
+      row.style.setProperty("--line-c", it.col || "#C9A84C");
+
+      if (opts.airport) {
+        appendAirportVisual(row, it);
+      } else {
+        var sw = document.createElement("span");
+        sw.className = "tm-line-swatch";
+        sw.setAttribute("aria-hidden", "true");
+        row.appendChild(sw);
+      }
+
+      var body = document.createElement("div");
+      body.className = "tm-line-body";
+      var nm = document.createElement("span");
+      nm.className = "tm-line-name";
+      nm.textContent = it.n;
+      body.appendChild(nm);
+      if (it.sub) {
+        var sub = document.createElement("span");
+        sub.className = "tm-line-sub";
+        sub.textContent = it.sub;
+        body.appendChild(sub);
+      }
+      if (it.dash) {
+        var pillD = document.createElement("span");
+        pillD.className = "tm-line-pill";
+        pillD.textContent = "Dashed";
+        body.appendChild(pillD);
+      }
+      if (it.restricted) {
+        var pillR = document.createElement("span");
+        pillR.className = "tm-line-pill tm-line-pill--warn";
+        pillR.textContent = "Restricted";
+        body.appendChild(pillR);
+      }
+      row.appendChild(body);
+      wrap.appendChild(row);
+    });
+    parent.appendChild(wrap);
   }
 
   var drag = { on: false, sx: 0, sy: 0, moved: false };

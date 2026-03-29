@@ -589,28 +589,294 @@
       border-radius: 4px;
     }
 
+    /* Roads tab: grid layout + legible type */
     .territory-embed .road-item {
-      padding: 1rem 1.1rem;
+      padding: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(10.25rem, 12rem) 1fr;
+      gap: 0;
+      align-items: stretch;
     }
 
-    .territory-embed .ri-desc,
+    @media (max-width: 560px) {
+      .territory-embed .road-item {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .territory-embed .ri-left {
+      padding: 1rem 0.95rem 1rem 1.1rem;
+      border-right: 1px solid var(--border);
+      background: var(--bg-deep);
+    }
+
+    @media (max-width: 560px) {
+      .territory-embed .ri-left {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 1.1rem 0.9rem;
+      }
+    }
+
+    .territory-embed .ri-name {
+      font-family: Cinzel, serif;
+      font-weight: 600;
+      font-size: 1.02rem;
+      letter-spacing: 0.04em;
+      line-height: 1.22;
+      color: var(--text);
+      margin: 0 0 0.28rem;
+    }
+
+    .territory-embed .road-item .ri-type {
+      font-size: 0.74rem;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      margin: 0 0 0.42rem;
+    }
+
+    .territory-embed .ri-bar {
+      height: 4px;
+      width: 4.75rem;
+      max-width: 100%;
+      border-radius: 2px;
+      margin: 0;
+    }
+
+    .territory-embed .ri-right {
+      padding: 1rem 1.15rem 1.05rem 1.05rem;
+      min-width: 0;
+    }
+
+    @media (max-width: 560px) {
+      .territory-embed .ri-right {
+        padding: 0.9rem 1.1rem 1.05rem;
+      }
+    }
+
+    .territory-embed .road-item .ri-zones {
+      font-size: 0.8rem;
+      line-height: 1.55;
+      letter-spacing: 0.02em;
+      color: rgba(230, 226, 216, 0.8);
+      margin: 0;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(201, 169, 98, 0.12);
+    }
+
+    /* FlowNet rail tab: layout + legible type */
+    .territory-embed .rail-item {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .territory-embed .rail-item--secure {
+      border-color: rgba(224, 80, 80, 0.35);
+      background:
+        linear-gradient(180deg, rgba(224, 80, 80, 0.07), transparent 42%),
+        var(--bg-panel);
+    }
+
+    .territory-embed .rail-item--classified {
+      border-color: rgba(224, 80, 80, 0.45);
+      border-style: dashed;
+      background:
+        linear-gradient(180deg, rgba(224, 80, 80, 0.1), transparent 45%),
+        var(--bg-panel);
+    }
+
+    .territory-embed .ri-header {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      min-height: 3rem;
+    }
+
+    .territory-embed .ri-lbar {
+      width: 5px;
+      flex-shrink: 0;
+      align-self: stretch;
+      min-height: 3rem;
+    }
+
+    .territory-embed .ri-hinner {
+      flex: 1;
+      min-width: 0;
+      padding: 0.85rem 1rem 0.85rem 1.05rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem 1rem;
+    }
+
+    .territory-embed .ri-lname {
+      font-family: Cinzel, serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .territory-embed .ri-code {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      line-height: 1.35;
+      color: var(--text-muted);
+      max-width: 100%;
+    }
+
+    .territory-embed .ri-badge {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.45rem;
+      border: 1px solid;
+      border-radius: 2px;
+      line-height: 1.25;
+    }
+
+    .territory-embed .ri-freq {
+      margin-left: auto;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 560px) {
+      .territory-embed .ri-freq {
+        margin-left: 0;
+        width: 100%;
+        white-space: normal;
+      }
+    }
+
+    .territory-embed .ri-stations {
+      padding: 0.65rem 1rem 0.85rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg-deep);
+    }
+
+    .territory-embed .rst {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      min-height: 2.35rem;
+    }
+
+    .territory-embed .rst-line {
+      width: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .territory-embed .rst-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 2px solid;
+      background: var(--bg-deep);
+      z-index: 1;
+      margin-top: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .territory-embed .rst-dot.term,
+    .territory-embed .rst-dot.xfer {
+      width: 11px;
+      height: 11px;
+      margin-top: 0.55rem;
+    }
+
+    .territory-embed .rst-vline {
+      flex: 1;
+      width: 2px;
+      min-height: 4px;
+      background: currentColor;
+      opacity: 0.35;
+      margin: 0 auto;
+    }
+
+    .territory-embed .rst-vline.none {
+      opacity: 0;
+      background: transparent;
+    }
+
+    .territory-embed .rst-body {
+      flex: 1;
+      min-width: 0;
+      padding: 0.45rem 0 0.55rem 0.75rem;
+      border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+    }
+
+    .territory-embed .rst:last-child .rst-body {
+      border-bottom: none;
+    }
+
+    .territory-embed .rst-name {
+      font-family: Cinzel, serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.15rem;
+    }
+
+    .territory-embed .rst-name.term {
+      font-size: 0.98rem;
+    }
+
+    .territory-embed .rst-info {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: rgba(230, 226, 216, 0.82);
+      letter-spacing: 0.02em;
+    }
+
+    .territory-embed .rst-xbadges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.28rem;
+      margin-top: 0.35rem;
+    }
+
+    .territory-embed .rst-xb {
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.4rem;
+      border-radius: 2px;
+      border: 1px solid rgba(201, 169, 98, 0.28);
+      color: rgba(230, 226, 216, 0.88);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
     .territory-embed .apt-desc {
       color: var(--text-muted);
       font-size: 0.9rem;
     }
 
-    .territory-embed .ri-zones,
+    .territory-embed .road-item .ri-desc {
+      color: rgba(230, 226, 216, 0.9);
+      font-size: 0.93rem;
+      line-height: 1.68;
+      margin: 0 0 0.5rem;
+    }
+
     .territory-embed .apt-loc,
-    .territory-embed .ri-type,
-    .territory-embed .ri-code,
-    .territory-embed .ri-freq,
-    .territory-embed .rst-info,
     .territory-embed .apt-badge,
     .territory-embed .apt-sub {
       color: var(--text-muted);
     }
 
-    .territory-embed .ri-zones,
     .territory-embed .apt-loc {
       font-size: 0.65rem;
       letter-spacing: 0.06em;
@@ -627,23 +893,6 @@
       font-size: 0.98em;
     }
 
-    .territory-embed .rst-dot {
-      background: var(--bg-deep);
-    }
-
-    .territory-embed .ri-stations {
-      border-top-color: var(--border);
-    }
-
-    .territory-embed .rst-body {
-      border-bottom-color: rgba(201, 169, 98, 0.12);
-    }
-
-    .territory-embed .rst-xb {
-      border-color: var(--border);
-      color: var(--text-muted);
-    }
-
     .territory-embed .apt-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -658,6 +907,21 @@
 
     .territory-embed .apt {
       padding: 1.1rem 1.15rem;
+      overflow: hidden;
+    }
+
+    .territory-embed .apt-photo {
+      margin: -1.1rem -1.15rem 0.75rem;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-deep);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .territory-embed .apt-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
   </style>
@@ -696,7 +960,7 @@
                 <li class="territory-stats-sep" aria-hidden="true">·</li>
                 <li><span class="territory-stat-n">8</span> <span class="territory-stat-l">Rail</span></li>
                 <li class="territory-stats-sep" aria-hidden="true">·</li>
-                <li><span class="territory-stat-n">5</span> <span class="territory-stat-l">Airports</span></li>
+                <li><span class="territory-stat-n">16</span> <span class="territory-stat-l">Air sites</span></li>
               </ul>
               <div class="territory-cats" aria-label="Zone categories">
                 <span class="territory-cat territory-cat--core">Core · 3</span>
@@ -723,7 +987,7 @@
     <div class="sh-tag">Territory Overview</div>
     <div class="sh-title" id="territory-summary-h">Vaultrian at a Glance</div>
     <div class="sh-rule"></div>
-    <div class="sh-desc">Twelve zones organised into four categories. Every zone has a capital node and between 3 and 5 sub-nodes. Every node is connected by road. Every capital node is connected by rail.</div>
+    <div class="sh-desc">Twelve zones organised into four categories. Every zone has a capital node and between 3 and 5 sub-nodes. Every node is connected by road. Every capital node is connected by rail. Every capital node has a Kelos Aeris domestic terminal (twelve nationwide), plus international, cargo and restricted airfields as listed per zone.</div>
   </div>
 
   <div class="territory-table-wrap">
@@ -732,18 +996,18 @@
         <tr><th>Zone</th><th>Category</th><th>Capital Node</th><th>Nodes</th><th>Rail</th><th>Airport</th></tr>
       </thead>
       <tbody>
-        <tr><td style="color:var(--core)">Velora</td><td>Core Power</td><td>Aurex</td><td>Aurex · Kaelis · Vortan · Delos</td><td>Prime · Knowledge · Defense · Restricted</td><td>—</td></tr>
-        <tr><td style="color:var(--core)">Draven</td><td>Core Power</td><td>Drakos</td><td>Drakos · Targon · Silex · Karven</td><td>Defense Link</td><td>—</td></tr>
-        <tr><td style="color:var(--core)">Morvex</td><td>Core Power</td><td>Morak</td><td>Morak · Xyron · Vexor · Norex</td><td>Restricted Line</td><td>Restricted Airstrip</td></tr>
-        <tr><td style="color:var(--civil)">Nerath</td><td>Civilian</td><td>Zerath</td><td>Zerath · Tarex · Virel · Korex · Lunex</td><td>Civic Line</td><td>Kelos Aeris</td></tr>
-        <tr><td style="color:var(--civil)">Varex</td><td>Civilian</td><td>Varon</td><td>Varon · Mekar · Tovin · Garin</td><td>Industrial Line</td><td>Talex Aeris</td></tr>
-        <tr><td style="color:var(--civil)">Zerath</td><td>Civilian</td><td>Zerex</td><td>Zerex · Karos · Drax · Velin</td><td>Trade Link · Industrial</td><td>—</td></tr>
-        <tr><td style="color:var(--civil)">Lunara</td><td>Civilian</td><td>Lunor</td><td>Lunor · Selin · Marel · Tiven</td><td>Civic Extension</td><td>—</td></tr>
-        <tr><td style="color:var(--infra)">Aeris</td><td>Infrastructure</td><td>Aeris Nod</td><td>Aeris Nod · Kelos · Talex</td><td>Prime Line</td><td>Aeris Nod (Int'l) · Kelos · Talex</td></tr>
-        <tr><td style="color:var(--infra)">Tarinex</td><td>Infrastructure</td><td>Tarinor</td><td>Tarinor · Vekar · Liron · Danex</td><td>All Lines Hub</td><td>—</td></tr>
-        <tr><td style="color:var(--infra)">Virex</td><td>Infrastructure</td><td>Viron</td><td>Viron · Kalen · Morin · Serex</td><td>Industrial Line</td><td>Cargo Ports</td></tr>
-        <tr><td style="color:var(--know)">Lumen</td><td>Knowledge</td><td>Lumor</td><td>Lumor · Taris · Velum · Kirel</td><td>Knowledge Line</td><td>—</td></tr>
-        <tr><td style="color:var(--know)">Sivara</td><td>Knowledge</td><td>Sivor</td><td>Sivor · Nexis · Valen · Torix</td><td>Tech · Knowledge</td><td>Riven Aeris (Restricted)</td></tr>
+        <tr><td style="color:var(--core)">Velora</td><td>Core Power</td><td>Aurex</td><td>Aurex · Kaelis · Vortan · Delos</td><td>Prime · Knowledge · Defense · Restricted</td><td>Kelos Aeris · Aurex</td></tr>
+        <tr><td style="color:var(--core)">Draven</td><td>Core Power</td><td>Drakos</td><td>Drakos · Targon · Silex · Karven</td><td>Defense Link</td><td>Kelos Aeris · Drakos</td></tr>
+        <tr><td style="color:var(--core)">Morvex</td><td>Core Power</td><td>Morak</td><td>Morak · Xyron · Vexor · Norex</td><td>Restricted Line</td><td>Kelos Aeris · Morak (Tier) · Restricted Airstrip</td></tr>
+        <tr><td style="color:var(--civil)">Nerath</td><td>Civilian</td><td>Zerath</td><td>Zerath · Tarex · Virel · Korex · Lunex</td><td>Civic Line</td><td>Kelos Aeris · Zerath</td></tr>
+        <tr><td style="color:var(--civil)">Varex</td><td>Civilian</td><td>Varon</td><td>Varon · Mekar · Tovin · Garin</td><td>Industrial Line</td><td>Kelos Aeris · Varon · Talex Aeris</td></tr>
+        <tr><td style="color:var(--civil)">Zerath</td><td>Civilian</td><td>Zerex</td><td>Zerex · Karos · Drax · Velin</td><td>Trade Link · Industrial</td><td>Kelos Aeris · Zerex</td></tr>
+        <tr><td style="color:var(--civil)">Lunara</td><td>Civilian</td><td>Lunor</td><td>Lunor · Selin · Marel · Tiven</td><td>Civic Extension</td><td>Kelos Aeris · Lunor</td></tr>
+        <tr><td style="color:var(--infra)">Aeris</td><td>Infrastructure</td><td>Aeris Nod</td><td>Aeris Nod · Kelos · Talex</td><td>Prime Line</td><td>Aeris Nod (Int'l) · Kelos Aeris hub (Kelos) · Talex</td></tr>
+        <tr><td style="color:var(--infra)">Tarinex</td><td>Infrastructure</td><td>Tarinor</td><td>Tarinor · Vekar · Liron · Danex</td><td>All Lines Hub</td><td>Kelos Aeris · Tarinor</td></tr>
+        <tr><td style="color:var(--infra)">Virex</td><td>Infrastructure</td><td>Viron</td><td>Viron · Kalen · Morin · Serex</td><td>Industrial Line</td><td>Kelos Aeris · Viron · Cargo Ports</td></tr>
+        <tr><td style="color:var(--know)">Lumen</td><td>Knowledge</td><td>Lumor</td><td>Lumor · Taris · Velum · Kirel</td><td>Knowledge Line</td><td>Kelos Aeris · Lumor</td></tr>
+        <tr><td style="color:var(--know)">Sivara</td><td>Knowledge</td><td>Sivor</td><td>Sivor · Nexis · Valen · Torix</td><td>Tech · Knowledge</td><td>Kelos Aeris · Sivor · Riven Aeris (Restricted)</td></tr>
       </tbody>
     </table>
   </div>
@@ -835,6 +1099,7 @@
         <span class="zi" style="color:var(--restricted);border-color:rgba(224,80,80,.2)">Restricted Line</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Aeris Vara</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Velora Varo</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Aurex</span>
       </div>
     </div>
   </div>
@@ -895,6 +1160,7 @@
         <span class="zi" style="color:var(--defense);border-color:rgba(224,80,80,.25)">Defense Link</span>
         <span class="zi" style="color:var(--prime);border-color:rgba(201,168,76,.25)">Prime Line (station)</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Draven Varo</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Drakos</span>
       </div>
     </div>
   </div>
@@ -951,6 +1217,7 @@
         <span class="zi" style="color:var(--restricted);border-color:rgba(224,80,80,.2)">Restricted Line</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Morvex Varo (restricted)</span>
         <span class="zi" style="color:var(--core);border-color:rgba(192,58,58,.25)">✈ Restricted Airstrip</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Morak (Tier)</span>
       </div>
     </div>
   </div>
@@ -1028,7 +1295,7 @@
         <span class="zi" style="color:var(--trade);border-color:rgba(74,120,200,.25)">Trade Link</span>
         <span class="zi" style="color:var(--tech);border-color:rgba(58,152,88,.25)">Tech Line</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Nerath Varo</span>
-        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Zerath</span>
       </div>
     </div>
   </div>
@@ -1048,7 +1315,7 @@
       </div>
     </div>
     <div class="zc-body">
-      <div class="zc-desc">Agriculture, energy generation and industrial processing. Varex feeds Vaultria and powers it. The zone produces the majority of the nation's food supply and manages the energy infrastructure that serves all twelve zones. The Industrial Line connects Varex directly to the logistics zone (Virex) and the trade zone (Zerath). Talex Aeris handles all cargo export from Varex.</div>
+      <div class="zc-desc">Agriculture, energy generation and industrial processing. Varex feeds Vaultria and powers it. The zone produces the majority of the nation's food supply and manages the energy infrastructure that serves all twelve zones. The Industrial Line connects Varex directly to the logistics zone (Virex) and the trade zone (Zerath). Kelos Aeris at Varon serves domestic and regional flights for the zone; Talex Aeris — on the Aeris–Varex border — takes all air export from Varex production (freight shuttle from Varon into the joint cargo port).</div>
       <div class="node-grid">
         <div class="node">
           <div class="node-name" style="color:var(--civil)">Varon <span class="node-cap-badge">Capital</span></div>
@@ -1085,6 +1352,7 @@
         <span class="zi" style="color:var(--industrial);border-color:rgba(200,160,32,.3)">Industrial Line</span>
         <span class="zi" style="color:var(--trade);border-color:rgba(74,120,200,.25)">Trade Link</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Varex Varo</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Varon</span>
         <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Talex Aeris (Cargo)</span>
       </div>
     </div>
@@ -1142,6 +1410,7 @@
         <span class="zi" style="color:var(--industrial);border-color:rgba(200,160,32,.3)">Industrial Line</span>
         <span class="zi" style="color:var(--trade);border-color:rgba(74,120,200,.25)">Trade Link</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Trade Varo</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Zerex</span>
       </div>
     </div>
   </div>
@@ -1197,6 +1466,7 @@
       <div class="zc-infra">
         <span class="zi" style="color:var(--civic);border-color:rgba(90,138,232,.25)">Civic Extension</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Lunara Varo</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Lunor</span>
       </div>
     </div>
   </div>
@@ -1223,7 +1493,7 @@
       </div>
     </div>
     <div class="zc-body">
-      <div class="zc-desc">The primary airspace control zone and Vaultria's gateway to the world. Aeris Nod International handles all international arrivals and departures. Kelos handles domestic routes. Talex handles cargo and export. The Prime Line runs directly through the zone, connecting the international airport to Aurex and to Zerath Central in a single uninterrupted service.</div>
+      <div class="zc-desc">The primary airspace control zone and Vaultria's gateway to the world. Aeris Nod International handles all international arrivals and departures. The Kelos node hosts the primary Kelos Aeris terminal — the main domestic hub of a twelve-site national network (one terminal at every zone capital). Talex Aeris — the national cargo export port — sits on the Aeris–Varex boundary (Talex node here; Varex supplies the freight). The Prime Line runs directly through the zone, connecting the international airport to Aurex and to Zerath Central in a single uninterrupted service.</div>
       <div class="node-grid">
         <div class="node">
           <div class="node-name" style="color:var(--infra)">Aeris Nod <span class="node-cap-badge">Capital</span></div>
@@ -1237,14 +1507,14 @@
         <div class="node">
           <div class="node-name">Kelos</div>
           <div class="node-secs">
-            <div class="node-sec">Kelair — Regional Flights</div>
+            <div class="node-sec">Kelair — Kelos Aeris primary hub (national domestic network)</div>
             <div class="node-sec">Velin — Staff Housing</div>
           </div>
         </div>
         <div class="node">
           <div class="node-name">Talex</div>
           <div class="node-secs">
-            <div class="node-sec">Talex — Cargo Ops</div>
+            <div class="node-sec">Talex Aeris — cargo export (joint Aeris–Varex)</div>
             <div class="node-sec">Velin — Ground Crew</div>
           </div>
         </div>
@@ -1253,7 +1523,7 @@
         <span class="zi" style="color:var(--prime);border-color:rgba(201,168,76,.3)">Prime Line</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Aeris Vara</span>
         <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.25)">✈ Aeris Nod (International)</span>
-        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris (Domestic)</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris hub (Kelos)</span>
         <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Talex (Cargo)</span>
       </div>
     </div>
@@ -1312,6 +1582,7 @@
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">All-Zone Bus Hub</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Tarinex Vara</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Velora Varo junction</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Tarinor</span>
       </div>
     </div>
   </div>
@@ -1367,6 +1638,7 @@
       <div class="zc-infra">
         <span class="zi" style="color:var(--industrial);border-color:rgba(200,160,32,.3)">Industrial Line</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Virex Varo</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Viron</span>
         <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Cargo Ports</span>
       </div>
     </div>
@@ -1430,6 +1702,7 @@
       <div class="zc-infra">
         <span class="zi" style="color:var(--knowledge-r);border-color:rgba(74,170,104,.3)">Knowledge Line</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Lumen Varo</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Lumor</span>
       </div>
     </div>
   </div>
@@ -1449,7 +1722,7 @@
       </div>
     </div>
     <div class="zc-body">
-      <div class="zc-desc">The technology and data infrastructure zone. Sivara's Sivor node houses the national AI systems, data core, development hubs and the Sivara Institute. Both the Tech Line and Knowledge Line serve the zone, making Sivor one of the best-connected nodes in Vaultria. Riven Aeris — the restricted technology airport — serves classified research and data hardware movement.</div>
+      <div class="zc-desc">The technology and data infrastructure zone. Sivara's Sivor node houses the national AI systems, data core, development hubs and the Sivara Institute. Both the Tech Line and Knowledge Line serve the zone, making Sivor one of the best-connected nodes in Vaultria. Kelos Aeris at Sivor handles domestic passenger traffic for the zone. Riven Aeris — the restricted technology airport — serves classified research and data hardware movement.</div>
       <div class="node-grid">
         <div class="node">
           <div class="node-name" style="color:var(--know)">Sivor <span class="node-cap-badge">Capital</span></div>
@@ -1487,6 +1760,7 @@
         <span class="zi" style="color:var(--knowledge-r);border-color:rgba(74,170,104,.3)">Knowledge Line</span>
         <span class="zi" style="color:var(--industrial);border-color:rgba(200,160,32,.25)">Industrial Line</span>
         <span class="zi" style="color:var(--gold-d);border-color:rgba(201,168,76,.15)">Sivara Varo</span>
+        <span class="zi" style="color:var(--infra);border-color:rgba(184,124,24,.2)">✈ Kelos Aeris · Sivor</span>
         <span class="zi" style="color:var(--core);border-color:rgba(192,58,58,.2)">✈ Riven Aeris (Restricted)</span>
       </div>
     </div>
@@ -1650,7 +1924,7 @@
       <div class="ri-stations">
         <div class="rst"><div class="rst-line" style="color:var(--prime)"><div class="rst-dot term" style="border-color:var(--prime);background:var(--prime)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name term" style="color:var(--prime)">Aurex Central</div><div class="rst-info">Velora Zone · Capital · Terminus</div><div class="rst-xbadges"><span class="rst-xb">Knowledge</span><span class="rst-xb">Defense</span><span class="rst-xb">Restricted</span></div></div></div>
         <div class="rst"><div class="rst-line" style="color:var(--prime)"><div class="rst-vline"></div><div class="rst-dot xfer" style="border-color:var(--prime)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name">Drakos</div><div class="rst-info">Draven Zone · Military Access</div><div class="rst-xbadges"><span class="rst-xb">Defense Link</span><span class="rst-xb">Tech Line</span></div></div></div>
-        <div class="rst"><div class="rst-line" style="color:var(--prime)"><div class="rst-vline"></div><div class="rst-dot" style="border-color:var(--prime)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name">Kelos Aeris</div><div class="rst-info">Aeris Zone · ✈ Domestic Airport</div></div></div>
+        <div class="rst"><div class="rst-line" style="color:var(--prime)"><div class="rst-vline"></div><div class="rst-dot" style="border-color:var(--prime)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name">Kelos Aeris · Kelos</div><div class="rst-info">Aeris Zone · Primary domestic hub · National network (12 capitals)</div></div></div>
         <div class="rst"><div class="rst-line" style="color:var(--prime)"><div class="rst-vline"></div><div class="rst-dot" style="border-color:var(--prime)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name">Aeris Gate</div><div class="rst-info">Aeris Zone · ✈ International Airport</div></div></div>
         <div class="rst"><div class="rst-line" style="color:var(--prime)"><div class="rst-vline"></div><div class="rst-dot term xfer" style="border-color:var(--prime);background:var(--prime)"></div><div class="rst-vline none"></div></div><div class="rst-body"><div class="rst-name term" style="color:var(--prime)">Zerath Central</div><div class="rst-info">Nerath Zone · Population Capital · Terminus</div><div class="rst-xbadges"><span class="rst-xb">Civic Line</span><span class="rst-xb">Trade Link</span><span class="rst-xb">Tech Line</span></div></div></div>
       </div>
@@ -1689,7 +1963,7 @@
         </div>
       </div>
       <div class="ri-stations">
-        <div class="rst"><div class="rst-line" style="color:var(--industrial)"><div class="rst-dot term xfer" style="border-color:var(--industrial);background:var(--industrial)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name term" style="color:var(--industrial)">Varon</div><div class="rst-info">Varex Zone · Production Capital · ✈ Talex Cargo</div><div class="rst-xbadges"><span class="rst-xb">Trade Link</span></div></div></div>
+        <div class="rst"><div class="rst-line" style="color:var(--industrial)"><div class="rst-dot term xfer" style="border-color:var(--industrial);background:var(--industrial)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name term" style="color:var(--industrial)">Varon</div><div class="rst-info">Varex Zone · Production Capital · ✈ Talex Aeris (Aeris–Varex)</div><div class="rst-xbadges"><span class="rst-xb">Trade Link</span></div></div></div>
         <div class="rst"><div class="rst-line" style="color:var(--industrial)"><div class="rst-vline"></div><div class="rst-dot" style="border-color:var(--industrial)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name">Viron</div><div class="rst-info">Virex Zone · Logistics Capital · Freight priority</div></div></div>
         <div class="rst"><div class="rst-line" style="color:var(--industrial)"><div class="rst-vline"></div><div class="rst-dot xfer" style="border-color:var(--industrial)"></div><div class="rst-vline"></div></div><div class="rst-body"><div class="rst-name">Sivor</div><div class="rst-info">Sivara Zone · Technology Capital</div><div class="rst-xbadges"><span class="rst-xb">Knowledge Line</span><span class="rst-xb">Tech Line</span></div></div></div>
         <div class="rst"><div class="rst-line" style="color:var(--industrial)"><div class="rst-vline"></div><div class="rst-dot term xfer" style="border-color:var(--industrial);background:var(--industrial)"></div><div class="rst-vline none"></div></div><div class="rst-body"><div class="rst-name term" style="color:var(--industrial)">Zerex</div><div class="rst-info">Zerath Zone · Trade Capital · Terminus</div><div class="rst-xbadges"><span class="rst-xb">Trade Link</span></div></div></div>
@@ -1748,7 +2022,7 @@
     </div>
 
     <!-- DEFENSE LINK -->
-    <div class="rail-item" style="opacity:.8">
+    <div class="rail-item rail-item--secure">
       <div class="ri-header">
         <div class="ri-lbar" style="background:var(--defense)"></div>
         <div class="ri-hinner">
@@ -1765,7 +2039,7 @@
     </div>
 
     <!-- RESTRICTED LINE -->
-    <div class="rail-item" style="opacity:.65">
+    <div class="rail-item rail-item--classified">
       <div class="ri-header">
         <div class="ri-lbar" style="background:var(--restricted)"></div>
         <div class="ri-hinner">
@@ -1787,14 +2061,15 @@
 <!-- ═══ AIRPORTS ═══ -->
 <section class="sec territory-tabpanel" role="tabpanel" id="territory-panel-airports" aria-labelledby="territory-tab-airports territory-airports-h" hidden>
   <div class="sh">
-    <div class="sh-tag">5 Airports</div>
+    <div class="sh-tag">16 Air Facilities</div>
     <div class="sh-title" id="territory-airports-h">National Air Network</div>
     <div class="sh-rule"></div>
-    <div class="sh-desc">Three public airports, one cargo port, one restricted airstrip. All public airports connect to the FlowNet rail network.</div>
+    <div class="sh-desc">One international gateway, twelve Kelos Aeris domestic terminals (one at each zone capital, with the Aeris Zone hub at Kelos node beside Aeris Nod), one cargo port, two restricted airfields. Public passenger facilities connect to the FlowNet rail network where lines serve those capitals.</div>
   </div>
   <div class="apt-grid">
 
     <div class="apt">
+      <div class="apt-photo"><img src="../assets/images/airports/Aeris%20Nod%20International.png" alt="Aeris Nod International terminal exterior" loading="lazy" decoding="async" /></div>
       <div class="apt-icon">✈</div>
       <div class="apt-name">Aeris Nod International</div>
       <div class="apt-sub">International Gateway · Primary</div>
@@ -1810,34 +2085,38 @@
     </div>
 
     <div class="apt">
+      <div class="apt-photo"><img src="../assets/images/airports/Kelos%20Aeris%20Domestic.png" alt="Kelos Aeris domestic terminal" loading="lazy" decoding="async" /></div>
       <div class="apt-icon">✈</div>
       <div class="apt-name">Kelos Aeris</div>
-      <div class="apt-sub">Domestic · Regional</div>
-      <div class="apt-loc">📍 Aeris Zone · Kelos Node · Adjacent to Aeris Nod</div>
-      <div class="apt-desc">The domestic airport handling all internal Vaultrian flights and regional short-haul routes. Smaller and faster than Aeris Nod — citizens who have already passed customs and are travelling between zones by air use Kelos. Connected to the Prime Line at the Kelos Aeris station — a 4-minute walk from the terminal. Also serves as the connecting airport for citizens arriving internationally at Aeris Nod and continuing domestically.</div>
+      <div class="apt-sub">Domestic network · 12 terminals · One per capital</div>
+      <div class="apt-loc">📍 Nationwide · Primary hub · Aeris Zone · Kelos Node (adjacent Aeris Nod)</div>
+      <div class="apt-desc">Kelos Aeris is Vaultria's domestic passenger network: the same terminal standard appears at every zone capital — twelve sites in all — so citizens can fly domestically from their home capital without routing through Aeris unless they are connecting from international. The Kelos node in the Aeris Zone remains the primary hub: largest throughput, direct Prime Line station (about a four-minute walk), and the main handoff for travellers who clear customs at Aeris Nod and continue on domestic flights. Other capitals have their own Kelos Aeris station on local or trunk FlowNet lines per zone layout.</div>
       <div class="apt-badges">
-        <span class="apt-badge">Domestic</span>
-        <span class="apt-badge">Regional Routes</span>
-        <span class="apt-badge">Prime Line 4 min</span>
-        <span class="apt-badge">18 min Aurex Central</span>
+        <span class="apt-badge">12 Capitals</span>
+        <span class="apt-badge">Domestic &amp; Regional</span>
+        <span class="apt-badge">Aeris Hub · Prime Line</span>
+        <span class="apt-badge">Int'l Connect at Aeris Nod</span>
       </div>
     </div>
 
     <div class="apt">
+      <div class="apt-photo"><img src="../assets/images/airports/Talex%20Aeris%20Cargo%20Port.png" alt="Talex Aeris cargo port at night" loading="lazy" decoding="async" /></div>
       <div class="apt-icon">📦</div>
       <div class="apt-name">Talex Aeris</div>
-      <div class="apt-sub">Cargo & Export · Industrial</div>
-      <div class="apt-loc">📍 Aeris Zone · Talex Node · Northeast</div>
-      <div class="apt-desc">The cargo and export airport serving the Varex production zone. Agricultural products, energy equipment, manufactured goods — all physical exports leaving Vaultria by air move through Talex. No passenger services. The Industrial Line connects Varon (Varex capital) directly to the Talex cargo complex via a freight shuttle service. The largest cargo handling facility in Vaultria by volume.</div>
+      <div class="apt-sub">Cargo &amp; export · Aeris–Varex joint facility</div>
+      <div class="apt-loc">📍 Aeris–Varex boundary · Talex node (northeast Aeris; production apron &amp; rail feed from Varex)</div>
+      <div class="apt-desc">The cargo and export airport for the nation. Talex Aeris sits on the border between Aeris and Varex — listed under Aeris as the Talex node, but the facility is joint: export aprons and airside processing lean northeast into Aeris; physical goods originate in Varex and arrive on the Industrial Line from Varon (freight shuttle). Agricultural products, energy equipment, manufactured goods — all physical exports leaving Vaultria by air move through Talex. No passenger services. The largest cargo handling facility in Vaultria by volume.</div>
       <div class="apt-badges">
+        <span class="apt-badge">Aeris + Varex</span>
         <span class="apt-badge">Cargo Only</span>
         <span class="apt-badge">No Passengers</span>
-        <span class="apt-badge">Industrial Line Access</span>
+        <span class="apt-badge">Industrial Line · Varon</span>
         <span class="apt-badge">24hr Freight</span>
       </div>
     </div>
 
     <div class="apt">
+      <div class="apt-photo"><img src="../assets/images/airports/Riven%20Aeris%20Restricted.png" alt="Riven Aeris restricted facility" loading="lazy" decoding="async" /></div>
       <div class="apt-icon">🔒</div>
       <div class="apt-name">Riven Aeris</div>
       <div class="apt-sub">Restricted Technology · Sivara</div>
@@ -1852,6 +2131,7 @@
     </div>
 
     <div class="apt" style="opacity:.7;border-color:rgba(192,58,58,.2)">
+      <div class="apt-photo"><img src="../assets/images/airports/Morvex%20Restricted%20Airstrip.png" alt="Morvex restricted airstrip" loading="lazy" decoding="async" /></div>
       <div class="apt-icon">⛔</div>
       <div class="apt-name">Morvex Restricted Airstrip</div>
       <div class="apt-sub">Classified · Morvex Zone Only</div>
@@ -1871,7 +2151,7 @@
 
           <footer>
             <p>The Sovereign State of VAULTRIA — a living document.</p>
-            <p class="latin">Vaultrian National Territory — full layout reference · Territory Authority · Est. 2025 · 12 zones · 38 nodes · 10 roads · 8 rail lines · 5 airports</p>
+            <p class="latin">Vaultrian National Territory — full layout reference · Territory Authority · Est. 2025 · 12 zones · 38 nodes · 10 roads · 8 rail lines · 16 air facilities (12 Kelos domestic + int'l, cargo, 2 restricted)</p>
             <p class="latin"><code>site/pages/territory.html</code></p>
           </footer>
         </main>

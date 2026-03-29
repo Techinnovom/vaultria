@@ -27,6 +27,102 @@
     return "rgba(" + r + "," + g + "," + b + ",";
   }
 
+  function pointInPoly(pts, mx, my) {
+    var inside = false;
+    for (var i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+      var xi = pts[i][0];
+      var yi = pts[i][1];
+      var xj = pts[j][0];
+      var yj = pts[j][1];
+      if ((yi > my) !== (yj > my) && mx < ((xj - xi) * (my - yi)) / (yj - yi) + xi) {
+        inside = !inside;
+      }
+    }
+    return inside;
+  }
+
+  function airportTypeLabel(t) {
+    if (t === "majorInternational") {
+      return "Major international";
+    }
+    if (t === "domestic") {
+      return "Domestic";
+    }
+    if (t === "cargoExport") {
+      return "Cargo export";
+    }
+    if (t === "restricted") {
+      return "Restricted";
+    }
+    return t ? String(t).replace(/([A-Z])/g, " $1").replace(/^\s+/, "").trim() : "";
+  }
+
+  function assignInfrastructureToZones(data) {
+    Object.keys(Z).forEach(function (zid) {
+      Z[zid].roads = [];
+      Z[zid].rail = [];
+      Z[zid].airports = [];
+    });
+    (data.rail || []).forEach(function (r) {
+      Object.keys(Z).forEach(function (zid) {
+        var poly = Z[zid].poly;
+        var hit = false;
+        (r.waypoints || []).forEach(function (w) {
+          if (pointInPoly(poly, w[0], w[1])) {
+            hit = true;
+          }
+        });
+        if (hit) {
+          Z[zid].rail.push({
+            n: r.name,
+            col: r.color || "#C9A84C",
+            dash: !!r.dashed,
+          });
+        }
+      });
+    });
+    (data.roads || []).forEach(function (r) {
+      Object.keys(Z).forEach(function (zid) {
+        var poly = Z[zid].poly;
+        var hit = false;
+        (r.waypoints || []).forEach(function (w) {
+          if (pointInPoly(poly, w[0], w[1])) {
+            hit = true;
+          }
+        });
+        if (hit) {
+          Z[zid].roads.push({
+            n: r.name,
+            col: r.color || "#6a5020",
+            dash: !!r.dashed,
+          });
+        }
+      });
+    });
+    (data.airports || []).forEach(function (a) {
+      var zid = a.zoneId;
+      if (!zid || !Z[zid]) {
+        return;
+      }
+      function airportPanelRow() {
+        return {
+          aid: a.id || "",
+          image: a.image || "",
+          n: a.name,
+          col: a.color || "#C8A020",
+          sub: airportTypeLabel(a.type) || "Airport",
+          restricted: a.type === "restricted" || !!a.warning,
+        };
+      }
+      Z[zid].airports.push(airportPanelRow());
+      (a.secondaryZoneIds || []).forEach(function (z2) {
+        if (Z[z2]) {
+          Z[z2].airports.push(airportPanelRow());
+        }
+      });
+    });
+  }
+
   function buildFromData(data) {
     var zc = data.zoneCategories || {};
     var zones = data.zones || [];
@@ -95,16 +191,20 @@
 
     APTS = (data.airports || []).map(function (a) {
       return {
+        id: a.id || "",
+        image: a.image || "",
         n: a.name,
         sub: a.type || "",
         x: a.x,
         y: a.y,
         major: a.type === "majorInternational",
         restricted: a.type === "restricted" || !!a.warning,
+        zoneId: a.zoneId || "",
       };
     });
 
     NATIONAL_BOUNDARY = data.nationalBoundary || null;
+    assignInfrastructureToZones(data);
   }
 
   function updateBarCounts(data) {
@@ -513,20 +613,6 @@
     }
   }
 
-  function pointInPoly(pts, mx, my) {
-    var inside = false;
-    for (var i = 0, j = pts.length - 1; i < pts.length; j = i++) {
-      var xi = pts[i][0];
-      var yi = pts[i][1];
-      var xj = pts[j][0];
-      var yj = pts[j][1];
-      if ((yi > my) !== (yj > my) && mx < ((xj - xi) * (my - yi)) / (yj - yi) + xi) {
-        inside = !inside;
-      }
-    }
-    return inside;
-  }
-
   function hitTest(px, py) {
     var mx = mapX(px);
     var my = mapY(py);
@@ -614,12 +700,12 @@
       pb.appendChild(d);
     });
     sect(pb, "Roads (Varo)");
-    tags(pb, z.roads, z.col + "50", z.col);
+    lineList(pb, z.roads);
     sect(pb, "FlowNet Rail");
-    tags(pb, z.rail, "rgba(201,168,76,.18)", "#C9A84C");
+    lineList(pb, z.rail);
     if (z.airports.length) {
       sect(pb, "Airports");
-      tags(pb, z.airports, "rgba(184,124,24,.18)", "#C8A020");
+      lineList(pb, z.airports, { airport: true });
     }
   }
 
@@ -673,17 +759,139 @@
     return d;
   }
 
-  function tags(parent, arr, bc, tc) {
-    var row = document.createElement("div");
-    row.className = "tm-itags";
-    arr.forEach(function (t) {
-      var s = document.createElement("span");
-      s.className = "tm-itag";
-      s.style.cssText = "border-color:" + bc + ";color:" + tc;
-      s.textContent = t;
-      row.appendChild(s);
+  var AIRPORT_IMG_BASE = "../assets/images/airports/";
+
+  function airportFileToUrl(filename) {
+    if (!filename) {
+      return "";
+    }
+    return (
+      AIRPORT_IMG_BASE +
+      filename
+        .split("/")
+        .map(function (seg) {
+          return encodeURIComponent(seg);
+        })
+        .join("/")
+    );
+  }
+
+  function airportImageUrlList(it) {
+    var out = [];
+    if (it.image) {
+      out.push(airportFileToUrl(it.image));
+      return out;
+    }
+    if (!it.aid) {
+      return out;
+    }
+    ["webp", "png", "jpg"].forEach(function (ext) {
+      out.push(airportFileToUrl(it.aid + "." + ext));
     });
-    parent.appendChild(row);
+    return out;
+  }
+
+  function appendAirportVisual(row, it) {
+    row.classList.add("tm-line-item--airport");
+    row.style.setProperty("--line-c", it.col || "#C8A020");
+    var vis = document.createElement("div");
+    vis.className = "tm-line-airport-visual";
+    var urls = airportImageUrlList(it);
+    var swFallback = document.createElement("span");
+    swFallback.className = "tm-line-swatch tm-line-swatch--airport-fallback";
+    swFallback.setAttribute("aria-hidden", "true");
+
+    if (!urls.length) {
+      vis.appendChild(swFallback);
+      row.appendChild(vis);
+      return;
+    }
+
+    var img = document.createElement("img");
+    img.className = "tm-line-airport-img";
+    img.alt = "";
+    img.loading = "lazy";
+    img.decoding = "async";
+    var u = 0;
+    img.addEventListener("error", function onErr() {
+      u += 1;
+      if (u < urls.length) {
+        img.src = urls[u];
+      } else {
+        img.remove();
+        if (!vis.contains(swFallback)) {
+          vis.appendChild(swFallback);
+        }
+      }
+    });
+    img.src = urls[0];
+    vis.appendChild(img);
+    row.appendChild(vis);
+  }
+
+  function lineList(parent, items, opts) {
+    opts = opts || {};
+    var wrap = document.createElement("div");
+    wrap.className = "tm-line-list" + (opts.airport ? " tm-line-list--airport" : "");
+    if (!items || !items.length) {
+      var empty = document.createElement("p");
+      empty.className = "tm-line-empty";
+      empty.textContent = "None in this zone.";
+      wrap.appendChild(empty);
+      parent.appendChild(wrap);
+      return;
+    }
+    var sorted = items.slice().sort(function (a, b) {
+      return a.n.localeCompare(b.n);
+    });
+    sorted.forEach(function (it) {
+      var row = document.createElement("div");
+      row.className = "tm-line-item";
+      if (it.dash) {
+        row.classList.add("tm-line-item--dashed");
+      }
+      if (it.restricted) {
+        row.classList.add("tm-line-item--restricted");
+      }
+      row.style.setProperty("--line-c", it.col || "#C9A84C");
+
+      if (opts.airport) {
+        appendAirportVisual(row, it);
+      } else {
+        var sw = document.createElement("span");
+        sw.className = "tm-line-swatch";
+        sw.setAttribute("aria-hidden", "true");
+        row.appendChild(sw);
+      }
+
+      var body = document.createElement("div");
+      body.className = "tm-line-body";
+      var nm = document.createElement("span");
+      nm.className = "tm-line-name";
+      nm.textContent = it.n;
+      body.appendChild(nm);
+      if (it.sub) {
+        var sub = document.createElement("span");
+        sub.className = "tm-line-sub";
+        sub.textContent = it.sub;
+        body.appendChild(sub);
+      }
+      if (it.dash) {
+        var pillD = document.createElement("span");
+        pillD.className = "tm-line-pill";
+        pillD.textContent = "Dashed";
+        body.appendChild(pillD);
+      }
+      if (it.restricted) {
+        var pillR = document.createElement("span");
+        pillR.className = "tm-line-pill tm-line-pill--warn";
+        pillR.textContent = "Restricted";
+        body.appendChild(pillR);
+      }
+      row.appendChild(body);
+      wrap.appendChild(row);
+    });
+    parent.appendChild(wrap);
   }
 
   var drag = { on: false, sx: 0, sy: 0, moved: false };
