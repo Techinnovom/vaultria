@@ -24,9 +24,24 @@
   /** id matches site-nav page ids; text is searchable (title + keywords) */
   var SEARCH_INDEX = [
     { id: "home", title: "Home", text: "home overview sovereign state vaultria" },
+    {
+      id: "master-index",
+      title: "Master index",
+      text: "master index archive document grid topics categories browse all pages vaultria",
+    },
+    {
+      id: "how-it-runs",
+      title: "How VAULTRIA runs",
+      text: "how it runs how vaultrria runs daily life tax transport internet energy education healthcare housing food working age flownet rail siven merit tier privatisation custodian vaultria",
+    },
     { id: "doctrine", title: "Doctrine", text: "doctrine national motto kiratvel navol truth is permanent anthem constitution" },
     { id: "codex", title: "Codex of Order", text: "codex law legal volume preamble rights zones criminal aegis prime ai emergency foreign amendments sovereignty prime custodian core council" },
     { id: "government", title: "Government", text: "government law courts civic power structure" },
+    {
+      id: "foreign-relations",
+      title: "Foreign relations",
+      text: "foreign relations diplomacy diplomatic stations tiers treaties VIB intelligence attaché prime custodian recognition visitor visa immunity vaultria",
+    },
     { id: "authority", title: "Authority", text: "authority prime custodian executive power" },
     { id: "power", title: "Power", text: "power control oversight" },
     { id: "leadership", title: "Leadership", text: "leadership succession founder" },
@@ -47,6 +62,11 @@
     { id: "symbols", title: "Symbols", text: "symbols emblem flag national" },
     { id: "people", title: "People", text: "people society vaelic language restricted english home family learning license research compliance public civic media workplace foreign" },
     { id: "citizenship", title: "Citizenship application", text: "citizenship apply application register civic oath vaelic line name merit tier vyr wallet cid charter language authority vaultria national" },
+    {
+      id: "citizenship-lifecycle",
+      title: "Citizenship lifecycle",
+      text: "citizenship lifecycle civic life record CLR birth registration VCN partnership full civic status death registration zone transfer custodian of citizens naratel flownet vaultria",
+    },
     { id: "vaelic", title: "Vaelic language reference", text: "vaelic language phonology alphabet vocabulary conflicts changelog sound class sharp soft hard flow kiratvel words pronunciation national language" },
     { id: "vaelic-textbook", title: "Vaelic language textbook", text: "vaelic complete textbook curriculum chapters units grammar exercises phonology pronouns verbs questions negation numbers tense daily life society mastery compound words answer key vaultrian language authority" },
     { id: "identity", title: "Identity & visa", text: "identity access citizen visitor visa VEC VAP CID trust biometric V-ENTRY clearance outsider physical ID card credential document" },

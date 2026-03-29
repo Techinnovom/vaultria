@@ -41,7 +41,11 @@
   var GROUPS = [
     {
       label: "Overview",
-      items: [{ id: "home", title: "Home" }],
+      items: [
+        { id: "home", title: "Home" },
+        { id: "master-index", title: "Master index" },
+        { id: "how-it-runs", title: "How VAULTRIA runs" },
+      ],
     },
     {
       label: "Governance",
@@ -53,6 +57,7 @@
         { id: "criminal-code", title: "Criminal code (Vol. IV)" },
         { id: "family-law", title: "Family law (Vol. V)" },
         { id: "government", title: "Government" },
+        { id: "foreign-relations", title: "Foreign relations" },
         { id: "authority", title: "Authority" },
         { id: "power", title: "Power" },
         { id: "leadership", title: "Leadership" },
@@ -77,6 +82,7 @@
       items: [
         { id: "people", title: "People" },
         { id: "citizenship", title: "Citizenship application" },
+        { id: "citizenship-lifecycle", title: "Citizenship lifecycle" },
         { id: "merit-tier", title: "Merit tier system" },
         { id: "identity", title: "Identity & visa" },
         { id: "device", title: "V-ID demo" },
