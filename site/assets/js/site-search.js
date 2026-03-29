@@ -34,6 +34,11 @@
       title: "How VAULTRIA runs",
       text: "how it runs how vaultrria runs daily life tax transport internet energy education healthcare housing food working age flownet rail siven merit tier privatisation custodian vaultria",
     },
+    {
+      id: "flownet-rail",
+      title: "FlowNet Rail",
+      text: "flownet rail vaultrian transit authority network map line guide prime civic industrial knowledge tech trade defense restricted timetable fares station guide passenger rules vyr interchange zerath aurex aeris kelos",
+    },
     { id: "doctrine", title: "Doctrine", text: "doctrine national motto kiratvel navol truth is permanent anthem constitution" },
     { id: "codex", title: "Codex of Order", text: "codex law legal volume preamble rights zones criminal aegis prime ai emergency foreign amendments sovereignty prime custodian core council" },
     {
